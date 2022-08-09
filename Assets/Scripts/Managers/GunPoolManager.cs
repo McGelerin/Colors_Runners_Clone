@@ -14,6 +14,7 @@ public class GunPoolManager : MonoBehaviour
 
     #endregion
     #region serializeVars
+    //[SerializeField] private List<GameObject> ColorBlocks;
     #endregion
     #region privateVars
     private ColorData _colorData;

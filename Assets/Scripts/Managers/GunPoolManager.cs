@@ -6,15 +6,17 @@ using Data.ValueObject;
 using Data.UnityObject;
 using Signals;
 
+//[ExecuteInEditMode]
 public class GunPoolManager : MonoBehaviour
 {
     #region vars
     #region publicVars
     public ColorEnum colorEnum = ColorEnum.Kirmizi;
-
+    
+    public List<ColorEnum> areaColorEnum = new List<ColorEnum>();
     #endregion
     #region serializeVars
-    //[SerializeField] private List<GameObject> ColorBlocks;
+    [SerializeField] private List<MeshRenderer> ColorBlocks;
     #endregion
     #region privateVars
     private ColorData _colorData;
@@ -33,7 +35,7 @@ public class GunPoolManager : MonoBehaviour
     }
     private void Awake()
     {
-        _currentMaterial = GetComponent<MeshRenderer>().material;
+        _currentMaterial = GetComponent<MeshRenderer>().sharedMaterial;
         GetColorData();
 
     }
@@ -50,7 +52,13 @@ public class GunPoolManager : MonoBehaviour
     private void GetColorData()
     {
         _colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
+
         _currentMaterial.color = _colorData.color[(int)colorEnum];
+        
+        for (int i = 0; i < areaColorEnum.Count; i++)
+        {
+            ColorBlocks[i].material.color = _colorData.color[(int)areaColorEnum[i]];
+        }
     }
 
     public ColorEnum OnGetColor()

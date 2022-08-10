@@ -19,14 +19,7 @@ namespace Managers
         [SerializeField] private TextMeshProUGUI money;
         [SerializeField] private List<GameObject> panels;
         [SerializeField] private TextMeshProUGUI levelText;
-        [Space (15),Header("Income")]
-        [SerializeField] private TextMeshProUGUI incomeLvlText;
-        [SerializeField] private Button incomeLvlButton;
-        [SerializeField] private TextMeshProUGUI incomeValue;
-        [Space (15),Header("Stack")]
-        [SerializeField] private Button stackLvlButton;
-        [SerializeField] private TextMeshProUGUI stackLvlText;
-        [SerializeField] private TextMeshProUGUI stackValue;
+        
         #endregion
 
         #region Private Variables
@@ -83,12 +76,12 @@ namespace Managers
 
         private void OnOpenPanel(UIPanels panelParam)
         {
-           // _uiPanelController.OpenPanel(panelParam, panels);
+            _uiPanelController.OpenPanel(panelParam , panels);
         }
 
         private void OnClosePanel(UIPanels panelParam)
         {
-            //_uiPanelController.ClosePanel(panelParam, panels);
+            _uiPanelController.ClosePanel(panelParam , panels);
         }
 
         private void SetMoneyText(float value)
@@ -98,7 +91,7 @@ namespace Managers
 
         private void OnSetLevelText(int value)
         {
-            //levelText.text = "Level " + (value + 1);
+            //evelText.text = "Level " + (value + 1);
         }
 
         private void OnPlay()

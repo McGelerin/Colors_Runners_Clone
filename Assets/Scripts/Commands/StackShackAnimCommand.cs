@@ -4,7 +4,7 @@ using Data.ValueObject;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Command
+namespace Commands
 {
     public class StackShackAnimCommand
     {

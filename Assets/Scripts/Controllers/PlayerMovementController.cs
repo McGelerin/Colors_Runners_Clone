@@ -95,7 +95,7 @@ namespace Controllers
         private void StopSideways()
         {
             rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, _movementData.ForwardSpeed);
-            //rigidbody.angularVelocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
         }
 
         private void Stop()

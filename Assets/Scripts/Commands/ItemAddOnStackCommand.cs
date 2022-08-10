@@ -2,7 +2,7 @@
 using Data.ValueObject;
 using UnityEngine;
 
-namespace Command
+namespace Commands
 {
     public class ItemAddOnStackCommand
     {

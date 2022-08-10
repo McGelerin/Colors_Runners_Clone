@@ -59,7 +59,7 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
            // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
-            CoreGameSignals.Instance.onConveyor += OnConveyor;
+            //CoreGameSignals.Instance.onConveyor += OnConveyor;
         }
 
         private void UnsubscribeEvents()
@@ -72,7 +72,7 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
            // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
-            CoreGameSignals.Instance.onConveyor -= OnConveyor;
+         //   CoreGameSignals.Instance.onConveyor -= OnConveyor;
         }
 
         private void OnDisable()
@@ -147,7 +147,7 @@ namespace Managers
             //animationController.Playanim(animationStates:PlayerAnimationStates.Idle);
             yield return new WaitForSeconds(2f);
             gameObject.SetActive(false);
-            CoreGameSignals.Instance.onMiniGameStart?.Invoke();
+           // CoreGameSignals.Instance.onMiniGameStart?.Invoke();
         }
     }
 }

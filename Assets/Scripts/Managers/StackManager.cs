@@ -5,7 +5,7 @@ using Signals;
 using Data.UnityObject;
 using Data.ValueObject;
 using DG.Tweening;
-using Command;
+using Commands;
 
 
 namespace Managers
@@ -54,7 +54,6 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             StackSignals.Instance.onInteractionCollectable += OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle += _itemRemoveOnStackCommand.RemoveStackListItems;
-            StackSignals.Instance.onInteractionATM += OnInteractionWithATM;
             StackSignals.Instance.onStackFollowPlayer += OnStackMove;
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.StackValuesUpdate;
         }
@@ -64,7 +63,6 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             StackSignals.Instance.onInteractionCollectable -= OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle -= _itemRemoveOnStackCommand.RemoveStackListItems;
-            StackSignals.Instance.onInteractionATM -= OnInteractionWithATM;
             StackSignals.Instance.onStackFollowPlayer -= OnStackMove;
             StackSignals.Instance.onUpdateType -= StackValueUpdateCommand.StackValuesUpdate;
         }
@@ -111,7 +109,7 @@ namespace Managers
 
         private void OnStackMove(Vector3 direction)
         {
-            transform.position = new Vector3(0, gameObject.transform.position.y, direction.z + 2f);
+            transform.position = new Vector3(0, gameObject.transform.position.y, direction.z - 0.5f);
             if (gameObject.transform.childCount > 0)
             {
                 _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, CollectableStack);

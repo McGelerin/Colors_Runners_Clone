@@ -2,7 +2,7 @@
 using Managers;
 
 
-namespace Command
+namespace Commands
 {
     public class InitialzeStackCommand
     {

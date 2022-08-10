@@ -2,7 +2,7 @@ using Data.UnityObject;
 using Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Command;
+using Commands;
 namespace Managers
 {
     public class LevelManager : MonoBehaviour

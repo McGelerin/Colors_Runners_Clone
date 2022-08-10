@@ -9,11 +9,10 @@ namespace Signals
 {
     public class StackSignals: MonoSingleton<StackSignals>
     {
-        public UnityAction<GameObject> onInteractionATM = delegate { };
         public UnityAction<GameObject> onInteractionObstacle = delegate { };
         public UnityAction<GameObject> onInteractionCollectable = delegate { };
         public UnityAction<Vector3> onStackFollowPlayer = delegate { };
-        public UnityAction onUpdateType=delegate { };
-        public UnityAction onInteractionConveyor = delegate { };
+        public UnityAction onUpdateType = delegate { };
+
     }
 }

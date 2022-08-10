@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Signals;
 using UnityEngine;
-namespace Command
+namespace Commands
 {
     public class StackValueUpdateCommand
     {
@@ -24,7 +24,7 @@ namespace Command
             _totalListScore = 0;
             foreach (var Items in _collectableStack)
             {
-                _totalListScore += /*(int)Items.GetComponent<CollectableManager>().CollectableTypeValue +*/ 1;
+                _totalListScore += 1;
             }
             ScoreSignals.Instance.onSetScore?.Invoke(_totalListScore);
         }

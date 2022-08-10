@@ -2,7 +2,7 @@
 using Managers;
 using UnityEngine;
 
-namespace Command
+namespace Commands
 {
     public class ItemRemoveOnStackCommand
     {

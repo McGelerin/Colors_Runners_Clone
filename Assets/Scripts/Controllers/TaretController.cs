@@ -22,7 +22,7 @@ namespace Controllers
 
         public void Start()
         {
-            Rotate(GameObject.FindGameObjectWithTag("Player").transform);
+            //Rotate(GameObject.FindGameObjectWithTag("Player").transform);
         }
         public void Rotate(Transform player)
         {

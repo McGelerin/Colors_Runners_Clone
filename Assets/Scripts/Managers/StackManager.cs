@@ -54,6 +54,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             StackSignals.Instance.onInteractionCollectable += OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle += _itemRemoveOnStackCommand.RemoveStackListItems;
+            StackSignals.Instance.onInteractionObstacle += OnReBuildList;
             StackSignals.Instance.onStackFollowPlayer += OnStackMove;
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.StackValuesUpdate;
         }
@@ -63,6 +64,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             StackSignals.Instance.onInteractionCollectable -= OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle -= _itemRemoveOnStackCommand.RemoveStackListItems;
+            StackSignals.Instance.onInteractionObstacle -= OnReBuildList;
             StackSignals.Instance.onStackFollowPlayer -= OnStackMove;
             StackSignals.Instance.onUpdateType -= StackValueUpdateCommand.StackValuesUpdate;
         }
@@ -128,6 +130,15 @@ namespace Managers
                 Destroy(childs.gameObject);
             }
             CollectableStack.Clear();
+        }
+
+        private void OnReBuildList(GameObject gameObject)
+        {
+            CollectableStack[0].transform.localPosition = new Vector3(CollectableStack[1].transform.localPosition.x, CollectableStack[1].transform.localPosition.y, 0);
+            for (int i = 1; i < CollectableStack.Count; i++)
+            {
+                CollectableStack[i].transform.localPosition = new Vector3(CollectableStack[i].transform.localPosition.x, CollectableStack[i].transform.localPosition.y, CollectableStack[i - 1].transform.localPosition.z - 1);
+            }
         }
     }
 }

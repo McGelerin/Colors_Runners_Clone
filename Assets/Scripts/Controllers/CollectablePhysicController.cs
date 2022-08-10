@@ -22,6 +22,7 @@ namespace Controllers
             if (other.CompareTag("Obstacle")&& CompareTag("Collected"))
             {
                 manager.InteractionWithObstacle(transform.parent.gameObject);
+                Destroy(other.transform.parent.gameObject);
             }
 
         }

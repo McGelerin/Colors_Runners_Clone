@@ -65,6 +65,4 @@ public class GunPoolManager : MonoBehaviour
     {
         return colorEnum;
     }
-
-
 }

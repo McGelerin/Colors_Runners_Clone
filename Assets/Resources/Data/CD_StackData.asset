@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StackData:
     CollectableOffsetInStack: 1
-    LerpSpeed: 0.25
-    ShackAnimDuraction: 0.12
-    ShackScaleValue: 1
-    JumpForce: 7
-    JumpItemsClampX: 5
+    LerpSpeed: 0.3
+    ShackAnimDuraction: 0.06
+    ShackScaleValue: 1.3
+    InitialStackItem: 10
+    DistanceFormPlayer: -1

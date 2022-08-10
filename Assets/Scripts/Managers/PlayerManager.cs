@@ -59,7 +59,6 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
            // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
-            //CoreGameSignals.Instance.onConveyor += OnConveyor;
         }
 
         private void UnsubscribeEvents()
@@ -72,7 +71,6 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
            // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
-         //   CoreGameSignals.Instance.onConveyor -= OnConveyor;
         }
 
         private void OnDisable()

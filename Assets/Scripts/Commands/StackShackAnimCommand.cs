@@ -11,6 +11,7 @@ namespace Commands
         #region Self Variables
 
         #region Private Variables
+        
         private List<GameObject> _collectableStack;
         private StackData _stackData;
 
@@ -23,11 +24,12 @@ namespace Commands
             _stackData = stackdata;
         }
         
-        public  IEnumerator StackItemsShackAnim()
+        public IEnumerator StackItemsShackAnim()
         {
-            for (int i = 0; i <= _collectableStack.Count - 1; i++)
+            for (int i = _collectableStack.Count - 1; i >=0 ; i--)
             {
                 int index = (_collectableStack.Count - 1) - i;
+                
                 _collectableStack[index].transform.DOScale(new Vector3(_stackData.ShackScaleValue, _stackData.ShackScaleValue, _stackData.ShackScaleValue), _stackData.ShackAnimDuraction).SetEase(Ease.Flash);
                 _collectableStack[index].transform.DOScale(Vector3.one, _stackData.ShackAnimDuraction).SetDelay(_stackData.ShackAnimDuraction).SetEase(Ease.Flash);
                 yield return new WaitForSeconds(_stackData.ShackAnimDuraction/3);

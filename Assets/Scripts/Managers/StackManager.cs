@@ -4,8 +4,8 @@ using UnityEngine;
 using Signals;
 using Data.UnityObject;
 using Data.ValueObject;
-using DG.Tweening;
 using Commands;
+using DG.Tweening;
 
 
 namespace Managers
@@ -21,6 +21,7 @@ namespace Managers
         //public StackItemsJumpCommand StackItemsJumpCommand;
         public StackValueUpdateCommand StackValueUpdateCommand;
         public ItemAddOnStackCommand ItemAddOnStackCommand;
+
         public bool LastCheck;
 
         #endregion
@@ -32,6 +33,7 @@ namespace Managers
         private StackShackAnimCommand _stackShackAnimCommand;
         //private StackInteractionWithConveyorCommand _stackInteractionWithConveyorCommand;
         private InitialzeStackCommand _initialzeStackCommand;
+        private OnReBuildListCommand _onReBuildListCommand;
 
         #endregion
 
@@ -54,7 +56,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             StackSignals.Instance.onInteractionCollectable += OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle += _itemRemoveOnStackCommand.RemoveStackListItems;
-            StackSignals.Instance.onInteractionObstacle += OnReBuildList;
+            // StackSignals.Instance.onInteractionObstacle += OnReBuildList;
             StackSignals.Instance.onStackFollowPlayer += OnStackMove;
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.StackValuesUpdate;
         }
@@ -64,7 +66,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             StackSignals.Instance.onInteractionCollectable -= OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle -= _itemRemoveOnStackCommand.RemoveStackListItems;
-            StackSignals.Instance.onInteractionObstacle -= OnReBuildList;
+            // StackSignals.Instance.onInteractionObstacle -= OnReBuildList;
             StackSignals.Instance.onStackFollowPlayer -= OnStackMove;
             StackSignals.Instance.onUpdateType -= StackValueUpdateCommand.StackValuesUpdate;
         }
@@ -80,28 +82,16 @@ namespace Managers
             _stackMoveController = new StackMoveController();
             _stackMoveController.InisializedController(StackData);
             ItemAddOnStackCommand = new ItemAddOnStackCommand(ref CollectableStack, transform, StackData);
-            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack, levelHolder, this);
+            _onReBuildListCommand = new OnReBuildListCommand(ref CollectableStack);
+            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack,ref levelHolder, this,ref _onReBuildListCommand);
             _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, StackData);
             StackValueUpdateCommand = new StackValueUpdateCommand(ref CollectableStack);
             _initialzeStackCommand = new InitialzeStackCommand(collectable, this);
+
         }
 
         private StackData GetStackData() => Resources.Load<CD_Stack>("Data/CD_StackData").StackData;
-
-        private void OnInteractionWithATM(GameObject collectableGameObject)
-        {
-            //ScoreSignals.Instance.onSetAtmScore?.Invoke((int)collectableGameObject.GetComponent<CollectableManager>()
-            //    .CollectableTypeValue + 1);
-            if (LastCheck == false)
-            {
-                _itemRemoveOnStackCommand.RemoveStackListItems(collectableGameObject);
-            }
-            else
-            {
-                collectableGameObject.SetActive(false);
-            }
-        }
-
+        
         private void OnInteractionWithCollectable(GameObject collectableGameObject)
         {
             ItemAddOnStackCommand.AddStackList(collectableGameObject);
@@ -111,12 +101,13 @@ namespace Managers
 
         private void OnStackMove(Vector3 direction)
         {
-            transform.position = new Vector3(0, gameObject.transform.position.y, direction.z - 0.5f);
+            transform.position = new Vector3(0, 0, direction.z + StackData.DistanceFormPlayer);
             if (gameObject.transform.childCount > 0)
             {
                 _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, CollectableStack);
             }
         }
+        
         private void OnPlay()
         {
             LastCheck = false;
@@ -130,15 +121,6 @@ namespace Managers
                 Destroy(childs.gameObject);
             }
             CollectableStack.Clear();
-        }
-
-        private void OnReBuildList(GameObject gameObject)
-        {
-            CollectableStack[0].transform.localPosition = new Vector3(CollectableStack[1].transform.localPosition.x, CollectableStack[1].transform.localPosition.y, 0);
-            for (int i = 1; i < CollectableStack.Count; i++)
-            {
-                CollectableStack[i].transform.localPosition = new Vector3(CollectableStack[i].transform.localPosition.x, CollectableStack[i].transform.localPosition.y, CollectableStack[i - 1].transform.localPosition.z - 1);
-            }
         }
     }
 }

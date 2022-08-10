@@ -16,5 +16,7 @@ namespace Data.ValueObject
         public float ShackScaleValue = 1f;
 
         public int InitialStackItem = 5;
+
+        public float DistanceFormPlayer = -1f;
     }
 }

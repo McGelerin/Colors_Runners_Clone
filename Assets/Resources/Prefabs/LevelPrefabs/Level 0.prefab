@@ -338,6 +338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4379111206714599118}
     m_Modifications:
+    - target: {fileID: 1540221568834301421, guid: 4c16a2edd783c38499f9e64e702b2fb4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2650025054537102497, guid: 4c16a2edd783c38499f9e64e702b2fb4, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -382,9 +386,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3446512213421400091, guid: 4c16a2edd783c38499f9e64e702b2fb4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 6431605787977852786, guid: 4c16a2edd783c38499f9e64e702b2fb4, type: 3}
       propertyPath: m_Name
       value: Collectable (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431605787977852786, guid: 4c16a2edd783c38499f9e64e702b2fb4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c16a2edd783c38499f9e64e702b2fb4, type: 3}

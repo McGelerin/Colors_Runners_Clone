@@ -47,7 +47,7 @@ namespace Controllers
             _isReadyToPlay = state;
         }
 
-        private void Update()
+        private void Update() //Degisebilir
         {
             if (_isReadyToPlay)
             {

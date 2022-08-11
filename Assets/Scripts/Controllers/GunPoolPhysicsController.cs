@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Signals;
 
-public class PoolPhysicsController : MonoBehaviour
+public class GunPoolPhysicsController: MonoBehaviour
 {
     public bool isReady = true;
     private float reloadTime = 0.5f;
@@ -33,7 +33,7 @@ public class PoolPhysicsController : MonoBehaviour
         {
             StopAllCoroutines();
             isReady = true;
-            DronePoolSignals.Instance.onWrongGunPoolExit?.Invoke();
+            GunPoolSignals.Instance.onWrongGunPoolExit?.Invoke();
         }
     }
 
@@ -41,7 +41,7 @@ public class PoolPhysicsController : MonoBehaviour
 
     IEnumerator Reload()
     {
-        DronePoolSignals.Instance.onWrongGunPool?.Invoke(playerTransform);
+        GunPoolSignals.Instance.onWrongGunPool?.Invoke(playerTransform);
 
         isReady = false;
         yield return new WaitForSeconds(reloadTime);

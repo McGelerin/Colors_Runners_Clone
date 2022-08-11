@@ -12,8 +12,12 @@ public class DronePoolManager : MonoBehaviour
     #region publicVars
     public ColorEnum colorEnum = ColorEnum.Kirmizi;
 
+    public List<ColorEnum> areaColorEnum = new List<ColorEnum>();
     #endregion
     #region serializeVars
+    [SerializeField] private List<MeshRenderer> ColorBlocks;
+    [SerializeField] private List<Collider> Colliders;
+
     #endregion
     #region privateVars
     private ColorData _colorData;
@@ -49,7 +53,13 @@ public class DronePoolManager : MonoBehaviour
     private void GetColorData()
     {
         _colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
+
         _currentMaterial.color = _colorData.color[(int)colorEnum];
+
+        for (int i = 0; i < areaColorEnum.Count; i++)
+        {
+            ColorBlocks[i].material.color = _colorData.color[(int)areaColorEnum[i]];
+        }
     }
 
     public ColorEnum OnGetColor()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Controllers;
 using UnityEngine;
@@ -18,7 +19,6 @@ namespace Managers
 
         [Header("Data")] public StackData StackData;
         public List<GameObject> CollectableStack = new List<GameObject>();
-        //public StackItemsJumpCommand StackItemsJumpCommand;
         public StackValueUpdateCommand StackValueUpdateCommand;
         public ItemAddOnStackCommand ItemAddOnStackCommand;
 
@@ -26,22 +26,24 @@ namespace Managers
 
         #endregion
 
+        #region Seralized Veriables
+        [SerializeField] private GameObject levelHolder;
+        [SerializeField] private GameObject collectable;
+        #endregion
+
         #region Private Variables
 
         private StackMoveController _stackMoveController;
         private ItemRemoveOnStackCommand _itemRemoveOnStackCommand;
         private StackShackAnimCommand _stackShackAnimCommand;
-        //private StackInteractionWithConveyorCommand _stackInteractionWithConveyorCommand;
         private InitialzeStackCommand _initialzeStackCommand;
         private OnReBuildListCommand _onReBuildListCommand;
+        private GameObject _playerGameObject;
 
         #endregion
 
-        #region Seralized Veriables
-
-        [SerializeField] private GameObject levelHolder;
-        [SerializeField] private GameObject collectable;
-        #endregion
+        
+        
         #endregion
 
         #region Event Subscription
@@ -57,7 +59,7 @@ namespace Managers
             StackSignals.Instance.onInteractionCollectable += OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle += _itemRemoveOnStackCommand.RemoveStackListItems;
             // StackSignals.Instance.onInteractionObstacle += OnReBuildList;
-            StackSignals.Instance.onStackFollowPlayer += OnStackMove;
+            StackSignals.Instance.onPlayerGameObject += OnSetPlayer;
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.StackValuesUpdate;
         }
         private void UnSubscribeEvent()
@@ -67,7 +69,7 @@ namespace Managers
             StackSignals.Instance.onInteractionCollectable -= OnInteractionWithCollectable;
             StackSignals.Instance.onInteractionObstacle -= _itemRemoveOnStackCommand.RemoveStackListItems;
             // StackSignals.Instance.onInteractionObstacle -= OnReBuildList;
-            StackSignals.Instance.onStackFollowPlayer -= OnStackMove;
+            StackSignals.Instance.onPlayerGameObject -= OnSetPlayer;
             StackSignals.Instance.onUpdateType -= StackValueUpdateCommand.StackValuesUpdate;
         }
         private void OnDisable()
@@ -87,9 +89,18 @@ namespace Managers
             _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, StackData);
             StackValueUpdateCommand = new StackValueUpdateCommand(ref CollectableStack);
             _initialzeStackCommand = new InitialzeStackCommand(collectable, this);
-
         }
 
+        private void Update()
+        {
+            StackMove();
+        }
+
+        private void OnSetPlayer(GameObject player)
+        {
+            _playerGameObject = player;
+        }
+        
         private StackData GetStackData() => Resources.Load<CD_Stack>("Data/CD_StackData").StackData;
         
         private void OnInteractionWithCollectable(GameObject collectableGameObject)
@@ -99,12 +110,17 @@ namespace Managers
             StackValueUpdateCommand.StackValuesUpdate();
         }
 
-        private void OnStackMove(Vector3 direction)
+        private void StackMove()
         {
-            transform.position = new Vector3(0, 0, direction.z + StackData.DistanceFormPlayer);
-            if (gameObject.transform.childCount > 0)
+            if (_playerGameObject !=  null)
             {
-                _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, CollectableStack);
+                //transform.position = new Vector3(0, 0, direction.z + StackData.DistanceFormPlayer);
+                Vector3 direction = new Vector3(_playerGameObject.transform.position.x,
+                    _playerGameObject.transform.position.y, _playerGameObject.transform.position.z);
+                if (gameObject.transform.childCount > 0)
+                {
+                    _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, direction.z, CollectableStack);
+                }
             }
         }
         

@@ -20,7 +20,7 @@ namespace Commands
             _collectableStack = CollectableStack;
         }
 
-        public void OnReBuildList()
+        public void ReBuildList()
         {
             _collectableStack[0].transform.localPosition = new Vector3(_collectableStack[1].transform.localPosition.x,
                 _collectableStack[1].transform.localPosition.y, 0);

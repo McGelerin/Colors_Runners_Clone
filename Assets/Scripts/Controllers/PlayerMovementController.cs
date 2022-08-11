@@ -10,7 +10,7 @@ namespace Controllers
         #region Self Variables
         #region Serialized Variables
 
-        [SerializeField] private PlayerManager manager;
+        //[SerializeField] private PlayerManager manager;
         [SerializeField] private Rigidbody rigidbody;
         #endregion
         #region Private Variables
@@ -47,14 +47,14 @@ namespace Controllers
             _isReadyToPlay = state;
         }
 
-        private void Update() //Degisebilir
-        {
-            if (_isReadyToPlay)
-            {
-                manager.SetStackPosition();
-        
-            }
-        }
+        // private void Update() //Degisebilir
+        // {
+        //     if (_isReadyToPlay)
+        //     {
+        //         manager.SetStackPosition();
+        //
+        //     }
+        // }
     
         private void FixedUpdate()
         {

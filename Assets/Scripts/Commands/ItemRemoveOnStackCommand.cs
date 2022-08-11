@@ -18,7 +18,8 @@ namespace Commands
 
         #endregion
         
-        public ItemRemoveOnStackCommand(ref List<GameObject> CollectableStack,ref GameObject levelHolder,StackManager manager,ref OnReBuildListCommand onReBuildListCommand)
+        public ItemRemoveOnStackCommand(ref List<GameObject> CollectableStack,ref GameObject levelHolder,
+            StackManager manager,ref OnReBuildListCommand onReBuildListCommand)
         {
             _collectableStack = CollectableStack;
             _levelHolder = levelHolder;
@@ -33,7 +34,7 @@ namespace Commands
             _collectableStack.RemoveAt(index);
             _collectableStack.TrimExcess();
             _manager.StackValueUpdateCommand.StackValuesUpdate();
-            _onReBuildListCommand.OnReBuildList();
+            //_onReBuildListCommand.ReBuildList();
         }
     }
 }

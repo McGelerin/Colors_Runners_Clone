@@ -11,7 +11,7 @@ namespace Signals
     {
         public UnityAction<GameObject> onInteractionObstacle = delegate { };
         public UnityAction<GameObject> onInteractionCollectable = delegate { };
-        public UnityAction<Vector3> onStackFollowPlayer = delegate { };
+        public UnityAction<GameObject> onPlayerGameObject = delegate { };
         public UnityAction onUpdateType = delegate { };
 
     }

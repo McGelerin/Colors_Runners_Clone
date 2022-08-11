@@ -22,7 +22,7 @@ namespace Commands
             _offset = offset;
         }
 
-        public void OnReBuildList()
+        public void ReBuildList()
         {
             if (_collectableStack.Count<2)
             {

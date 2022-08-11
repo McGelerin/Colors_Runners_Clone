@@ -31,6 +31,7 @@ namespace Managers
 
         private void Awake()
         {
+            SetStackPosition();
             Data = GetPlayerData();
             SendPlayerDataToControllers();
         }
@@ -103,6 +104,7 @@ namespace Managers
 
         private void OnPlay()
         {
+            SetStackPosition();
             movementController.IsReadyToPlay(true);
             //animationController.Playanim(PlayerAnimationStates.Run);
         }
@@ -119,14 +121,14 @@ namespace Managers
 
         public void SetStackPosition()
         {
-            Vector3 pos = new Vector3(transform.position.x,transform.position.y,transform.position.z);
-            StackSignals.Instance.onStackFollowPlayer?.Invoke(pos);
+            StackSignals.Instance.onPlayerGameObject?.Invoke(gameObject);
         }
 
         private void OnReset()
         {
             gameObject.SetActive(true);
             movementController.OnReset();
+            SetStackPosition();
             //animationController.OnReset();
         }
 
@@ -134,11 +136,7 @@ namespace Managers
         //{
         //    scoreText.text = Values.ToString();
         //}
-        private void OnConveyor()
-        {
-            movementController.IsReadyToPlay(false);
-            StartCoroutine(WaitForFinal());
-        }
+
 
         IEnumerator WaitForFinal()
         {

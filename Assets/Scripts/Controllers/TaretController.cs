@@ -1,5 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
+using Signals;
 
 namespace Controllers
 {
@@ -12,10 +15,11 @@ namespace Controllers
         #endregion
         #region serializeVars
         [SerializeField] private float rotationSpeed = 1f;
-        [SerializeField] private float fireDelay = 0.5f;
+
+        [SerializeField] Transform taret1;
+        [SerializeField] Transform taret2;
         #endregion
         #region privateVars
-
         #endregion
 
         #endregion
@@ -24,13 +28,16 @@ namespace Controllers
         {
             //Rotate(GameObject.FindGameObjectWithTag("Player").transform);
         }
-        public void Rotate(Transform player)
+        public void RotateToPlayer(Transform player)
         {
-            transform.DOLookAt(player.position, rotationSpeed);
+            taret1.DOLookAt(player.position, rotationSpeed);
+            taret2.DOLookAt(player.position, rotationSpeed);
         }
-        public void Fire()
-        {
+    
 
+        public void OnTargetDisappear()
+        {
+            StopAllCoroutines();
         }
     }
 }

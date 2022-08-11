@@ -5,6 +5,7 @@ using Enums;
 using Data.ValueObject;
 using Data.UnityObject;
 using Signals;
+using Controllers;
 
 //[ExecuteInEditMode]
 public class GunPoolManager : MonoBehaviour
@@ -17,6 +18,10 @@ public class GunPoolManager : MonoBehaviour
     #endregion
     #region serializeVars
     [SerializeField] private List<MeshRenderer> ColorBlocks;
+    [SerializeField] private List<Collider> Colliders;
+
+    [SerializeField] private TaretController TaretController;
+
     #endregion
     #region privateVars
     private ColorData _colorData;
@@ -28,15 +33,22 @@ public class GunPoolManager : MonoBehaviour
     private void SubscribeEvents()
     {
         GunPoolSignals.Instance.onGetColor += OnGetColor;
+        GunPoolSignals.Instance.onWrongGunPool += TaretController.RotateToPlayer;
+        GunPoolSignals.Instance.onWrongGunPoolExit += TaretController.OnTargetDisappear;
+
     }
     private void UnSubscribeEvents()
     {
         GunPoolSignals.Instance.onGetColor -= OnGetColor;
+        GunPoolSignals.Instance.onWrongGunPool -= TaretController.RotateToPlayer;
+        GunPoolSignals.Instance.onWrongGunPoolExit -= TaretController.OnTargetDisappear;
+
     }
     private void Awake()
     {
-        _currentMaterial = GetComponent<MeshRenderer>().sharedMaterial;
+        _currentMaterial = GetComponent<MeshRenderer>().material;
         GetColorData();
+        SetCollidersActiveness();
 
     }
 
@@ -64,5 +76,16 @@ public class GunPoolManager : MonoBehaviour
     public ColorEnum OnGetColor()
     {
         return colorEnum;
+    }
+
+    private void SetCollidersActiveness()
+    {
+        for (int i = 0; i < areaColorEnum.Count; i++)
+        {
+            if (colorEnum.Equals(areaColorEnum[i]))
+            {
+                Colliders[i].enabled = false;
+            }
+        }
     }
 }

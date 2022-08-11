@@ -9,5 +9,9 @@ namespace Signals
     public class GunPoolSignals : MonoSingleton<GunPoolSignals>
     { 
         public Func<ColorEnum> onGetColor;
+        public UnityAction<Transform> onWrongGunPool = delegate { };
+        public UnityAction onWrongGunPoolExit = delegate { };
+
+
     }
 }

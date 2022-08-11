@@ -24,7 +24,7 @@ namespace Managers
 
         [Space] [SerializeField] private PlayerMovementController movementController;
 
-        [SerializeField] private PlayerPhysicsController playerPhysicsController;
+        //[SerializeField] private PlayerPhysicsController playerPhysicsController;
         //[SerializeField] private PlayerAnimationController animationController;
         //[SerializeField] private TextMeshPro scoreText;
         
@@ -139,7 +139,9 @@ namespace Managers
 
         private void OnJump()
         {
-            playerPhysicsController.Jump(Data.MovementData.JumpForce);
+            //playerPhysicsController.Jump(Data.MovementData.JumpForce);
+            //rigidbody.AddForce(0,jumpForce,0,ForceMode.Impulse);
+            movementController.Jump(Data.MovementData.JumpDistance,Data.MovementData.JumpDuration);
         }
         
         //private void OnSetScoreText(int Values)

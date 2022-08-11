@@ -9,7 +9,7 @@ namespace Controllers
 
         #region Serialized Variables
 
-        [SerializeField] private new Rigidbody rigidbody;
+        //[SerializeField] private new Rigidbody rigidbody;
         
         #endregion
         #endregion
@@ -20,9 +20,6 @@ namespace Controllers
         }
 
 
-        public void Jump(float jumpForce)
-        {
-            rigidbody.AddForce(0,jumpForce,0,ForceMode.Impulse);
-        }
+
     }
 }

@@ -1,4 +1,5 @@
 using Data.ValueObject;
+using DG.Tweening;
 using Keys;
 using Managers;
 using UnityEngine;
@@ -102,6 +103,11 @@ namespace Controllers
         {
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
+        }
+        
+        public void Jump(float distance,float duration)
+        {
+            rigidbody.DOMoveY(distance, duration);
         }
         
         public void OnReset()

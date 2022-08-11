@@ -14,5 +14,6 @@ namespace Data.ValueObject
     {
         public float ForwardSpeed = 5;
         public float SidewaysSpeed = 2;
+        public float JumpForce = 10f;
     }
 }

@@ -23,6 +23,8 @@ namespace Managers
         #region Serialized Variables
 
         [Space] [SerializeField] private PlayerMovementController movementController;
+
+        [SerializeField] private PlayerPhysicsController playerPhysicsController;
         //[SerializeField] private PlayerAnimationController animationController;
         //[SerializeField] private TextMeshPro scoreText;
         
@@ -59,7 +61,8 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
-           // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
+            StackSignals.Instance.onBoostArea += OnJump;
+            // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
         }
 
         private void UnsubscribeEvents()
@@ -71,8 +74,10 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
+            StackSignals.Instance.onBoostArea -= OnJump;
            // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
         }
+
 
         private void OnDisable()
         {
@@ -132,6 +137,11 @@ namespace Managers
             //animationController.OnReset();
         }
 
+        private void OnJump()
+        {
+            playerPhysicsController.Jump(Data.MovementData.JumpForce);
+        }
+        
         //private void OnSetScoreText(int Values)
         //{
         //    scoreText.text = Values.ToString();

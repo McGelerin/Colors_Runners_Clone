@@ -16,3 +16,4 @@ MonoBehaviour:
     MovementData:
       ForwardSpeed: 10
       SidewaysSpeed: 2
+      JumpForce: 15

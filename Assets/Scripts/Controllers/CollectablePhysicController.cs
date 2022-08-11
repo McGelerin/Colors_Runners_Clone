@@ -1,3 +1,4 @@
+using Signals;
 using UnityEngine;
 
 namespace Controllers
@@ -23,6 +24,12 @@ namespace Controllers
             {
                 manager.InteractionWithObstacle(transform.parent.gameObject);
                 Destroy(other.transform.parent.gameObject);
+            }
+
+            if (other.CompareTag("BoostArea") && CompareTag("Collected"))
+            {
+                other.gameObject.GetComponent<MeshCollider>().enabled = false;
+                StackSignals.Instance.onBoostArea?.Invoke();
             }
 
         }

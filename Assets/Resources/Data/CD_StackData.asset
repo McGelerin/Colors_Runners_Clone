@@ -18,4 +18,4 @@ MonoBehaviour:
     ShackAnimDuraction: 0.06
     ShackScaleValue: 1.3
     InitialStackItem: 10
-    DistanceFormPlayer: -1
+    DistanceFormPlayer: 0

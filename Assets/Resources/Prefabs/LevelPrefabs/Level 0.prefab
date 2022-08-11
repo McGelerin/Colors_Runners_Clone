@@ -280,6 +280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4457191085204446919, guid: 7e3736814fcfbe34c88b66e98b743c50, type: 3}
+      propertyPath: playerPhysicsController
+      value: 
+      objectReference: {fileID: 8671364114993840327}
     - target: {fileID: 8158575222137622964, guid: 7e3736814fcfbe34c88b66e98b743c50, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -331,6 +335,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8158575222137622964, guid: 7e3736814fcfbe34c88b66e98b743c50, type: 3}
   m_PrefabInstance: {fileID: 1462595999830517387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8671364114993840327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7789803385981052492, guid: 7e3736814fcfbe34c88b66e98b743c50, type: 3}
+  m_PrefabInstance: {fileID: 1462595999830517387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960fd786159dedc4ca0549412d2b5a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1491726654504050751
 PrefabInstance:
   m_ObjectHideFlags: 0

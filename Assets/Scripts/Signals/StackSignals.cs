@@ -13,6 +13,7 @@ namespace Signals
         public UnityAction<GameObject> onInteractionCollectable = delegate { };
         public UnityAction<GameObject> onPlayerGameObject = delegate { };
         public UnityAction onUpdateType = delegate { };
+        public UnityAction onBoostArea = delegate {  };
 
     }
 }

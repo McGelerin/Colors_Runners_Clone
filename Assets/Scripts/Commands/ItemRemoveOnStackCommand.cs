@@ -35,5 +35,21 @@ namespace Commands
             _manager.StackValueUpdateCommand.StackValuesUpdate();
             _onReBuildListCommand.OnReBuildList();
         }
+
+        public void RemoveRandomListItem(Transform transform)
+        {
+            if (_collectableStack.Count < 1)
+            {
+                return;
+            }
+            int random = Random.Range(0, _collectableStack.Count);
+            GameObject selectedCollectable = _collectableStack[random];
+            selectedCollectable.transform.SetParent(_levelHolder.transform.GetChild(0));
+            selectedCollectable.SetActive(false);
+            _collectableStack.RemoveAt(random);
+            _collectableStack.TrimExcess();
+            _manager.StackValueUpdateCommand.StackValuesUpdate();
+            _onReBuildListCommand.OnReBuildList();
+        }
     }
 }

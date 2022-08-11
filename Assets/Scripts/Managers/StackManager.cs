@@ -59,6 +59,8 @@ namespace Managers
             // StackSignals.Instance.onInteractionObstacle += OnReBuildList;
             StackSignals.Instance.onStackFollowPlayer += OnStackMove;
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.StackValuesUpdate;
+            //
+            GunPoolSignals.Instance.onWrongGunPool += _itemRemoveOnStackCommand.RemoveRandomListItem;
         }
         private void UnSubscribeEvent()
         {
@@ -69,6 +71,9 @@ namespace Managers
             // StackSignals.Instance.onInteractionObstacle -= OnReBuildList;
             StackSignals.Instance.onStackFollowPlayer -= OnStackMove;
             StackSignals.Instance.onUpdateType -= StackValueUpdateCommand.StackValuesUpdate;
+            //
+            GunPoolSignals.Instance.onWrongGunPool -= _itemRemoveOnStackCommand.RemoveRandomListItem;
+
         }
         private void OnDisable()
         {
@@ -82,7 +87,7 @@ namespace Managers
             _stackMoveController = new StackMoveController();
             _stackMoveController.InisializedController(StackData);
             ItemAddOnStackCommand = new ItemAddOnStackCommand(ref CollectableStack, transform, StackData);
-            _onReBuildListCommand = new OnReBuildListCommand(ref CollectableStack);
+            _onReBuildListCommand = new OnReBuildListCommand(ref CollectableStack, StackData.CollectableOffsetInStack);
             _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack,ref levelHolder, this,ref _onReBuildListCommand);
             _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, StackData);
             StackValueUpdateCommand = new StackValueUpdateCommand(ref CollectableStack);
@@ -122,5 +127,7 @@ namespace Managers
             }
             CollectableStack.Clear();
         }
+
+    
     }
 }

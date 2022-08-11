@@ -10,25 +10,31 @@ namespace Commands
         #region Private Variables
 
         private List<GameObject> _collectableStack;
+        private float _offset = 1f;
 
 
         #endregion
         #endregion
 
-        public OnReBuildListCommand(ref List<GameObject> CollectableStack)
+        public OnReBuildListCommand(ref List<GameObject> CollectableStack, float offset)
         {
             _collectableStack = CollectableStack;
+            _offset = offset;
         }
 
         public void OnReBuildList()
         {
+            if (_collectableStack.Count<2)
+            {
+                return;
+            }
             _collectableStack[0].transform.localPosition = new Vector3(_collectableStack[1].transform.localPosition.x,
                 _collectableStack[1].transform.localPosition.y, 0);
             
             for (int i = 1; i < _collectableStack.Count; i++)
             {
                 _collectableStack[i].transform.localPosition = new Vector3(_collectableStack[i].transform.localPosition.x,
-                    _collectableStack[i].transform.localPosition.y, _collectableStack[i - 1].transform.localPosition.z - 1);
+                    _collectableStack[i].transform.localPosition.y, _collectableStack[i - 1].transform.localPosition.z - _offset);
             }
         }
     }

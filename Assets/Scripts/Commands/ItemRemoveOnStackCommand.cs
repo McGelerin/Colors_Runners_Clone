@@ -50,7 +50,7 @@ namespace Commands
             _collectableStack.RemoveAt(random);
             _collectableStack.TrimExcess();
             _manager.StackValueUpdateCommand.StackValuesUpdate();
-            _onReBuildListCommand.OnReBuildList();
+            //_onReBuildListCommand.OnReBuildList();
         }
     }
 }

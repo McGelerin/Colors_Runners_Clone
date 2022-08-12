@@ -19,14 +19,26 @@ namespace Controllers
             _stackData = Stackdata;
         }
 
-        public void StackItemsMoveOrigin(float directionX, float directionY,float directionZ, List<GameObject> _collectableStack)
+        public void StackItemsMoveOrigin(float directionX, float directionY,float directionZ, List<GameObject> _collectableStack, bool _isOnDronePool = false)
         {
+            if (_collectableStack.Count <= 0)
+            {
+                return;
+            }
             float directx = Mathf.Lerp(_collectableStack[0].transform.localPosition.x, directionX,_stackData.LerpSpeed);
             float directy = Mathf.Lerp(_collectableStack[0].transform.localPosition.y, directionY,_stackData.LerpSpeed);
             float directz = Mathf.Lerp(_collectableStack[0].transform.localPosition.z, directionZ + _stackData.DistanceFormPlayer ,_stackData.LerpSpeed);
             
-            _collectableStack[0].transform.localPosition = new Vector3(directx, directy, directz);
-            StackItemsLerpMove(_collectableStack);
+            if (_isOnDronePool == true)
+            {
+                _collectableStack[0].transform.localPosition = new Vector3(directx, _collectableStack[0].transform.position.y, _collectableStack[0].transform.position.z);
+                StackItemsLerpMoveOnDronePool(_collectableStack);
+            }
+            else
+            {
+                _collectableStack[0].transform.localPosition = new Vector3(directx, directy, directz);
+                StackItemsLerpMove(_collectableStack);
+            }
         }
 
         public void StackItemsLerpMove(List<GameObject> _collectableStack)
@@ -41,6 +53,20 @@ namespace Controllers
                 float directy = Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed/2);
                 //float directz = Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, 0);
                 _collectableStack[i].transform.localPosition = new Vector3(directx, directy, pos.z);
+            }
+        }
+        public void StackItemsLerpMoveOnDronePool(List<GameObject> _collectableStack)
+        {
+            for (int i = 1; i < _collectableStack.Count; i++)
+            {
+                Vector3 pos = _collectableStack[i].transform.localPosition;
+                pos.x = _collectableStack[i - 1].transform.localPosition.x;
+                pos.y = _collectableStack[i - 1].transform.localPosition.y;
+                pos.z = _collectableStack[i - 1].transform.localPosition.z - _stackData.CollectableOffsetInStack;
+                float directx = Mathf.Lerp(_collectableStack[i].transform.localPosition.x, pos.x, _stackData.LerpSpeed);
+                float directy = Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed / 2);
+                //float directz = Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, 0);
+                _collectableStack[i].transform.localPosition = new Vector3(directx, directy, _collectableStack[i].transform.position.z);
             }
         }
     }

@@ -8,6 +8,13 @@ TagManager:
   - Collected
   - Obstacle
   - BoostArea
+  - DronePool
+  - DronePoolColor
+  - Kirmizi
+  - Yesil
+  - Mavi
+  - Turkovaz
+  - Sari
   layers:
   - Default
   - TransparentFX

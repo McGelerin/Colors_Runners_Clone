@@ -17,6 +17,7 @@ public class DronePoolManager : MonoBehaviour
     #region serializeVars
     [SerializeField] private List<MeshRenderer> ColorBlocks;
     [SerializeField] private List<Collider> Colliders;
+    [SerializeField] private GameObject Drone;
 
     #endregion
     #region privateVars
@@ -28,11 +29,15 @@ public class DronePoolManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        GunPoolSignals.Instance.onGetColor += OnGetColor;
+        DronePoolSignals.Instance.onGetColor += OnGetColor;
+        DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
+        DronePoolSignals.Instance.onDroneGone += OnDroneGone;
     }
     private void UnSubscribeEvents()
     {
-        GunPoolSignals.Instance.onGetColor -= OnGetColor;
+        DronePoolSignals.Instance.onGetColor -= OnGetColor;
+        DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
+        DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
     }
     private void Awake()
     {
@@ -59,12 +64,34 @@ public class DronePoolManager : MonoBehaviour
         for (int i = 0; i < areaColorEnum.Count; i++)
         {
             ColorBlocks[i].material.color = _colorData.color[(int)areaColorEnum[i]];
+            ColorBlocks[i].tag = areaColorEnum[i].ToString();
         }
     }
 
-    public ColorEnum OnGetColor()
+    public ColorEnum OnGetColor(Transform selectedPool)
     {
-        return colorEnum;
+        
+
+        for (int i = 0; i < areaColorEnum.Count; i++)
+        {
+            if (selectedPool.Equals(ColorBlocks[i].transform))
+            {
+                return areaColorEnum[i];
+
+            }
+        }
+        return ColorEnum.Sari;
+        
+         
+    }
+
+    private void OnDroneArrives()
+    {
+        Drone.SetActive(true);
+    }
+    private void OnDroneGone()
+    {
+        Drone.SetActive(false);
     }
 
 

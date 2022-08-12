@@ -9,6 +9,9 @@ namespace Controllers
         #region Serializefield Variables
         [SerializeField] private CollectableManager manager;
         #endregion
+        #region Serializefield Variables
+        private bool _isFirstTime = true;
+        #endregion
         #endregion
 
         private void OnTriggerEnter(Collider other)
@@ -31,6 +34,19 @@ namespace Controllers
                 other.gameObject.GetComponent<MeshCollider>().enabled = false;
                 StackSignals.Instance.onBoostArea?.Invoke();
             }
+
+            if ((other.CompareTag("DronePoolColor")) && CompareTag("Collected"))
+            {
+            }
+
+            if (_isFirstTime && (other.CompareTag("Kirmizi") || other.CompareTag("Yesil") || other.CompareTag("Mavi") || other.CompareTag("Turkovaz") || other.CompareTag("Sari")) && CompareTag("Collected"))
+            {
+                _isFirstTime = false;
+                DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject, other.transform);
+
+                manager.SetPoolColor(other.tag);
+            }
+
 
         }
     }

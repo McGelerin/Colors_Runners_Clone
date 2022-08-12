@@ -63,6 +63,9 @@ namespace Managers
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             StackSignals.Instance.onBoostArea += OnJump;
             // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
+            DronePoolSignals.Instance.onPlayerCollideWithDronePool += movementController.DeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone += OnDroneGone;
         }
 
         private void UnsubscribeEvents()
@@ -75,7 +78,12 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             StackSignals.Instance.onBoostArea -= OnJump;
-           // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
+            // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
+            DronePoolSignals.Instance.onPlayerCollideWithDronePool -= movementController.DeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
+
+
         }
 
 
@@ -155,5 +163,12 @@ namespace Managers
             gameObject.SetActive(false);
            // CoreGameSignals.Instance.onMiniGameStart?.Invoke();
         }
+
+        private void OnDroneGone()
+        {
+            transform.position = new Vector3(0, transform.position.y, transform.position.z + 15);
+        }
     }
+
+    
 }

@@ -8,8 +8,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Deneme.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Deneme2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.6.0/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -77,6 +75,9 @@
       <workItem from="1660220525537" duration="2097000" />
       <workItem from="1660231332470" duration="2591000" />
       <workItem from="1660250173894" duration="7376000" />
+      <workItem from="1660315351486" duration="118000" />
+      <workItem from="1660315494301" duration="40000" />
+      <workItem from="1660315592647" duration="8506000" />
     </task>
     <servers />
   </component>

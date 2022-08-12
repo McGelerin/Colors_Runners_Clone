@@ -6,6 +6,8 @@ namespace Data.ValueObject
     [Serializable]
     public class ColorData
     {
+        public Material RainbowMaterial;
+        public Material ColorMaterial;
         public List<Color> color = new List<Color>();
     }
 }

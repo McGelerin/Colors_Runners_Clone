@@ -12,17 +12,30 @@ public class CollectableManager : MonoBehaviour
     #region Self Variables
 
     #region Public Variables
-    public ColorEnum ColorEnum;
+
+    public ColorEnum ColorEnum
+    {
+        get => _colorEnum;
+        set
+        {
+            _colorEnum = value;
+            GetColorData();
+        }
+    }
 
 
     #endregion
     #region SerializeField Variables
     [SerializeField] private Material CurrentMaterial;
     [SerializeField] private Transform MeshObject;
+    [SerializeField] private Renderer meshRenderer;
 
     #endregion
     #region Private Variables
+    
     private ColorData _colorData;
+    [SerializeField]
+    private ColorEnum _colorEnum;
     public string  _poolColor;
 
 
@@ -31,18 +44,33 @@ public class CollectableManager : MonoBehaviour
     #endregion
 
 
-    private void Awake()
+    private void Start()
     {
-        CurrentMaterial = MeshObject.GetComponent<MeshRenderer>().material;
-        GetColorData();
-
+        ColorEnum = _colorEnum;
     }
     private void GetColorData()
     {
         _colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
 
-        CurrentMaterial.color = _colorData.color[(int)ColorEnum];
+        if (ColorEnum == ColorEnum.Rainbow)
+        {
+            meshRenderer.material = _colorData.RainbowMaterial;
+        }
+        else
+        {
+            meshRenderer.material = _colorData.ColorMaterial;
+            meshRenderer.material.color = _colorData.color[(int) ColorEnum];
+        }
     }
+
+    private void SetColorData(ColorEnum color)
+    {
+        if (CompareTag("Collected"))
+        {
+            ColorEnum = color;
+        }
+    }
+    
 
     private void OnEnable()
     {
@@ -54,6 +82,7 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
         DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
+        StackSignals.Instance.ColorType += SetColorData;
     }
 
     private void UnsubscribeEvents()
@@ -61,6 +90,7 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onPlayerCollideWithDronePool -= OnPlayerCollideWithDronePool;
         DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
+        StackSignals.Instance.ColorType -= SetColorData;
 
     }
 

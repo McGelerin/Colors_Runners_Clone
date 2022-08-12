@@ -51,9 +51,9 @@ MonoBehaviour:
     MovementData:
       ForwardSpeed: 5
       SidewaysSpeed: 2
-      JumpForce: 10
+      JumpDistance: 10
+      JumpDuration: 1
   movementController: {fileID: 8647224197423169170}
-  playerPhysicsController: {fileID: 7789803385981052492}
 --- !u!114 &8647224197423169170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960fd786159dedc4ca0549412d2b5a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 5859950411660903697}
 --- !u!54 &5348517666873509217
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +154,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.02956283
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

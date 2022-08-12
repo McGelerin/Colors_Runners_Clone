@@ -31,8 +31,9 @@ namespace Controllers
 
             if (other.CompareTag("BoostArea") && CompareTag("Collected"))
             {
-                other.gameObject.GetComponent<MeshCollider>().enabled = false;
                 StackSignals.Instance.onBoostArea?.Invoke();
+                //other.gameObject.SetActive(false);
+                other.gameObject.GetComponent<MeshCollider>().enabled = false;
             }
 
             if ((other.CompareTag("DronePoolColor")) && CompareTag("Collected"))

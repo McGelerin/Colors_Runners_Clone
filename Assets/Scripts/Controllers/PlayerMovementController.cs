@@ -1,4 +1,5 @@
 using Data.ValueObject;
+using DG.Tweening;
 using Keys;
 using Managers;
 using UnityEngine;
@@ -129,6 +130,11 @@ namespace Controllers
                 (position = rigidbody.position).y,
                 position.z);
             rigidbody.position = position;
+        }
+        
+        public void Jump(float distance,float duration)
+        {
+            rigidbody.DOMoveY(distance, duration);
         }
         
         public void OnReset()

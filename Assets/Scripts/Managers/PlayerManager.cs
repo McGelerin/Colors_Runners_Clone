@@ -168,7 +168,8 @@ namespace Managers
 
         private void OnDroneGone()
         {
-            transform.position = new Vector3(0, transform.position.y, transform.position.z + 15);
+            Transform target = DronePoolSignals.Instance.onGetTruePoolTransform();
+            transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z + 15);
         }
     }
 

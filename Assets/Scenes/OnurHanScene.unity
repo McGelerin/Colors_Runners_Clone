@@ -221,7 +221,7 @@ Transform:
   m_Children:
   - {fileID: 1848973015}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &108423382
 GameObject:
@@ -815,7 +815,7 @@ Transform:
   - {fileID: 1093454708}
   - {fileID: 353205152}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &764709789
 GameObject:
@@ -1271,6 +1271,71 @@ Transform:
   m_Father: {fileID: 9053578928042883930}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1326867898
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3838598447052178990, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_Name
+      value: GunPool3lu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447976453592, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: colorEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838598447976453592, guid: e61770d742797104babaa920b47c3e07, type: 3}
+      propertyPath: areaColorEnum.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e61770d742797104babaa920b47c3e07, type: 3}
 --- !u!1 &1462507135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576910606
 GameObject:
@@ -2153,7 +2218,7 @@ Transform:
   - {fileID: 9053578928483015827}
   - {fileID: 1248609170}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9053578928106199272
 MeshFilter:
@@ -2263,8 +2328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebf4dabf8263054da029059a74b7ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorEnum: 0
-  areaColorEnum: 0000000001000000
+  colorEnum: 1
+  areaColorEnum: 0200000001000000
   ColorBlocks:
   - {fileID: 9053578928515537587}
   - {fileID: 9053578927738930367}

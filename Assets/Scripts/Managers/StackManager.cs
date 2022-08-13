@@ -113,7 +113,7 @@ namespace Managers
         {
             if (_isOnDronePool)
             {
-                StackMoveDronePool();
+                StackXMoveOnDronePool();
             }
             else
                 StackMove();
@@ -151,7 +151,7 @@ namespace Managers
         {
             _isOnDronePool = true;
         }
-        private void StackMoveDronePool()
+        private void StackXMoveOnDronePool()
         {
             if (_playerGameObject != null)
             {

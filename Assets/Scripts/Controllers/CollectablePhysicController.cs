@@ -38,15 +38,13 @@ namespace Controllers
 
           
 
-            if (_isFirstTime && (other.CompareTag("Kirmizi") || other.CompareTag("Yesil") || other.CompareTag("Mavi") || other.CompareTag("Turkovaz") || other.CompareTag("Sari")) && CompareTag("Collected"))
+            if (_isFirstTime && other.CompareTag("DronePoolColor"))
             {
                 _isFirstTime = false;
                 DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject, other.transform);
 
-                manager.SetPoolColor(other.tag);//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
+                manager.SetPoolColor(DronePoolSignals.Instance.onGetColor(other.transform));//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
             }
-
-
         }
     }
 }

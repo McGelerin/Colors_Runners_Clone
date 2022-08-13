@@ -36,7 +36,7 @@ public class CollectableManager : MonoBehaviour
     private ColorData _colorData;
     [SerializeField]
     private ColorEnum _colorEnum;
-    public string  _poolColor;
+    public ColorEnum  _poolColorEnum;
 
 
     #endregion
@@ -129,7 +129,7 @@ public class CollectableManager : MonoBehaviour
 
     public void OnDroneArrives()
     {
-        if (_poolColor.Equals(ColorEnum.ToString()))
+        if (_poolColorEnum.Equals(ColorEnum))
         {
 
         }
@@ -140,8 +140,9 @@ public class CollectableManager : MonoBehaviour
         }
     }
 
-    public void SetPoolColor(string color)
+    public void SetPoolColor(ColorEnum poolColorEnum)
     {
-        _poolColor = color;
+        _poolColorEnum = poolColorEnum;
+        Debug.Log("gelen enum:" + poolColorEnum);
     }
 }

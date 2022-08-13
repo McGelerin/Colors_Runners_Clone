@@ -9,6 +9,7 @@ namespace Signals
     public class DronePoolSignals : MonoSingleton<DronePoolSignals>
     {
         public Func<Transform> onGetTruePoolTransform;
+        public Func<Transform, ColorEnum> onGetColor;
         public UnityAction onDroneArrives;
         public UnityAction onDroneGone;
         public UnityAction<Transform> onPlayerCollideWithDronePool;

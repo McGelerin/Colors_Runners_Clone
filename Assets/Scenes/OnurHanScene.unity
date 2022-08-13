@@ -221,7 +221,7 @@ Transform:
   m_Children:
   - {fileID: 1848973015}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &108423382
 GameObject:
@@ -815,7 +815,7 @@ Transform:
   - {fileID: 1093454708}
   - {fileID: 353205152}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &764709789
 GameObject:
@@ -1284,7 +1284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3838598447052178991, guid: e61770d742797104babaa920b47c3e07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1435,7 +1435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576910606
 GameObject:
@@ -1606,6 +1606,67 @@ Transform:
   m_Father: {fileID: 1940613454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1590269185
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1112545317969191179, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: _colorEnum
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 70.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428395199584190187, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016784145255858221, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
+      propertyPath: m_Name
+      value: ColorGate (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
 --- !u!1 &1815903381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2189,7 @@ GameObject:
   - component: {fileID: 9053578927738930365}
   m_Layer: 0
   m_Name: Color
-  m_TagString: Untagged
+  m_TagString: DronePoolColor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2218,7 +2279,7 @@ Transform:
   - {fileID: 9053578928483015827}
   - {fileID: 1248609170}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9053578928106199272
 MeshFilter:
@@ -2328,8 +2389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebf4dabf8263054da029059a74b7ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorEnum: 1
-  areaColorEnum: 0200000001000000
+  colorEnum: 4
+  areaColorEnum: 0400000001000000
   ColorBlocks:
   - {fileID: 9053578928515537587}
   - {fileID: 9053578927738930367}
@@ -2383,7 +2444,7 @@ GameObject:
   - component: {fileID: 9053578928515537585}
   m_Layer: 0
   m_Name: Color (1)
-  m_TagString: Untagged
+  m_TagString: DronePoolColor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

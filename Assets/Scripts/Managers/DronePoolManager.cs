@@ -32,6 +32,7 @@ public class DronePoolManager : MonoBehaviour
         DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
         DronePoolSignals.Instance.onDroneGone += OnDroneGone;
         DronePoolSignals.Instance.onGetTruePoolTransform += OnGetTruePoolTransform;
+        DronePoolSignals.Instance.onGetColor += OnGetColor;
 
     }
     private void UnSubscribeEvents()
@@ -39,6 +40,7 @@ public class DronePoolManager : MonoBehaviour
         DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
         DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
         DronePoolSignals.Instance.onGetTruePoolTransform -= OnGetTruePoolTransform;
+        DronePoolSignals.Instance.onGetColor -= OnGetColor;
 
     }
     private void Awake()
@@ -66,7 +68,6 @@ public class DronePoolManager : MonoBehaviour
         for (int i = 0; i < areaColorEnum.Count; i++)
         {
             ColorBlocks[i].material.color = _colorData.color[(int)areaColorEnum[i]];
-            ColorBlocks[i].tag = areaColorEnum[i].ToString();
         }
     }
 
@@ -83,6 +84,18 @@ public class DronePoolManager : MonoBehaviour
         return transform;
     }
 
+    public ColorEnum OnGetColor(Transform poolTransform)
+    {
+        for (int i = 0; i < areaColorEnum.Count; i++)
+        {
+            if (ColorBlocks[i].transform.Equals(poolTransform))
+            {
+                return areaColorEnum[i];
+            }
+        }
+        return ColorEnum.Kirmizi;
+    }
+
     private void OnDroneArrives()
     {
         Drone.SetActive(true);
@@ -91,6 +104,4 @@ public class DronePoolManager : MonoBehaviour
     {
         Drone.SetActive(false);
     }
-
-
 }

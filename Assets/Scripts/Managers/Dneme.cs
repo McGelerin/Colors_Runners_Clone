@@ -12,6 +12,5 @@ public class Dneme : MonoBehaviour
 
     public void ColorChange()
     {
-        Debug.Log(GunPoolSignals.Instance.onGetColor());
     }
 }

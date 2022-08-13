@@ -32,14 +32,12 @@ public class GunPoolManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        GunPoolSignals.Instance.onGetColor += OnGetColor;
         GunPoolSignals.Instance.onWrongGunPool += TaretController.RotateToPlayer;
         GunPoolSignals.Instance.onWrongGunPoolExit += TaretController.OnTargetDisappear;
 
     }
     private void UnSubscribeEvents()
     {
-        GunPoolSignals.Instance.onGetColor -= OnGetColor;
         GunPoolSignals.Instance.onWrongGunPool -= TaretController.RotateToPlayer;
         GunPoolSignals.Instance.onWrongGunPoolExit -= TaretController.OnTargetDisappear;
 
@@ -73,10 +71,6 @@ public class GunPoolManager : MonoBehaviour
         }
     }
 
-    public ColorEnum OnGetColor()
-    {
-        return colorEnum;
-    }
 
     private void SetCollidersActiveness()
     {

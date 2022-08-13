@@ -1,4 +1,5 @@
 using Data.ValueObject;
+using DG.Tweening;
 using Keys;
 using Managers;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Controllers
         #endregion
         #region Private Variables
         [Header("Data")] private PlayerMovementData _movementData;
-        private bool _isReadyToMove, _isReadyToPlay;
+        private bool _isReadyToMove, _isReadyToPlay, _isOnDronePool = false;
         private float _inputValue;
         private Vector2 _clampValues; 
         #endregion
@@ -34,6 +35,15 @@ namespace Controllers
         public void DeactiveMovement()
         {
             _isReadyToMove = false;
+        }
+        public void DeactiveForwardMovement(Transform poolTriggerTransform)
+        {
+            _isOnDronePool = true;
+        }
+
+        public void UnDeactiveForwardMovement()
+        {
+            _isOnDronePool = false;
         }
 
         public void UpdateInputValue(HorizontalInputParams inputParam)
@@ -60,8 +70,11 @@ namespace Controllers
         {
             if (_isReadyToPlay)
             {
-                
-                if (_isReadyToMove)
+                if (_isOnDronePool)
+                {
+                    OnlySideways();
+                }
+                else if (_isReadyToMove)
                 {
                     Move();
                     
@@ -95,13 +108,33 @@ namespace Controllers
         private void StopSideways()
         {
             rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, _movementData.ForwardSpeed);
-            rigidbody.angularVelocity = Vector3.zero;
+            //rigidbody.angularVelocity = Vector3.zero;
         }
 
         private void Stop()
         {
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
+        }
+        private void OnlySideways()
+        {
+            var velocity = rigidbody.velocity;
+            velocity = new Vector3(_inputValue * _movementData.SidewaysSpeed, velocity.y,
+                0);
+            rigidbody.velocity = velocity;
+
+            Vector3 position;
+            position = new Vector3(
+                Mathf.Clamp(rigidbody.position.x, _clampValues.x,
+                    _clampValues.y),
+                (position = rigidbody.position).y,
+                position.z);
+            rigidbody.position = position;
+        }
+        
+        public void Jump(float distance,float duration)
+        {
+            rigidbody.DOMoveY(distance, duration);
         }
         
         public void OnReset()

@@ -23,6 +23,8 @@ namespace Managers
         #region Serialized Variables
 
         [Space] [SerializeField] private PlayerMovementController movementController;
+
+        //[SerializeField] private PlayerPhysicsController playerPhysicsController;
         //[SerializeField] private PlayerAnimationController animationController;
         //[SerializeField] private TextMeshPro scoreText;
         
@@ -59,7 +61,11 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
-           // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
+            StackSignals.Instance.onBoostArea += OnJump;
+            // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
+            DronePoolSignals.Instance.onPlayerCollideWithDronePool += movementController.DeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone += OnDroneGone;
         }
 
         private void UnsubscribeEvents()
@@ -71,8 +77,15 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
-           // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
+            StackSignals.Instance.onBoostArea -= OnJump;
+            // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
+            DronePoolSignals.Instance.onPlayerCollideWithDronePool -= movementController.DeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
+            DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
+
+
         }
+
 
         private void OnDisable()
         {
@@ -132,6 +145,13 @@ namespace Managers
             //animationController.OnReset();
         }
 
+        private void OnJump()
+        {
+            //playerPhysicsController.Jump(Data.MovementData.JumpForce);
+            //rigidbody.AddForce(0,jumpForce,0,ForceMode.Impulse);
+            movementController.Jump(Data.MovementData.JumpDistance,Data.MovementData.JumpDuration);
+        }
+        
         //private void OnSetScoreText(int Values)
         //{
         //    scoreText.text = Values.ToString();
@@ -145,5 +165,13 @@ namespace Managers
             gameObject.SetActive(false);
            // CoreGameSignals.Instance.onMiniGameStart?.Invoke();
         }
+
+        private void OnDroneGone()
+        {
+            Transform target = DronePoolSignals.Instance.onGetTruePoolTransform();
+            transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z + 15);
+        }
     }
+
+    
 }

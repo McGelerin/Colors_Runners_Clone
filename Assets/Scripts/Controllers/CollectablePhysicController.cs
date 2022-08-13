@@ -1,3 +1,4 @@
+using Signals;
 using UnityEngine;
 
 namespace Controllers
@@ -7,6 +8,9 @@ namespace Controllers
         #region Self Variables
         #region Serializefield Variables
         [SerializeField] private CollectableManager manager;
+        #endregion
+        #region Serializefield Variables
+        private bool _isFirstTime = true;
         #endregion
         #endregion
 
@@ -24,6 +28,24 @@ namespace Controllers
                 manager.InteractionWithObstacle(transform.parent.gameObject);
                 Destroy(other.transform.parent.gameObject);
             }
+
+            if (other.CompareTag("BoostArea") && CompareTag("Collected"))
+            {
+                StackSignals.Instance.onBoostArea?.Invoke();
+                //other.gameObject.SetActive(false);
+                other.gameObject.GetComponent<MeshCollider>().enabled = false;
+            }
+
+          
+
+            if (_isFirstTime && (other.CompareTag("Kirmizi") || other.CompareTag("Yesil") || other.CompareTag("Mavi") || other.CompareTag("Turkovaz") || other.CompareTag("Sari")) && CompareTag("Collected"))
+            {
+                _isFirstTime = false;
+                DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject, other.transform);
+
+                manager.SetPoolColor(other.tag);//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
+            }
+
 
         }
     }

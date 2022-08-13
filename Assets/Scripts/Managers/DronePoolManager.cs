@@ -12,8 +12,13 @@ public class DronePoolManager : MonoBehaviour
     #region publicVars
     public ColorEnum colorEnum = ColorEnum.Kirmizi;
 
+    public List<ColorEnum> areaColorEnum = new List<ColorEnum>();
     #endregion
     #region serializeVars
+    [SerializeField] private List<MeshRenderer> ColorBlocks;
+    [SerializeField] private List<Collider> Colliders;
+    [SerializeField] private GameObject Drone;
+
     #endregion
     #region privateVars
     private ColorData _colorData;
@@ -24,11 +29,17 @@ public class DronePoolManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        GunPoolSignals.Instance.onGetColor += OnGetColor;
+        DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
+        DronePoolSignals.Instance.onDroneGone += OnDroneGone;
+        DronePoolSignals.Instance.onGetTruePoolTransform += OnGetTruePoolTransform;
+
     }
     private void UnSubscribeEvents()
     {
-        GunPoolSignals.Instance.onGetColor -= OnGetColor;
+        DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
+        DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
+        DronePoolSignals.Instance.onGetTruePoolTransform -= OnGetTruePoolTransform;
+
     }
     private void Awake()
     {
@@ -49,12 +60,36 @@ public class DronePoolManager : MonoBehaviour
     private void GetColorData()
     {
         _colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
+
         _currentMaterial.color = _colorData.color[(int)colorEnum];
+
+        for (int i = 0; i < areaColorEnum.Count; i++)
+        {
+            ColorBlocks[i].material.color = _colorData.color[(int)areaColorEnum[i]];
+            ColorBlocks[i].tag = areaColorEnum[i].ToString();
+        }
     }
 
-    public ColorEnum OnGetColor()
+
+    public Transform OnGetTruePoolTransform()
     {
-        return colorEnum;
+        for (int i = 0; i < areaColorEnum.Count; i++)
+        {
+            if (areaColorEnum[i].Equals(colorEnum))
+            {
+                return ColorBlocks[i].transform;
+            }
+        }
+        return transform;
+    }
+
+    private void OnDroneArrives()
+    {
+        Drone.SetActive(true);
+    }
+    private void OnDroneGone()
+    {
+        Drone.SetActive(false);
     }
 
 

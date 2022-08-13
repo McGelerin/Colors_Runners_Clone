@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 8160370584014168877}
   m_Layer: 0
   m_Name: CollectableManager
-  m_TagString: Untagged
+  m_TagString: Collected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,6 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6da690d117cd6f438a15a35d843b82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentMaterial: {fileID: 2100000, guid: db7989e36b87a024ea6896761b91c6ef, type: 2}
+  MeshObject: {fileID: 4456542413928817619}
+  meshRenderer: {fileID: 4342400711004916944}
+  _colorEnum: 1
+  _poolColor: 
 --- !u!1 &7732362072494996183
 GameObject:
   m_ObjectHideFlags: 0

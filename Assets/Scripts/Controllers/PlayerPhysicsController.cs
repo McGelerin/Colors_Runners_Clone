@@ -3,6 +3,7 @@ using Signals;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Managers;
 
 namespace Controllers
 {
@@ -11,8 +12,11 @@ namespace Controllers
         #region Self Variables
 
         #region Serialized Variables
+        [SerializeField] private PlayerManager Manager;
 
-        
+
+        #endregion
+        #region private vars
         #endregion
         #endregion
 
@@ -21,6 +25,7 @@ namespace Controllers
             if (other.CompareTag("DronePool"))
             {
                 DronePoolSignals.Instance.onPlayerCollideWithDronePool?.Invoke(other.transform);
+                Manager.GetDronePoolTransform(other.transform.parent.GetComponent<DronePoolManager>().OnGetTruePoolTransform());
                 StartCoroutine(DroneArrives());
             }
 
@@ -28,6 +33,12 @@ namespace Controllers
             {
                 CoreGameSignals.Instance.onChangeGameState?.Invoke();
                 Debug.Log("WORKED FIZIK");
+            }
+
+            if (other.CompareTag("DronePoolExit"))
+            {
+                DronePoolSignals.Instance.onDronePoolExit?.Invoke();
+
             }
         }
 

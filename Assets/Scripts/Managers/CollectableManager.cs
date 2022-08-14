@@ -30,9 +30,12 @@ public class CollectableManager : MonoBehaviour
     [SerializeField] private Transform MeshObject;
     [SerializeField] private Renderer meshRenderer;
 
+    [SerializeField] private CollectablePhysicController PhysicController;
+
+
     #endregion
     #region Private Variables
-    
+
     private ColorData _colorData;
     [SerializeField]
     private ColorEnum _colorEnum;
@@ -82,6 +85,8 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
         StackSignals.Instance.ColorType += SetColorData;
+
+        DronePoolSignals.Instance.onDronePoolExit += PhysicController.CanEnterDronePool;
     }
 
     private void UnsubscribeEvents()
@@ -90,6 +95,9 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
         StackSignals.Instance.ColorType -= SetColorData;
+
+        DronePoolSignals.Instance.onDronePoolExit -= PhysicController.CanEnterDronePool;
+
 
     }
 
@@ -140,20 +148,24 @@ public class CollectableManager : MonoBehaviour
 
     public void OnDroneArrives()
     {
-        if (_poolColorEnum.Equals(ColorEnum))
+        if (CompareTag("Collected"))
         {
-
+            if (_poolColorEnum.Equals(ColorEnum))
+            {
+            }
+            else
+            {
+                DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
+                //Dead Anim
+            }
         }
-        else
-        {
-            DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
-            //Dead Anim
-        }
+        
     }
 
     public void SetPoolColor(ColorEnum poolColorEnum)
     {
         _poolColorEnum = poolColorEnum;
-        Debug.Log("gelen enum:" + poolColorEnum);
     }
+
+
 }

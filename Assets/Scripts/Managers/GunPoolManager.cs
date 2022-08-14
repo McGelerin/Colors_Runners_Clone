@@ -44,7 +44,7 @@ public class GunPoolManager : MonoBehaviour
     }
     private void Awake()
     {
-        _currentMaterial = GetComponent<MeshRenderer>().material;
+        _currentMaterial = transform.GetChild(0).GetComponent<MeshRenderer>().material;
         GetColorData();
         SetCollidersActiveness();
 

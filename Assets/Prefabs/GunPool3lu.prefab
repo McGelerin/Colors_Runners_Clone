@@ -326,6 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3838598447052178991}
+  - component: {fileID: 1929432259}
   m_Layer: 0
   m_Name: GunPool3lu
   m_TagString: Untagged
@@ -351,6 +352,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929432259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838598447052178990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678457143021ce94cb2a76e9f5d7dfd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorEnum: 1
+  areaColorEnum: 010000000200000003000000
+  ColorBlocks:
+  - {fileID: 3838598446900653394}
+  - {fileID: 3838598448123562764}
+  - {fileID: 3838598448200875785}
+  Colliders:
+  - {fileID: 3838598447857720746}
+  - {fileID: 3838598446878773704}
+  - {fileID: 3838598447863827417}
+  TaretController: {fileID: 3838598447544234491}
 --- !u!1 &3838598447071191511
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +651,6 @@ GameObject:
   - component: {fileID: 3838598447976453595}
   - component: {fileID: 3838598447976453594}
   - component: {fileID: 3838598447976453593}
-  - component: {fileID: 3838598447976453592}
   m_Layer: 0
   m_Name: GunPoolTrigger
   m_TagString: Untagged
@@ -711,29 +734,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.3825107, z: 1}
   m_Center: {x: 0, y: 1.1912553, z: 0}
---- !u!114 &3838598447976453592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3838598447976453599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 678457143021ce94cb2a76e9f5d7dfd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorEnum: 0
-  areaColorEnum: 000000000200000003000000
-  ColorBlocks:
-  - {fileID: 3838598446900653394}
-  - {fileID: 3838598448123562764}
-  - {fileID: 3838598448200875785}
-  Colliders:
-  - {fileID: 3838598447857720746}
-  - {fileID: 3838598446878773704}
-  - {fileID: 3838598447863827417}
-  TaretController: {fileID: 3838598447544234491}
 --- !u!1 &3838598447988582550
 GameObject:
   m_ObjectHideFlags: 0

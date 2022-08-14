@@ -15,5 +15,6 @@ namespace Signals
         public UnityAction<Transform> onPlayerCollideWithDronePool;
         public UnityAction<GameObject, Transform> onCollectableCollideWithDronePool;
         public UnityAction<GameObject> onWrongDronePool;
+        public UnityAction onDronePoolExit;
     }
 }

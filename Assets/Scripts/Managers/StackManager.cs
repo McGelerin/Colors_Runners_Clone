@@ -201,6 +201,7 @@ namespace Managers
         {
             if (UnStack.Contains(wrongPoolCollectable))
             {
+                wrongPoolCollectable.tag = "Collectable";
                 UnStack.Remove(wrongPoolCollectable);
             }
         }
@@ -212,6 +213,8 @@ namespace Managers
             {
                 CollectableStack.Add(i);
             }
+
+            UnStack.Clear();
         }
     }
 }

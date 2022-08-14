@@ -1,5 +1,6 @@
 using Data.ValueObject;
 using DG.Tweening;
+using Enums;
 using Keys;
 using Managers;
 using UnityEngine;
@@ -18,7 +19,9 @@ namespace Controllers
         [Header("Data")] private PlayerMovementData _movementData;
         private bool _isReadyToMove, _isReadyToPlay, _isOnDronePool = false;
         private float _inputValue;
-        private Vector2 _clampValues; 
+        private float _inputValueZ;
+        private Vector2 _clampValues;
+        private InputStates _currentInputState = InputStates.OldInputSystem;
         #endregion
         #endregion
 
@@ -46,10 +49,21 @@ namespace Controllers
             _isOnDronePool = false;
         }
 
-        public void UpdateInputValue(HorizontalInputParams inputParam)
+        public void UpdateRunnerInputValue(RunnerInputParams inputParam)
         {
             _inputValue = inputParam.XValue;
             _clampValues = inputParam.ClampValues;
+        }
+
+        public void UpdateIdleInputValue(IdleInputParams inputParams)
+        {
+            _inputValue = inputParams.ValueX;
+            _inputValueZ = inputParams.ValueZ;
+        }
+
+        public void GetMovementState()
+        {
+            _currentInputState = InputStates.NewInputSystem;
         }
 
         public void IsReadyToPlay(bool state)
@@ -76,20 +90,34 @@ namespace Controllers
                 }
                 else if (_isReadyToMove)
                 {
-                    Move();
-                    
+                    if (_currentInputState == InputStates.OldInputSystem)
+                    {
+                        Debug.Log("Runner");
+                        RunnerMove();
+                    }else if (_currentInputState == InputStates.NewInputSystem)
+                    {
+                        IdleMove();
+                        Debug.Log("IDLE  MOVING");
+                    }
                 }
                 else
                 {
-                    StopSideways();
+                    if (_currentInputState == InputStates.OldInputSystem)
+                    {
+                        Debug.Log("Runner 2");
+                        StopSideways();
+                    }else if (_currentInputState == InputStates.NewInputSystem)
+                    {
+                        Debug.Log("IDLE 2");
+                        Stop();
+                    }
                 }
-                
             }
             else
                 Stop();
         }
 
-        private void Move()
+        private void RunnerMove()
         {
             var velocity = rigidbody.velocity;
             velocity = new Vector3(_inputValue * _movementData.SidewaysSpeed, velocity.y,
@@ -103,6 +131,19 @@ namespace Controllers
                 (position = rigidbody.position).y,
                 position.z);
             rigidbody.position = position;
+        }
+
+        private void IdleMove()
+        {
+            var velocity = rigidbody.velocity;
+            velocity = new Vector3(_inputValue * _movementData.SidewaysSpeed, velocity.y,
+                _inputValueZ*_movementData.ForwardSpeed);
+            rigidbody.velocity = velocity;
+
+            var position1 = rigidbody.position;
+            var position = new Vector3(position1.x, position1.y, position1.z);
+            position1 = position;
+            rigidbody.position = position1;
         }
 
         private void StopSideways()

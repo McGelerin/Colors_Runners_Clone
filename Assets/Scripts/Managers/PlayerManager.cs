@@ -56,9 +56,11 @@ namespace Managers
         {
             InputSignals.Instance.onInputTaken += OnActivateMovement;
             InputSignals.Instance.onInputReleased += OnDeactiveMovement;
-            InputSignals.Instance.onInputDragged += OnGetInputValues;
+            InputSignals.Instance.onRunnerInputDragged += OnGetRunnerInputValues;
+            InputSignals.Instance.onJoystickDragged += OnGetIdleInputValues;
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onReset += OnReset;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             StackSignals.Instance.onBoostArea += OnJump;
@@ -72,9 +74,11 @@ namespace Managers
         {
             InputSignals.Instance.onInputTaken -= OnActivateMovement;
             InputSignals.Instance.onInputReleased -= OnDeactiveMovement;
-            InputSignals.Instance.onInputDragged -= OnGetInputValues;
+            InputSignals.Instance.onRunnerInputDragged -= OnGetRunnerInputValues;
+            InputSignals.Instance.onJoystickDragged -= OnGetIdleInputValues;
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onReset -= OnReset;
+            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             StackSignals.Instance.onBoostArea -= OnJump;
@@ -107,10 +111,20 @@ namespace Managers
             movementController.DeactiveMovement();
         }
 
-        private void OnGetInputValues(HorizontalInputParams inputParams)
+        private void OnGetRunnerInputValues(RunnerInputParams inputParams)
         {
-            movementController.UpdateInputValue(inputParams);
-           
+            movementController.UpdateRunnerInputValue(inputParams);
+
+        }
+        
+        private void OnGetIdleInputValues(IdleInputParams inputParams)
+        {
+            movementController.UpdateIdleInputValue(inputParams);
+        }
+
+        private void OnChangeGameState()
+        {
+            movementController.GetMovementState();
         }
 
         #endregion

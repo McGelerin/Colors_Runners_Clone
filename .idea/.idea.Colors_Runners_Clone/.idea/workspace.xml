@@ -1,7 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac3d5dcf-8264-4f67-8e02-36e803444cff" name="Changes" comment="" />
+    <list default="true" id="ac3d5dcf-8264-4f67-8e02-36e803444cff" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Crouched Walking (1).fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Crouched Walking (1).fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Orc Idle (1).fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Orc Idle (1).fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Running (1).fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Running (1).fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Standing Clap (1).fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Standing Clap (1).fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Strong Gesture (1).fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Animations/Strong Gesture (1).fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Materials/Bg_Floor.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Materials/Bg_Floor.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Materials/Palette256.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Materials/Palette256.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/Bullet00.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/Bullet00.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/CannonG_Barrel02.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/CannonG_Barrel02.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/CannonG_Guard00.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/CannonG_Guard00.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/CannonG_Plate00.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/CannonG_Plate00.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/MortarG_Barrel02.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/MortarG_Barrel02.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/MortarG_Plate00.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/MortarG_Plate00.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/MortarG_Stand00.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Meshs/MortarG_Stand00.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Prefabs/Bullet00.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Prefabs/Bullet00.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Prefabs/FattyCannonG02.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Prefabs/FattyCannonG02.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Prefabs/FattyMortarG02.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Prefabs/FattyMortarG02.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Readme.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_Free.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_Free.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_Free.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_Free/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_Free/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_Free/ReflectionProbe-0.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_Free/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_FreeSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Scenes/FattyPolyMortar_FreeSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Textures/Palette256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FattyPolyTurretFree/Textures/Palette256.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Documentaion.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Documentaion.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Example Scene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Example Scene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Ground.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Ground.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/JoystickPlayerExample.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/JoystickPlayerExample.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/JoystickSetterExample.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/JoystickSetterExample.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Player.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Examples/Player.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Dynamic Joystick.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Dynamic Joystick.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Fixed Joystick.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Fixed Joystick.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Floating Joystick.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Floating Joystick.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Variable Joystick.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Prefabs/Variable Joystick.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Base.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Base/Joystick.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Base/Joystick.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/DynamicJoystickEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/DynamicJoystickEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/FloatingJoystickEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/FloatingJoystickEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/JoystickEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/JoystickEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/VariableJoystickEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Editor/VariableJoystickEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Outline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Outline.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Outline_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Outline_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Plain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Plain.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Plain_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Plain_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Ridged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Ridged.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Ridged_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/All Axis Backgrounds/AllAxis_Ridged_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Outline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Outline.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Outline_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Outline_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Plain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Plain.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Plain_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Plain_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Ridged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Ridged.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Ridged_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Handles/Handle_Ridged_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Outline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Outline.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Outline_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Outline_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Plain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Plain.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Plain_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Plain_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Ridged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Ridged.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Ridged_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Horizontal Backgrounds/Horizontal_Ridged_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Outline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Outline.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Outline_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Outline_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Plain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Plain.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Plain_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Plain_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Ridged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Ridged.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Ridged_Arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Joystick Pack/Sprites/Vertical Backgrounds/Vertical_Ridged_Arrows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Floating Joystick.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Floating Joystick.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TkWork.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TkWork.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enums/InputStates.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enums/InputStates.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Keys/IdleInputParams.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Keys/IdleInputParams.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Colors_Runners_Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Colors_Runners_Clone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Scenes/PlayerControllerTry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Scenes/PlayerControllerTry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Scenes/tkWorkNewInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Scenes/tkWorkNewInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Platform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Platform.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerPhysicsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerPhysicsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Keys/HorizontalInputParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Keys/RunnerHorInputParams.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Keys/HorizontalInputParams.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Keys/RunnerHorInputParams.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Signals/CoreGameSignals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Signals/CoreGameSignals.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Signals/InputSignals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Signals/InputSignals.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -103,7 +103,8 @@ namespace Managers
             _stackMoveController.InisializedController(StackData);
             ItemAddOnStackCommand = new ItemAddOnStackCommand(ref CollectableStack, transform, StackData);
             _onReBuildListCommand = new OnReBuildListCommand(ref CollectableStack, StackData.CollectableOffsetInStack);
-            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack,ref levelHolder, this,ref _onReBuildListCommand);
+            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack,ref levelHolder, 
+                this,ref _onReBuildListCommand);
             _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, StackData);
             StackValueUpdateCommand = new StackValueUpdateCommand(ref CollectableStack);
             _initialzeStackCommand = new InitialzeStackCommand(collectable, this);
@@ -160,7 +161,8 @@ namespace Managers
                     _playerGameObject.transform.position.y, _playerGameObject.transform.position.z);
                 if (gameObject.transform.childCount > 0)
                 {
-                    _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, direction.z, CollectableStack, true);
+                    _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, direction.z, CollectableStack,
+                        true);
                 }
             }
         }

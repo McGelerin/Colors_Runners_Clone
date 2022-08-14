@@ -18,8 +18,7 @@ namespace Controllers
         {
             if (other.CompareTag("Collectable") && CompareTag("Collected"))
             {
-                other.tag = "Collected";
-                manager.InteractionWithCollectable(other.transform.parent.gameObject);
+                manager.InteractionWithCollectable(other.transform.gameObject);
             }
 
 

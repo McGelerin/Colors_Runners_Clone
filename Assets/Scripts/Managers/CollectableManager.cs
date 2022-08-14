@@ -37,13 +37,13 @@ public class CollectableManager : MonoBehaviour
     [SerializeField]
     private ColorEnum _colorEnum;
     public ColorEnum  _poolColorEnum;
+    private ColorEnum _otherColorEnum;
 
 
     #endregion
 
     #endregion
-
-
+    
     private void Start()
     {
         ColorEnum = _colorEnum;
@@ -71,7 +71,6 @@ public class CollectableManager : MonoBehaviour
         }
     }
     
-
     private void OnEnable()
     {
         SubscribeEvents();
@@ -103,7 +102,18 @@ public class CollectableManager : MonoBehaviour
 
     public void InteractionWithCollectable(GameObject collectableGameObject)
     {
-        StackSignals.Instance.onInteractionCollectable?.Invoke(collectableGameObject);
+        collectableGameObject.tag = "Collected";
+        _otherColorEnum = collectableGameObject.transform.parent.gameObject.GetComponent<CollectableManager>()
+            .ColorEnum;
+        if (ColorEnum == _otherColorEnum)
+        {
+            StackSignals.Instance.onInteractionCollectable?.Invoke(collectableGameObject.transform.parent.gameObject);
+        }
+        else
+        {
+            collectableGameObject.transform.parent.gameObject.SetActive(false);
+            StackSignals.Instance.onInteractionObstacle?.Invoke(gameObject);
+        }
     }
 
     public void InteractionWithObstacle(GameObject collectableGameObject)
@@ -123,7 +133,8 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected") && collectable.Equals(gameObject))
         {
-            transform.DOMove(new Vector3(colorTransform.position.x, transform.position.y, transform.position.z + Random.Range(5f, 15f)), 1f);
+            transform.DOMove(new Vector3(colorTransform.position.x, transform.position.y,
+                transform.position.z + Random.Range(5f, 15f)), 1f);
         }
     }
 

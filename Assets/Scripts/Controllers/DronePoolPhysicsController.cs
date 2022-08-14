@@ -13,8 +13,6 @@ public class DronePoolPhysicsController: MonoBehaviour
         {
             //StopAllCoroutines();
             playerTransform = other.transform;
-           
-            
         }
     }
 

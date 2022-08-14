@@ -175,7 +175,7 @@ namespace Controllers
         
         public void Jump(float distance,float duration)
         {
-            rigidbody.DOMoveY(distance, duration);
+            transform.DOMoveY(distance, duration).SetEase(Ease.InOutCubic).SetAutoKill();
         }
         
         public void OnReset()

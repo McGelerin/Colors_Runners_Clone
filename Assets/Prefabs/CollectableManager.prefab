@@ -155,7 +155,7 @@ MonoBehaviour:
   CurrentMaterial: {fileID: 2100000, guid: db7989e36b87a024ea6896761b91c6ef, type: 2}
   MeshObject: {fileID: 4456542413928817619}
   meshRenderer: {fileID: 4342400711004916944}
-  _colorEnum: 1
+  _colorEnum: 0
   _poolColor: 
 --- !u!1 &7732362072494996183
 GameObject:

@@ -51,8 +51,8 @@ namespace Controllers
                 pos.z = _collectableStack[i - 1].transform.localPosition.z - _stackData.CollectableOffsetInStack;
                 float directx = Mathf.Lerp(_collectableStack[i].transform.localPosition.x, pos.x, _stackData.LerpSpeed);
                 float directy = Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed/2);
-                //float directz = Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, 0);
-                _collectableStack[i].transform.localPosition = new Vector3(directx, directy, pos.z);
+                float directz = Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, 0.5f);
+                _collectableStack[i].transform.localPosition = new Vector3(directx, directy, /*pos.z*/directz);
             }
         }
         public void StackItemsLerpMoveOnDronePool(List<GameObject> _collectableStack)

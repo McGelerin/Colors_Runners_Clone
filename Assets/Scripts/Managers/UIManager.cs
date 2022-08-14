@@ -47,6 +47,7 @@ namespace Managers
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             ScoreSignals.Instance.onSendMoney += SetMoneyText;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
         }
 
         private void UnsubscribeEvents()
@@ -58,6 +59,7 @@ namespace Managers
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             ScoreSignals.Instance.onSendMoney -= SetMoneyText;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
         }
 
         private void OnDisable()
@@ -107,6 +109,12 @@ namespace Managers
         }
 
         private void OnLevelSuccessful()
+        {
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
+        }
+
+        private void OnChangeGameState()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);

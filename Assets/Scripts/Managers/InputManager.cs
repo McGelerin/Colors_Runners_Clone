@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Data.UnityObject;
 using Data.ValueObject;
+using Enums;
 using Keys;
 using Signals;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace Managers
         #region Serialized Variables
 
         [SerializeField] private bool isReadyForTouch, isFirstTimeTouchTaken;
+        [SerializeField] private FloatingJoystick floatingJoystick;
 
         #endregion
 
@@ -32,6 +34,8 @@ namespace Managers
         private float _currentVelocity; //ref type
         private Vector2? _mousePosition; //ref type
         private Vector3 _moveVector; //ref type
+
+        private InputStates _inputStates = InputStates.OldInputSystem;
 
         #endregion
 
@@ -59,6 +63,7 @@ namespace Managers
             InputSignals.Instance.onDisableInput += OnDisableInput;
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onReset += OnReset;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
         }
 
         private void UnsubscribeEvents()
@@ -67,6 +72,8 @@ namespace Managers
             InputSignals.Instance.onDisableInput -= OnDisableInput;
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onReset -= OnReset;
+            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
+
         }
 
         private void OnDisable()
@@ -79,7 +86,7 @@ namespace Managers
         private void Update()
         {
             if (!isReadyForTouch) return;
-
+            
             if (Input.GetMouseButtonUp(0) && !IsPointerOverUIElement())
             {
                 _isTouching = false;
@@ -96,36 +103,51 @@ namespace Managers
                     isFirstTimeTouchTaken = true;
                     InputSignals.Instance.onFirstTimeTouchTaken?.Invoke();
                 }
+                
 
                 _mousePosition = Input.mousePosition;
             }
 
-            if (Input.GetMouseButton(0) && !IsPointerOverUIElement())
+            if (_inputStates == InputStates.OldInputSystem)
             {
-                if (_isTouching)
+                if (Input.GetMouseButton(0) && !IsPointerOverUIElement())
                 {
-                    if (_mousePosition != null)
+                    if (_isTouching)
                     {
-                        Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
-
-
-                        if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
-                            _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
-                        else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)
-                            _moveVector.x = -Data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
-                        else
-                            _moveVector.x = Mathf.SmoothDamp(_moveVector.x, 0f, ref _currentVelocity,
-                                Data.ClampSpeed);
-
-                        _mousePosition = Input.mousePosition;
-
-                        InputSignals.Instance.onInputDragged?.Invoke(new HorizontalInputParams()
-                        {
-                            XValue = _moveVector.x,
-                            ClampValues = new Vector2(Data.ClampSides.x, Data.ClampSides.y)
-                        });
+                        if (_mousePosition != null) 
+                        { 
+                             Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
+                             
+                             
+                             if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
+                                 _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
+                             else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)
+                                 _moveVector.x = -Data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
+                             else
+                                 _moveVector.x = Mathf.SmoothDamp(_moveVector.x, 0f, ref _currentVelocity,
+                                     Data.ClampSpeed);
+                             
+                             _mousePosition = Input.mousePosition;
+                             
+                             InputSignals.Instance.onRunnerInputDragged?.Invoke(new RunnerInputParams()
+                                 {
+                                     XValue = _moveVector.x,
+                                     ClampValues = new Vector2(Data.ClampSides.x, Data.ClampSides.y)
+                                 });
+                        }
                     }
                 }
+            }
+            else if (_inputStates == InputStates.NewInputSystem)
+            {
+                _moveVector.x = floatingJoystick.Horizontal;
+                _moveVector.z = floatingJoystick.Vertical;
+                        
+                InputSignals.Instance.onJoystickDragged?.Invoke(new IdleInputParams()
+                {
+                    ValueX = _moveVector.x,
+                    ValueZ = _moveVector.z
+                });
             }
         }
 
@@ -142,6 +164,11 @@ namespace Managers
         private void OnPlay()
         {
             isReadyForTouch = true;
+        }
+
+        private void OnChangeGameState()
+        {
+            _inputStates = InputStates.NewInputSystem;
         }
 
         private bool IsPointerOverUIElement()

@@ -23,6 +23,12 @@ namespace Controllers
                 DronePoolSignals.Instance.onPlayerCollideWithDronePool?.Invoke(other.transform);
                 StartCoroutine(DroneArrives());
             }
+
+            if (other.CompareTag("Finish"))
+            {
+                CoreGameSignals.Instance.onChangeGameState?.Invoke();
+                Debug.Log("WORKED FIZIK");
+            }
         }
 
 

@@ -18,7 +18,7 @@
                 {
                     "name": "",
                     "id": "1201059c-cea7-4f4b-965b-ee1b8f5d3441",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<AndroidJoystick>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

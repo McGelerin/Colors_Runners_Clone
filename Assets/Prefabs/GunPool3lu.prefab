@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReady: 1
+  TurrentController: {fileID: 3838598447544234491}
 --- !u!1 &3838598447052178990
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +553,8 @@ MonoBehaviour:
   rotationSpeed: 1
   taret1: {fileID: 4552756278800056770}
   taret2: {fileID: 6184558341759625825}
+  taret1uc: {fileID: 0}
+  taret2uc: {fileID: 0}
 --- !u!1 &3838598447857720744
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using Signals;
 
 namespace Controllers
 {
-    public class TaretController : MonoBehaviour
+    public class TurretController: MonoBehaviour
     {
         #region vars
         #region publicVars

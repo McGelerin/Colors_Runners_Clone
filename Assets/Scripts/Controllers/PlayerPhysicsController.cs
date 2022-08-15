@@ -17,6 +17,7 @@ namespace Controllers
 
         #endregion
         #region private vars
+        private Transform _poolTransform;
         #endregion
         #endregion
 
@@ -37,6 +38,7 @@ namespace Controllers
 
             if (other.CompareTag("DronePoolReset"))
             {
+                _poolTransform = other.transform.parent;
                 DronePoolSignals.Instance.onDronePoolExit?.Invoke();
             }
         }
@@ -46,7 +48,7 @@ namespace Controllers
         private IEnumerator DroneArrives()
         {
             yield return new WaitForSeconds(2f);
-            DronePoolSignals.Instance.onDroneArrives?.Invoke();
+            DronePoolSignals.Instance.onDroneArrives?.Invoke(_poolTransform);
             yield return new WaitForSeconds(2f);
             DronePoolSignals.Instance.onDroneGone?.Invoke();
         }

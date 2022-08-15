@@ -96,9 +96,13 @@ public class DronePoolManager : MonoBehaviour
         return ColorEnum.Kirmizi;
     }
 
-    private void OnDroneArrives()
+    private void OnDroneArrives(Transform _poolTransform)
     {
-        Drone.SetActive(true);
+        if (transform.Equals(_poolTransform))
+        {
+            Drone.SetActive(true);
+
+        }
     }
     private void OnDroneGone()
     {

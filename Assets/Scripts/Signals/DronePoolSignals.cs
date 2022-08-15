@@ -10,7 +10,7 @@ namespace Signals
     {
         public Func<Transform> onGetTruePoolTransform;
         public Func<Transform, ColorEnum> onGetColor;
-        public UnityAction onDroneArrives;
+        public UnityAction<Transform> onDroneArrives;
         public UnityAction onDroneGone;
         public UnityAction<Transform> onPlayerCollideWithDronePool;
         public UnityAction<GameObject, Transform> onCollectableCollideWithDronePool;

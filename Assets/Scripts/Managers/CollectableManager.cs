@@ -146,7 +146,7 @@ public class CollectableManager : MonoBehaviour
         }
     }
 
-    public void OnDroneArrives()
+    public void OnDroneArrives(Transform _poolTransform)
     {
         if (CompareTag("Collected"))
         {

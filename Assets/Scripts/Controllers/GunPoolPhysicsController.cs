@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Signals;
+using Controllers;
 
 public class GunPoolPhysicsController: MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GunPoolPhysicsController: MonoBehaviour
     private float reloadTime = 0.5f;
 
     private Transform playerTransform;
+    [SerializeField] TurretController TurrentController;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && isReady)
@@ -42,7 +44,7 @@ public class GunPoolPhysicsController: MonoBehaviour
     IEnumerator Reload()
     {
         GunPoolSignals.Instance.onWrongGunPool?.Invoke(playerTransform);
-
+        TurrentController.RotateToPlayer(playerTransform);
         isReady = false;
         yield return new WaitForSeconds(reloadTime);
         isReady = true;

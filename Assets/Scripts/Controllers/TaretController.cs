@@ -18,6 +18,10 @@ namespace Controllers
 
         [SerializeField] Transform taret1;
         [SerializeField] Transform taret2;
+
+        [SerializeField] ParticleSystem taret1uc, taret2uc;
+
+
         #endregion
         #region privateVars
         #endregion
@@ -32,6 +36,8 @@ namespace Controllers
         {
             taret1.DOLookAt(player.position, rotationSpeed);
             taret2.DOLookAt(player.position, rotationSpeed);
+            taret1uc.Play();
+            taret2uc.Play();
         }
     
 

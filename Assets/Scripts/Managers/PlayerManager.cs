@@ -166,7 +166,7 @@ namespace Managers
         {
             //playerPhysicsController.Jump(Data.MovementData.JumpForce);
             //rigidbody.AddForce(0,jumpForce,0,ForceMode.Impulse);
-            movementController.Jump(Data.MovementData.JumpDistance,Data.MovementData.JumpDuration);
+            movementController.Jump(Data.MovementData.JumpDistance, Data.MovementData.JumpDuration);
         }
         
         //private void OnSetScoreText(int Values)

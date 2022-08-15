@@ -35,10 +35,9 @@ namespace Controllers
                 Debug.Log("WORKED FIZIK");
             }
 
-            if (other.CompareTag("DronePoolExit"))
+            if (other.CompareTag("DronePoolReset"))
             {
                 DronePoolSignals.Instance.onDronePoolExit?.Invoke();
-
             }
         }
 

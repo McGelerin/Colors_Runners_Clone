@@ -224,11 +224,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &33039282 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 656801314598747535, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-  m_PrefabInstance: {fileID: 1657510420}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &108423382
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,11 +405,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!198 &453504914 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6270059167896321725, guid: e61770d742797104babaa920b47c3e07, type: 3}
-  m_PrefabInstance: {fileID: 1326867898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &570376759
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,11 +758,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!198 &766590059 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4467268646798382366, guid: e61770d742797104babaa920b47c3e07, type: 3}
-  m_PrefabInstance: {fileID: 1326867898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &841001918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -834,11 +819,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17295db9799d88e4bb2f38f15eb6b23a, type: 3}
---- !u!198 &961539747 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7230591459569739569, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-  m_PrefabInstance: {fileID: 1657510420}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &976198634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1291,10 +1271,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1929432259, guid: e61770d742797104babaa920b47c3e07, type: 3}
-      propertyPath: colorEnum
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3838598447052178990, guid: e61770d742797104babaa920b47c3e07, type: 3}
       propertyPath: m_Name
       value: GunPool3lu
@@ -1343,18 +1319,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3838598447544234491, guid: e61770d742797104babaa920b47c3e07, type: 3}
-      propertyPath: taret1uc
-      value: 
-      objectReference: {fileID: 453504914}
-    - target: {fileID: 3838598447544234491, guid: e61770d742797104babaa920b47c3e07, type: 3}
-      propertyPath: taret2uc
-      value: 
-      objectReference: {fileID: 766590059}
-    - target: {fileID: 3838598447544234491, guid: e61770d742797104babaa920b47c3e07, type: 3}
-      propertyPath: particuleEffect
-      value: 
-      objectReference: {fileID: 4419212931384789446, guid: 48c40a44983f9584db24f691d9ec1e4b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e61770d742797104babaa920b47c3e07, type: 3}
 --- !u!1 &1462507135
@@ -1695,46 +1659,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 623902688015506228, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: colorEnum
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 623902688015506228, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: areaColorEnum.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7230591459569739569, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: SizeModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7230591459569739569, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7230591459569739569, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.9118239
-      objectReference: {fileID: 0}
-    - target: {fileID: 7230591459569739569, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388516856988181371, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388516856988181371, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388516856988181371, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7394102486012706345, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9053578928609284856, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
       propertyPath: m_Name
       value: GunPool2li
@@ -1783,18 +1707,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9053578928915379651, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: taret1uc
-      value: 
-      objectReference: {fileID: 961539747}
-    - target: {fileID: 9053578928915379651, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: taret2uc
-      value: 
-      objectReference: {fileID: 33039282}
-    - target: {fileID: 9053578928915379651, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
-      propertyPath: particuleEffect
-      value: 
-      objectReference: {fileID: 4419212931384789446, guid: 48c40a44983f9584db24f691d9ec1e4b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae7167297c9a1f24f9d2b4ef84666925, type: 3}
 --- !u!1 &1815903381

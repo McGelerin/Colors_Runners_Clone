@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678457143021ce94cb2a76e9f5d7dfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorEnum: 1
+  colorEnum: 3
   areaColorEnum: 010000000200000003000000
   ColorBlocks:
   - {fileID: 3838598446900653394}
@@ -553,8 +553,8 @@ MonoBehaviour:
   rotationSpeed: 1
   taret1: {fileID: 4552756278800056770}
   taret2: {fileID: 6184558341759625825}
-  taret1uc: {fileID: 0}
-  taret2uc: {fileID: 0}
+  taret1uc: {fileID: 6270059167896321725}
+  taret2uc: {fileID: 4467268646798382366}
 --- !u!1 &3838598447857720744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,12 +1273,33 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23364559723917138, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8499701361930146817, guid: 743c67794cd6b2248b252b223cb631e5, type: 3}
+    - target: {fileID: 23884825674443308, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8499701361930146817, guid: f7256f4dd1afbc248b5eea21313a96f9, type: 3}
+    - target: {fileID: 33575077343818718, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6065176182892356284, guid: f7256f4dd1afbc248b5eea21313a96f9, type: 3}
+    - target: {fileID: 33878293007528876, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7430896017553368317, guid: 743c67794cd6b2248b252b223cb631e5, type: 3}
     - target: {fileID: 199449255769242030, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+--- !u!198 &4467268646798382366 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198190432169522098, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+  m_PrefabInstance: {fileID: 4557343822508467884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4552756278800056770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
@@ -1367,6 +1388,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23364559723917138, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8499701361930146817, guid: 743c67794cd6b2248b252b223cb631e5, type: 3}
+    - target: {fileID: 23884825674443308, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8499701361930146817, guid: f7256f4dd1afbc248b5eea21313a96f9, type: 3}
+    - target: {fileID: 33575077343818718, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6065176182892356284, guid: f7256f4dd1afbc248b5eea21313a96f9, type: 3}
+    - target: {fileID: 33878293007528876, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7430896017553368317, guid: 743c67794cd6b2248b252b223cb631e5, type: 3}
     - target: {fileID: 199449255769242030, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -1376,5 +1413,10 @@ PrefabInstance:
 --- !u!4 &6184558341759625825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+  m_PrefabInstance: {fileID: 6179964198839930127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6270059167896321725 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198190432169522098, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
   m_PrefabInstance: {fileID: 6179964198839930127}
   m_PrefabAsset: {fileID: 0}

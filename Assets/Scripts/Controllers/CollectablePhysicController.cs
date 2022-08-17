@@ -20,12 +20,12 @@ namespace Controllers
             {
                 manager.InteractionWithCollectable(other.transform.gameObject);
             }
-
-
+            
             if (other.CompareTag("Obstacle")&& CompareTag("Collected"))
             {
                 manager.InteractionWithObstacle(transform.parent.gameObject);
-                Destroy(other.transform.parent.gameObject);
+                //Destroy(other.transform.parent.gameObject);
+                other.gameObject.SetActive(false);
             }
 
             if (other.CompareTag("BoostArea") && CompareTag("Collected"))
@@ -34,16 +34,19 @@ namespace Controllers
                 //other.gameObject.SetActive(false);
                 other.gameObject.GetComponent<MeshCollider>().enabled = false;
             }
-
-          
-
+            
             if (_isFirstTime && other.CompareTag("DronePoolColor"))
             {
                 _isFirstTime = false;
                 DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject, other.transform);
 
-                manager.SetPoolColor(DronePoolSignals.Instance.onGetColor(other.transform));//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
+                manager.SetPoolColor(other.transform.parent.parent.GetComponent<DronePoolManager>().OnGetColor(other.transform)/*DronePoolSignals.Instance.onGetColor(other.transform)*/);//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
             }
+        }
+
+        public  void CanEnterDronePool()
+        {
+            _isFirstTime = true;
         }
     }
 }

@@ -20,7 +20,7 @@ public class GunPoolManager : MonoBehaviour
     [SerializeField] private List<MeshRenderer> ColorBlocks;
     [SerializeField] private List<Collider> Colliders;
 
-    [SerializeField] private TaretController TaretController;
+    [SerializeField] private TurretController TaretController;
 
     #endregion
     #region privateVars
@@ -32,19 +32,19 @@ public class GunPoolManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        GunPoolSignals.Instance.onWrongGunPool += TaretController.RotateToPlayer;
-        GunPoolSignals.Instance.onWrongGunPoolExit += TaretController.OnTargetDisappear;
+        //GunPoolSignals.Instance.onWrongGunPool += TaretController.RotateToPlayer;
+        //GunPoolSignals.Instance.onWrongGunPoolExit += TaretController.OnTargetDisappear;
 
     }
     private void UnSubscribeEvents()
     {
-        GunPoolSignals.Instance.onWrongGunPool -= TaretController.RotateToPlayer;
-        GunPoolSignals.Instance.onWrongGunPoolExit -= TaretController.OnTargetDisappear;
+        //GunPoolSignals.Instance.onWrongGunPool -= TaretController.RotateToPlayer;
+        //GunPoolSignals.Instance.onWrongGunPoolExit -= TaretController.OnTargetDisappear;
 
     }
     private void Awake()
     {
-        _currentMaterial = GetComponent<MeshRenderer>().material;
+        _currentMaterial = transform.GetChild(0).GetComponent<MeshRenderer>().material;
         GetColorData();
         SetCollidersActiveness();
 

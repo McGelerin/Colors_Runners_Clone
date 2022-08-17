@@ -8,15 +8,19 @@ namespace Data.ValueObject
     public class StackData
     {
         public float CollectableOffsetInStack = 1;
-        [Range(0.1f, 0.8f)] 
-        public float LerpSpeed = 0.25f;
+
+        [Header("Lerp Speed")]
+        public float LerpSpeed_x = 0.25f;
+        public float LerpSpeed_y = 0.25f;
+        public float LerpSpeed_z = 0.25f;
+        
         [Range(0, 0.2f)] 
         public float ShackAnimDuraction = 0.12f;
         [Range(1f,3f)] 
         public float ShackScaleValue = 1f;
 
         public int InitialStackItem = 5;
-
+        
         public float DistanceFormPlayer = -1f;
     }
 }

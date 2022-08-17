@@ -33,7 +33,6 @@ public class DronePoolManager : MonoBehaviour
         DronePoolSignals.Instance.onDroneGone += OnDroneGone;
         DronePoolSignals.Instance.onGetTruePoolTransform += OnGetTruePoolTransform;
         DronePoolSignals.Instance.onGetColor += OnGetColor;
-
     }
     private void UnSubscribeEvents()
     {
@@ -41,13 +40,11 @@ public class DronePoolManager : MonoBehaviour
         DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
         DronePoolSignals.Instance.onGetTruePoolTransform -= OnGetTruePoolTransform;
         DronePoolSignals.Instance.onGetColor -= OnGetColor;
-
     }
     private void Awake()
     {
-        _currentMaterial = GetComponent<MeshRenderer>().material;
+        _currentMaterial = transform.GetChild(0).GetComponent<MeshRenderer>().material;
         GetColorData();
-
     }
 
     private void OnEnable()
@@ -70,8 +67,7 @@ public class DronePoolManager : MonoBehaviour
             ColorBlocks[i].material.color = _colorData.color[(int)areaColorEnum[i]];
         }
     }
-
-
+    
     public Transform OnGetTruePoolTransform()
     {
         for (int i = 0; i < areaColorEnum.Count; i++)
@@ -96,10 +92,14 @@ public class DronePoolManager : MonoBehaviour
         return ColorEnum.Kirmizi;
     }
 
-    private void OnDroneArrives()
+    private void OnDroneArrives(Transform _poolTransform)
     {
-        Drone.SetActive(true);
+        if (transform.Equals(_poolTransform))
+        {
+            Drone.SetActive(true);
+        }
     }
+    
     private void OnDroneGone()
     {
         Drone.SetActive(false);

@@ -27,7 +27,10 @@ namespace Managers
         //[SerializeField] private PlayerPhysicsController playerPhysicsController;
         [SerializeField] private PlayerAnimationController animationController;
         //[SerializeField] private TextMeshPro scoreText;
-        
+
+        #endregion
+        #region private vars
+        private Transform _dronePoolTransform;
         #endregion
         #endregion
 
@@ -165,7 +168,6 @@ namespace Managers
             //playerPhysicsController.Jump(Data.MovementData.JumpForce);
             //rigidbody.AddForce(0,jumpForce,0,ForceMode.Impulse);
             movementController.Jump(Data.MovementData.JumpDistance,Data.MovementData.JumpDuration);
-            
         }
         
         //private void OnSetScoreText(int Values)
@@ -184,9 +186,17 @@ namespace Managers
 
         private void OnDroneGone()
         {
+            //Transform target = DronePoolSignals.Instance.onGetTruePoolTransform(); ->Kullan�labilir ancak e�er sahnede birden fazla drone k�sm� varsa d�nen de�erlerde sorun olabilir.
+            transform.position = new Vector3(_dronePoolTransform.position.x, transform.position.y, transform.position.z + 15);
+        }
+
+        public void GetDronePoolTransform(Transform dronePoolTransform)
+        {
+            _dronePoolTransform = dronePoolTransform;
             Transform target = DronePoolSignals.Instance.onGetTruePoolTransform();
             transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z + 15);
             animationController.SetAnimState(CollectableAnimStates.Runner);
+
         }
     }
 

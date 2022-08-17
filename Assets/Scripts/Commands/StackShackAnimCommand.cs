@@ -24,14 +24,16 @@ namespace Commands
             _stackData = stackdata;
         }
         
-        public IEnumerator StackItemsShackAnim()
+        public IEnumerator Execute()
         {
             for (int i = _collectableStack.Count - 1; i >=0 ; i--)
             {
                 int index = (_collectableStack.Count - 1) - i;
                 
-                _collectableStack[index].transform.DOScale(new Vector3(_stackData.ShackScaleValue, _stackData.ShackScaleValue, _stackData.ShackScaleValue), _stackData.ShackAnimDuraction).SetEase(Ease.Flash);
-                _collectableStack[index].transform.DOScale(Vector3.one, _stackData.ShackAnimDuraction).SetDelay(_stackData.ShackAnimDuraction).SetEase(Ease.Flash);
+                _collectableStack[index].transform.DOScale(new Vector3(_stackData.ShackScaleValue, 
+                    _stackData.ShackScaleValue, _stackData.ShackScaleValue), _stackData.ShackAnimDuraction).SetEase(Ease.Flash);
+                _collectableStack[index].transform.DOScale(Vector3.one, _stackData.ShackAnimDuraction)
+                    .SetDelay(_stackData.ShackAnimDuraction).SetEase(Ease.Flash);
                 yield return new WaitForSeconds(_stackData.ShackAnimDuraction/3);
             }
         }

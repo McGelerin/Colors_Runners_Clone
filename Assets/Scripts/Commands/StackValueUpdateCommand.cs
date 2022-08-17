@@ -19,13 +19,14 @@ namespace Commands
             _collectableStack = collectableStack;
         }
 
-        public void StackValuesUpdate()
+        public void Execute()
         {
-            _totalListScore = 0;
-            foreach (var Items in _collectableStack)
-            {
-                _totalListScore += 1;
-            }
+            //_totalListScore = 0;
+            // foreach (var Items in _collectableStack)
+            // {
+            //     _totalListScore += 1;
+            // }
+            _totalListScore = _collectableStack.Count - 1;
             ScoreSignals.Instance.onSetScore?.Invoke(_totalListScore);
         }
     }

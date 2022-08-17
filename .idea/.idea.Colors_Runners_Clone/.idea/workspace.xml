@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="ac3d5dcf-8264-4f67-8e02-36e803444cff" name="Changes" comment="" />
+=======
     <list default="true" id="ac3d5dcf-8264-4f67-8e02-36e803444cff" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/CollectableAnimationController.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/CollectableAnimationController.cs.meta" afterDir="false" />
@@ -28,6 +31,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
+>>>>>>> origin/tkWorks
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,8 +111,12 @@
       <workItem from="1660315494301" duration="40000" />
       <workItem from="1660315592647" duration="8506000" />
       <workItem from="1660390330199" duration="12550000" />
+<<<<<<< HEAD
+      <workItem from="1660478348167" duration="2172000" />
+=======
       <workItem from="1660586167989" duration="27643000" />
       <workItem from="1660757322422" duration="5095000" />
+>>>>>>> origin/tkWorks
     </task>
     <servers />
   </component>

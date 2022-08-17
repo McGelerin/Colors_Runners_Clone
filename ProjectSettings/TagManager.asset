@@ -10,11 +10,8 @@ TagManager:
   - BoostArea
   - DronePool
   - DronePoolColor
-  - Kirmizi
-  - Yesil
-  - Mavi
-  - Turkovaz
-  - Sari
+  - DronePoolExit
+  - DronePoolReset
   layers:
   - Default
   - TransparentFX

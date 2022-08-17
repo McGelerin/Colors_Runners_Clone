@@ -35,8 +35,6 @@ namespace Managers
                 {
                    // Money = SaveSignals.Instance.onGetMoney(),
                     Level = SaveSignals.Instance.onGetLevelID(),
-                    //IncomeLevel = CoreGameSignals.Instance.onGetIncomeLevel(),
-                   // StackLevel = CoreGameSignals.Instance.onGetStackLevel() 
                 }
             );
         }
@@ -45,8 +43,6 @@ namespace Managers
         {
             if (saveDataParams.Level != null) ES3.Save("Level", saveDataParams.Level);
             //if (saveDataParams.Money != null) ES3.Save("Money", saveDataParams.Money);
-            //if (saveDataParams.IncomeLevel != null) ES3.Save("IncomeLevel", saveDataParams.IncomeLevel);
-            //if (saveDataParams.StackLevel != null) ES3.Save("StackLevel", saveDataParams.StackLevel);
         }
     }
 }

@@ -17,14 +17,14 @@ namespace Commands
         #endregion
         #endregion
         
-        public ItemAddOnStackCommand(ref List<GameObject> CollectableStack,Transform transform,StackData stackData)
+        public ItemAddOnStackCommand(ref List<GameObject> collectableStack,Transform transform,StackData stackData)
         {
-            _collectableStack = CollectableStack;
+            _collectableStack = collectableStack;
             _transform = transform;
             _stackData = stackData;
         }
         
-        public void AddStackList(GameObject _collectableGameObject)
+        public void Execute(GameObject _collectableGameObject)
         {
             if (_collectableStack.Count == 0)
             {

@@ -1,3 +1,4 @@
+using System;
 using Controllers;
 using Signals;
 using Enums;
@@ -6,6 +7,7 @@ using Data.ValueObject;
 using Sirenix.Serialization;
 using UnityEngine;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
 public class CollectableManager : MonoBehaviour
 {
@@ -30,6 +32,10 @@ public class CollectableManager : MonoBehaviour
     [SerializeField] private Transform MeshObject;
     [SerializeField] private Renderer meshRenderer;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private CollectableAnimationController animationController;
+    [SerializeField] private CollectablePhysicController physicController;
+
     #endregion
     #region Private Variables
     
@@ -43,7 +49,12 @@ public class CollectableManager : MonoBehaviour
     #endregion
 
     #endregion
-    
+
+    private void Awake()
+    {
+        animationController.SetAnimState(CollectableAnimStates.Idle);
+    }
+
     private void Start()
     {
         ColorEnum = _colorEnum;
@@ -82,6 +93,7 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
         StackSignals.Instance.ColorType += SetColorData;
+        CoreGameSignals.Instance.onPlay += OnPlay;
     }
 
     private void UnsubscribeEvents()
@@ -90,6 +102,7 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
         StackSignals.Instance.ColorType -= SetColorData;
+        CoreGameSignals.Instance.onPlay -= OnPlay;
 
     }
 
@@ -147,13 +160,17 @@ public class CollectableManager : MonoBehaviour
         else
         {
             DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
-            //Dead Anim
+            animationController.SetAnimState(CollectableAnimStates.Dying);
         }
     }
-
     public void SetPoolColor(ColorEnum poolColorEnum)
     {
         _poolColorEnum = poolColorEnum;
         Debug.Log("gelen enum:" + poolColorEnum);
+    }
+
+    private void OnPlay()
+    {
+        animationController.SetAnimState(CollectableAnimStates.Idle);
     }
 }

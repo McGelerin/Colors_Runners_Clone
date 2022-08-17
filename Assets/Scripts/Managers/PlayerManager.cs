@@ -25,7 +25,7 @@ namespace Managers
         [Space] [SerializeField] private PlayerMovementController movementController;
 
         //[SerializeField] private PlayerPhysicsController playerPhysicsController;
-        //[SerializeField] private PlayerAnimationController animationController;
+        [SerializeField] private PlayerAnimationController animationController;
         //[SerializeField] private TextMeshPro scoreText;
         
         #endregion
@@ -36,6 +36,7 @@ namespace Managers
             SetStackPosition();
             Data = GetPlayerData();
             SendPlayerDataToControllers();
+            animationController.SetAnimState(CollectableAnimStates.Idle);
         }
 
         private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Data/CD_Player").Data;
@@ -133,7 +134,7 @@ namespace Managers
         {
             SetStackPosition();
             movementController.IsReadyToPlay(true);
-            //animationController.Playanim(PlayerAnimationStates.Run);
+            animationController.SetAnimState(CollectableAnimStates.Runner);
         }
 
         private void OnLevelSuccessful()
@@ -164,6 +165,7 @@ namespace Managers
             //playerPhysicsController.Jump(Data.MovementData.JumpForce);
             //rigidbody.AddForce(0,jumpForce,0,ForceMode.Impulse);
             movementController.Jump(Data.MovementData.JumpDistance,Data.MovementData.JumpDuration);
+            
         }
         
         //private void OnSetScoreText(int Values)
@@ -184,6 +186,7 @@ namespace Managers
         {
             Transform target = DronePoolSignals.Instance.onGetTruePoolTransform();
             transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z + 15);
+            animationController.SetAnimState(CollectableAnimStates.Runner);
         }
     }
 

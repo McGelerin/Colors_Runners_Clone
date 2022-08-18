@@ -140,7 +140,6 @@ public class CollectableManager : MonoBehaviour
 
     private void OnPlay()
     {
-        Debug.Log("Onplay");
         animationController.SetAnimState(CollectableAnimStates.Runner);
     }
 }

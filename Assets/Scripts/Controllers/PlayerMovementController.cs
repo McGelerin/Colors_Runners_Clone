@@ -1,8 +1,10 @@
+using System;
 using Data.ValueObject;
 using DG.Tweening;
 using Enums;
 using Keys;
 using Managers;
+using Signals;
 using UnityEngine;
 
 namespace Controllers
@@ -10,19 +12,26 @@ namespace Controllers
     public class PlayerMovementController : MonoBehaviour
     {
         #region Self Variables
+        
         #region Serialized Variables
 
         //[SerializeField] private PlayerManager manager;
         [SerializeField] private Rigidbody rigidbody;
+        
         #endregion
+        
         #region Private Variables
+        
         [Header("Data")] private PlayerMovementData _movementData;
         private bool _isReadyToMove, _isReadyToPlay, _isOnDronePool = false;
         private float _inputValue;
+        private float _inputValueX;
         private float _inputValueZ;
         private Vector2 _clampValues;
-        private InputStates _currentInputState = InputStates.OldInputSystem;
+        private bool _isRunner = true;
+        
         #endregion
+        
         #endregion
 
         public void SetMovementData(PlayerMovementData dataMovementData)
@@ -57,13 +66,13 @@ namespace Controllers
 
         public void UpdateIdleInputValue(IdleInputParams inputParams)
         {
-            _inputValue = inputParams.ValueX;
+            _inputValueX = inputParams.ValueX;
             _inputValueZ = inputParams.ValueZ;
         }
 
-        public void GetMovementState()
+        public void ChangeGameState()
         {
-            _currentInputState = InputStates.NewInputSystem;
+            _isRunner = false;
         }
 
         public void IsReadyToPlay(bool state)
@@ -90,31 +99,39 @@ namespace Controllers
                 }
                 else if (_isReadyToMove)
                 {
-                    if (_currentInputState == InputStates.OldInputSystem)
-                    {
-                        Debug.Log("Runner");
-                        RunnerMove();
-                    }else if (_currentInputState == InputStates.NewInputSystem)
-                    {
-                        IdleMove();
-                        Debug.Log("IDLE  MOVING");
-                    }
+                    Move();
                 }
                 else
                 {
-                    if (_currentInputState == InputStates.OldInputSystem)
-                    {
-                        Debug.Log("Runner 2");
-                        StopSideways();
-                    }else if (_currentInputState == InputStates.NewInputSystem)
-                    {
-                        Debug.Log("IDLE 2");
-                        Stop();
-                    }
+                    StopPlayer();
                 }
             }
             else
                 Stop();
+        }
+
+        private void Move()
+        {
+            if (_isRunner)
+            {
+                RunnerMove();
+            }
+            else
+            {
+                IdleMove();
+            }
+        }
+
+        private void StopPlayer()
+        {
+            if (_isRunner)
+            {
+                StopSideways();
+            }
+            else
+            {
+                Stop();
+            }
         }
 
         private void RunnerMove()
@@ -125,18 +142,20 @@ namespace Controllers
             rigidbody.velocity = velocity;
 
             Vector3 position;
-            position = new Vector3(
-                Mathf.Clamp(rigidbody.position.x, _clampValues.x,
-                    _clampValues.y),
-                (position = rigidbody.position).y,
-                position.z);
+            position = new Vector3(Mathf.Clamp(rigidbody.position.x, _clampValues.x,
+                    _clampValues.y), (position = rigidbody.position).y, position.z);
             rigidbody.position = position;
+
+            var direction = Vector3.forward + Vector3.right * Mathf.Clamp(_inputValue,
+                -_movementData.RotateBorder,_movementData.RotateBorder);
+            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = toRotation;
         }
 
         private void IdleMove()
         {
             var velocity = rigidbody.velocity;
-            velocity = new Vector3(_inputValue * _movementData.SidewaysSpeed, velocity.y,
+            velocity = new Vector3(_inputValueX * _movementData.ForwardSpeed, velocity.y,
                 _inputValueZ*_movementData.ForwardSpeed);
             rigidbody.velocity = velocity;
 
@@ -144,6 +163,13 @@ namespace Controllers
             var position = new Vector3(position1.x, position1.y, position1.z);
             position1 = position;
             rigidbody.position = position1;
+            if (velocity != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(velocity, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation,
+                                _movementData.IdleRotateSpeed*Time.fixedDeltaTime);
+            }
+            
         }
 
         private void StopSideways()

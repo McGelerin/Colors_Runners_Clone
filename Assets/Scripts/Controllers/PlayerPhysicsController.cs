@@ -33,7 +33,6 @@ namespace Controllers
             if (other.CompareTag("Finish"))
             {
                 CoreGameSignals.Instance.onChangeGameState?.Invoke();
-                Debug.Log("WORKED FIZIK");
             }
 
             if (other.CompareTag("DronePoolReset"))

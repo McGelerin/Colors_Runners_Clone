@@ -16,6 +16,7 @@ namespace Data.ValueObject
         public float SidewaysSpeed = 2;
         public float JumpDistance = 10f;
         public float JumpDuration = 1f;
-        
+        public float IdleRotateSpeed = 300f;
+        public float RotateBorder = 15f;
     }
 }

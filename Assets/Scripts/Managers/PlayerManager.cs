@@ -128,7 +128,7 @@ namespace Managers
 
         private void OnChangeGameState()
         {
-            movementController.GetMovementState();
+            movementController.ChangeGameState();
         }
 
         #endregion

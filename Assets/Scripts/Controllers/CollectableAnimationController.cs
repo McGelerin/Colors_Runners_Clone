@@ -20,7 +20,6 @@ namespace Controllers
 
         public void SetAnimState(CollectableAnimStates animState)
         {
-            Debug.Log(animState);
             animator.SetTrigger(animState.ToString());
         }
     }

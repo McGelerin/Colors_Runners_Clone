@@ -112,7 +112,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1653191794034229520, guid: d02551a882dbdb94e9b7e45f0fe803aa, type: 3}
+  - {fileID: 2100000, guid: db7989e36b87a024ea6896761b91c6ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1115,8 +1115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826b33edf7c34bc0942c750d137694d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  physicsController: {fileID: 0}
+  manager: {fileID: 2039896155279655574}
+  physicsController: {fileID: 2241133166268024281}
   animator: {fileID: 430465729966072611}
 --- !u!1 &430465729855828149
 GameObject:
@@ -1277,10 +1277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6da690d117cd6f438a15a35d843b82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
   physicController: {fileID: 2241133166268024281}
-  collectableMeshController: {fileID: 0}
-  animator: {fileID: 0}
+  collectableMeshController: {fileID: 6681473883019904322}
+  animator: {fileID: 430465729966072611}
   animationController: {fileID: 430465729836456842}
   colorState: 0
 --- !u!1 &4802006981521965472
@@ -1297,7 +1296,7 @@ GameObject:
   - component: {fileID: 7449268755810984233}
   m_Layer: 0
   m_Name: Physics
-  m_TagString: Collectable
+  m_TagString: Collected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1368,6 +1367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6496629269204448673}
+  - component: {fileID: 6681473883019904322}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -1390,3 +1390,17 @@ Transform:
   m_Father: {fileID: 5311600822940243226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6681473883019904322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8660325508549200982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988615945f4cd3f43a8e609e3659736e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 2039896155279655574}
+  mesh: {fileID: 430465728093919385}

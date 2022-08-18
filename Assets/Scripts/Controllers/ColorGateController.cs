@@ -5,9 +5,9 @@ using Enums;
 using Signals;
 using UnityEngine;
 
-namespace Managers
+namespace Controllers
 {
-    public class ColorGateManager : MonoBehaviour
+    public class ColorGateController : MonoBehaviour
     {
         #region Self Variables
 
@@ -19,7 +19,7 @@ namespace Managers
             set
             {
                 this._colorEnum = value;
-                GetColor();
+                SetColor();
             }
         }
         
@@ -36,17 +36,21 @@ namespace Managers
 
         #endregion
 
-        
-        
+
+        private void Awake()
+        {
+            colorData = GetColorData();
+        }
+
         private void Start()
         {
             ColorEnum = _colorEnum;
         }
         
-        private void GetColor()
+        private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
+        
+        private void SetColor()
         {
-            colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
-
             if (ColorEnum == ColorEnum.Rainbow)
             {
                 gameObject.GetComponent<Renderer>().material = colorData.RainbowMaterial;
@@ -61,6 +65,5 @@ namespace Managers
                 StackSignals.Instance.ColorType?.Invoke(ColorEnum);
             }
         }
-        
     }
 }

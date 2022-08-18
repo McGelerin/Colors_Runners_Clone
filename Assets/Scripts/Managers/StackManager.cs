@@ -92,20 +92,27 @@ namespace Managers
         private void Awake()
         {
             StackData = GetStackData();
+            Init();
+        }
+        
+        private StackData GetStackData() => Resources.Load<CD_Stack>("Data/CD_StackData").StackData;
+        
+        private void Start()
+        {
+            _initialzeStackCommand.Execute();
+        }
+        
+        private void Init()
+        {
             _stackMoveController = new StackMoveController();
             _stackMoveController.InisializedController(StackData);
             ItemAddOnStackCommand = new ItemAddOnStackCommand(ref CollectableStack, transform, StackData);
-            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack,ref levelHolder, this);
-            _randomRemoveListItemCommand = new RandomRemoveListItemCommand(ref CollectableStack,ref levelHolder, this);
+            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack, ref levelHolder, this);
+            _randomRemoveListItemCommand = new RandomRemoveListItemCommand(ref CollectableStack, ref levelHolder, this);
             _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, StackData);
             StackValueUpdateCommand = new StackValueUpdateCommand(ref CollectableStack);
             _initialzeStackCommand = new InitialzeStackCommand(collectable, this);
             _setColorState = new SetColorState(ref CollectableStack);
-        }
-        private StackData GetStackData() => Resources.Load<CD_Stack>("Data/CD_StackData").StackData;
-        private void Start()
-        {
-            _initialzeStackCommand.Execute();
         }
 
         private void Update()
@@ -168,7 +175,6 @@ namespace Managers
             }
             CollectableStack.Clear();
         }
-
         
         private void StackXMoveOnDronePool()
         {
@@ -194,7 +200,6 @@ namespace Managers
                 CollectableStack.Remove(collectable);
             }
             CollectableStack.TrimExcess();
-            //_itemRemoveOnStackCommand.RemoveStackListItems(collectable);
         }
 
         private void OnWrongDronePoolCollectablesDelete(GameObject wrongPoolCollectable)

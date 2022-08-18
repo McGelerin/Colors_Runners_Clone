@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
 using Cinemachine;
-using Controllers;
+using Enums;
 using Signals;
 using UnityEngine;
 
@@ -11,39 +10,43 @@ namespace Managers
     {
         #region Self Variables
 
+        #region Public Variables
+        
+        public CameraStates CameraStateController
+        {
+            get => _cameraStateValue;
+            set
+            {
+                _cameraStateValue = value;
+                SetCameraStates();
+            }
+        }
+        
+        #endregion
         #region Serialized Variables
+        [SerializeField]private CinemachineVirtualCamera virtualCamera;
 
-        //[SerializeField] private Animator animator;
-        //[SerializeField] private CinemachineVirtualCamera PreStartCam;
-        [SerializeField] private CinemachineVirtualCamera InGameCam;
-        //[SerializeField] private CinemachineVirtualCamera EndGameCam;
-        //[SerializeField] private CinemachineVirtualCamera EndGameSideCam;
 
         #endregion
 
         #region Private Variables
-
-        private Vector3 _preStartCamPos;
-        private Vector3 _inGameCamPos;
-        private Vector3 _endGameCamPos;
-        private Vector3 _endGameSideCamPos;
         
+        private Vector3 _initialPosition;
+        private CameraStates _cameraStateValue = CameraStates.InitializeCam;
+        private Animator _camAnimator;
         
         #endregion
 
         #endregion
 
-        private void Start()
+        private void Awake()
         {
-            //_preStartCamPos = PreStartCam.transform.position;
-            _inGameCamPos = InGameCam.transform.position;
-            //_endGameCamPos = EndGameCam.transform.position;
-            //_endGameSideCamPos = EndGameSideCam.transform.position;
-
+            virtualCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+            _camAnimator = GetComponent<Animator>();
+            GetInitialPosition();
         }
-
+        
         #region Event Subscriptions
-
         private void OnEnable()
         {
             SubscribeEvents();
@@ -51,84 +54,68 @@ namespace Managers
 
         private void SubscribeEvents()
         {
-            //CoreGameSignals.Instance.onLevelInitialize += OnLevelInitiliaze;
-            CoreGameSignals.Instance.onPlay += OnPlay;
-            //CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
-            //CoreGameSignals.Instance.onCameraInitialized += OnCameraInitialized;
-            //CoreGameSignals.Instance.onGameEnd += OnEndGameSideCamera;
+//            CoreGameSignals.Instance.onIdleStart += OnIdleCam;
+            CoreGameSignals.Instance.onPlay += OnSetCameraTarget;
+            CoreGameSignals.Instance.onReset += OnReset;
+            LevelSignals.Instance.onNextLevel += OnNextLevel;
         }
 
         private void UnsubscribeEvents()
         {
-            //CoreGameSignals.Instance.onLevelInitialize -= OnLevelInitiliaze;
-            CoreGameSignals.Instance.onPlay -= OnPlay;
-            //CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
-            //CoreGameSignals.Instance.onCameraInitialized -= OnCameraInitialized;
-            //CoreGameSignals.Instance.onGameEnd -= OnEndGameSideCamera;
+//            CoreGameSignals.Instance.onIdleStart -= OnIdleCam;
+            CoreGameSignals.Instance.onPlay -= OnSetCameraTarget;
+            CoreGameSignals.Instance.onReset -= OnReset;
+            LevelSignals.Instance.onNextLevel -= OnNextLevel;
         }
-
+        
         private void OnDisable()
         {
             UnsubscribeEvents();
         }
+
         #endregion
-
-        private void OnLevelInitiliaze()
+        
+        private void SetCameraStates()
         {
-            //animator.Play("InGameCam");
-            SetAllCameraToTarget();
+            if (CameraStateController == CameraStates.InitializeCam)
+            {
+                _camAnimator.Play(CameraStateController.ToString());
+            }
+            else if (CameraStateController == CameraStates.RunnerCam)
+            {
+                _camAnimator.Play(CameraStateController.ToString());
+            }
         }
         
-        private void OnCameraInitialized()
+        private void GetInitialPosition()
         {
-            //PreStartCam.transform.position = _preStartCamPos;
-            InGameCam.transform.position = _inGameCamPos;
-            //EndGameCam.transform.position = _endGameCamPos;
-            //EndGameSideCam.transform.position = _endGameSideCamPos;
-
-            SetAllCameraToTarget();
+            _initialPosition = virtualCamera.transform.localPosition;
         }
 
-        private void SetAllCameraToTarget()
+        private void OnMoveToInitialPosition()
         {
-            //SetCameraTargetToPlayer(PreStartCam);
-            SetCameraTargetToPlayer(InGameCam);
-            //var playerFinish = FindObjectOfType<MiniGameManager>().transform.GetChild(0).transform;
-            //EndGameCam.Follow = playerFinish;
-            //EndGameSideCam.Follow = playerFinish;
+            virtualCamera.transform.localPosition = _initialPosition;
+        }
 
-            #region SORULACAK
-            /*
-           EndGameCam.Follow = GameObject.FindWithTag("PlayerFinish").transform;
-           EndGameCam.Follow = GameObject.Find("PlayerFinish").transform;*/
-            #endregion
+        private void OnSetCameraTarget()
+        {
+            var playerManager = FindObjectOfType<PlayerManager>().transform;
+            virtualCamera.Follow = playerManager;
+            CameraStateController = CameraStates.RunnerCam;
         }
         
-        private void OnPlay()
+        private void OnNextLevel()
         {
-            //animator.Play("InGameCam");
-            OnLevelInitiliaze();
-
+            CameraStateController = CameraStates.InitializeCam;
         }
 
-        private void SetCameraTargetToPlayer(CinemachineVirtualCamera Camera)
+        private void OnReset()
         {
-            Camera.Follow = GameObject.FindObjectOfType<PlayerManager>().transform;
-        }
-        
-        private void OnLevelSuccessful()
-        {
-            StartCoroutine(EndGameCamera(1));
-        }
-        private IEnumerator EndGameCamera(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            //animator.Play("EndGameCam");
-        }
-
-        private void OnEndGameSideCamera()
-        {
-            //animator.Play("EndGameSideCam");
+            CameraStateController = CameraStates.InitializeCam;
+            virtualCamera.Follow = null;
+            virtualCamera.LookAt = null;
+            virtualCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+            OnMoveToInitialPosition();
         }
     }
 }

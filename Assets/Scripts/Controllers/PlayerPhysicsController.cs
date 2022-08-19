@@ -27,7 +27,6 @@ namespace Controllers
             {
                 DronePoolSignals.Instance.onPlayerCollideWithDronePool?.Invoke(other.transform);
                 manager.GetDronePoolTransform(other.transform.parent.GetComponent<DronePoolManager>().GetTruePoolTransform());
-                StartCoroutine(DroneArrives());
             }
 
             if (other.CompareTag("Finish"))
@@ -41,16 +40,5 @@ namespace Controllers
                 DronePoolSignals.Instance.onDronePoolExit?.Invoke();
             }
         }
-
-
-
-        private IEnumerator DroneArrives()
-        {
-            yield return new WaitForSeconds(2f);
-            DronePoolSignals.Instance.onDroneArrives?.Invoke(_poolTransform);
-            yield return new WaitForSeconds(2f);
-            DronePoolSignals.Instance.onDroneGone?.Invoke();
-        }
-
     }
 }

@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 510442284}
   - component: {fileID: 510442283}
   - component: {fileID: 510442282}
+  - component: {fileID: 510442285}
   m_Layer: 0
   m_Name: CameraManager
   m_TagString: Untagged
@@ -529,6 +530,14 @@ MonoBehaviour:
     m_ParentHash: 756556552
   - m_Hash: 1565485307
     m_ParentHash: 756556552
+--- !u!81 &510442285
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510442280}
+  m_Enabled: 1
 --- !u!1 &570376759
 GameObject:
   m_ObjectHideFlags: 0

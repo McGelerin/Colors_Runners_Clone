@@ -16,10 +16,9 @@ namespace Controllers
         #region serializeVars
         [SerializeField] private float rotationSpeed = 1f;
 
-        [SerializeField] Transform taret1;
-        [SerializeField] Transform taret2;
+        [SerializeField] private Transform taret1, taret2;
 
-        [SerializeField] ParticleSystem taret1uc, taret2uc;
+        [SerializeField] private ParticleSystem taret1Particle, taret2Particle;
 
 
         #endregion
@@ -36,14 +35,14 @@ namespace Controllers
         {
             taret1.DOLookAt(player.position, rotationSpeed);
             taret2.DOLookAt(player.position, rotationSpeed);
-            taret1uc.Play();
-            taret2uc.Play();
+            taret1Particle.Play();
+            taret2Particle.Play();
         }
     
 
         public void OnTargetDisappear()
         {
-            StopAllCoroutines();
+
         }
     }
 }

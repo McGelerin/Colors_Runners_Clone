@@ -6,24 +6,35 @@ using Controllers;
 
 public class GunPoolPhysicsController: MonoBehaviour
 {
-    public bool isReady = true;
-    private float reloadTime = 0.5f;
+
+    #region vars
+    #region public vars
+
+    #endregion
+    #region serializefield vars
+    [SerializeField] TurretController turretController;
+    #endregion
+    #region private vars
+    private bool _isReady = true;
+    private float _reloadTime = 0.5f;
 
     private Transform playerTransform;
-    [SerializeField] TurretController TurrentController;
+    #endregion
+    #endregion
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && isReady)
+        if (other.CompareTag("Player") && _isReady)
         {
             //StopAllCoroutines();
             playerTransform = other.transform;
-            StartCoroutine(Reload());
+            StartCoroutine(FireAndReload());
             
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && isReady)
+        if (other.CompareTag("Player") && _isReady)
         {
             playerTransform = other.transform;
         }
@@ -34,20 +45,20 @@ public class GunPoolPhysicsController: MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StopAllCoroutines();
-            isReady = true;
+            _isReady = true;
             GunPoolSignals.Instance.onWrongGunPoolExit?.Invoke();
         }
     }
 
 
 
-    IEnumerator Reload()
+    IEnumerator FireAndReload()
     {
         GunPoolSignals.Instance.onWrongGunPool?.Invoke(playerTransform);
-        TurrentController.RotateToPlayer(playerTransform);
-        isReady = false;
-        yield return new WaitForSeconds(reloadTime);
-        isReady = true;
-        StartCoroutine(Reload());
+        turretController.RotateToPlayer(playerTransform);
+        _isReady = false;
+        yield return new WaitForSeconds(_reloadTime);
+        _isReady = true;
+        StartCoroutine(FireAndReload());
     }
 }

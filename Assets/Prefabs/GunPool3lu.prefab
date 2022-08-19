@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1796946707393776688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2426903476668730170}
+  - component: {fileID: 1864332868712448228}
+  m_Layer: 0
+  m_Name: GunPoolExitTrigger
+  m_TagString: GunPoolExit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2426903476668730170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796946707393776688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0251, y: 0.09, z: 28.29}
+  m_LocalScale: {x: 11.91, y: 1, z: 0.3503}
+  m_Children: []
+  m_Father: {fileID: 3838598447052178991}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1864332868712448228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796946707393776688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.3825107, z: 1}
+  m_Center: {x: 0, y: 1.1912553, z: 0}
 --- !u!1 &3838598446476263652
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,8 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed70388592017741a72d433f15684d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReady: 1
-  TurrentController: {fileID: 3838598447544234491}
+  turretController: {fileID: 3838598447544234491}
 --- !u!1 &3838598447052178990
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,12 +387,13 @@ Transform:
   m_GameObject: {fileID: 3838598447052178990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 105.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5109469, y: 0.5109469, z: 0.5109469}
   m_Children:
   - {fileID: 3838598447976453572}
   - {fileID: 3838598446476263653}
   - {fileID: 3838598446975122635}
   - {fileID: 3838598447544234490}
+  - {fileID: 2426903476668730170}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -365,17 +409,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678457143021ce94cb2a76e9f5d7dfd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorEnum: 3
-  areaColorEnum: 010000000200000003000000
-  ColorBlocks:
+  ColorEnum: 3
+  AreaColorEnum: 030000000200000001000000
+  colorBlocks:
   - {fileID: 3838598446900653394}
   - {fileID: 3838598448123562764}
   - {fileID: 3838598448200875785}
-  Colliders:
+  colliders:
   - {fileID: 3838598447857720746}
   - {fileID: 3838598446878773704}
   - {fileID: 3838598447863827417}
-  TaretController: {fileID: 3838598447544234491}
 --- !u!1 &3838598447071191511
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3838598447071191511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.689268, y: -2.5396, z: 14.362301}
+  m_LocalPosition: {x: 11.74, y: -1, z: 14.362301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4552756278800056770}
@@ -553,8 +596,8 @@ MonoBehaviour:
   rotationSpeed: 1
   taret1: {fileID: 4552756278800056770}
   taret2: {fileID: 6184558341759625825}
-  taret1uc: {fileID: 6270059167896321725}
-  taret2uc: {fileID: 4467268646798382366}
+  taret1Particle: {fileID: 4467268646798382366}
+  taret2Particle: {fileID: 6270059167896321725}
 --- !u!1 &3838598447857720744
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +700,7 @@ GameObject:
   - component: {fileID: 3838598447976453593}
   m_Layer: 0
   m_Name: GunPoolTrigger
-  m_TagString: Untagged
+  m_TagString: GunPool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1118,7 +1161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3838598448487908330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4011936, y: -2.5396, z: 14.362301}
+  m_LocalPosition: {x: -7.3364115, y: -1, z: 14.362301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6184558341759625825}
@@ -1219,15 +1262,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.735856
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.735856
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.735856
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1334,15 +1377,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.735856
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.735856
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.735856
       objectReference: {fileID: 0}
     - target: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
       propertyPath: m_LocalPosition.x

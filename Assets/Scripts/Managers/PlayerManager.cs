@@ -193,11 +193,11 @@ namespace Managers
         public void GetDronePoolTransform(Transform dronePoolTransform)
         {
             _dronePoolTransform = dronePoolTransform;
-            Transform target = DronePoolSignals.Instance.onGetTruePoolTransform();
-            transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z + 15);
+            //transform.position = new Vector3(dronePoolTransform.position.x, transform.position.y, transform.position.z + 15);
             animationController.SetAnimState(CollectableAnimStates.Runner);
 
         }
+
     }
 
     

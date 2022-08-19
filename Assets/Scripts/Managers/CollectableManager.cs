@@ -131,6 +131,18 @@ public class CollectableManager : MonoBehaviour
         }
     }
 
+    public void PlayerOnGunPool()
+    {
+        animationController.SetAnimState(CollectableAnimStates.CrouchedWalking);
+
+    }
+
+    public void PlayerExitGunPool()
+    {
+        animationController.SetAnimState(CollectableAnimStates.Runner);
+
+    }
+
     public void SetPoolColor(ColorEnum poolColorEnum)
     {
         _poolColorEnum = poolColorEnum;

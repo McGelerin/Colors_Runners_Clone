@@ -42,6 +42,15 @@ namespace Controllers
 
                 manager.SetPoolColor(other.transform.parent.parent.GetComponent<DronePoolManager>().OnGetColor(other.transform)/*DronePoolSignals.Instance.onGetColor(other.transform)*/);//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
             }
+
+            if (other.CompareTag("GunPool"))
+            {
+                manager.PlayerOnGunPool();
+            }
+            if (other.CompareTag("GunPoolExit"))
+            {
+                manager.PlayerExitGunPool();
+            }
         }
 
         public  void CanEnterDronePool()

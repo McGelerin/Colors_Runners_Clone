@@ -260,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 3314595892801741546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 69.09999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.52272, y: 0.52272, z: 0.52272}
   m_Children:
   - {fileID: 3314595892864270682}
   - {fileID: 3314595893292729632}
@@ -281,17 +281,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebf4dabf8263054da029059a74b7ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorEnum: 1
-  areaColorEnum: 040000000100000005000000
-  ColorBlocks:
+  ColorEnum: 5
+  AreaColorEnum: 030000000400000005000000
+  colorBlocks:
   - {fileID: 3314595893394457344}
   - {fileID: 3314595892564647180}
   - {fileID: 159777625217679888}
-  Colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Drone: {fileID: 5790232149566413346}
+  drone: {fileID: 5790232149566413346}
 --- !u!1 &3314595892864270686
 GameObject:
   m_ObjectHideFlags: 0

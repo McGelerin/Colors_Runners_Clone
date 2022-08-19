@@ -12,15 +12,13 @@ public class GunPoolManager : MonoBehaviour
 {
     #region vars
     #region publicVars
-    public ColorEnum colorEnum = ColorEnum.Kirmizi;
+    public ColorEnum ColorEnum = ColorEnum.Kirmizi;
     
-    public List<ColorEnum> areaColorEnum = new List<ColorEnum>();
+    public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
     #endregion
     #region serializeVars
-    [SerializeField] private List<MeshRenderer> ColorBlocks;
-    [SerializeField] private List<Collider> Colliders;
-
-    [SerializeField] private TurretController TaretController;
+    [SerializeField] private List<MeshRenderer> colorBlocks;
+    [SerializeField] private List<Collider> colliders;
 
     #endregion
     #region privateVars
@@ -63,22 +61,22 @@ public class GunPoolManager : MonoBehaviour
     {
         _colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
 
-        _currentMaterial.color = _colorData.color[(int)colorEnum];
+        _currentMaterial.color = _colorData.color[(int)ColorEnum];
         
-        for (int i = 0; i < areaColorEnum.Count; i++)
+        for (int i = 0; i < AreaColorEnum.Count; i++)
         {
-            ColorBlocks[i].material.color = _colorData.color[(int)areaColorEnum[i]];
+            colorBlocks[i].material.color = _colorData.color[(int)AreaColorEnum[i]];
         }
     }
 
 
     private void SetCollidersActiveness()
     {
-        for (int i = 0; i < areaColorEnum.Count; i++)
+        for (int i = 0; i < AreaColorEnum.Count; i++)
         {
-            if (colorEnum.Equals(areaColorEnum[i]))
+            if (ColorEnum.Equals(AreaColorEnum[i]))
             {
-                Colliders[i].enabled = false;
+                colliders[i].enabled = false;
             }
         }
     }

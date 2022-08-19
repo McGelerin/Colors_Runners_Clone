@@ -12,6 +12,8 @@ TagManager:
   - DronePoolColor
   - DronePoolExit
   - DronePoolReset
+  - GunPool
+  - GunPoolExit
   layers:
   - Default
   - TransparentFX

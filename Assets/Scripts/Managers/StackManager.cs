@@ -147,7 +147,7 @@ namespace Managers
                     _playerGameObject.transform.position.y, _playerGameObject.transform.position.z);
                 if (gameObject.transform.childCount > 0)
                 {
-                    _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, direction.z, CollectableStack);
+                    _stackMoveController.StackItemsMoveOrigin(direction, CollectableStack);
                 }
             }
         }
@@ -185,8 +185,7 @@ namespace Managers
                     _playerGameObject.transform.position.y, _playerGameObject.transform.position.z);
                 if (gameObject.transform.childCount > 0)
                 {
-                    _stackMoveController.StackItemsMoveOrigin(direction.x, direction.y, direction.z, CollectableStack,
-                        true);
+                    _stackMoveController.StackItemsMoveOrigin(direction, CollectableStack, true);
                 }
             }
         }

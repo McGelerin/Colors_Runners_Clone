@@ -146,10 +146,10 @@ namespace Controllers
                     _clampValues.y), (position = rigidbody.position).y, position.z);
             rigidbody.position = position;
 
-            var direction = Vector3.forward + Vector3.right * Mathf.Clamp(_inputValue,
-                -_movementData.RotateBorder,_movementData.RotateBorder);
-            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = toRotation;
+            // var direction = Vector3.forward + Vector3.right * Mathf.Clamp(_inputValue,
+            //     -_movementData.RotateBorder,_movementData.RotateBorder);
+            // Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+            // transform.rotation = toRotation;
         }
 
         private void IdleMove()

@@ -19,16 +19,16 @@ namespace Controllers
             _stackData = Stackdata;
         }
 
-        public void StackItemsMoveOrigin(float directionX, float directionY,float directionZ, List<GameObject> _collectableStack, bool _isOnDronePool = false)
+        public void StackItemsMoveOrigin(Vector3 direction,List<GameObject> _collectableStack, bool _isOnDronePool = false)
         {
             if (_collectableStack.Count <= 0)
             {
                 return;
             }
             
-            float directx = Mathf.Lerp(_collectableStack[0].transform.localPosition.x, directionX,_stackData.LerpSpeed_x);
-            float directy = Mathf.Lerp(_collectableStack[0].transform.localPosition.y, directionY,_stackData.LerpSpeed_y);
-            float directz = Mathf.Lerp(_collectableStack[0].transform.localPosition.z, directionZ + _stackData.DistanceFormPlayer ,_stackData.LerpSpeed_z);
+            float directx = Mathf.Lerp(_collectableStack[0].transform.localPosition.x, direction.x,_stackData.LerpSpeed_x);
+            float directy = Mathf.Lerp(_collectableStack[0].transform.localPosition.y, direction.y,_stackData.LerpSpeed_y);
+            float directz = Mathf.Lerp(_collectableStack[0].transform.localPosition.z, direction.z + _stackData.DistanceFormPlayer ,_stackData.LerpSpeed_z);
             
             if (_isOnDronePool == true)
             {
@@ -38,6 +38,7 @@ namespace Controllers
             else
             {
                 _collectableStack[0].transform.localPosition = new Vector3(directx, directy, directz);
+                _collectableStack[0].transform.LookAt(direction);
                 StackItemsLerpMove(_collectableStack);
             }
         }
@@ -54,6 +55,8 @@ namespace Controllers
                 float directy = Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed_y);
                 float directz = Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, _stackData.LerpSpeed_z);
                 _collectableStack[i].transform.localPosition = new Vector3(directx, directy, /*pos.z*/directz);
+                _collectableStack[i].transform.LookAt(_collectableStack[i-1].transform);
+                
             }
         }
         

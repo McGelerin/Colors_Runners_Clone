@@ -117,7 +117,8 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected"))
         {
-            transform.DOMoveZ(poolTrigerTransform.position.z + 2 , Data.CollectablesMoveToDronePoolTriggerTime);
+            transform.DOMoveZ(poolTrigerTransform.position.z + 2, Data.CollectablesMoveToDronePoolTriggerTime);
+            Data.CollectablesMoveToDronePoolTriggerTime += 0.2f;
             StartCoroutine(CrouchAnim());
         }
     }
@@ -126,7 +127,6 @@ public class CollectableManager : MonoBehaviour
     {
         yield return new WaitForSeconds(Data.CollectablesMoveToDronePoolTriggerTime);
         animationController.SetAnimState(CollectableAnimStates.Crouching);
-
     }
 
     public void OnCollectableCollideWithDronePool(GameObject collectable, Transform colorTransform)
@@ -180,6 +180,8 @@ public class CollectableManager : MonoBehaviour
         if (CompareTag("Collected"))
         {
             animationController.SetAnimState(CollectableAnimStates.Runner);
+            Data.CollectablesMoveToDronePoolTriggerTime = 1;
+
         }
     }
 

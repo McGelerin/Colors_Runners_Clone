@@ -183,12 +183,5 @@ namespace Managers
             gameObject.SetActive(false);
            // CoreGameSignals.Instance.onMiniGameStart?.Invoke();
         }
-
-    
-
-        public void GetDronePoolTransform(Transform dronePoolTransform)
-        {
-            animationController.SetAnimState(CollectableAnimStates.Runner);
-        }
     }
 }

@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4875782202285319529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3292997606126802433}
@@ -168,9 +168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6da690d117cd6f438a15a35d843b82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data:
+    CollectablesMoveToDronePoolTriggerTime: 1
+    CollectablesMoveToDronePoolTime: 1
   physicController: {fileID: 7530476780834055801}
   collectableMeshController: {fileID: 3275889674196284839}
-  animator: {fileID: 8242405674742120579}
   animationController: {fileID: 8242405674878892074}
   colorState: 0
 --- !u!1 &8242405674742120588

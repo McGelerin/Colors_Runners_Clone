@@ -17,7 +17,6 @@ namespace Controllers
 
         #endregion
         #region private vars
-        private Transform _poolTransform;
         #endregion
         #endregion
 
@@ -36,7 +35,6 @@ namespace Controllers
 
             if (other.CompareTag("DronePoolReset"))
             {
-                _poolTransform = other.transform.parent;
                 DronePoolSignals.Instance.onDronePoolExit?.Invoke();
             }
         }

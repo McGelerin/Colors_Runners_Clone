@@ -9,12 +9,14 @@ using Sirenix.Serialization;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
+using System.Collections;
 
 public class CollectableManager : MonoBehaviour
 {
     #region Self Variables
 
     #region Public Variables
+    [Header("Data")] public CollectableData Data;
 
     public ColorEnum ColorState
     {
@@ -28,11 +30,9 @@ public class CollectableManager : MonoBehaviour
     
     #endregion
     #region SerializeField Variables
-    [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private CollectablePhysicController physicController;
     [SerializeField] private CollectableMeshController collectableMeshController;
 
-    [SerializeField] private Animator animator;
     [SerializeField] private CollectableAnimationController animationController;
 
     #endregion
@@ -48,7 +48,14 @@ public class CollectableManager : MonoBehaviour
     #endregion
 
     #endregion
-    
+
+    private void Awake()
+    {
+        Data = GetCollectableData();
+    }
+
+    private CollectableData GetCollectableData() => Resources.Load<CD_Collectable>("Data/CD_Collectable").Data;
+
     private void Start()
     {
         ColorState = colorState;
@@ -67,6 +74,7 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
         DronePoolSignals.Instance.onDronePoolExit += physicController.CanEnterDronePool;
         CoreGameSignals.Instance.onPlay += OnPlay;
+        DronePoolSignals.Instance.onDroneGone += OnDroneGone;
     }
 
     private void UnsubscribeEvents()
@@ -76,6 +84,8 @@ public class CollectableManager : MonoBehaviour
         DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
         DronePoolSignals.Instance.onDronePoolExit -= physicController.CanEnterDronePool;
         CoreGameSignals.Instance.onPlay -= OnPlay;
+        DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
+
     }
 
 
@@ -94,7 +104,12 @@ public class CollectableManager : MonoBehaviour
     {
         StackSignals.Instance.onInteractionObstacle?.Invoke(collectableGameObject);
     }
-    
+
+    private void OnPlay()
+    {
+        animationController.SetAnimState(CollectableAnimStates.Runner);
+    }
+
 
     #region Onur Workouth
 
@@ -102,8 +117,16 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected"))
         {
-            transform.DOMoveZ(poolTrigerTransform.position.z + 2 , 1f);
+            transform.DOMoveZ(poolTrigerTransform.position.z + 2 , Data.CollectablesMoveToDronePoolTriggerTime);
+            StartCoroutine(CrouchAnim());
         }
+    }
+
+    public IEnumerator CrouchAnim()
+    {
+        yield return new WaitForSeconds(Data.CollectablesMoveToDronePoolTriggerTime);
+        animationController.SetAnimState(CollectableAnimStates.Crouching);
+
     }
 
     public void OnCollectableCollideWithDronePool(GameObject collectable, Transform colorTransform)
@@ -111,7 +134,7 @@ public class CollectableManager : MonoBehaviour
         if (CompareTag("Collected") && collectable.Equals(gameObject))
         {
             transform.DOMove(new Vector3(colorTransform.position.x, transform.position.y,
-                transform.position.z + Random.Range(5f, 15f)), 1f);
+                transform.position.z + Random.Range(5f, 15f)), Data.CollectablesMoveToDronePoolTime);
         }
     }
 
@@ -139,7 +162,11 @@ public class CollectableManager : MonoBehaviour
 
     public void PlayerExitGunPool()
     {
-        animationController.SetAnimState(CollectableAnimStates.Runner);
+        if (CompareTag("Collected"))
+        {
+            animationController.SetAnimState(CollectableAnimStates.Runner);
+
+        }
 
     }
 
@@ -148,10 +175,13 @@ public class CollectableManager : MonoBehaviour
         _poolColorEnum = poolColorEnum;
     }
 
-    #endregion
-
-    private void OnPlay()
+    private void OnDroneGone(Transform transform)
     {
-        animationController.SetAnimState(CollectableAnimStates.Runner);
+        if (CompareTag("Collected"))
+        {
+            animationController.SetAnimState(CollectableAnimStates.Runner);
+        }
     }
+
+    #endregion
 }

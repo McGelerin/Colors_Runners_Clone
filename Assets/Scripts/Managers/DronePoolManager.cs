@@ -109,7 +109,7 @@ public class DronePoolManager : MonoBehaviour
         }
     }
     
-    private void OnDroneGone()
+    private void OnDroneGone(Transform dronePoolTransform)
     {
         drone.SetActive(false);
     }
@@ -119,7 +119,7 @@ public class DronePoolManager : MonoBehaviour
         yield return new WaitForSeconds(_dronePoolData.DroneArriveDelay);
         DronePoolSignals.Instance.onDroneArrives?.Invoke(transform);
         yield return new WaitForSeconds(_dronePoolData.DroneGoneDelay);
-        DronePoolSignals.Instance.onDroneGone?.Invoke();
+        DronePoolSignals.Instance.onDroneGone?.Invoke(GetTruePoolTransform());
     }
 
 

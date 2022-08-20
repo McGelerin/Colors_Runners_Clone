@@ -7,6 +7,7 @@
         StrongGesture,
         CrouchedWalking,
         Clap,
-        Dying
+        Dying,
+        Crouching
     }
 }

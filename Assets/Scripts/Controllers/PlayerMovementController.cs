@@ -53,7 +53,7 @@ namespace Controllers
             _isOnDronePool = true;
         }
 
-        public void UnDeactiveForwardMovement()
+        public void UnDeactiveForwardMovement(Transform truePoolTransform)
         {
             _isOnDronePool = false;
         }
@@ -209,6 +209,11 @@ namespace Controllers
             Stop();
             _isReadyToPlay = false;
             _isReadyToMove = false;
+        }
+
+        public void SetPlayerPositionToTrueDronePool(Transform _dronePoolTransform)
+        {
+            transform.position = new Vector3(_dronePoolTransform.position.x, transform.position.y, transform.position.z + 15);
         }
     }
 }

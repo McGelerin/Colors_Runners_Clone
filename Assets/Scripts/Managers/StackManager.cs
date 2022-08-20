@@ -42,7 +42,7 @@ namespace Managers
         private SetColorState _setColorState;
         //private ColorEnum _gateState;
 
-        private bool _isOnDronePool = false;
+        private bool _isPlayerOnDronePool = false;
 
         #endregion
         #endregion
@@ -63,7 +63,7 @@ namespace Managers
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.Execute;
             StackSignals.Instance.ColorType += OnGateState;
             GunPoolSignals.Instance.onWrongGunPool += _randomRemoveListItemCommand.Execute;
-            DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnDronePool;
+            DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
             DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnStackToUnStack;
             DronePoolSignals.Instance.onWrongDronePool += OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone += OnDroneGone;
@@ -78,7 +78,7 @@ namespace Managers
             StackSignals.Instance.onUpdateType -= StackValueUpdateCommand.Execute;
             StackSignals.Instance.ColorType -= OnGateState;
             GunPoolSignals.Instance.onWrongGunPool -= _randomRemoveListItemCommand.Execute;
-            DronePoolSignals.Instance.onPlayerCollideWithDronePool -= OnDronePool;
+            DronePoolSignals.Instance.onPlayerCollideWithDronePool -= OnPlayerCollideWithDronePool;
             DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnStackToUnStack;
             DronePoolSignals.Instance.onWrongDronePool -= OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
@@ -117,7 +117,7 @@ namespace Managers
 
         private void Update()
         {
-            if (_isOnDronePool)
+            if (_isPlayerOnDronePool)
             {
                 StackXMoveOnDronePool();
             }
@@ -152,9 +152,9 @@ namespace Managers
             }
         }
         
-        private void OnDronePool(Transform poolTriggerTransform)
+        private void OnPlayerCollideWithDronePool(Transform poolTriggerTransform)
         {
-            _isOnDronePool = true;
+            _isPlayerOnDronePool = true;
         }
 
         private void OnGateState(ColorEnum gateColorState)
@@ -211,9 +211,9 @@ namespace Managers
             }
         }
 
-        private void OnDroneGone()
+        private void OnDroneGone(Transform transform)
         {
-            _isOnDronePool = false;
+            _isPlayerOnDronePool = false;
             foreach (var i in UnStack)
             {
                 CollectableStack.Add(i);

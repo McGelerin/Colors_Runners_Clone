@@ -30,7 +30,6 @@ namespace Managers
 
         #endregion
         #region private vars
-        private Transform _dronePoolTransform;
         #endregion
         #endregion
 
@@ -71,7 +70,7 @@ namespace Managers
             // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool += movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
-            DronePoolSignals.Instance.onDroneGone += OnDroneGone;
+            DronePoolSignals.Instance.onDroneGone += movementController.SetPlayerPositionToTrueDronePool;
         }
 
         private void UnsubscribeEvents()
@@ -89,7 +88,8 @@ namespace Managers
             // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool -= movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
-            DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
+            DronePoolSignals.Instance.onDroneGone -= movementController.SetPlayerPositionToTrueDronePool;
+
 
 
         }
@@ -184,21 +184,11 @@ namespace Managers
            // CoreGameSignals.Instance.onMiniGameStart?.Invoke();
         }
 
-        private void OnDroneGone()
-        {
-            //Transform target = DronePoolSignals.Instance.onGetTruePoolTransform(); ->Kullan�labilir ancak e�er sahnede birden fazla drone k�sm� varsa d�nen de�erlerde sorun olabilir.
-            transform.position = new Vector3(_dronePoolTransform.position.x, transform.position.y, transform.position.z + 15);
-        }
+    
 
         public void GetDronePoolTransform(Transform dronePoolTransform)
         {
-            _dronePoolTransform = dronePoolTransform;
-            //transform.position = new Vector3(dronePoolTransform.position.x, transform.position.y, transform.position.z + 15);
             animationController.SetAnimState(CollectableAnimStates.Runner);
-
         }
-
     }
-
-    
 }

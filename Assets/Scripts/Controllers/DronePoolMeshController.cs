@@ -48,7 +48,7 @@ namespace Controllers
                     return areaColorEnum[i];
                 }
             }
-            return ColorEnum.Kirmizi;
+            return ColorEnum.Red;
         }
 
         public Transform GetTruePoolTransform(ColorEnum trueColorEnum)

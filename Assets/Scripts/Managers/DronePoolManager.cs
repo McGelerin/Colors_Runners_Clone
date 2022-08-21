@@ -11,7 +11,7 @@ public class DronePoolManager : MonoBehaviour
 {
     #region vars
     #region publicVars
-    public ColorEnum ColorEnum = ColorEnum.Kirmizi;
+    public ColorEnum ColorEnum;
 
     public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
     public List<Collider> colliders = new List<Collider>();

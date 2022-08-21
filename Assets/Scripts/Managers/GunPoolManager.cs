@@ -12,7 +12,7 @@ public class GunPoolManager : MonoBehaviour
 {
     #region vars
     #region publicVars
-    public ColorEnum ColorEnum = ColorEnum.Kirmizi;
+    public ColorEnum ColorEnum;
     public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
     #endregion
 

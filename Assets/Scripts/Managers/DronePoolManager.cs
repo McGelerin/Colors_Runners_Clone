@@ -124,7 +124,10 @@ public class DronePoolManager : MonoBehaviour
 
     private IEnumerator DroneArrives()
     {
-        yield return new WaitForSeconds(_dronePoolData.DroneArriveDelay);
+        int stackCount = DronePoolSignals.Instance.onGetStackCount();
+        //Debug.Log(_dronePoolData.DroneArriveDelay * (stackCount - (0.35f * stackCount)));
+
+        yield return new WaitForSeconds(_dronePoolData.DroneArriveDelay + (0.2f * stackCount));
         DronePoolSignals.Instance.onDroneArrives?.Invoke(transform);
         yield return new WaitForSeconds(_dronePoolData.DroneGoneDelay);
         DronePoolSignals.Instance.onDroneGone?.Invoke(GetTruePoolTransform());

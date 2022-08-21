@@ -47,16 +47,13 @@ namespace Controllers
         {
             for (int i = 1; i < _collectableStack.Count; i++)
             {
-                Vector3 pos = _collectableStack[i].transform.localPosition;
-                pos.x = _collectableStack[i - 1].transform.localPosition.x;
-                pos.y = _collectableStack[i - 1].transform.localPosition.y;
+                Vector3 pos = _collectableStack[i - 1].transform.localPosition;
                 pos.z = _collectableStack[i - 1].transform.localPosition.z - _stackData.CollectableOffsetInStack;
-                float directx = Mathf.Lerp(_collectableStack[i].transform.localPosition.x, pos.x, _stackData.LerpSpeed_x);
-                float directy = Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed_y);
-                float directz = Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, _stackData.LerpSpeed_z);
-                _collectableStack[i].transform.localPosition = new Vector3(directx, directy, /*pos.z*/directz);
+                _collectableStack[i].transform.localPosition = new Vector3(
+                    Mathf.Lerp(_collectableStack[i].transform.localPosition.x, pos.x, _stackData.LerpSpeed_x),
+                    Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed_y),
+                    Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, _stackData.LerpSpeed_z));
                 _collectableStack[i].transform.LookAt(_collectableStack[i-1].transform);
-                
             }
         }
         
@@ -64,14 +61,13 @@ namespace Controllers
         {
             for (int i = 1; i < _collectableStack.Count; i++)
             {
-                Vector3 pos = _collectableStack[i].transform.localPosition;
-                pos.x = _collectableStack[i - 1].transform.localPosition.x;
-                pos.y = _collectableStack[i - 1].transform.localPosition.y;
+                Vector3 pos = _collectableStack[i - 1].transform.localPosition;
                 pos.z = _collectableStack[i - 1].transform.localPosition.z - _stackData.CollectableOffsetInStack;
-                float directx = Mathf.Lerp(_collectableStack[i].transform.localPosition.x, pos.x, _stackData.LerpSpeed_x);
-                float directy = Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed_y);
-                //float directz = Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, _stackData.LerpSpeed_z);
-                _collectableStack[i].transform.localPosition = new Vector3(directx, directy, _collectableStack[i].transform.position.z);
+                _collectableStack[i].transform.localPosition = new Vector3(
+                    Mathf.Lerp(_collectableStack[i].transform.localPosition.x, pos.x, _stackData.LerpSpeed_x),
+                    Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed_y),
+                    Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, _stackData.LerpSpeed_z));
+                _collectableStack[i].transform.LookAt(_collectableStack[i-1].transform);
             }
         }
     }

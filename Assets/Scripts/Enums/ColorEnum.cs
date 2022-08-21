@@ -6,10 +6,17 @@ namespace Enums
     public enum ColorEnum
     {
         Rainbow,
-        Kirmizi,
-        Yesil,
-        Mavi,
-        Turkovaz,
-        Sari
+        DarkRed,
+        Red,
+        LightRed,
+        DarkBlue,
+        Blue,
+        LightBlue,
+        DarkGreen,
+        Green,
+        LightGreen,
+        DarkYellow,
+        Yellow,
+        LightYellow
     }
 }

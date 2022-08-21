@@ -10,8 +10,11 @@ namespace Data.ValueObject
         public float CollectableOffsetInStack = 1;
 
         [Header("Lerp Speed")]
+        [Range(0,1f)]
         public float LerpSpeed_x = 0.25f;
+        [Range(0,1f)]
         public float LerpSpeed_y = 0.25f;
+        [Range(0,1f)]
         public float LerpSpeed_z = 0.25f;
         
         [Range(0, 0.2f)] 

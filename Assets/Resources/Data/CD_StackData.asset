@@ -15,9 +15,9 @@ MonoBehaviour:
   StackData:
     CollectableOffsetInStack: 1
     LerpSpeed_x: 0.15
-    LerpSpeed_y: 0.12
-    LerpSpeed_z: 0.08
+    LerpSpeed_y: 0.2
+    LerpSpeed_z: 0.8
     ShackAnimDuraction: 0.06
     ShackScaleValue: 1.3
     InitialStackItem: 2
-    DistanceFormPlayer: 0
+    DistanceFormPlayer: -1

@@ -19,6 +19,7 @@ namespace Managers
         [SerializeField] private TextMeshProUGUI money;
         [SerializeField] private List<GameObject> panels;
         [SerializeField] private TextMeshProUGUI levelText;
+        [SerializeField] private TextMeshProUGUI _score;
         
         #endregion
 
@@ -89,6 +90,11 @@ namespace Managers
         private void SetMoneyText(float value)
         {
             money.text = ((int)value).ToString();
+        }
+
+        private void OnSetScoreText(int value)
+        {
+            _score.text = (value.ToString());
         }
 
         private void OnSetLevelText(int value)

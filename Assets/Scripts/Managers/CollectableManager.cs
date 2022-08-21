@@ -107,10 +107,11 @@ public class CollectableManager : MonoBehaviour
 
     private void OnPlay()
     {
-        animationController.SetAnimState(CollectableAnimStates.Runner);
+        animationController.SetAnimState(CompareTag("Collectable")
+            ? CollectableAnimStates.Idle
+            : CollectableAnimStates.Runner);
     }
-
-
+    
     #region Onur Workouth
 
     public void OnPlayerCollideWithDronePool(Transform poolTrigerTransform)

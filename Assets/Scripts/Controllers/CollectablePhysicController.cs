@@ -32,7 +32,7 @@ namespace Controllers
             {
                 StackSignals.Instance.onBoostArea?.Invoke();
                 //other.gameObject.SetActive(false);
-                other.gameObject.GetComponent<MeshCollider>().enabled = false;
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             
             if (_isFirstTime && other.CompareTag("DronePoolColor"))

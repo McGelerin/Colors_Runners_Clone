@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     DroneArriveDelay: 3.5
-    DroneGoneDelay: 3.5
+    DroneGoneDelay: 4

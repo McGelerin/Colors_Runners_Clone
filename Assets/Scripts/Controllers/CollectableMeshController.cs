@@ -29,7 +29,9 @@ namespace Controllers
         public void ColorControl(GameObject otherGameObject)
         {
             otherGameObject.tag = "Collected";
-            _otherColorState = otherGameObject.transform.parent.gameObject.GetComponent<CollectableManager>().ColorState;
+            CollectableManager cm = otherGameObject.transform.parent.gameObject.GetComponent<CollectableManager>();
+            _otherColorState = cm.ColorState;
+            cm.SetCollectableAnimation(CollectableAnimStates.Runner);
 
             if (manager.ColorState == _otherColorState)
             {

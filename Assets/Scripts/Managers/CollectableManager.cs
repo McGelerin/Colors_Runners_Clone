@@ -36,7 +36,7 @@ public class CollectableManager : MonoBehaviour
     [SerializeField] private CollectableAnimationController animationController;
     [SerializeField]
     private ColorEnum colorState;
-    [SerializeField] private CollectableAnimStates currentAnimState;
+    [SerializeField] private CollectableAnimStates initialAnimState;
     #endregion
     #region Private Variables
 
@@ -61,7 +61,7 @@ public class CollectableManager : MonoBehaviour
     private void Start()
     {
         ColorState = colorState;
-        animationController.SetAnimState(currentAnimState);
+        SetCollectableAnimation(initialAnimState);
     }
     
     private void OnEnable()
@@ -109,11 +109,13 @@ public class CollectableManager : MonoBehaviour
 
     private void OnPlay()
     {
-        currentAnimState = CollectableAnimStates.Runner;
-        animationController.SetAnimState(currentAnimState);
+        initialAnimState = CollectableAnimStates.Runner;
+
+        SetCollectableAnimation(CompareTag("Collectable")
+            ? CollectableAnimStates.Idle
+            : CollectableAnimStates.Runner);
     }
-
-
+    
     #region Onur Workouth
 
     public void OnPlayerCollideWithDronePool(Transform poolTrigerTransform)
@@ -129,7 +131,7 @@ public class CollectableManager : MonoBehaviour
     public IEnumerator CrouchAnim()
     {
         yield return new WaitForSeconds(Data.CollectablesMoveToDronePoolTriggerTime);
-        animationController.SetAnimState(CollectableAnimStates.Crouching);
+        SetCollectableAnimation(CollectableAnimStates.Crouching);
     }
 
     public void OnCollectableCollideWithDronePool(GameObject collectable, Transform colorTransform)
@@ -151,7 +153,7 @@ public class CollectableManager : MonoBehaviour
             else
             {
                 DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
-                animationController.SetAnimState(CollectableAnimStates.Dying);
+                SetCollectableAnimation(CollectableAnimStates.Dying);
                 StartCoroutine(SetActiveFalse());
             }
 
@@ -160,7 +162,7 @@ public class CollectableManager : MonoBehaviour
 
     public void PlayerOnGunPool()
     {
-        animationController.SetAnimState(CollectableAnimStates.CrouchedWalking);
+        SetCollectableAnimation(CollectableAnimStates.CrouchedWalking);
 
     }
 
@@ -168,10 +170,8 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected"))
         {
-            animationController.SetAnimState(CollectableAnimStates.Runner);
-
+            SetCollectableAnimation(CollectableAnimStates.Runner);
         }
-
     }
 
     public void SetPoolColor(ColorEnum poolColorEnum)
@@ -183,7 +183,7 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected"))
         {
-            animationController.SetAnimState(CollectableAnimStates.Runner);
+            SetCollectableAnimation(CollectableAnimStates.Runner);
             Data.CollectablesMoveToDronePoolTriggerTime = 1;
 
         }
@@ -193,6 +193,11 @@ public class CollectableManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);
+    }
+
+    public void SetCollectableAnimation(CollectableAnimStates newAnimState)
+    {
+        animationController.SetAnimState(newAnimState);
     }
 
 

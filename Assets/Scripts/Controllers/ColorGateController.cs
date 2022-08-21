@@ -53,7 +53,7 @@ namespace Controllers
         {
             if (ColorEnum == ColorEnum.Rainbow)
             {
-                gameObject.GetComponent<Renderer>().material = colorData.RainbowMaterial;
+                gameObject.GetComponent<Renderer>().material = colorData.RainbowGageMaterial;
             }
             else gameObject.GetComponent<Renderer>().material.color = colorData.color[(int) ColorEnum];
         }

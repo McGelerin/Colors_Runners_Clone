@@ -45,11 +45,11 @@ namespace Controllers
 
             if (other.CompareTag("GunPool"))
             {
-                manager.PlayerOnGunPool();
+                manager.CollectableOnGunPool();
             }
             if (other.CompareTag("GunPoolExit"))
             {
-                manager.PlayerExitGunPool();
+                manager.CollectableOnExitGunPool();
             }
         }
 

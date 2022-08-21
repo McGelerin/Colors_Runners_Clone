@@ -27,10 +27,7 @@ namespace Controllers
 
         #endregion
 
-        public void Start()
-        {
-            //Rotate(GameObject.FindGameObjectWithTag("Player").transform);
-        }
+      
         public void RotateToPlayer(Transform player)
         {
             taret1.DOLookAt(player.position, rotationSpeed);

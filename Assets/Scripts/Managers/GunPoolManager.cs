@@ -18,12 +18,20 @@ public class GunPoolManager : MonoBehaviour
     #endregion
     #region serializeVars
     [SerializeField] private List<MeshRenderer> colorBlocks;
-    [SerializeField] private List<Collider> colliders;
+    [SerializeField] private List<GunPoolPhysicsController> poolControllers;
+
+    [SerializeField] TurretController turretController;
 
     #endregion
     #region privateVars
     private ColorData _colorData;
     private Material _currentMaterial;
+    private bool _isFire = false;
+
+    private bool _isReady = true;
+
+    private GameObject _player;
+
     #endregion
 
     #endregion
@@ -33,11 +41,18 @@ public class GunPoolManager : MonoBehaviour
         //GunPoolSignals.Instance.onWrongGunPool += TaretController.RotateToPlayer;
         //GunPoolSignals.Instance.onWrongGunPoolExit += TaretController.OnTargetDisappear;
 
+        StackSignals.Instance.onPlayerGameObject += OnSetPlayer;
+        GunPoolSignals.Instance.onGunPoolExit += OnPlayerExitGunPool;
+
     }
     private void UnSubscribeEvents()
     {
         //GunPoolSignals.Instance.onWrongGunPool -= TaretController.RotateToPlayer;
         //GunPoolSignals.Instance.onWrongGunPoolExit -= TaretController.OnTargetDisappear;
+
+        StackSignals.Instance.onPlayerGameObject -= OnSetPlayer;
+        GunPoolSignals.Instance.onGunPoolExit -= OnPlayerExitGunPool;
+
 
     }
     private void Awake()
@@ -76,8 +91,45 @@ public class GunPoolManager : MonoBehaviour
         {
             if (ColorEnum.Equals(AreaColorEnum[i]))
             {
-                colliders[i].enabled = false;
+                poolControllers[i].IsTrue = true;
             }
         }
+
     }
+
+    IEnumerator FireAndReload()
+    {
+        if (_isFire)
+        {
+            GunPoolSignals.Instance.onWrongGunPool?.Invoke();
+            turretController.RotateToPlayer(_player.transform);
+            yield return new WaitForSeconds(0.2f);
+            //_isFire = false;
+            StartCoroutine(FireAndReload());
+
+        }
+    }
+
+    private void OnSetPlayer(GameObject playerGameObject)
+    {
+        _player = playerGameObject;
+    }
+
+    public void StopCoroutineManager()
+    {
+        StopAllCoroutines();
+        _isFire = false;
+    } 
+
+    public void StartCoroutineManager()
+    {
+        _isFire = true;
+        StartCoroutine(FireAndReload());
+    }
+
+    public void OnPlayerExitGunPool()
+    {
+        StopCoroutineManager();
+    }
+
 }

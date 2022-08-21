@@ -160,13 +160,13 @@ public class CollectableManager : MonoBehaviour
         }
     }
 
-    public void PlayerOnGunPool()
+    public void CollectableOnGunPool()
     {
         SetCollectableAnimation(CollectableAnimStates.CrouchedWalking);
 
     }
 
-    public void PlayerExitGunPool()
+    public void CollectableOnExitGunPool()
     {
         if (CompareTag("Collected"))
         {

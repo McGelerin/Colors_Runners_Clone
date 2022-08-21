@@ -129,8 +129,4 @@ public class DronePoolManager : MonoBehaviour
         yield return new WaitForSeconds(_dronePoolData.DroneGoneDelay);
         DronePoolSignals.Instance.onDroneGone?.Invoke(GetTruePoolTransform());
     }
-
-   
-
-
 }

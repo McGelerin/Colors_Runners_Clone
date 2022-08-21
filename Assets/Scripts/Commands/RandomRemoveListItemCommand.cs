@@ -23,7 +23,7 @@ namespace Commands
             _manager = manager;
         }
 
-        public void Execute(Transform transform)
+        public void Execute()
         {
             if (_collectableStack.Count < 1)
             {

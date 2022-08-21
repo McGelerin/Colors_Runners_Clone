@@ -10,6 +10,7 @@ namespace Signals
     { 
         public UnityAction<Transform> onWrongGunPool = delegate { };
         public UnityAction onWrongGunPoolExit = delegate { };
+        public UnityAction onGunPoolExit = delegate { };
 
 
     }

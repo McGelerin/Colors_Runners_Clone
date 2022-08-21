@@ -13,6 +13,7 @@ public class DronePoolManager : MonoBehaviour
     public ColorEnum ColorEnum = ColorEnum.Kirmizi;
 
     public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
+    public List<Collider> colliders = new List<Collider>();
     #endregion
     #region serializeVars
     [SerializeField] private List<MeshRenderer> colorBlocks;
@@ -106,12 +107,19 @@ public class DronePoolManager : MonoBehaviour
         if (transform.Equals(_poolTransform))
         {
             drone.SetActive(true);
+
+            for (int i = 0; i < colliders.Count; i++)
+            {
+                colliders[i].enabled = false;
+            }
         }
+
     }
     
     private void OnDroneGone(Transform dronePoolTransform)
     {
         drone.SetActive(false);
+        
     }
 
     private IEnumerator DroneArrives()
@@ -121,6 +129,8 @@ public class DronePoolManager : MonoBehaviour
         yield return new WaitForSeconds(_dronePoolData.DroneGoneDelay);
         DronePoolSignals.Instance.onDroneGone?.Invoke(GetTruePoolTransform());
     }
+
+   
 
 
 }

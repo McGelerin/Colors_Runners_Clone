@@ -20,9 +20,9 @@ namespace Commands
             _collectable = collectable;
             _manager = Manager;
         }
-        public void Execute()
+        public void Execute(int count)
         {
-            for (int i = 1; i < _manager.StackData.InitialStackItem; i++)
+            for (int i = 1; i < count/*_manager.StackData.InitialStackItem*/; i++)
             {
                 GameObject obj = Object.Instantiate(_collectable);
                 _manager.ItemAddOnStackCommand.Execute(obj);

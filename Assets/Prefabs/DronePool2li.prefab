@@ -315,6 +315,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorEnum: 5
   AreaColorEnum: 0500000002000000
+  colliders:
+  - {fileID: 3443120113439510380}
+  - {fileID: 3443120114258841952}
   colorBlocks:
   - {fileID: 3443120113439510382}
   - {fileID: 3443120114258841954}

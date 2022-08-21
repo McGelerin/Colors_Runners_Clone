@@ -36,6 +36,11 @@ namespace Controllers
             {
                 DronePoolSignals.Instance.onDronePoolExit?.Invoke();
             }
+
+            if (other.CompareTag("GunPoolExit"))
+            {
+                GunPoolSignals.Instance.onGunPoolExit?.Invoke();
+            }
         }
     }
 }

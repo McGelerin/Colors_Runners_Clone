@@ -34,15 +34,17 @@ public class CollectableManager : MonoBehaviour
     [SerializeField] private CollectableMeshController collectableMeshController;
 
     [SerializeField] private CollectableAnimationController animationController;
-
+    [SerializeField]
+    private ColorEnum colorState;
+    [SerializeField] private CollectableAnimStates currentAnimState;
     #endregion
     #region Private Variables
 
-    [SerializeField]
-    private ColorEnum colorState;
+
     [Space]
     private ColorData _colorData;
     private ColorEnum _poolColorEnum;
+    
 
 
     #endregion
@@ -59,7 +61,7 @@ public class CollectableManager : MonoBehaviour
     private void Start()
     {
         ColorState = colorState;
-        animationController.SetAnimState(CollectableAnimStates.Idle);
+        animationController.SetAnimState(currentAnimState);
     }
     
     private void OnEnable()
@@ -107,7 +109,8 @@ public class CollectableManager : MonoBehaviour
 
     private void OnPlay()
     {
-        animationController.SetAnimState(CollectableAnimStates.Runner);
+        currentAnimState = CollectableAnimStates.Runner;
+        animationController.SetAnimState(currentAnimState);
     }
 
 
@@ -149,6 +152,7 @@ public class CollectableManager : MonoBehaviour
             {
                 DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
                 animationController.SetAnimState(CollectableAnimStates.Dying);
+                StartCoroutine(SetActiveFalse());
             }
 
         }
@@ -184,6 +188,13 @@ public class CollectableManager : MonoBehaviour
 
         }
     }
+
+    private IEnumerator SetActiveFalse()
+    {
+        yield return new WaitForSeconds(3f);
+        gameObject.SetActive(false);
+    }
+
 
     #endregion
 }

@@ -63,6 +63,7 @@ namespace Managers
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.Execute;
             StackSignals.Instance.ColorType += OnGateState;
             GunPoolSignals.Instance.onWrongGunPool += _randomRemoveListItemCommand.Execute;
+            GunPoolSignals.Instance.onGunPoolExit += OnTurretExit;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
             DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnStackToUnStack;
             DronePoolSignals.Instance.onWrongDronePool += OnWrongDronePoolCollectablesDelete;
@@ -82,6 +83,8 @@ namespace Managers
             DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnStackToUnStack;
             DronePoolSignals.Instance.onWrongDronePool -= OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
+            GunPoolSignals.Instance.onGunPoolExit -= OnTurretExit;
+
         }
         private void OnDisable()
         {
@@ -99,7 +102,7 @@ namespace Managers
         
         private void Start()
         {
-            _initialzeStackCommand.Execute();
+            _initialzeStackCommand.Execute(StackData.InitialStackItem);
         }
         
         private void Init()
@@ -218,6 +221,25 @@ namespace Managers
                 CollectableStack.Add(i);
             }
             UnStack.Clear();
+
+
+            DubleStack();
+        }
+
+        private void OnTurretExit()
+        {
+            DubleStack();
+
+        }
+
+        private void DubleStack()
+        {
+            int count = CollectableStack.Count;
+            for (int i = 0; i < count; i++)
+            {
+                GameObject go = Instantiate(CollectableStack[i].gameObject);
+                ItemAddOnStackCommand.Execute(go);
+            }
         }
     }
 }

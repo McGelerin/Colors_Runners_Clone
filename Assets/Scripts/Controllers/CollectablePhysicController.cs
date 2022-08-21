@@ -30,9 +30,13 @@ namespace Controllers
 
             if (other.CompareTag("BoostArea") && CompareTag("Collected"))
             {
-                StackSignals.Instance.onBoostArea?.Invoke();
-                //other.gameObject.SetActive(false);
-                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                if (manager.transform.GetSiblingIndex()<=5)
+                {
+                    StackSignals.Instance.onBoostArea?.Invoke();
+                    //other.gameObject.SetActive(false);
+                    other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                }
+                
             }
             
             if (_isFirstTime && other.CompareTag("DronePoolColor"))

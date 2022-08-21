@@ -67,7 +67,6 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             StackSignals.Instance.onBoostArea += OnJump;
-            // ScoreSignals.Instance.onSetTotalScore += OnSetScoreText;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool += movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone += movementController.SetPlayerPositionToTrueDronePool;
@@ -85,7 +84,6 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             StackSignals.Instance.onBoostArea -= OnJump;
-            // ScoreSignals.Instance.onSetTotalScore -= OnSetScoreText;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool -= movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone -= movementController.SetPlayerPositionToTrueDronePool;

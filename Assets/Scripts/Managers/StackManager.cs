@@ -69,6 +69,7 @@ namespace Managers
             DronePoolSignals.Instance.onWrongDronePool += OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone += OnDroneGone;
             DronePoolSignals.Instance.onGetStackCount += OnGetStackCount;
+            DronePoolSignals.Instance.onOutlineBorder += OnStackItemBorder;
         }
         private void UnSubscribeEvent()
         {
@@ -86,6 +87,7 @@ namespace Managers
             DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
             GunPoolSignals.Instance.onGunPoolExit -= OnTurretExit;
             DronePoolSignals.Instance.onGetStackCount -= OnGetStackCount;
+            DronePoolSignals.Instance.onOutlineBorder -= OnStackItemBorder;
 
 
         }
@@ -206,6 +208,19 @@ namespace Managers
             }
             CollectableStack.TrimExcess();
         }
+
+        private void OnStackItemBorder(Boolean isOutlineOpen)
+        {
+            for (int i = 0; i < UnStack.Count; i++)
+            {
+                UnStack[i].GetComponent<CollectableManager>().OutLineBorder(isOutlineOpen);
+            }
+        }
+        
+        
+        
+        
+        
 
         private void OnWrongDronePoolCollectablesDelete(GameObject wrongPoolCollectable)
         {

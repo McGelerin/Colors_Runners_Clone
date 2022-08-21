@@ -4,7 +4,10 @@ using Data.ValueObject;
 using Enums;
 using Signals;
 using UnityEngine;
+using DG.Tweening;
+
 namespace Controllers
+
 {
     public class CollectableMeshController: MonoBehaviour
     {
@@ -54,6 +57,18 @@ namespace Controllers
             {
                 mesh.material = _colorData.ColorMaterial;
                 mesh.material.color = _colorData.color[(int) manager.ColorState];
+            }
+        }
+
+        public void SetOutlineBorder(Boolean isOutlineOn)
+        {
+            if (!isOutlineOn)
+            {
+                mesh.material.DOFloat(100f, "_OutlineSize", 1f);
+            }
+            else
+            {
+                mesh.material.DOFloat(0f, "_OutlineSize", 1f);
             }
         }
     }

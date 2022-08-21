@@ -97,8 +97,12 @@ public class DronePoolManager : MonoBehaviour
     {
         int stackCount = DronePoolSignals.Instance.onGetStackCount();
         yield return new WaitForSeconds(_dronePoolData.DroneArriveDelay + (0.2f * stackCount));
+        DronePoolSignals.Instance.onOutlineBorder?.Invoke(true);
+        yield return new WaitForSeconds(1f);
         DronePoolSignals.Instance.onDroneArrives?.Invoke(transform);
         yield return new WaitForSeconds(_dronePoolData.DroneGoneDelay);
+        DronePoolSignals.Instance.onOutlineBorder?.Invoke(false);
+        yield return new WaitForSeconds(1f);
         DronePoolSignals.Instance.onDroneGone?.Invoke(dronePoolMeshController.GetTruePoolTransform(ColorEnum));
     }
 }

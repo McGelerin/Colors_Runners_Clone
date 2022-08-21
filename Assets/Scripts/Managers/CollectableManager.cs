@@ -39,8 +39,6 @@ public class CollectableManager : MonoBehaviour
     [SerializeField] private CollectableAnimStates initialAnimState;
     #endregion
     #region Private Variables
-
-
     [Space]
     private ColorData _colorData;
     private ColorEnum _poolColorEnum;
@@ -177,6 +175,13 @@ public class CollectableManager : MonoBehaviour
     public void SetPoolColor(ColorEnum poolColorEnum)
     {
         _poolColorEnum = poolColorEnum;
+    }
+
+
+
+    public void OutLineBorder(bool isOutlineOn)
+    {
+        collectableMeshController.SetOutlineBorder(isOutlineOn);
     }
 
     private void OnDroneGone(Transform transform)

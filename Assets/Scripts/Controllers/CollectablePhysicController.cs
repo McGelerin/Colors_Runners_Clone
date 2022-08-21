@@ -44,7 +44,7 @@ namespace Controllers
                 _isFirstTime = false;
                 DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject, other.transform);
 
-                manager.SetPoolColor(other.transform.parent.parent.GetComponent<DronePoolManager>().OnGetColor(other.transform)/*DronePoolSignals.Instance.onGetColor(other.transform)*/);//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
+                manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().OnGetColor(other.transform)/*DronePoolSignals.Instance.onGetColor(other.transform)*/);//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
             }
 
             if (other.CompareTag("GunPool"))

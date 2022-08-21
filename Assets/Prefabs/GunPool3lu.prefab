@@ -53,6 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3838598446476263653}
+  - component: {fileID: 2206913772079967328}
   m_Layer: 0
   m_Name: PoolMesh
   m_TagString: Untagged
@@ -77,6 +78,23 @@ Transform:
   m_Father: {fileID: 3838598447052178991}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2206913772079967328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838598446476263652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d379ec8ad0b2104ba3e5c0a25fd2a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorBlocks:
+  - {fileID: 3838598446900653394}
+  - {fileID: 3838598448123562764}
+  - {fileID: 3838598448200875785}
+  trueColorBlock: {fileID: 3838598447976453594}
 --- !u!1 &3838598446573205205
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,15 +430,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorEnum: 3
   AreaColorEnum: 030000000200000001000000
-  colorBlocks:
-  - {fileID: 3838598446900653394}
-  - {fileID: 3838598448123562764}
-  - {fileID: 3838598448200875785}
   poolControllers:
   - {fileID: 5826129261845901525}
   - {fileID: 405893550392177879}
   - {fileID: 9045657516403394731}
   turretController: {fileID: 3838598447544234491}
+  gunPoolMeshController: {fileID: 2206913772079967328}
 --- !u!1 &3838598447071191511
 GameObject:
   m_ObjectHideFlags: 0

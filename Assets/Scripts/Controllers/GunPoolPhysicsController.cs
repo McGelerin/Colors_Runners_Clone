@@ -9,7 +9,7 @@ public class GunPoolPhysicsController: MonoBehaviour
 
     #region vars
     #region public vars
-    public bool IsTrue = false;
+    public bool IsTruePool = false;
     //public Transform playerTransform;
 
     #endregion
@@ -27,7 +27,7 @@ public class GunPoolPhysicsController: MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (IsTrue.Equals(true))
+            if (IsTruePool.Equals(true))
             {
                 manager.StopCoroutineManager();
             }

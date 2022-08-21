@@ -230,6 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9053578928118297906}
+  - component: {fileID: 8740217815549207946}
   m_Layer: 0
   m_Name: PoolMesh
   m_TagString: Untagged
@@ -253,6 +254,22 @@ Transform:
   m_Father: {fileID: 9053578928609284859}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8740217815549207946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053578928118297907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d379ec8ad0b2104ba3e5c0a25fd2a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorBlocks:
+  - {fileID: 9053578928083677970}
+  - {fileID: 9053578928909036830}
+  trueColorBlock: {fileID: 9053578928546492750}
 --- !u!1 &9053578928333921045
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,11 +705,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorEnum: 1
   AreaColorEnum: 0100000002000000
-  colorBlocks:
-  - {fileID: 9053578928083677970}
-  - {fileID: 9053578928909036830}
-  poolControllers: []
-  turretController: {fileID: 0}
+  poolControllers:
+  - {fileID: 7646204220320123454}
+  - {fileID: 6126870934930098876}
+  turretController: {fileID: 9053578928915379651}
+  gunPoolMeshController: {fileID: 8740217815549207946}
 --- !u!1 &9053578928808461204
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9053578928808461207}
   - component: {fileID: 9053578928808461206}
+  - component: {fileID: 7646204220320123454}
   m_Layer: 0
   m_Name: Color (1)
   m_TagString: Untagged
@@ -737,6 +755,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9428941, y: 5.5, z: 1}
   m_Center: {x: -0.028549949, y: 2.2, z: 0}
+--- !u!114 &7646204220320123454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053578928808461204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed70388592017741a72d433f15684d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTruePool: 0
+  manager: {fileID: 623902688015506228}
 --- !u!1 &9053578928909036829
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9053578928913373718}
   - component: {fileID: 9053578928913373713}
+  - component: {fileID: 6126870934930098876}
   m_Layer: 0
   m_Name: Color
   m_TagString: Untagged
@@ -862,6 +895,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9428941, y: 5.5, z: 1}
   m_Center: {x: -0.028549949, y: 2.2, z: 0}
+--- !u!114 &6126870934930098876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053578928913373719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed70388592017741a72d433f15684d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTruePool: 0
+  manager: {fileID: 623902688015506228}
 --- !u!1 &9053578928915379649
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed70388592017741a72d433f15684d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTrue: 0
+  IsTruePool: 0
   manager: {fileID: 0}
 --- !u!1 &9053578929014652389
 GameObject:
@@ -1209,9 +1256,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
---- !u!4 &850375265716283731 stripped
+--- !u!4 &850536756275380533 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4722236510932744, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
   m_PrefabInstance: {fileID: 854963153022389821}
   m_PrefabAsset: {fileID: 0}
 --- !u!198 &656801314598747535 stripped
@@ -1219,9 +1266,9 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198190432169522098, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
   m_PrefabInstance: {fileID: 854963153022389821}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &850536756275380533 stripped
+--- !u!4 &850375265716283731 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4722236510932744, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
   m_PrefabInstance: {fileID: 854963153022389821}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7392700270816842883
@@ -1341,14 +1388,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
---- !u!198 &7230591459569739569 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198190432169522098, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
-  m_PrefabInstance: {fileID: 7392700270816842883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7388284944592040941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+  m_PrefabInstance: {fileID: 7392700270816842883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7230591459569739569 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198190432169522098, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
   m_PrefabInstance: {fileID: 7392700270816842883}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7388405204003019659 stripped

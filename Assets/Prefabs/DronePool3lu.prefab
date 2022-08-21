@@ -104,7 +104,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 6d5782b8b11791b49a76cee95c1eaa99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,7 +199,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 6d5782b8b11791b49a76cee95c1eaa99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,11 +287,8 @@ MonoBehaviour:
   - {fileID: 3314595893394457346}
   - {fileID: 3314595892564647182}
   - {fileID: 159777625217679889}
-  colorBlocks:
-  - {fileID: 3314595893394457344}
-  - {fileID: 3314595892564647180}
-  - {fileID: 159777625217679888}
   drone: {fileID: 6816391532090182070}
+  dronePoolMeshController: {fileID: 6506601753830302312}
 --- !u!1 &3314595892864270686
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +349,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 6d5782b8b11791b49a76cee95c1eaa99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -396,6 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3314595893292729632}
+  - component: {fileID: 6506601753830302312}
   m_Layer: 0
   m_Name: PoolMesh
   m_TagString: Untagged
@@ -420,6 +418,23 @@ Transform:
   m_Father: {fileID: 3314595892801741545}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6506601753830302312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314595893292729633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d850d8d67e7cab4b8296380efba07e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorBlocks:
+  - {fileID: 3314595893394457344}
+  - {fileID: 3314595892564647180}
+  - {fileID: 159777625217679888}
+  trueColorBlock: {fileID: 3314595892864270684}
 --- !u!1 &3314595893394457347
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +495,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 6d5782b8b11791b49a76cee95c1eaa99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

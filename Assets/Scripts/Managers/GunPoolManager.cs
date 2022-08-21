@@ -13,54 +13,40 @@ public class GunPoolManager : MonoBehaviour
     #region vars
     #region publicVars
     public ColorEnum ColorEnum = ColorEnum.Kirmizi;
-    
     public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
     #endregion
+
     #region serializeVars
-    [SerializeField] private List<MeshRenderer> colorBlocks;
     [SerializeField] private List<GunPoolPhysicsController> poolControllers;
-
     [SerializeField] TurretController turretController;
-
+    [SerializeField] GunPoolMeshController gunPoolMeshController;
     #endregion
+
     #region privateVars
-    private ColorData _colorData;
-    private Material _currentMaterial;
     private bool _isFire = false;
-
-    private bool _isReady = true;
-
     private GameObject _player;
-
     #endregion
 
     #endregion
 
     private void SubscribeEvents()
     {
-        //GunPoolSignals.Instance.onWrongGunPool += TaretController.RotateToPlayer;
-        //GunPoolSignals.Instance.onWrongGunPoolExit += TaretController.OnTargetDisappear;
-
         StackSignals.Instance.onPlayerGameObject += OnSetPlayer;
         GunPoolSignals.Instance.onGunPoolExit += OnPlayerExitGunPool;
-
     }
     private void UnSubscribeEvents()
     {
-        //GunPoolSignals.Instance.onWrongGunPool -= TaretController.RotateToPlayer;
-        //GunPoolSignals.Instance.onWrongGunPoolExit -= TaretController.OnTargetDisappear;
-
         StackSignals.Instance.onPlayerGameObject -= OnSetPlayer;
         GunPoolSignals.Instance.onGunPoolExit -= OnPlayerExitGunPool;
-
-
     }
     private void Awake()
     {
-        _currentMaterial = transform.GetChild(0).GetComponent<MeshRenderer>().material;
-        GetColorData();
-        SetCollidersActiveness();
+        SetTruePool();
+    }
 
+    private void Start()
+    {
+        SetColors();
     }
 
     private void OnEnable()
@@ -72,54 +58,26 @@ public class GunPoolManager : MonoBehaviour
         UnSubscribeEvents();
     }
 
-    private void GetColorData()
+    private void SetColors()
     {
-        _colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
-
-        _currentMaterial.color = _colorData.color[(int)ColorEnum];
-        
-        for (int i = 0; i < AreaColorEnum.Count; i++)
-        {
-            colorBlocks[i].material.color = _colorData.color[(int)AreaColorEnum[i]];
-        }
+        gunPoolMeshController.SetColors(AreaColorEnum, ColorEnum);
     }
 
 
-    private void SetCollidersActiveness()
+    private void SetTruePool()
     {
         for (int i = 0; i < AreaColorEnum.Count; i++)
         {
             if (ColorEnum.Equals(AreaColorEnum[i]))
             {
-                poolControllers[i].IsTrue = true;
+                poolControllers[i].IsTruePool = true;
             }
         }
-
     }
-
-    IEnumerator FireAndReload()
-    {
-        if (_isFire)
-        {
-            GunPoolSignals.Instance.onWrongGunPool?.Invoke();
-            turretController.RotateToPlayer(_player.transform);
-            yield return new WaitForSeconds(0.2f);
-            //_isFire = false;
-            StartCoroutine(FireAndReload());
-
-        }
-    }
-
     private void OnSetPlayer(GameObject playerGameObject)
     {
         _player = playerGameObject;
     }
-
-    public void StopCoroutineManager()
-    {
-        StopAllCoroutines();
-        _isFire = false;
-    } 
 
     public void StartCoroutineManager()
     {
@@ -132,4 +90,20 @@ public class GunPoolManager : MonoBehaviour
         StopCoroutineManager();
     }
 
+    public void StopCoroutineManager()
+    {
+        StopAllCoroutines();
+        _isFire = false;
+    } 
+
+    IEnumerator FireAndReload()
+    {
+        if (_isFire)
+        {
+            GunPoolSignals.Instance.onWrongGunPool?.Invoke();
+            turretController.RotateToPlayer(_player.transform);
+            yield return new WaitForSeconds(0.8f);
+            StartCoroutine(FireAndReload());
+        }
+    }
 }

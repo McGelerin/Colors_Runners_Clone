@@ -5,6 +5,7 @@ using Signals;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Controllers;
 
 public class DronePoolManager : MonoBehaviour
 {
@@ -15,15 +16,14 @@ public class DronePoolManager : MonoBehaviour
     public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
     public List<Collider> colliders = new List<Collider>();
     #endregion
-    #region serializeVars
-    [SerializeField] private List<MeshRenderer> colorBlocks;
-    [SerializeField] private GameObject drone;
 
+    #region serializeVars
+    [SerializeField] private GameObject drone;
+    [SerializeField] private DronePoolMeshController dronePoolMeshController;
     #endregion
+
     #region privateVars
-    private ColorData _colorData;
     private DronePoolData _dronePoolData;
-    private Material _currentMaterial;
     #endregion
 
     #endregion
@@ -42,9 +42,11 @@ public class DronePoolManager : MonoBehaviour
     }
     private void Awake()
     {
-        _currentMaterial = transform.GetChild(0).GetComponent<MeshRenderer>().material;
-        GetColorData();
         GetDroneData();
+    }
+    private void Start()
+    {
+        SetColors();
     }
 
     private void OnEnable()
@@ -60,46 +62,17 @@ public class DronePoolManager : MonoBehaviour
     {
         _dronePoolData = Resources.Load<CD_Drone>("Data/CD_Drone").Data;
     }
-    private void GetColorData()
+    private void SetColors()
     {
-        _colorData = Resources.Load<CD_Color>("Data/CD_Color").colorData;
-        _currentMaterial.color = _colorData.color[(int)ColorEnum];
-
-        for (int i = 0; i < AreaColorEnum.Count; i++)
-        {
-            colorBlocks[i].material.color = _colorData.color[(int)AreaColorEnum[i]];
-        }
+        dronePoolMeshController.SetColors(AreaColorEnum, ColorEnum);
     }
-    
+
     public void OnPlayerCollideWithDronePool(Transform selectedPoolTransform)
     {
         if (selectedPoolTransform.parent.Equals(transform))
         {
             StartCoroutine(DroneArrives());
         }
-    }
-    public Transform GetTruePoolTransform()
-    {
-        for (int i = 0; i < AreaColorEnum.Count; i++)
-        {
-            if (AreaColorEnum[i].Equals(ColorEnum))
-            {
-                return colorBlocks[i].transform;
-            }
-        }
-        return transform;
-    }
-
-    public ColorEnum OnGetColor(Transform poolTransform)
-    {
-        for (int i = 0; i < AreaColorEnum.Count; i++)
-        {
-            if (colorBlocks[i].transform.Equals(poolTransform))
-            {
-                return AreaColorEnum[i];
-            }
-        }
-        return ColorEnum.Kirmizi;
     }
 
     private void OnDroneArrives(Transform _poolTransform)
@@ -113,7 +86,6 @@ public class DronePoolManager : MonoBehaviour
                 colliders[i].enabled = false;
             }
         }
-
     }
     
     private void OnDroneGone(Transform dronePoolTransform)
@@ -121,15 +93,12 @@ public class DronePoolManager : MonoBehaviour
         drone.SetActive(false);
         
     }
-
     private IEnumerator DroneArrives()
     {
         int stackCount = DronePoolSignals.Instance.onGetStackCount();
-        //Debug.Log(_dronePoolData.DroneArriveDelay * (stackCount - (0.35f * stackCount)));
-
         yield return new WaitForSeconds(_dronePoolData.DroneArriveDelay + (0.2f * stackCount));
         DronePoolSignals.Instance.onDroneArrives?.Invoke(transform);
         yield return new WaitForSeconds(_dronePoolData.DroneGoneDelay);
-        DronePoolSignals.Instance.onDroneGone?.Invoke(GetTruePoolTransform());
+        DronePoolSignals.Instance.onDroneGone?.Invoke(dronePoolMeshController.GetTruePoolTransform(ColorEnum));
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Data.ValueObject;
+using Signals;
 using UnityEngine;
 
 namespace Commands
@@ -40,6 +41,7 @@ namespace Commands
                 _collectableGameObject.transform.localPosition = newPos;
                 _collectableStack.Add(_collectableGameObject);
             }
+            ScoreSignals.Instance.onSetScore?.Invoke(+1);
         }
     }
 }

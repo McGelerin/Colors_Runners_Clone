@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Controllers;
 using Enums;
@@ -19,8 +20,8 @@ namespace Managers
         [SerializeField] private TextMeshProUGUI money;
         [SerializeField] private List<GameObject> panels;
         [SerializeField] private TextMeshProUGUI levelText;
-        [SerializeField] private TextMeshProUGUI _score;
-        
+        [SerializeField] private TextMeshPro scoreTMP;
+
         #endregion
 
         #region Private Variables
@@ -49,6 +50,7 @@ namespace Managers
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             ScoreSignals.Instance.onSendMoney += SetMoneyText;
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
+            UISignals.Instance.onSetScoreText += OnSetScoreText;
         }
 
         private void UnsubscribeEvents()
@@ -60,7 +62,8 @@ namespace Managers
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             ScoreSignals.Instance.onSendMoney -= SetMoneyText;
-            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
+            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
+            UISignals.Instance.onSetScoreText += OnSetScoreText;
         }
 
         private void OnDisable()
@@ -94,7 +97,7 @@ namespace Managers
 
         private void OnSetScoreText(int value)
         {
-            _score.text = (value.ToString());
+            scoreTMP.text = (value.ToString());
         }
 
         private void OnSetLevelText(int value)

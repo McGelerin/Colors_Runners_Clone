@@ -9,5 +9,6 @@ namespace Signals
         public UnityAction<UIPanels> onOpenPanel;
         public UnityAction<UIPanels> onClosePanel;
         public UnityAction<int> onSetLevelText;
+        public UnityAction<int> onSetScoreText;
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using Enums;
+﻿using Enums;
 using Signals;
 using Sirenix.OdinInspector;
-using TMPro;
 using UnityEngine;
 
 namespace Managers
@@ -13,14 +11,14 @@ namespace Managers
 
         #region Serialized Variables
         
-        [SerializeField] private GameObject playerGO;
+        [SerializeField] private GameObject stackGO;
 
         #endregion
 
         #region Private Variables
 
         private int _score;
-        [ShowInInspector] private GameObject _stackGO;
+        [ShowInInspector] private GameObject _playerGO;
         private InputStates _currentState;
 
         #endregion
@@ -29,13 +27,13 @@ namespace Managers
 
         private void Awake()
         {
-            _stackGO = GameObject.Find("StackManager");
+            _playerGO = GameObject.Find("PlayerManager v2");
         }
 
         private void Start()
         {
-            _score = _stackGO.transform.childCount;
-            
+            _score = stackGO.transform.childCount;
+            ScoreSignals.Instance.onSetScore?.Invoke(_score);
         }
         #region Event Subscriptions
 
@@ -47,11 +45,13 @@ namespace Managers
         private void SubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
+            ScoreSignals.Instance.onSetScore += OnSetScore;
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
+            ScoreSignals.Instance.onSetScore -= OnSetScore;
         }
 
         private void OnDisable()
@@ -66,15 +66,21 @@ namespace Managers
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
             if (_currentState == InputStates.OldInputSystem)
             {
-                transform.position = _stackGO.transform.GetChild(0).position + new Vector3(0, 2f, 0);
+                transform.position = stackGO.transform.GetChild(0).position + new Vector3(0, 2f, 0);
             }
         }
 
         private void OnChangeGameState()
         {
             _currentState = InputStates.NewInputSystem;
-            transform.parent = playerGO.transform;
+            transform.parent = _playerGO.transform;
             transform.localPosition = new Vector3(0, 2f, 0);
+        }
+
+        private void OnSetScore(int value)
+        {
+            _score += value;
+            UISignals.Instance.onSetScoreText?.Invoke(_score);
         }
     }
 }

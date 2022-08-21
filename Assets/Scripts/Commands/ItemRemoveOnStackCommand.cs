@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Managers;
+using Signals;
 using UnityEngine;
 
 namespace Commands
@@ -34,6 +35,7 @@ namespace Commands
             _collectableStack.TrimExcess();
             _manager.StackValueUpdateCommand.Execute();
             //_onReBuildListCommand.ReBuildList();
+            ScoreSignals.Instance.onSetScore?.Invoke(-1);
         }
     }
 }

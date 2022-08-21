@@ -27,7 +27,6 @@ namespace Commands
             //     _totalListScore += 1;
             // }
             _totalListScore = _collectableStack.Count - 1;
-            ScoreSignals.Instance.onSetScore?.Invoke(_totalListScore);
         }
     }
 }

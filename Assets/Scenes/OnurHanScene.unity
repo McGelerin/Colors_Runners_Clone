@@ -208,7 +208,7 @@ MonoBehaviour:
   - {fileID: 764709789}
   - {fileID: 452442412}
   - {fileID: 1462507135}
-  levelText: {fileID: 0}
+  scoreTMP: {fileID: 0}
 --- !u!4 &17835310
 Transform:
   m_ObjectHideFlags: 0

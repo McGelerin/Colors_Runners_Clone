@@ -27,7 +27,7 @@ namespace Commands
                 GameObject obj = Object.Instantiate(_collectable);
                 _manager.ItemAddOnStack.Execute(obj);
             }
-            _manager.StackValueUpdateCommand.Execute();
+           // _manager.StackValueUpdateCommand.Execute();
         }
     }
 }

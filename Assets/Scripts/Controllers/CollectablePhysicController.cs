@@ -20,12 +20,14 @@ namespace Controllers
             if (other.CompareTag("Collectable") && CompareTag("Collected"))
             {
                 manager.InteractionWithCollectable(other.transform.gameObject);
+                return;
             }
             
             if (other.CompareTag("Obstacle")&& CompareTag("Collected"))
             {
                 manager.InteractionWithObstacle(transform.parent.gameObject);
                 other.gameObject.SetActive(false);
+                return;
             }
 
             if (other.CompareTag("BoostArea") && CompareTag("Collected"))
@@ -35,16 +37,19 @@ namespace Controllers
                     StackSignals.Instance.onBoostArea?.Invoke();
                     other.enabled = false;
                 }
+                return;
             }
             
             if (_isFirstTime && other.CompareTag("DronePoolColor"))
             {
                 InteractionWithDronePool(other);
+                return;
             }
 
             if (other.CompareTag("GunPool"))
             {
                 manager.CollectableOnGunPool();
+                return;
             }
             
             if (other.CompareTag("GunPoolExit"))

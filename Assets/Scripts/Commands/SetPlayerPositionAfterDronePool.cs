@@ -15,9 +15,9 @@ namespace Commands
             _transform = transform;
         }
 
-        public void Execute(Transform dronePoolTransform)
+        public void Execute()
         {
-            _transform.DOMove(new Vector3(dronePoolTransform.position.x, _transform.position.y, _transform.position.z + 20), 1f);
+            _transform.DOMove(new Vector3(/*dronePoolTransform*/_transform.position.x, _transform.position.y, _transform.position.z + 20), 1f);
         }
     }
 }

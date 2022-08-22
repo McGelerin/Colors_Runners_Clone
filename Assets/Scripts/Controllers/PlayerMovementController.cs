@@ -49,7 +49,7 @@ namespace Controllers
             _isOnDronePool = true;
         }
 
-        public void UnDeactiveForwardMovement(Transform truePoolTransform)
+        public void UnDeactiveForwardMovement()
         {
             _isOnDronePool = false;
         }

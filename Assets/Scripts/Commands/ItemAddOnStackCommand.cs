@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using Data.ValueObject;
 using Signals;
-using UnityEngine;
 
 namespace Commands
 {

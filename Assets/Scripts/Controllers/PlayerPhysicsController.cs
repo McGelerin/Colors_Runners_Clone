@@ -1,3 +1,4 @@
+using System;
 using Signals;
 using UnityEngine;
 using Managers;
@@ -21,7 +22,7 @@ namespace Controllers
             if (other.CompareTag("DronePool"))
             {
                 DronePoolSignals.Instance.onPlayerCollideWithDronePool?.Invoke(other.transform);
-                DronePoolSignals.Instance.onDronePoolEnter?.Invoke();
+                ScoreSignals.Instance.onVisibleScore?.Invoke(false);
             }
 
             if (other.CompareTag("Finish"))
@@ -37,6 +38,10 @@ namespace Controllers
             if (other.CompareTag("GunPoolExit"))
             {
                 GunPoolSignals.Instance.onGunPoolExit?.Invoke();
+            }
+            if (other.CompareTag("DronePoolExit"))
+            {
+                ScoreSignals.Instance.onVisibleScore?.Invoke(true);
             }
         }
     }

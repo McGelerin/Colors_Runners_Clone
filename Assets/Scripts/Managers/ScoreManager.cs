@@ -25,8 +25,7 @@ namespace Managers
         [ShowInInspector] private GameObject _playerGO;
         private GameStates _currentState;
         private SetScoreCommand _setScoreCommand;
-        private OpenScoreText _openScoreText;
-        private CloseScoreText _closeScoreText;
+        private SetVisibilityOfScore _setVisibilityOfScore;
 
         #endregion
 
@@ -46,8 +45,7 @@ namespace Managers
         private void Init()
         {
             _setScoreCommand = new SetScoreCommand(ref _score);
-            _openScoreText = new OpenScoreText(ref scoreTMP, ref spriteTMP,ref textPlane);
-            _closeScoreText = new CloseScoreText(ref scoreTMP, ref spriteTMP, ref textPlane);
+            _setVisibilityOfScore = new SetVisibilityOfScore(ref scoreTMP, ref spriteTMP, ref textPlane);
         }
 
         private void GetReferences()
@@ -65,18 +63,18 @@ namespace Managers
         {
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             ScoreSignals.Instance.onSetScore += _setScoreCommand.Execute;
-            DronePoolSignals.Instance.onDronePoolExit += _openScoreText.Execute;
-            DronePoolSignals.Instance.onDronePoolEnter += _closeScoreText.Execute;
+            ScoreSignals.Instance.onVisibleScore += _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay += OnPlay;
+            ScoreSignals.Instance.onSetScoreManagerPosition += OnSetScoreManagerPosition;
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             ScoreSignals.Instance.onSetScore -= _setScoreCommand.Execute;
-            DronePoolSignals.Instance.onDronePoolExit -= _openScoreText.Execute;
-            DronePoolSignals.Instance.onDronePoolEnter -= _closeScoreText.Execute;
+            ScoreSignals.Instance.onVisibleScore -= _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay -= OnPlay;
+            ScoreSignals.Instance.onSetScoreManagerPosition -= OnSetScoreManagerPosition;
         }
 
         private void OnDisable()
@@ -89,7 +87,6 @@ namespace Managers
         private void Update()
         {
             SetScoreManagerRotation();
-            SetScoreManagerPosition();
         }
         
         private void OnPlay()
@@ -105,11 +102,13 @@ namespace Managers
             transform1.localPosition = new Vector3(0, 2f, 0);
         }
 
-        private void SetScoreManagerPosition()
+        private void OnSetScoreManagerPosition()
         {
             if (_currentState == GameStates.Runner)
             {
-                transform.position = stackGO.transform.GetChild(0).position + new Vector3(0, 2f, 0);
+                var transform1 = transform;
+                transform1.parent = stackGO.transform.GetChild(0).transform;
+                transform1.localPosition = new Vector3(0, 2f, 0);
             }
         }
 

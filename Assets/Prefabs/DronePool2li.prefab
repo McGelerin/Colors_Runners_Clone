@@ -315,6 +315,7 @@ Transform:
   - {fileID: 3443120113539139918}
   - {fileID: 1480709929}
   - {fileID: 795642941313297022}
+  - {fileID: 6036227436282027876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -330,8 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebf4dabf8263054da029059a74b7ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorEnum: 5
-  AreaColorEnum: 0500000002000000
+  ColorState: 0
+  areaColorEnum: 
   colliders:
   - {fileID: 3443120113439510380}
   - {fileID: 3443120114258841952}
@@ -432,6 +433,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9428941, y: 5.5, z: 1.0008322}
   m_Center: {x: -0.02854994, y: 2.2, z: -0.000415629}
+--- !u!1 &5332704003971725164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6036227436282027876}
+  - component: {fileID: 9032483444165159366}
+  m_Layer: 0
+  m_Name: DronePoolRealExitTrigger
+  m_TagString: DronePoolExit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6036227436282027876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332704003971725164}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.02030348, y: 0.09, z: 15.02}
+  m_LocalScale: {x: 11.91, y: 1, z: 0.3503}
+  m_Children: []
+  m_Father: {fileID: 3443120114021756551}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9032483444165159366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332704003971725164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.3825107, z: 1}
+  m_Center: {x: 0, y: 1.1912553, z: 0}
 --- !u!1001 &1869136514115319770
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,11 +3,11 @@
     public enum CollectableAnimStates
     {
         Idle,
-        Runner,
-        StrongGesture,
-        CrouchedWalking,
+        Run,
+        Gesture,
+        CrouchedWalk,
         Clap,
-        Dying,
-        Crouching
+        Die,
+        Crouch
     }
 }

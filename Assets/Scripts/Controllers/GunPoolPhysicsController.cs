@@ -1,35 +1,48 @@
 using UnityEngine;
 
-public class GunPoolPhysicsController: MonoBehaviour
+namespace Controllers
 {
-
-    #region Self Variables
-    
-    #region Public Variables
-    
-    public bool IsTruePool = false;
-
-    #endregion
-    
-    #region Serialized Variables
-    
-    [SerializeField] GunPoolManager manager;
-    
-    #endregion
-    
-    #endregion
-
-    private void OnTriggerEnter(Collider other)
+    public class GunPoolPhysicsController: MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+
+        #region Self Variables
+    
+        #region Public Variables
+    
+        public bool IsTruePool = false;
+
+        #endregion
+    
+        #region Serialized Variables
+    
+        [SerializeField] GunPoolManager manager;
+    
+        #endregion
+    
+        #endregion
+
+        private void OnTriggerEnter(Collider other)
         {
-            if (IsTruePool.Equals(true))
+            if (other.CompareTag("Player"))
             {
-                manager.StopAsyncManager();
+                if (IsTruePool.Equals(true))
+                {
+                    manager.StopAsyncManager();
+                }
+                else
+                {
+                    manager.StartAsyncManager();
+                }
             }
-            else
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
             {
-                manager.StartAsyncManager();
+                if (IsTruePool.Equals(false))
+                {
+                    manager.StopAsyncManager();
+                }
             }
         }
     }

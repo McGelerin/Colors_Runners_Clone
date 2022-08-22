@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Managers;
 using UnityEngine;
+using Signals;
 
 namespace Commands
 {
@@ -36,6 +37,10 @@ namespace Commands
             _collectableStack.RemoveAt(random);
             _collectableStack.TrimExcess();
             _manager.StackValueUpdateCommand.Execute();
+            if (DronePoolSignals.Instance.onGetStackCount() <= 0)
+            {
+                LevelSignals.Instance.onLevelFailed?.Invoke();
+            }
             //_onReBuildListCommand.OnReBuildList();
         }
     }

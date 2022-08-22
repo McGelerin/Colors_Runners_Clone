@@ -36,6 +36,10 @@ namespace Commands
             _manager.StackValueUpdateCommand.Execute();
             //_onReBuildListCommand.ReBuildList();
             ScoreSignals.Instance.onSetScore?.Invoke(-1);
+            if (DronePoolSignals.Instance.onGetStackCount() <= 0)
+            {
+                LevelSignals.Instance.onLevelFailed?.Invoke();
+            }
         }
     }
 }

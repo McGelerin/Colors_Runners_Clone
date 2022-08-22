@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Signals;
 
 namespace Controllers
 {
@@ -20,11 +21,14 @@ namespace Controllers
 
         public void RotateToPlayer(Transform player)
         {
-            var position = player.position;
-            taret1.DOLookAt(position, rotationSpeed);
-            taret2.DOLookAt(position, rotationSpeed);
-            taret1Particle.Play();
-            taret2Particle.Play();
+            if (DronePoolSignals.Instance.onGetStackCount() != 0)
+            {
+                var position = player.position;
+                taret1.DOLookAt(position, rotationSpeed);
+                taret2.DOLookAt(position, rotationSpeed);
+                taret1Particle.Play();
+                taret2Particle.Play();
+            }
         }
 
         public void OnTargetDisappear()

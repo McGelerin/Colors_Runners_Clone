@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed70388592017741a72d433f15684d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTruePool: 0
+  IsTrue: 0
   manager: {fileID: 1929432259}
 --- !u!1 &3838598446900653398
 GameObject:
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed70388592017741a72d433f15684d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTruePool: 0
+  IsTrue: 0
   manager: {fileID: 1929432259}
 --- !u!65 &1248983390377266949
 BoxCollider:
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed70388592017741a72d433f15684d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTruePool: 0
+  IsTrue: 0
   manager: {fileID: 1929432259}
 --- !u!1 &3838598447976453599
 GameObject:

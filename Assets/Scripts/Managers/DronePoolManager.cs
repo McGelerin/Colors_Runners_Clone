@@ -34,8 +34,7 @@ public class DronePoolManager : MonoBehaviour
     private void Awake()
     {
         GetDroneData();
-        Init();
-
+        _droneArrivesCommand = new DroneArrivesCommand(ref drone, ref colliders,transform);
     }
 
     #region Event Subscription
@@ -46,12 +45,14 @@ public class DronePoolManager : MonoBehaviour
     }
     private void SubscribeEvents()
     {
+        DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives += _droneArrivesCommand.Execute;
         DronePoolSignals.Instance.onDroneGone += OnDroneGone;
     }
     
     private void UnSubscribeEvents()
     {
+        DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives -= _droneArrivesCommand.Execute;
         DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
     }
@@ -66,12 +67,7 @@ public class DronePoolManager : MonoBehaviour
     {
         SetColors();
     }
-
-    private void Init()
-    {
-        _droneArrivesCommand = new DroneArrivesCommand(ref drone, ref colliders, transform);
-    }
-
+    
     private void GetDroneData()
     {
         _dronePoolData = Resources.Load<CD_Drone>("Data/CD_Drone").Data;
@@ -82,9 +78,12 @@ public class DronePoolManager : MonoBehaviour
         dronePoolMeshController.SetColors(areaColorEnum, ColorState);
     }
 
-    public void DroneArrive(Transform selectedPoolTransform)
+    public void OnPlayerCollideWithDronePool(Transform selectedPoolTransform)
     {
-        StartCoroutine(DroneArrives());
+        if (selectedPoolTransform.parent.Equals(transform))
+        {
+            StartCoroutine(DroneArrives());
+        }
     }
     
     private void OnDroneGone(Transform dronePoolTransform)

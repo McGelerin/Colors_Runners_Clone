@@ -126,9 +126,9 @@ public class CollectableManager : MonoBehaviour
             if (!_poolColorEnum.Equals(ColorState))
             {
                 DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
-                StartCoroutine(SetCollectableActivenessFalse());
 
                 SetCollectableAnimation(CollectableAnimStates.Die);
+                StartCoroutine(SetActiveFalse());
             }
         }
     }
@@ -167,7 +167,7 @@ public class CollectableManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SetCollectableActivenessFalse()
+    private IEnumerator SetActiveFalse()
     {
         yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);

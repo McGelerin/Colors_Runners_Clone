@@ -17,7 +17,6 @@ public class CollectableManager : MonoBehaviour
 
     #region Public Variables
     [Header("Data")] public CollectableData Data;
-
     public ColorEnum ColorState
     {
         get => colorState;
@@ -32,19 +31,14 @@ public class CollectableManager : MonoBehaviour
     #region SerializeField Variables
     [SerializeField] private CollectablePhysicController physicController;
     [SerializeField] private CollectableMeshController collectableMeshController;
-
     [SerializeField] private CollectableAnimationController animationController;
-    [SerializeField]
-    private ColorEnum colorState;
+    [SerializeField] private ColorEnum colorState;
     [SerializeField] private CollectableAnimStates initialAnimState;
     #endregion
     #region Private Variables
     [Space]
     private ColorData _colorData;
     private ColorEnum _poolColorEnum;
-    
-
-
     #endregion
 
     #endregion
@@ -52,16 +46,13 @@ public class CollectableManager : MonoBehaviour
     private void Awake()
     {
         Data = GetCollectableData();
+
     }
 
     private CollectableData GetCollectableData() => Resources.Load<CD_Collectable>("Data/CD_Collectable").Data;
 
-    private void Start()
-    {
-        ColorState = colorState;
-        SetCollectableAnimation(initialAnimState);
-    }
-    
+    #region Event Subscription
+
     private void OnEnable()
     {
         SubscribeEvents();
@@ -69,8 +60,6 @@ public class CollectableManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
-        DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
         DronePoolSignals.Instance.onDronePoolExit += physicController.CanEnterDronePool;
         CoreGameSignals.Instance.onPlay += OnPlay;
@@ -79,22 +68,30 @@ public class CollectableManager : MonoBehaviour
 
     private void UnsubscribeEvents()
     {
-        DronePoolSignals.Instance.onPlayerCollideWithDronePool -= OnPlayerCollideWithDronePool;
-        DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnCollectableCollideWithDronePool;
         DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
         DronePoolSignals.Instance.onDronePoolExit -= physicController.CanEnterDronePool;
         CoreGameSignals.Instance.onPlay -= OnPlay;
         DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
-
     }
-
-
+    
     private void OnDisable()
     {
         UnsubscribeEvents();
     }
 
+    #endregion
 
+    private void Start()
+    {
+        SetReferances();
+    }
+
+    private void SetReferances()
+    {
+        ColorState = colorState;
+        SetCollectableAnimation(initialAnimState);
+    }
+    
     public void InteractionWithCollectable(GameObject collectableGameObject)
     {
         collectableMeshController.ColorControl(collectableGameObject);
@@ -115,53 +112,30 @@ public class CollectableManager : MonoBehaviour
     }
     
     #region Onur Workouth
-
-    public void OnPlayerCollideWithDronePool(Transform poolTrigerTransform)
-    {
-        if (CompareTag("Collected"))
-        {
-            transform.DOMoveZ(poolTrigerTransform.position.z + 2, Data.CollectablesMoveToDronePoolTriggerTime);
-            Data.CollectablesMoveToDronePoolTriggerTime += 0.2f;
-            StartCoroutine(CrouchAnim());
-        }
-    }
-
+    
     public IEnumerator CrouchAnim()
     {
-        yield return new WaitForSeconds(Data.CollectablesMoveToDronePoolTriggerTime);
+        yield return new WaitForSeconds(1f);
         SetCollectableAnimation(CollectableAnimStates.Crouching);
     }
-
-    public void OnCollectableCollideWithDronePool(GameObject collectable, Transform colorTransform)
-    {
-        if (CompareTag("Collected") && collectable.Equals(gameObject))
-        {
-            transform.DOMove(new Vector3(colorTransform.position.x, transform.position.y,
-                transform.position.z + Random.Range(5f, 15f)), Data.CollectablesMoveToDronePoolTime);
-        }
-    }
-
+    
     public void OnDroneArrives(Transform _poolTransform)
     {
         if (CompareTag("Collected"))
         {
-            if (_poolColorEnum.Equals(ColorState))
-            {
-            }
-            else
+            if (!_poolColorEnum.Equals(ColorState))
             {
                 DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
                 SetCollectableAnimation(CollectableAnimStates.Dying);
                 StartCoroutine(SetActiveFalse());
             }
-
         }
     }
 
     public void CollectableOnGunPool()
     {
-        SetCollectableAnimation(CollectableAnimStates.CrouchedWalking);
-
+        initialAnimState = CollectableAnimStates.CrouchedWalking;
+        SetCollectableAnimation(initialAnimState);
     }
 
     public void CollectableOnExitGunPool()
@@ -176,9 +150,7 @@ public class CollectableManager : MonoBehaviour
     {
         _poolColorEnum = poolColorEnum;
     }
-
-
-
+    
     public void OutLineBorder(bool isOutlineOn)
     {
         collectableMeshController.SetOutlineBorder(isOutlineOn);
@@ -190,7 +162,6 @@ public class CollectableManager : MonoBehaviour
         {
             SetCollectableAnimation(CollectableAnimStates.Runner);
             Data.CollectablesMoveToDronePoolTriggerTime = 1;
-
         }
     }
 
@@ -204,7 +175,6 @@ public class CollectableManager : MonoBehaviour
     {
         animationController.SetAnimState(newAnimState);
     }
-
-
+    
     #endregion
 }

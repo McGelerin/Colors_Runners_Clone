@@ -5,7 +5,6 @@ using Enums;
 using Signals;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Managers
 {
@@ -19,20 +18,22 @@ namespace Managers
 
         [SerializeField] private TextMeshProUGUI money;
         [SerializeField] private List<GameObject> panels;
-        [SerializeField] private TextMeshProUGUI levelText;
+        // [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshPro scoreTMP;
 
         #endregion
 
         #region Private Variables
-
         private UIPanelController _uiPanelController;
-        //private ShopControllerController _shopControllerController;
-
         #endregion
 
         #endregion
 
+        private void Awake()
+        {
+            _uiPanelController = new UIPanelController();
+        }
+        
         #region Event Subscriptions
 
         private void OnEnable()
@@ -42,28 +43,28 @@ namespace Managers
 
         private void SubscribeEvents()
         {
+            CoreGameSignals.Instance.onPlay += OnPlay;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             UISignals.Instance.onOpenPanel += OnOpenPanel;
             UISignals.Instance.onClosePanel += OnClosePanel;
-            UISignals.Instance.onSetLevelText += OnSetLevelText;
-            CoreGameSignals.Instance.onPlay += OnPlay;
+//            UISignals.Instance.onSetLevelText += OnSetLevelText;
+            UISignals.Instance.onSetScoreText += OnSetScoreText;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             ScoreSignals.Instance.onSendMoney += SetMoneyText;
-            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
-            UISignals.Instance.onSetScoreText += OnSetScoreText;
         }
 
         private void UnsubscribeEvents()
         {
+            CoreGameSignals.Instance.onPlay -= OnPlay;
+            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             UISignals.Instance.onOpenPanel -= OnOpenPanel;
             UISignals.Instance.onClosePanel -= OnClosePanel;
-            UISignals.Instance.onSetLevelText -= OnSetLevelText;
-            CoreGameSignals.Instance.onPlay -= OnPlay;
+//            UISignals.Instance.onSetLevelText -= OnSetLevelText;
+            UISignals.Instance.onSetScoreText += OnSetScoreText;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             ScoreSignals.Instance.onSendMoney -= SetMoneyText;
-            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
-            UISignals.Instance.onSetScoreText += OnSetScoreText;
         }
 
         private void OnDisable()
@@ -73,13 +74,7 @@ namespace Managers
 
         #endregion
 
-        private void Awake()
-        {
-            _uiPanelController = new UIPanelController();
-            //_shopControllerController =
-            //    new ShopControllerController(ref money, ref incomeLvlText, ref incomeValue,ref incomeLvlButton,ref stackLvlText,ref stackValue,ref stackLvlButton);
-        }
-
+        
         private void OnOpenPanel(UIPanels panelParam)
         {
             _uiPanelController.OpenPanel(panelParam , panels);
@@ -100,10 +95,14 @@ namespace Managers
             scoreTMP.text = (value.ToString());
         }
 
-        private void OnSetLevelText(int value)
-        {
-            //evelText.text = "Level " + (value + 1);
-        }
+        #region Useless
+
+        // private void OnSetLevelText(int value)
+        // {
+        //     //evelText.text = "Level " + (value + 1);
+        // }
+
+        #endregion
 
         private void OnPlay()
         {

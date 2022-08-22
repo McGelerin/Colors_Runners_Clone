@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Signals;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Controllers
         #region Serializefield Variables
         [SerializeField] private CollectableManager manager;
         #endregion
-        #region Serializefield Variables
+        #region Private Variables
         private bool _isFirstTime = true;
         #endregion
         #endregion
@@ -24,7 +25,6 @@ namespace Controllers
             if (other.CompareTag("Obstacle")&& CompareTag("Collected"))
             {
                 manager.InteractionWithObstacle(transform.parent.gameObject);
-                //Destroy(other.transform.parent.gameObject);
                 other.gameObject.SetActive(false);
             }
 
@@ -33,28 +33,35 @@ namespace Controllers
                 if (manager.transform.GetSiblingIndex()<=5)
                 {
                     StackSignals.Instance.onBoostArea?.Invoke();
-                    //other.gameObject.SetActive(false);
-                    other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    other.enabled = false;
                 }
-                
             }
             
             if (_isFirstTime && other.CompareTag("DronePoolColor"))
             {
-                _isFirstTime = false;
-                DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject, other.transform);
-
-                manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().OnGetColor(other.transform)/*DronePoolSignals.Instance.onGetColor(other.transform)*/);//uzerinde bulundugu rengi manager'e bildirir. Manager zaten kendi rengini biliyor.
+                InteractionWithDronePool(other);
             }
 
             if (other.CompareTag("GunPool"))
             {
                 manager.CollectableOnGunPool();
             }
+            
             if (other.CompareTag("GunPoolExit"))
             {
                 manager.CollectableOnExitGunPool();
             }
+        }
+
+        private void InteractionWithDronePool(Collider other)
+        {
+            _isFirstTime = false;
+            StartCoroutine(manager.CrouchAnim());
+            var _managerT = manager.transform;
+            DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject);
+            _managerT.DOMove(new Vector3(other.transform.position.x, _managerT.position.y,
+                _managerT.position.z + Random.Range(5f, 15f)), 4f);//data olacak
+            manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().OnGetColor(other.transform));
         }
 
         public  void CanEnterDronePool()

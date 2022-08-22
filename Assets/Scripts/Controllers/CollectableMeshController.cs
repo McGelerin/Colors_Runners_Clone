@@ -31,13 +31,13 @@ namespace Controllers
         
         public void ColorControl(GameObject otherGameObject)
         {
-            otherGameObject.tag = "Collected";
             CollectableManager cm = otherGameObject.transform.parent.gameObject.GetComponent<CollectableManager>();
             _otherColorState = cm.ColorState;
-            cm.SetCollectableAnimation(CollectableAnimStates.Runner);
-
+            
             if (manager.ColorState == _otherColorState)
             {
+                otherGameObject.tag = "Collected";
+                cm.SetCollectableAnimation(CollectableAnimStates.Runner);
                 StackSignals.Instance.onInteractionCollectable?.Invoke(otherGameObject.transform.parent.gameObject);
             }
             else

@@ -4,67 +4,78 @@ using Enums;
 using Signals;
 using System.Collections;
 using System.Collections.Generic;
+using Commands;
 using UnityEngine;
 using Controllers;
 
 public class DronePoolManager : MonoBehaviour
 {
-    #region vars
-    #region publicVars
-    public ColorEnum ColorEnum;
-
-    public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
-    public List<Collider> colliders = new List<Collider>();
+    #region Self Variables
+    #region Public Variables
+    
+    public ColorEnum ColorState;
     #endregion
 
-    #region serializeVars
+    #region SerializeField Variables
+    [SerializeField] private List<ColorEnum> areaColorEnum = new List<ColorEnum>();
+    [SerializeField] private List<Collider> colliders = new List<Collider>();
     [SerializeField] private GameObject drone;
     [SerializeField] private DronePoolMeshController dronePoolMeshController;
     #endregion
 
-    #region privateVars
+    #region Private Variables
+
+    private DroneArrivesCommand _droneArrivesCommand;
     private DronePoolData _dronePoolData;
     #endregion
 
     #endregion
-
-    private void SubscribeEvents()
-    {
-        DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
-        DronePoolSignals.Instance.onDroneArrives += OnDroneArrives;
-        DronePoolSignals.Instance.onDroneGone += OnDroneGone;
-    }
-    private void UnSubscribeEvents()
-    {
-        DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
-        DronePoolSignals.Instance.onDroneArrives -= OnDroneArrives;
-        DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
-    }
+    
     private void Awake()
     {
         GetDroneData();
+        _droneArrivesCommand = new DroneArrivesCommand(ref drone, ref colliders,transform);
     }
-    private void Start()
-    {
-        SetColors();
-    }
+
+    #region Event Subscription
 
     private void OnEnable()
     {
         SubscribeEvents();
+    }
+    private void SubscribeEvents()
+    {
+        DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
+        DronePoolSignals.Instance.onDroneArrives += _droneArrivesCommand.Execute;
+        DronePoolSignals.Instance.onDroneGone += OnDroneGone;
+    }
+    
+    private void UnSubscribeEvents()
+    {
+        DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
+        DronePoolSignals.Instance.onDroneArrives -= _droneArrivesCommand.Execute;
+        DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
     }
     private void OnDisable()
     {
         UnSubscribeEvents();
     }
 
+    #endregion
+    
+    private void Start()
+    {
+        SetColors();
+    }
+    
     private void GetDroneData()
     {
         _dronePoolData = Resources.Load<CD_Drone>("Data/CD_Drone").Data;
     }
+    
     private void SetColors()
     {
-        dronePoolMeshController.SetColors(AreaColorEnum, ColorEnum);
+        dronePoolMeshController.SetColors(areaColorEnum, ColorState);
     }
 
     public void OnPlayerCollideWithDronePool(Transform selectedPoolTransform)
@@ -74,25 +85,12 @@ public class DronePoolManager : MonoBehaviour
             StartCoroutine(DroneArrives());
         }
     }
-
-    private void OnDroneArrives(Transform _poolTransform)
-    {
-        if (transform.Equals(_poolTransform))
-        {
-            drone.SetActive(true);
-
-            for (int i = 0; i < colliders.Count; i++)
-            {
-                colliders[i].enabled = false;
-            }
-        }
-    }
     
     private void OnDroneGone(Transform dronePoolTransform)
     {
         drone.SetActive(false);
-        
     }
+    
     private IEnumerator DroneArrives()
     {
         int stackCount = DronePoolSignals.Instance.onGetStackCount();
@@ -103,6 +101,6 @@ public class DronePoolManager : MonoBehaviour
         yield return new WaitForSeconds(_dronePoolData.DroneGoneDelay);
         DronePoolSignals.Instance.onOutlineBorder?.Invoke(false);
         yield return new WaitForSeconds(1f);
-        DronePoolSignals.Instance.onDroneGone?.Invoke(dronePoolMeshController.GetTruePoolTransform(ColorEnum));
+        DronePoolSignals.Instance.onDroneGone?.Invoke(dronePoolMeshController.GetTruePoolTransform(ColorState));
     }
 }

@@ -504,6 +504,10 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
+      propertyPath: ColorState
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
       propertyPath: colliders.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -520,6 +524,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1290010015628142027}
     - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
+      propertyPath: areaColorEnum.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
       propertyPath: AreaColorEnum.Array.data[0]
       value: 12
       objectReference: {fileID: 0}
@@ -529,6 +537,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
       propertyPath: AreaColorEnum.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
+      propertyPath: areaColorEnum.Array.data[0]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
+      propertyPath: areaColorEnum.Array.data[1]
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 159777624112209579, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}
+      propertyPath: areaColorEnum.Array.data[2]
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1607447482131675992, guid: dd19e2c889422c840b8dcfd777fc21ab, type: 3}

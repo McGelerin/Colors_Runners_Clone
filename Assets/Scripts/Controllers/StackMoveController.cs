@@ -32,7 +32,8 @@ namespace Controllers
             
             if (_isOnDronePool == true)
             {
-                _collectableStack[0].transform.localPosition = new Vector3(directx, _collectableStack[0].transform.position.y, _collectableStack[0].transform.position.z);
+                _collectableStack[0].transform.localPosition = new Vector3(directx, 
+                    _collectableStack[0].transform.position.y, _collectableStack[0].transform.position.z);
                 StackItemsLerpMoveOnDronePool(_collectableStack);
             }
             else
@@ -67,7 +68,6 @@ namespace Controllers
                     Mathf.Lerp(_collectableStack[i].transform.localPosition.x, pos.x, _stackData.LerpSpeed_x),
                     Mathf.Lerp(_collectableStack[i].transform.localPosition.y, pos.y, _stackData.LerpSpeed_y),
                     Mathf.Lerp(_collectableStack[i].transform.localPosition.z, pos.z, _stackData.LerpSpeed_z));
-                _collectableStack[i].transform.LookAt(_collectableStack[i-1].transform);
             }
         }
     }

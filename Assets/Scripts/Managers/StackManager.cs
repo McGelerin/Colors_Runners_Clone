@@ -22,7 +22,7 @@ namespace Managers
         public List<GameObject> CollectableStack = new List<GameObject>();
         public List<GameObject> UnStack = new List<GameObject>();
         public StackValueUpdateCommand StackValueUpdateCommand;
-        public ItemAddOnStackCommand ItemAddOnStackCommand;
+        public ItemAddOnStackCommand ItemAddOnStack;
 
         #endregion
 
@@ -38,14 +38,22 @@ namespace Managers
         private RandomRemoveListItemCommand _randomRemoveListItemCommand;
         private StackShackAnimCommand _stackShackAnimCommand;
         private InitialzeStackCommand _initialzeStackCommand;
+        private DublicateStateItemsCommand _dublicateStateItemsCommand;
         private GameObject _playerGameObject;
         private SetColorState _setColorState;
-        //private ColorEnum _gateState;
+        private Transform _poolTriggerTransform;
 
         private bool _isPlayerOnDronePool = false;
+        private Vector3 _direction;
 
         #endregion
         #endregion
+        
+        private void Awake()
+        {
+            StackData = GetStackData();
+            Init();
+        }
 
         #region Event Subscription
         private void OnEnable()
@@ -63,9 +71,9 @@ namespace Managers
             StackSignals.Instance.onUpdateType += StackValueUpdateCommand.Execute;
             StackSignals.Instance.ColorType += OnGateState;
             GunPoolSignals.Instance.onWrongGunPool += _randomRemoveListItemCommand.Execute;
-            GunPoolSignals.Instance.onGunPoolExit += OnTurretExit;
+            GunPoolSignals.Instance.onGunPoolExit += _dublicateStateItemsCommand.Execute;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool += OnPlayerCollideWithDronePool;
-            DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnStackToUnStack;
+            DronePoolSignals.Instance.onCollectableCollideWithDronePool += OnStackToUnstack;
             DronePoolSignals.Instance.onWrongDronePool += OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone += OnDroneGone;
             DronePoolSignals.Instance.onGetStackCount += OnGetStackCount;
@@ -81,27 +89,19 @@ namespace Managers
             StackSignals.Instance.onUpdateType -= StackValueUpdateCommand.Execute;
             StackSignals.Instance.ColorType -= OnGateState;
             GunPoolSignals.Instance.onWrongGunPool -= _randomRemoveListItemCommand.Execute;
+            GunPoolSignals.Instance.onGunPoolExit -= _dublicateStateItemsCommand.Execute;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool -= OnPlayerCollideWithDronePool;
-            DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnStackToUnStack;
+            DronePoolSignals.Instance.onCollectableCollideWithDronePool -= OnStackToUnstack;
             DronePoolSignals.Instance.onWrongDronePool -= OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
-            GunPoolSignals.Instance.onGunPoolExit -= OnTurretExit;
             DronePoolSignals.Instance.onGetStackCount -= OnGetStackCount;
             DronePoolSignals.Instance.onOutlineBorder -= OnStackItemBorder;
-
-
         }
         private void OnDisable()
         {
             UnSubscribeEvent();
         }
         #endregion
-
-        private void Awake()
-        {
-            StackData = GetStackData();
-            Init();
-        }
         
         private StackData GetStackData() => Resources.Load<CD_Stack>("Data/CD_StackData").StackData;
         
@@ -114,20 +114,22 @@ namespace Managers
         {
             _stackMoveController = new StackMoveController();
             _stackMoveController.InisializedController(StackData);
-            ItemAddOnStackCommand = new ItemAddOnStackCommand(ref CollectableStack, transform, StackData);
+            ItemAddOnStack = new ItemAddOnStackCommand(ref CollectableStack, transform, StackData);
             _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack, ref levelHolder, this);
             _randomRemoveListItemCommand = new RandomRemoveListItemCommand(ref CollectableStack, ref levelHolder, this);
             _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, StackData);
             StackValueUpdateCommand = new StackValueUpdateCommand(ref CollectableStack);
             _initialzeStackCommand = new InitialzeStackCommand(collectable, this);
             _setColorState = new SetColorState(ref CollectableStack);
+            _dublicateStateItemsCommand = new DublicateStateItemsCommand(ref CollectableStack, ref ItemAddOnStack);
+
         }
 
         private void Update()
         {
             if (_isPlayerOnDronePool)
             {
-                StackXMoveOnDronePool();
+                StackMove(true);
             }
             else
                 StackMove();
@@ -140,29 +142,28 @@ namespace Managers
         
         private void OnInteractionWithCollectable(GameObject collectableGameObject)
         {
-            ItemAddOnStackCommand.Execute(collectableGameObject);
+            ItemAddOnStack.Execute(collectableGameObject);
             collectableGameObject.tag = "Collected";
             StartCoroutine(_stackShackAnimCommand.Execute());
             StackValueUpdateCommand.Execute();
         }
 
-        private void StackMove()
+        private void StackMove(bool isOnDronePool=false)
         {
-            if (_playerGameObject !=  null)
-            {
-                //transform.position = new Vector3(0, 0, direction.z + StackData.DistanceFormPlayer);
-                Vector3 direction = new Vector3(_playerGameObject.transform.position.x,
+            _direction = new Vector3(_playerGameObject.transform.position.x,
                     _playerGameObject.transform.position.y, _playerGameObject.transform.position.z);
-                if (gameObject.transform.childCount > 0)
-                {
-                    _stackMoveController.StackItemsMoveOrigin(direction, CollectableStack);
-                }
+            
+            if (gameObject.transform.childCount > 0)
+            {
+                _stackMoveController.StackItemsMoveOrigin(_direction, CollectableStack,isOnDronePool);
             }
         }
-        
+
         private void OnPlayerCollideWithDronePool(Transform poolTriggerTransform)
         {
+            _poolTriggerTransform = poolTriggerTransform;
             _isPlayerOnDronePool = true;
+            CollectableStack[0].transform.DOMoveZ(poolTriggerTransform.position.z + 2, 1f);
         }
 
         private void OnGateState(ColorEnum gateColorState)
@@ -184,21 +185,7 @@ namespace Managers
             CollectableStack.Clear();
         }
         
-        private void StackXMoveOnDronePool()
-        {
-            if (_playerGameObject != null)
-            {
-                //transform.position = new Vector3(0, 0, direction.z + StackData.DistanceFormPlayer);
-                Vector3 direction = new Vector3(_playerGameObject.transform.position.x,
-                    _playerGameObject.transform.position.y, _playerGameObject.transform.position.z);
-                if (gameObject.transform.childCount > 0)
-                {
-                    _stackMoveController.StackItemsMoveOrigin(direction, CollectableStack, true);
-                }
-            }
-        }
-
-        private void OnStackToUnStack(GameObject collectable, Transform colorTransform)
+        private void OnStackToUnstack(GameObject collectable)
         {
             UnStack.Add(collectable);
 
@@ -207,6 +194,11 @@ namespace Managers
                 CollectableStack.Remove(collectable);
             }
             CollectableStack.TrimExcess();
+            
+            if (CollectableStack.Count!=0)
+            {
+                OnPlayerCollideWithDronePool(_poolTriggerTransform);
+            }
         }
 
         private void OnStackItemBorder(Boolean isOutlineOpen)
@@ -217,11 +209,6 @@ namespace Managers
             }
         }
         
-        
-        
-        
-        
-
         private void OnWrongDronePoolCollectablesDelete(GameObject wrongPoolCollectable)
         {
             if (UnStack.Contains(wrongPoolCollectable))
@@ -239,27 +226,9 @@ namespace Managers
                 CollectableStack.Add(i);
             }
             UnStack.Clear();
-
-
-            DubleStack();
+            _dublicateStateItemsCommand.Execute();
         }
-
-        private void OnTurretExit()
-        {
-            DubleStack();
-
-        }
-
-        private void DubleStack()
-        {
-            int count = CollectableStack.Count;
-            for (int i = 0; i < count; i++)
-            {
-                GameObject go = Instantiate(CollectableStack[i].gameObject);
-                ItemAddOnStackCommand.Execute(go);
-            }
-        }
-
+        
         public int OnGetStackCount()
         {
             return CollectableStack.Count;

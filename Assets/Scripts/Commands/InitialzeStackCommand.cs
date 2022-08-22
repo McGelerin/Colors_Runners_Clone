@@ -25,7 +25,7 @@ namespace Commands
             for (int i = 1; i < count/*_manager.StackData.InitialStackItem*/; i++)
             {
                 GameObject obj = Object.Instantiate(_collectable);
-                _manager.ItemAddOnStackCommand.Execute(obj);
+                _manager.ItemAddOnStack.Execute(obj);
             }
             _manager.StackValueUpdateCommand.Execute();
         }

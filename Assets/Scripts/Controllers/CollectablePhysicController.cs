@@ -36,7 +36,6 @@ namespace Controllers
                     //other.gameObject.SetActive(false);
                     other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 }
-                
             }
             
             if (_isFirstTime && other.CompareTag("DronePoolColor"))

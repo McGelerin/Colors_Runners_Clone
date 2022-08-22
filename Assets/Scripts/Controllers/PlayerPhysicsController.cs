@@ -1,8 +1,5 @@
-using DG.Tweening;
 using Signals;
 using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
 using Managers;
 
 namespace Controllers
@@ -12,12 +9,11 @@ namespace Controllers
         #region Self Variables
 
         #region Serialized Variables
+        
         [SerializeField] private PlayerManager manager;
-
-
+        
         #endregion
-        #region private vars
-        #endregion
+
         #endregion
 
         private void OnTriggerEnter(Collider other)

@@ -1,8 +1,6 @@
-﻿using System;
-using Enums;
+﻿using Enums;
 using Managers;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Controllers
 {
@@ -19,7 +17,6 @@ namespace Controllers
         #endregion
 
         #endregion
-
 
         public void SetAnimState(CollectableAnimStates animState)
         {

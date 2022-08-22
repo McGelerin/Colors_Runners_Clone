@@ -1,34 +1,67 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using Enums;
-using Data.ValueObject;
-using Data.UnityObject;
 using Signals;
 using Controllers;
+using Data.UnityObject;
+using Data.ValueObject;
 
 //[ExecuteInEditMode]
 public class GunPoolManager : MonoBehaviour
 {
-    #region vars
-    #region publicVars
+    #region Self Variables
+    
+    #region Public Variables
+    
     public ColorEnum ColorEnum;
     public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
+    
     #endregion
 
-    #region serializeVars
+    #region Serialized Variables
+    
     [SerializeField] private List<GunPoolPhysicsController> poolControllers;
     [SerializeField] TurretController turretController;
     [SerializeField] GunPoolMeshController gunPoolMeshController;
+    
     #endregion
 
-    #region privateVars
+    #region Private Variables
+    
     private bool _isFire = false;
     private GameObject _player;
+    private ColorData _colorData;
+    
     #endregion
 
     #endregion
 
+    private void Awake()
+    {
+        _colorData = GetColorData();
+        SetTruePool();
+        SendColorDataToControllers();
+    }
+    
+    private void Start()
+    {
+        SetColors();
+    }
+
+    private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
+
+    private void SendColorDataToControllers()
+    {
+        gunPoolMeshController.SetColorData(_colorData);
+    }
+
+    #region Event Subscription 
+
+    private void OnEnable()
+    {
+        SubscribeEvents();
+    }
     private void SubscribeEvents()
     {
         StackSignals.Instance.onPlayerGameObject += OnSetPlayer;
@@ -39,24 +72,14 @@ public class GunPoolManager : MonoBehaviour
         StackSignals.Instance.onPlayerGameObject -= OnSetPlayer;
         GunPoolSignals.Instance.onGunPoolExit -= OnPlayerExitGunPool;
     }
-    private void Awake()
-    {
-        SetTruePool();
-    }
-
-    private void Start()
-    {
-        SetColors();
-    }
-
-    private void OnEnable()
-    {
-        SubscribeEvents();
-    }
+    
     private void OnDisable()
     {
         UnSubscribeEvents();
     }
+
+    #endregion
+   
 
     private void SetColors()
     {
@@ -79,31 +102,28 @@ public class GunPoolManager : MonoBehaviour
         _player = playerGameObject;
     }
 
-    public void StartCoroutineManager()
+    public void StartAsyncManager()
     {
         _isFire = true;
-        StartCoroutine(FireAndReload());
+        FireAndReload();
     }
 
-    public void OnPlayerExitGunPool()
+    private void OnPlayerExitGunPool()
     {
-        StopCoroutineManager();
+        StopAsyncManager();
     }
 
-    public void StopCoroutineManager()
+    public void StopAsyncManager()
     {
-        StopAllCoroutines();
         _isFire = false;
     } 
-
-    IEnumerator FireAndReload()
+    
+    private async void FireAndReload()
     {
-        if (_isFire)
-        {
-            GunPoolSignals.Instance.onWrongGunPool?.Invoke();
-            turretController.RotateToPlayer(_player.transform);
-            yield return new WaitForSeconds(0.8f);
-            StartCoroutine(FireAndReload());
-        }
+        if (!_isFire) return;
+        GunPoolSignals.Instance.onWrongGunPool?.Invoke();
+        turretController.RotateToPlayer(_player.transform);
+        await Task.Delay(500); 
+        FireAndReload();
     }
 }

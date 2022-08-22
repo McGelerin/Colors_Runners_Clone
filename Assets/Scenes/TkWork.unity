@@ -987,7 +987,6 @@ GameObject:
   - component: {fileID: 612277952}
   - component: {fileID: 612277951}
   - component: {fileID: 612277950}
-  - component: {fileID: 612277949}
   m_Layer: 0
   m_Name: CameraManager
   m_TagString: Untagged
@@ -1013,14 +1012,6 @@ Transform:
   m_Father: {fileID: 1563649038}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &612277949
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612277947}
-  m_Enabled: 1
 --- !u!95 &612277950
 Animator:
   serializedVersion: 3

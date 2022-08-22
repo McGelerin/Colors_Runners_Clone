@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Data.UnityObject;
 using Data.ValueObject;
 using Enums;
@@ -9,24 +8,23 @@ namespace Controllers
     public class GunPoolMeshController: MonoBehaviour
     {
         #region Self Variables
+        
         #region Serializefield Variables
         [SerializeField] private List<MeshRenderer> colorBlocks;
         [SerializeField] private MeshRenderer trueColorBlock;
-
-
+        
         #endregion
         #region Private Variables
+
         private ColorData _colorData;
 
         #endregion
         #endregion
 
-        private void Awake()
+        public void SetColorData(ColorData colorData)
         {
-            _colorData = GetColorData();
+            _colorData = colorData;
         }
-
-        private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
 
         public void SetColors(List<ColorEnum> areaColorEnum, ColorEnum trueBlockEnum)
         {

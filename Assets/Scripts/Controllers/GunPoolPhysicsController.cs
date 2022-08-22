@@ -1,26 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Signals;
-using Controllers;
 
 public class GunPoolPhysicsController: MonoBehaviour
 {
 
-    #region vars
-    #region public vars
+    #region Self Variables
+    
+    #region Public Variables
+    
     public bool IsTruePool = false;
-    //public Transform playerTransform;
 
     #endregion
-    #region serializefield vars
+    
+    #region Serialized Variables
+    
     [SerializeField] GunPoolManager manager;
+    
     #endregion
-    #region private vars
-    //private bool _isReady = true;
-    //private float _reloadTime = 0.5f;
-
-    #endregion
+    
     #endregion
 
     private void OnTriggerEnter(Collider other)
@@ -29,11 +25,11 @@ public class GunPoolPhysicsController: MonoBehaviour
         {
             if (IsTruePool.Equals(true))
             {
-                manager.StopCoroutineManager();
+                manager.StopAsyncManager();
             }
             else
             {
-                manager.StartCoroutineManager();
+                manager.StartAsyncManager();
             }
         }
     }

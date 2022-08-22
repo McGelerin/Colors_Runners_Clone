@@ -1,10 +1,6 @@
-using System;
 using Data.ValueObject;
 using DG.Tweening;
-using Enums;
 using Keys;
-using Managers;
-using Signals;
 using UnityEngine;
 
 namespace Controllers
@@ -79,16 +75,7 @@ namespace Controllers
         {
             _isReadyToPlay = state;
         }
-
-        // private void Update() //Degisebilir
-        // {
-        //     if (_isReadyToPlay)
-        //     {
-        //         manager.SetStackPosition();
-        //
-        //     }
-        // }
-    
+        
         private void FixedUpdate()
         {
             if (_isReadyToPlay)
@@ -145,11 +132,7 @@ namespace Controllers
             position = new Vector3(Mathf.Clamp(rigidbody.position.x, _clampValues.x,
                     _clampValues.y), (position = rigidbody.position).y, position.z);
             rigidbody.position = position;
-
-            // var direction = Vector3.forward + Vector3.right * Mathf.Clamp(_inputValue,
-            //     -_movementData.RotateBorder,_movementData.RotateBorder);
-            // Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-            // transform.rotation = toRotation;
+            
         }
 
         private void IdleMove()
@@ -163,6 +146,7 @@ namespace Controllers
             var position = new Vector3(position1.x, position1.y, position1.z);
             position1 = position;
             rigidbody.position = position1;
+            
             if (velocity != Vector3.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(velocity, Vector3.up);
@@ -175,7 +159,6 @@ namespace Controllers
         private void StopSideways()
         {
             rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, _movementData.ForwardSpeed);
-            //rigidbody.angularVelocity = Vector3.zero;
         }
 
         private void Stop()
@@ -198,22 +181,12 @@ namespace Controllers
                 position.z);
             rigidbody.position = position;
         }
-        
-        public void Jump(float distance,float duration)
-        {
-            transform.DOMoveY(distance, duration).SetEase(Ease.InOutCubic).SetAutoKill();
-        }
-        
+
         public void OnReset()
         {
             Stop();
             _isReadyToPlay = false;
             _isReadyToMove = false;
-        }
-
-        public void SetPlayerPositionToTrueDronePool(Transform _dronePoolTransform)
-        {
-            transform.position = new Vector3(_dronePoolTransform.position.x, transform.position.y, transform.position.z + 15);
         }
     }
 }

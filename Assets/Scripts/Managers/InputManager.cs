@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
+using Commands;
 using Data.UnityObject;
 using Data.ValueObject;
 using Enums;
 using Keys;
 using Signals;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Managers
 {
@@ -30,25 +28,28 @@ namespace Managers
         #region Private Variables
 
         private bool _isTouching;
-
         private float _currentVelocity; //ref type
         private Vector2? _mousePosition; //ref type
         private Vector3 _moveVector; //ref type
-
-        private InputStates _inputStates = InputStates.OldInputSystem;
-
-        #endregion
+        private GameStates _inputStates = GameStates.Runner;
+        private QueryPointerOverUIElementCommand _queryPointerOverUIElementCommand;
 
         #endregion
 
-
+        #endregion
+        
         private void Awake()
         {
             Data = GetInputData();
+            Init();
         }
 
         private InputData GetInputData() => Resources.Load<CD_Input>("Data/CD_Input").InputData;
 
+        private void Init()
+        {
+            _queryPointerOverUIElementCommand = new QueryPointerOverUIElementCommand();
+        }
 
         #region Event Subscriptions
 
@@ -73,7 +74,6 @@ namespace Managers
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
-
         }
 
         private void OnDisable()
@@ -86,25 +86,25 @@ namespace Managers
         private void Update()
         {
             if (!isReadyForTouch) return;
-            
-            if (Input.GetMouseButtonUp(0) && !IsPointerOverUIElement())
-            {
-                MouseButtonUp();
-            }
-            
-            if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement())
-            {
-                MouseButtonDown();
-            }
 
-            if (_inputStates == InputStates.OldInputSystem)
+            if (_inputStates == GameStates.Runner)
             {
-                if (Input.GetMouseButton(0) && !IsPointerOverUIElement())
+                if (Input.GetMouseButtonUp(0) && _queryPointerOverUIElementCommand.Execute())
+                {
+                    MouseButtonUp();
+                }
+            
+                if (Input.GetMouseButtonDown(0) && !_queryPointerOverUIElementCommand.Execute())
+                {
+                    MouseButtonDown();
+                }
+                
+                if (Input.GetMouseButton(0) && !_queryPointerOverUIElementCommand.Execute())
                 {
                     HoldingMouseButton();
                 }
             }
-            else if (_inputStates == InputStates.NewInputSystem)
+            else if (_inputStates == GameStates.Idle)
             {
                 JoystickInput();
             }
@@ -129,7 +129,7 @@ namespace Managers
         
         private void OnChangeGameState()
         {
-            _inputStates = InputStates.NewInputSystem;
+            _inputStates = GameStates.Idle;
         }
         
         private void OnReset()
@@ -168,8 +168,7 @@ namespace Managers
                 if (_mousePosition != null) 
                 { 
                     Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
-                         
-                         
+                    
                     if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
                         _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
                     else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)
@@ -199,15 +198,6 @@ namespace Managers
                 ValueX = _moveVector.x,
                 ValueZ = _moveVector.z
             });
-        }
-
-        private bool IsPointerOverUIElement()
-        {
-            var eventData = new PointerEventData(EventSystem.current);
-            eventData.position = Input.mousePosition;
-            var results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(eventData, results);
-            return results.Count > 0;
         }
 
         #endregion

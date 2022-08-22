@@ -1,4 +1,5 @@
 using System.Collections;
+using Commands;
 using UnityEngine;
 using Controllers;
 using Data.UnityObject;
@@ -6,7 +7,6 @@ using Data.ValueObject;
 using Enums;
 using Keys;
 using Signals;
-using TMPro;
 
 namespace Managers
 {
@@ -23,22 +23,31 @@ namespace Managers
         #region Serialized Variables
 
         [Space] [SerializeField] private PlayerMovementController movementController;
-
-        //[SerializeField] private PlayerPhysicsController playerPhysicsController;
         [SerializeField] private PlayerAnimationController animationController;
-        //[SerializeField] private TextMeshPro scoreText;
 
         #endregion
-        #region private vars
+
+        #region Private Variables
+
+        private JumpCommand _jumpCommand;
+        private SetPlayerPositionAfterDronePool _setPlayerPositionAfterDronePool;
+
         #endregion
         #endregion
 
         private void Awake()
         {
+            Init();
             SetStackPosition();
             Data = GetPlayerData();
             SendPlayerDataToControllers();
             animationController.SetAnimState(CollectableAnimStates.Idle);
+        }
+
+        private void Init()
+        {
+            _jumpCommand = new JumpCommand(ref Data,transform);
+            _setPlayerPositionAfterDronePool = new SetPlayerPositionAfterDronePool(transform);
         }
 
         private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Data/CD_Player").Data;
@@ -66,10 +75,10 @@ namespace Managers
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
-            StackSignals.Instance.onBoostArea += OnJump;
+            StackSignals.Instance.onBoostArea += _jumpCommand.Execute;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool += movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
-            DronePoolSignals.Instance.onDroneGone += movementController.SetPlayerPositionToTrueDronePool;
+            DronePoolSignals.Instance.onDroneGone += _setPlayerPositionAfterDronePool.Execute;
         }
 
         private void UnsubscribeEvents()
@@ -83,15 +92,11 @@ namespace Managers
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
-            StackSignals.Instance.onBoostArea -= OnJump;
+            StackSignals.Instance.onBoostArea -= _jumpCommand.Execute;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool -= movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
-            DronePoolSignals.Instance.onDroneGone -= movementController.SetPlayerPositionToTrueDronePool;
-
-
-
+            DronePoolSignals.Instance.onDroneGone -= _setPlayerPositionAfterDronePool.Execute;
         }
-
 
         private void OnDisable()
         {
@@ -148,7 +153,7 @@ namespace Managers
             movementController.IsReadyToPlay(false);
         }
 
-        public void SetStackPosition()
+        private void SetStackPosition()
         {
             StackSignals.Instance.onPlayerGameObject?.Invoke(gameObject);
         }
@@ -159,27 +164,6 @@ namespace Managers
             movementController.OnReset();
             SetStackPosition();
             //animationController.OnReset();
-        }
-
-        private void OnJump()
-        {
-            //playerPhysicsController.Jump(Data.MovementData.JumpForce);
-            //rigidbody.AddForce(0,jumpForce,0,ForceMode.Impulse);
-            movementController.Jump(Data.MovementData.JumpDistance,Data.MovementData.JumpDuration);
-        }
-        
-        //private void OnSetScoreText(int Values)
-        //{
-        //    scoreText.text = Values.ToString();
-        //}
-
-
-        IEnumerator WaitForFinal()
-        {
-            //animationController.Playanim(animationStates:PlayerAnimationStates.Idle);
-            yield return new WaitForSeconds(2f);
-            gameObject.SetActive(false);
-           // CoreGameSignals.Instance.onMiniGameStart?.Invoke();
         }
     }
 }

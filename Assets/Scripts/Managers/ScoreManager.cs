@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using Commands;
+using Enums;
 using Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -19,7 +20,8 @@ namespace Managers
 
         private int _score;
         [ShowInInspector] private GameObject _playerGO;
-        private InputStates _currentState;
+        private GameStates _currentState;
+        private SetScoreCommand _setScoreCommand;
 
         #endregion
 
@@ -27,13 +29,24 @@ namespace Managers
 
         private void Awake()
         {
-            _playerGO = GameObject.Find("PlayerManager v2");
+            Init();
         }
 
         private void Start()
         {
-            _score = stackGO.transform.childCount;
+            GetReferences();
             ScoreSignals.Instance.onSetScore?.Invoke(_score);
+        }
+
+        private void Init()
+        {
+            _setScoreCommand = new SetScoreCommand(ref _score);
+        }
+
+        private void GetReferences()
+        {
+            _playerGO = GameObject.Find("PlayerManager v2");
+            _score = stackGO.transform.childCount;
         }
         #region Event Subscriptions
 
@@ -45,13 +58,13 @@ namespace Managers
         private void SubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
-            ScoreSignals.Instance.onSetScore += OnSetScore;
+            ScoreSignals.Instance.onSetScore += _setScoreCommand.Execute;
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
-            ScoreSignals.Instance.onSetScore -= OnSetScore;
+            ScoreSignals.Instance.onSetScore -= _setScoreCommand.Execute;
         }
 
         private void OnDisable()
@@ -63,24 +76,29 @@ namespace Managers
 
         private void Update()
         {
-            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
-            if (_currentState == InputStates.OldInputSystem)
+            SetScoreManagerRotation();
+            SetScoreManagerPosition();
+        }
+
+        private void OnChangeGameState()
+        {
+            _currentState = GameStates.Idle;
+            var transform1 = transform;
+            transform1.parent = _playerGO.transform;
+            transform1.localPosition = new Vector3(0, 2f, 0);
+        }
+
+        private void SetScoreManagerPosition()
+        {
+            if (_currentState == GameStates.Runner)
             {
                 transform.position = stackGO.transform.GetChild(0).position + new Vector3(0, 2f, 0);
             }
         }
 
-        private void OnChangeGameState()
+        private void SetScoreManagerRotation()
         {
-            _currentState = InputStates.NewInputSystem;
-            transform.parent = _playerGO.transform;
-            transform.localPosition = new Vector3(0, 2f, 0);
-        }
-
-        private void OnSetScore(int value)
-        {
-            _score += value;
-            UISignals.Instance.onSetScoreText?.Invoke(_score);
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
         }
     }
 }

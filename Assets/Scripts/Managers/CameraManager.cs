@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using Enums;
 using Signals;
@@ -24,8 +23,8 @@ namespace Managers
         
         #endregion
         #region Serialized Variables
+        
         [SerializeField]private CinemachineVirtualCamera virtualCamera;
-
 
         #endregion
 
@@ -41,9 +40,14 @@ namespace Managers
 
         private void Awake()
         {
+            GetReferences();
+            GetInitialPosition();
+        }
+
+        private void GetReferences()
+        {
             virtualCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
             _camAnimator = GetComponent<Animator>();
-            GetInitialPosition();
         }
         
         #region Event Subscriptions
@@ -54,7 +58,6 @@ namespace Managers
 
         private void SubscribeEvents()
         {
-//            CoreGameSignals.Instance.onIdleStart += OnIdleCam;
             CoreGameSignals.Instance.onPlay += OnSetCameraTarget;
             CoreGameSignals.Instance.onReset += OnReset;
             LevelSignals.Instance.onNextLevel += OnNextLevel;
@@ -62,7 +65,6 @@ namespace Managers
 
         private void UnsubscribeEvents()
         {
-//            CoreGameSignals.Instance.onIdleStart -= OnIdleCam;
             CoreGameSignals.Instance.onPlay -= OnSetCameraTarget;
             CoreGameSignals.Instance.onReset -= OnReset;
             LevelSignals.Instance.onNextLevel -= OnNextLevel;

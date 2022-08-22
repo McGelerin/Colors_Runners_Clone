@@ -36,7 +36,6 @@ namespace Commands
             selectedCollectable.SetActive(false);
             _collectableStack.RemoveAt(random);
             _collectableStack.TrimExcess();
-            _manager.StackValueUpdateCommand.Execute();
             if (DronePoolSignals.Instance.onGetStackCount() <= 0)
             {
                 LevelSignals.Instance.onLevelFailed?.Invoke();

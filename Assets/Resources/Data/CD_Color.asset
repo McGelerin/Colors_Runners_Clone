@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CD_Color
   m_EditorClassIdentifier: 
   colorData:
-    RainbowMaterial: {fileID: 2100000, guid: 87173bff33e4d8848beacbe56f94612c, type: 2}
+    RainbowMaterial: {fileID: 2100000, guid: e03dd3ab88cef1a4ca24c480bb918d07, type: 2}
     RainbowGageMaterial: {fileID: 2100000, guid: d097cd509449feb4eb5764f64403ac21, type: 2}
     ColorMaterial: {fileID: 2100000, guid: db7989e36b87a024ea6896761b91c6ef, type: 2}
     color:

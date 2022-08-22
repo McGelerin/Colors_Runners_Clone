@@ -127,7 +127,7 @@ public class CollectableManager : MonoBehaviour
             {
                 DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
                 SetCollectableAnimation(CollectableAnimStates.Dying);
-                StartCoroutine(SetActiveFalse());
+                StartCoroutine(SetCollectableActivenessFalse());
             }
         }
     }
@@ -161,11 +161,11 @@ public class CollectableManager : MonoBehaviour
         if (CompareTag("Collected"))
         {
             SetCollectableAnimation(CollectableAnimStates.Runner);
-            Data.CollectablesMoveToDronePoolTriggerTime = 1;
+            //Data.CollectablesMoveToDronePoolTriggerTime = 1;
         }
     }
 
-    private IEnumerator SetActiveFalse()
+    private IEnumerator SetCollectableActivenessFalse()
     {
         yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);

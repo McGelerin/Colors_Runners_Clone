@@ -20,6 +20,7 @@ namespace Controllers
         {
             if (other.CompareTag("DronePool"))
             {
+                other.transform.parent.GetComponent<DronePoolManager>().DroneArrive(other.transform);
                 DronePoolSignals.Instance.onPlayerCollideWithDronePool?.Invoke(other.transform);
                 DronePoolSignals.Instance.onDronePoolEnter?.Invoke();
             }

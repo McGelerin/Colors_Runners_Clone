@@ -2,6 +2,7 @@
 using Enums;
 using Signals;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 namespace Managers
@@ -13,6 +14,8 @@ namespace Managers
         #region Serialized Variables
         
         [SerializeField] private GameObject stackGO;
+        [SerializeField] private TextMeshPro scoreTMP,spriteTMP;
+        [SerializeField] private GameObject textPlane;
 
         #endregion
 
@@ -22,6 +25,7 @@ namespace Managers
         [ShowInInspector] private GameObject _playerGO;
         private GameStates _currentState;
         private SetScoreCommand _setScoreCommand;
+        private OpenScoreText _openScoreText;
 
         #endregion
 
@@ -41,6 +45,7 @@ namespace Managers
         private void Init()
         {
             _setScoreCommand = new SetScoreCommand(ref _score);
+            _openScoreText = new OpenScoreText(ref scoreTMP, ref spriteTMP,ref textPlane);
         }
 
         private void GetReferences()
@@ -59,12 +64,15 @@ namespace Managers
         {
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             ScoreSignals.Instance.onSetScore += _setScoreCommand.Execute;
+            DronePoolSignals.Instance.onDronePoolExit += _openScoreText.Execute;
+            
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             ScoreSignals.Instance.onSetScore -= _setScoreCommand.Execute;
+            DronePoolSignals.Instance.onDronePoolExit -= _openScoreText.Execute;
         }
 
         private void OnDisable()
@@ -100,5 +108,12 @@ namespace Managers
         {
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
         }
+
+        // private void OnGunPoolExit()
+        // {
+        //     scoreTMP.GetComponent<MeshRenderer>().enabled = true;
+        //     spriteTMP.GetComponent<MeshRenderer>().enabled = true;
+        //     textPlane.GetComponent<MeshRenderer>().enabled = true;
+        // }
     }
 }

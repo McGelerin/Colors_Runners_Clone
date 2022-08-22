@@ -18,7 +18,13 @@ namespace Controllers
         [SerializeField] GunPoolManager manager;
     
         #endregion
-    
+
+        #region Private Variables
+
+        private bool _isTriggered= false;
+
+        #endregion
+
         #endregion
 
         private void OnTriggerEnter(Collider other)
@@ -29,9 +35,10 @@ namespace Controllers
                 {
                     manager.StopAsyncManager();
                 }
-                else
+                else if(_isTriggered == false)
                 {
                     manager.StartAsyncManager();
+                    _isTriggered = true;
                 }
             }
         }

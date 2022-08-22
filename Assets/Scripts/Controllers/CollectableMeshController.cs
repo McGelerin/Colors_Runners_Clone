@@ -37,7 +37,7 @@ namespace Controllers
             if (manager.ColorState == _otherColorState)
             {
                 otherGameObject.tag = "Collected";
-                cm.SetCollectableAnimation(CollectableAnimStates.Runner);
+                cm.SetCollectableAnimation(CollectableAnimStates.Run);
                 StackSignals.Instance.onInteractionCollectable?.Invoke(otherGameObject.transform.parent.gameObject);
             }
             else

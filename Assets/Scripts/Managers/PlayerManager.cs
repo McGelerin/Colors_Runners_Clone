@@ -140,7 +140,7 @@ namespace Managers
         {
             SetStackPosition();
             movementController.IsReadyToPlay(true);
-            animationController.SetAnimState(CollectableAnimStates.Runner);
+            animationController.SetAnimState(CollectableAnimStates.Run);
         }
 
         private void OnLevelSuccessful()

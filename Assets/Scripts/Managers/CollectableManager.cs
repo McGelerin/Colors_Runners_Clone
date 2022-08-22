@@ -104,11 +104,11 @@ public class CollectableManager : MonoBehaviour
 
     private void OnPlay()
     {
-        initialAnimState = CollectableAnimStates.Runner;
+        initialAnimState = CollectableAnimStates.Run;
 
         SetCollectableAnimation(CompareTag("Collectable")
             ? CollectableAnimStates.Idle
-            : CollectableAnimStates.Runner);
+            : CollectableAnimStates.Run);
     }
     
     #region Onur Workouth
@@ -116,7 +116,7 @@ public class CollectableManager : MonoBehaviour
     public IEnumerator CrouchAnim()
     {
         yield return new WaitForSeconds(1f);
-        SetCollectableAnimation(CollectableAnimStates.Crouching);
+        SetCollectableAnimation(CollectableAnimStates.Crouch);
     }
     
     public void OnDroneArrives(Transform _poolTransform)
@@ -126,15 +126,16 @@ public class CollectableManager : MonoBehaviour
             if (!_poolColorEnum.Equals(ColorState))
             {
                 DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
-                SetCollectableAnimation(CollectableAnimStates.Dying);
                 StartCoroutine(SetCollectableActivenessFalse());
+
+                SetCollectableAnimation(CollectableAnimStates.Die);
             }
         }
     }
 
     public void CollectableOnGunPool()
     {
-        initialAnimState = CollectableAnimStates.CrouchedWalking;
+        initialAnimState = CollectableAnimStates.CrouchedWalk;
         SetCollectableAnimation(initialAnimState);
     }
 
@@ -142,7 +143,7 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected"))
         {
-            SetCollectableAnimation(CollectableAnimStates.Runner);
+            SetCollectableAnimation(CollectableAnimStates.Run);
         }
     }
 
@@ -160,8 +161,9 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected"))
         {
-            SetCollectableAnimation(CollectableAnimStates.Runner);
-            //Data.CollectablesMoveToDronePoolTriggerTime = 1;
+
+            SetCollectableAnimation(CollectableAnimStates.Run);
+            Data.CollectablesMoveToDronePoolTriggerTime = 1;
         }
     }
 

@@ -142,6 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2083737b145849e9a3f4ae7bb0abd3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stackGO: {fileID: 0}
+  scoreTMP: {fileID: 5520655510160000674}
+  spriteTMP: {fileID: 2638229332823947477}
+  textPlane: {fileID: 775592654515268229}
 --- !u!1 &6862122973406161843
 GameObject:
   m_ObjectHideFlags: 0

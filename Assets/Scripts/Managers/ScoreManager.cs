@@ -26,6 +26,7 @@ namespace Managers
         private GameStates _currentState;
         private SetScoreCommand _setScoreCommand;
         private OpenScoreText _openScoreText;
+        private CloseScoreText _closeScoreText;
 
         #endregion
 
@@ -46,11 +47,11 @@ namespace Managers
         {
             _setScoreCommand = new SetScoreCommand(ref _score);
             _openScoreText = new OpenScoreText(ref scoreTMP, ref spriteTMP,ref textPlane);
+            _closeScoreText = new CloseScoreText(ref scoreTMP, ref spriteTMP, ref textPlane);
         }
 
         private void GetReferences()
         {
-            _playerGO = GameObject.Find("PlayerManager v2");
             _score = stackGO.transform.childCount;
         }
         #region Event Subscriptions
@@ -65,7 +66,8 @@ namespace Managers
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             ScoreSignals.Instance.onSetScore += _setScoreCommand.Execute;
             DronePoolSignals.Instance.onDronePoolExit += _openScoreText.Execute;
-            
+            DronePoolSignals.Instance.onDronePoolEnter += _closeScoreText.Execute;
+            CoreGameSignals.Instance.onPlay += OnPlay;
         }
 
         private void UnsubscribeEvents()
@@ -73,6 +75,8 @@ namespace Managers
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             ScoreSignals.Instance.onSetScore -= _setScoreCommand.Execute;
             DronePoolSignals.Instance.onDronePoolExit -= _openScoreText.Execute;
+            DronePoolSignals.Instance.onDronePoolEnter -= _closeScoreText.Execute;
+            CoreGameSignals.Instance.onPlay -= OnPlay;
         }
 
         private void OnDisable()
@@ -86,6 +90,11 @@ namespace Managers
         {
             SetScoreManagerRotation();
             SetScoreManagerPosition();
+        }
+        
+        private void OnPlay()
+        {
+            _playerGO = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void OnChangeGameState()
@@ -108,12 +117,5 @@ namespace Managers
         {
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
         }
-
-        // private void OnGunPoolExit()
-        // {
-        //     scoreTMP.GetComponent<MeshRenderer>().enabled = true;
-        //     spriteTMP.GetComponent<MeshRenderer>().enabled = true;
-        //     textPlane.GetComponent<MeshRenderer>().enabled = true;
-        // }
     }
 }

@@ -13,10 +13,6 @@ namespace Managers
         #region Self Variables
 
         #region Serialized Variables
-
-        [Space (15),Header("Data")]
-
-        [SerializeField] private TextMeshProUGUI money;
         [SerializeField] private List<GameObject> panels;
         // [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshPro scoreTMP;
@@ -51,7 +47,6 @@ namespace Managers
             UISignals.Instance.onSetScoreText += OnSetScoreText;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
-            ScoreSignals.Instance.onSendMoney += SetMoneyText;
         }
 
         private void UnsubscribeEvents()
@@ -64,7 +59,6 @@ namespace Managers
             UISignals.Instance.onSetScoreText += OnSetScoreText;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
-            ScoreSignals.Instance.onSendMoney -= SetMoneyText;
         }
 
         private void OnDisable()
@@ -84,12 +78,7 @@ namespace Managers
         {
             _uiPanelController.ClosePanel(panelParam , panels);
         }
-
-        private void SetMoneyText(float value)
-        {
-            money.text = ((int)value).ToString();
-        }
-
+        
         private void OnSetScoreText(int value)
         {
             scoreTMP.text = (value.ToString());
@@ -125,7 +114,7 @@ namespace Managers
         private void OnChangeGameState()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
-            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.IdlePanel);
         }
 
         public void Play()

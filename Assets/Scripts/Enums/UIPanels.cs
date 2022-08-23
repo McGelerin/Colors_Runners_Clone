@@ -8,7 +8,8 @@ namespace Enums
         StartPanel,
         LevelPanel,
         WinPanel,
-        FailPanel
+        FailPanel,
+        IdlePanel
         
     }
 }

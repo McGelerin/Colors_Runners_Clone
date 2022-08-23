@@ -36,17 +36,17 @@ namespace Commands
             selectedCollectable.SetActive(false);
             _collectableStack.RemoveAt(random - 1);
             _collectableStack.TrimExcess();
-
             if (DronePoolSignals.Instance.onGetStackCount() <= 0)
             {
                 LevelSignals.Instance.onLevelFailed?.Invoke();
                 return;
             }
-
-            if (random==0)
+            if (random.Equals(1))
             {
                 ScoreSignals.Instance.onSetLeadPosition?.Invoke(_collectableStack[0]);
             }
+
+          
             
             //_onReBuildListCommand.OnReBuildList();
         }

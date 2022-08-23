@@ -21,7 +21,6 @@ namespace Controllers
 
         public void RotateToPlayer(Transform player)
         {
-            if (DronePoolSignals.Instance.onGetStackCount() != 0)
             {
                 var position = player.position;
                 taret1.DOLookAt(position, rotationSpeed);

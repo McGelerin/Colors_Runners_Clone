@@ -28,21 +28,26 @@ namespace Commands
         }
         public void Execute(GameObject collectableGameObject)
         {
+            
             int index = _collectableStack.IndexOf(collectableGameObject);
             collectableGameObject.transform.SetParent(_levelHolder.transform.GetChild(0));
             collectableGameObject.SetActive(false);
             _collectableStack.RemoveAt(index);
             _collectableStack.TrimExcess();
+
+            if (DronePoolSignals.Instance.onGetStackCount() <= 0)
+            {
+                LevelSignals.Instance.onLevelFailed?.Invoke();
+                return;
+            }
+
             if (index==0)
             {
                 ScoreSignals.Instance.onSetLeadPosition?.Invoke(_collectableStack[0]);
             }
             //_onReBuildListCommand.ReBuildList();
             ScoreSignals.Instance.onSetScore?.Invoke(-1);
-            if (DronePoolSignals.Instance.onGetStackCount() <= 0)
-            {
-                LevelSignals.Instance.onLevelFailed?.Invoke();
-            }
+            
         }
     }
 }

@@ -183,8 +183,10 @@ namespace Managers
                 Destroy(childs.gameObject);
             }
             CollectableStack.Clear();
+            _initialzeStackCommand.Execute(StackData.InitialStackItem);
+
         }
-        
+
         private void OnStackToUnstack(GameObject collectable)
         {
             UnStack.Add(collectable);

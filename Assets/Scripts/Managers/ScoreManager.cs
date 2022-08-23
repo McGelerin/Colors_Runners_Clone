@@ -12,9 +12,9 @@ namespace Managers
         #region Self Variables
 
         #region Serialized Variables
-        
+
         [SerializeField] private GameObject stackGO;
-        [SerializeField] private TextMeshPro scoreTMP,spriteTMP;
+        [SerializeField] private TextMeshPro scoreTMP, spriteTMP;
         [SerializeField] private GameObject textPlane;
 
         #endregion
@@ -23,10 +23,10 @@ namespace Managers
 
         private int _score;
         [ShowInInspector] private GameObject _playerGO;
-        private GameStates _currentState;
+        private GameStates _currentState = GameStates.Runner;
         private SetScoreCommand _setScoreCommand;
-        private OpenScoreText _openScoreText;
-        private CloseScoreText _closeScoreText;
+        private SetVisibilityOfScore _setVisibilityOfScore;
+        private GameObject _parentGO;
 
         #endregion
 
@@ -39,21 +39,22 @@ namespace Managers
 
         private void Start()
         {
-            GetReferences();
             ScoreSignals.Instance.onSetScore?.Invoke(_score);
+            GetReferences();
         }
 
         private void Init()
         {
             _setScoreCommand = new SetScoreCommand(ref _score);
-            _openScoreText = new OpenScoreText(ref scoreTMP, ref spriteTMP,ref textPlane);
-            _closeScoreText = new CloseScoreText(ref scoreTMP, ref spriteTMP, ref textPlane);
+            _setVisibilityOfScore = new SetVisibilityOfScore(ref scoreTMP, ref spriteTMP, ref textPlane);
         }
 
         private void GetReferences()
         {
             _score = stackGO.transform.childCount;
+            _parentGO = stackGO.transform.GetChild(0).gameObject;
         }
+
         #region Event Subscriptions
 
         private void OnEnable()
@@ -65,18 +66,18 @@ namespace Managers
         {
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             ScoreSignals.Instance.onSetScore += _setScoreCommand.Execute;
-            DronePoolSignals.Instance.onDronePoolExit += _openScoreText.Execute;
-            DronePoolSignals.Instance.onDronePoolEnter += _closeScoreText.Execute;
+            ScoreSignals.Instance.onVisibleScore += _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay += OnPlay;
+            ScoreSignals.Instance.onSetLeadPosition += OnSetLead;
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             ScoreSignals.Instance.onSetScore -= _setScoreCommand.Execute;
-            DronePoolSignals.Instance.onDronePoolExit -= _openScoreText.Execute;
-            DronePoolSignals.Instance.onDronePoolEnter -= _closeScoreText.Execute;
+            ScoreSignals.Instance.onVisibleScore -= _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay -= OnPlay;
+            ScoreSignals.Instance.onSetLeadPosition -= OnSetLead;
         }
 
         private void OnDisable()
@@ -89,9 +90,12 @@ namespace Managers
         private void Update()
         {
             SetScoreManagerRotation();
-            SetScoreManagerPosition();
+            if (_currentState == GameStates.Runner)
+            {
+                SetScoreManagerPosition();
+            }
         }
-        
+
         private void OnPlay()
         {
             _playerGO = GameObject.FindGameObjectWithTag("Player");
@@ -107,15 +111,17 @@ namespace Managers
 
         private void SetScoreManagerPosition()
         {
-            if (_currentState == GameStates.Runner)
-            {
-                transform.position = stackGO.transform.GetChild(0).position + new Vector3(0, 2f, 0);
-            }
+            transform.position = _parentGO.transform.position + new Vector3(0, 2f, 0);
         }
 
         private void SetScoreManagerRotation()
         {
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
         }
-    }
+
+        private void OnSetLead(GameObject gO)
+        {
+            _parentGO = gO;
+        }
+}
 }

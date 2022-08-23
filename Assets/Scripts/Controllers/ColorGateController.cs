@@ -10,15 +10,13 @@ namespace Controllers
     public class ColorGateController : MonoBehaviour
     {
         #region Self Variables
-
         #region Public Variables
-        
         private ColorEnum ColorEnum
         {
-            get => this._colorEnum;
+            get => colorEnum;
             set
             {
-                this._colorEnum = value;
+                this.colorEnum = value;
                 SetColor();
             }
         }
@@ -26,25 +24,20 @@ namespace Controllers
 
         #endregion
         #region SerializeField Variables
-
-        [SerializeField]
-        private ColorEnum _colorEnum;
-
-        private ColorData colorData;
-
+        [SerializeField]private ColorEnum colorEnum;
         #endregion
-
+        #region Private Variables
+        private ColorData _colorData;
         #endregion
-
-
+        #endregion
         private void Awake()
         {
-            colorData = GetColorData();
+            _colorData = GetColorData();
         }
 
         private void Start()
         {
-            ColorEnum = _colorEnum;
+            ColorEnum = colorEnum;
         }
         
         private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
@@ -53,9 +46,9 @@ namespace Controllers
         {
             if (ColorEnum == ColorEnum.Rainbow)
             {
-                gameObject.GetComponent<Renderer>().material = colorData.RainbowGageMaterial;
+                gameObject.GetComponent<Renderer>().material = _colorData.RainbowGageMaterial;
             }
-            else gameObject.GetComponent<Renderer>().material.color = colorData.color[(int) ColorEnum];
+            else gameObject.GetComponent<Renderer>().material.color = _colorData.color[(int) ColorEnum];
         }
 
         private void OnTriggerEnter(Collider other)

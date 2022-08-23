@@ -33,7 +33,10 @@ namespace Commands
             collectableGameObject.SetActive(false);
             _collectableStack.RemoveAt(index);
             _collectableStack.TrimExcess();
-            _manager.StackValueUpdateCommand.Execute();
+            if (index==0)
+            {
+                ScoreSignals.Instance.onSetLeadPosition?.Invoke(_collectableStack[0]);
+            }
             //_onReBuildListCommand.ReBuildList();
             ScoreSignals.Instance.onSetScore?.Invoke(-1);
             if (DronePoolSignals.Instance.onGetStackCount() <= 0)

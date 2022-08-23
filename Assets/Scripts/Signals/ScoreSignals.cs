@@ -1,5 +1,6 @@
 using System;
 using Extentions;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Signals
@@ -10,6 +11,7 @@ namespace Signals
         public UnityAction<int> onSetTotalScore = delegate { };
         public UnityAction<int> onSendFinalScore = delegate { };
         public UnityAction<float> onSendMoney = delegate { };
-
+        public UnityAction<bool> onVisibleScore = delegate {  };
+        public UnityAction<GameObject> onSetLeadPosition = delegate {  };
     }
 }

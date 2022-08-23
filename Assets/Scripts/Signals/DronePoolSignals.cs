@@ -9,14 +9,18 @@ namespace Signals
     public class DronePoolSignals : MonoSingleton<DronePoolSignals>
     {
         public Func<int> onGetStackCount;
-        public UnityAction<Boolean> onOutlineBorder;
+        public UnityAction<Boolean> onOutlineBorder = delegate { };
         
-        public UnityAction<Transform> onDroneArrives;
-        public UnityAction<Transform> onDroneGone;
-        public UnityAction<Transform> onPlayerCollideWithDronePool;
-        public UnityAction<GameObject> onCollectableCollideWithDronePool;
-        public UnityAction<GameObject> onWrongDronePool;
-        public UnityAction onDronePoolExit;
-        public UnityAction onDronePoolEnter;
+        public UnityAction<Transform> onDroneArrives = delegate { };
+        public UnityAction onDroneGone = delegate { };
+
+        public UnityAction onUnstackFull = delegate { };
+
+
+        public UnityAction<Transform> onPlayerCollideWithDronePool = delegate { };
+        public UnityAction<GameObject> onCollectableCollideWithDronePool = delegate { };
+        public UnityAction<GameObject> onWrongDronePool= delegate { };
+        public UnityAction onDronePoolExit = delegate { };
+        public UnityAction onDronePoolEnter = delegate { };
     }
 }

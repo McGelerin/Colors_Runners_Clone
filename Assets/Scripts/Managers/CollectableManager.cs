@@ -14,7 +14,6 @@ using System.Collections;
 public class CollectableManager : MonoBehaviour
 {
     #region Self Variables
-
     #region Public Variables
     [Header("Data")] public CollectableData Data;
     public ColorEnum ColorState
@@ -26,7 +25,6 @@ public class CollectableManager : MonoBehaviour
             collectableMeshController.ColorSet();
         }
     }
-    
     #endregion
     #region SerializeField Variables
     [SerializeField] private CollectablePhysicController physicController;
@@ -36,8 +34,7 @@ public class CollectableManager : MonoBehaviour
     [SerializeField] private CollectableAnimStates initialAnimState;
     #endregion
     #region Private Variables
-    [Space]
-    private ColorData _colorData;
+    [Space] private ColorData _colorData;
     private ColorEnum _poolColorEnum;
     #endregion
 
@@ -157,12 +154,12 @@ public class CollectableManager : MonoBehaviour
         collectableMeshController.SetOutlineBorder(isOutlineOn);
     }
 
-    private void OnDroneGone(Transform transform)
+    private void OnDroneGone()
     {
         if (CompareTag("Collected"))
         {
-
-            SetCollectableAnimation(CollectableAnimStates.Run);
+            initialAnimState = CollectableAnimStates.Run;
+            SetCollectableAnimation(initialAnimState);
             Data.CollectablesMoveToDronePoolTriggerTime = 1;
         }
     }

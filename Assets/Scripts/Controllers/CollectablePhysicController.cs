@@ -20,12 +20,14 @@ namespace Controllers
             if (other.CompareTag("Collectable") && CompareTag("Collected"))
             {
                 manager.InteractionWithCollectable(other.transform.gameObject);
+                return;
             }
             
             if (other.CompareTag("Obstacle")&& CompareTag("Collected"))
             {
                 manager.InteractionWithObstacle(transform.parent.gameObject);
                 other.gameObject.SetActive(false);
+                return;
             }
 
             if (other.CompareTag("BoostArea") && CompareTag("Collected"))
@@ -35,16 +37,19 @@ namespace Controllers
                     StackSignals.Instance.onBoostArea?.Invoke();
                     other.enabled = false;
                 }
+                return;
             }
             
             if (_isFirstTime && other.CompareTag("DronePoolColor"))
             {
                 InteractionWithDronePool(other);
+                return;
             }
 
             if (other.CompareTag("GunPool"))
             {
                 manager.CollectableOnGunPool();
+                return;
             }
             
             if (other.CompareTag("GunPoolExit"))
@@ -57,10 +62,10 @@ namespace Controllers
         {
             _isFirstTime = false;
             StartCoroutine(manager.CrouchAnim());
-            var _managerT = manager.transform;
+            var managerT = manager.transform;
             DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject);
-            _managerT.DOMove(new Vector3(other.transform.position.x, _managerT.position.y,
-                _managerT.position.z + Random.Range(5f, 15f)), 4f);//data olacak
+            managerT.DOMove(new Vector3(other.transform.position.x, managerT.position.y,
+                managerT.position.z + Random.Range(5f, 15f)), 4f);//data olacak
             manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().OnGetColor(other.transform));
         }
 

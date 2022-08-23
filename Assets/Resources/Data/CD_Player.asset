@@ -20,3 +20,5 @@ MonoBehaviour:
       JumpDuration: 0.25
       IdleRotateSpeed: 300
       RotateBorder: 15
+      CrouchSpeed: 6
+      RunSpeed: 10

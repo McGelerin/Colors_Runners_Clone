@@ -31,7 +31,8 @@ namespace Controllers
         #endregion
 
         public void SetMovementData(PlayerMovementData dataMovementData)
-        {   
+        {
+            dataMovementData.ForwardSpeed = dataMovementData.RunSpeed;
             _movementData = dataMovementData;
         }
 

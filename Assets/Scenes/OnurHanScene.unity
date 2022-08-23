@@ -1144,7 +1144,7 @@ MonoBehaviour:
     InitialStackItem: 5
     DistanceFormPlayer: -1
   CollectableStack: []
-  UnStack: []
+  UnstackList: []
   levelHolder: {fileID: 1093454707}
   collectable: {fileID: 3761059920063170249, guid: 5e3732f895ac15e449054b8ee5b583a0, type: 3}
 --- !u!1 &650442587

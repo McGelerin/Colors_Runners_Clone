@@ -37,11 +37,16 @@ namespace Controllers
 
             if (other.CompareTag("GunPoolExit"))
             {
+                manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.RunSpeed;
                 GunPoolSignals.Instance.onGunPoolExit?.Invoke();
             }
             if (other.CompareTag("DronePoolExit"))
             {
                 ScoreSignals.Instance.onVisibleScore?.Invoke(true);
+            }
+            if (other.CompareTag("GunPool"))
+            {
+                manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.CrouchSpeed;
             }
         }
     }

@@ -6,12 +6,14 @@ namespace Commands
 {
     public class JumpCommand
     {
-        #region Private Variables
+        #region Self Variables
 
+        #region Private Variables
         private PlayerData _playerData;
         private Transform _transform;
-        
         #endregion
+        #endregion
+        
         public JumpCommand(ref PlayerData playerData,Transform transform)
         {
             _playerData = playerData;

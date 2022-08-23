@@ -8,20 +8,16 @@ namespace Commands
     public class RandomRemoveListItemCommand
     {
         #region Self Variables
-
         #region Private Variables
         private List<GameObject> _collectableStack;
         private GameObject _levelHolder;
-        private StackManager _manager;
         #endregion
         #endregion
         
-        public RandomRemoveListItemCommand(ref List<GameObject> CollectableStack,ref GameObject levelHolder,
-            StackManager manager)
+        public RandomRemoveListItemCommand(ref List<GameObject> CollectableStack,ref GameObject levelHolder)
         {
             _collectableStack = CollectableStack;
             _levelHolder = levelHolder;
-            _manager = manager;
         }
 
         public void Execute()
@@ -36,6 +32,7 @@ namespace Commands
             selectedCollectable.SetActive(false);
             _collectableStack.RemoveAt(random - 1);
             _collectableStack.TrimExcess();
+            ScoreSignals.Instance.onSetScore?.Invoke(_collectableStack.Count);
             if (DronePoolSignals.Instance.onGetStackCount() <= 0)
             {
                 LevelSignals.Instance.onLevelFailed?.Invoke();
@@ -45,10 +42,6 @@ namespace Commands
             {
                 ScoreSignals.Instance.onSetLeadPosition?.Invoke(_collectableStack[0]);
             }
-
-          
-            
-            //_onReBuildListCommand.OnReBuildList();
         }
     }
 }

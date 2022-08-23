@@ -6,13 +6,10 @@ namespace Commands
     public class DroneArrivesCommand
     {
         #region Self Variables
-
         #region Private Variables
-
         private GameObject _drone;
         private List<Collider> _colliders;
         private Transform _transform;
-        
         #endregion
         #endregion
 

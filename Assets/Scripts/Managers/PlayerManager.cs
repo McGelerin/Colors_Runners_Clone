@@ -78,7 +78,7 @@ namespace Managers
             StackSignals.Instance.onBoostArea += _jumpCommand.Execute;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool += movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
-            DronePoolSignals.Instance.onDroneGone += _setPlayerPositionAfterDronePool.Execute;
+            DronePoolSignals.Instance.onPlayerGotoTruePool += _setPlayerPositionAfterDronePool.Execute;
         }
 
         private void UnsubscribeEvents()
@@ -95,7 +95,7 @@ namespace Managers
             StackSignals.Instance.onBoostArea -= _jumpCommand.Execute;
             DronePoolSignals.Instance.onPlayerCollideWithDronePool -= movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
-            DronePoolSignals.Instance.onDroneGone -= _setPlayerPositionAfterDronePool.Execute;
+            DronePoolSignals.Instance.onPlayerGotoTruePool -= _setPlayerPositionAfterDronePool.Execute;
         }
 
         private void OnDisable()

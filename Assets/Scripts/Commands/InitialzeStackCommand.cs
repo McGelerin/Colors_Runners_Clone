@@ -8,9 +8,7 @@ namespace Commands
     public class InitialzeStackCommand
     {
         #region Self Variables
-
         #region Private Variables
-
         private StackManager _manager;
         private GameObject _collectable;
         #endregion
@@ -23,11 +21,12 @@ namespace Commands
         }
         public void Execute(int count)
         {
-            for (int i = 1; i < count/*_manager.StackData.InitialStackItem*/; i++)
+            for (int i = 0; i < count/*_manager.StackData.InitialStackItem*/; i++)
             {
                 GameObject obj = Object.Instantiate(_collectable);
                 _manager.ItemAddOnStack.Execute(obj);
             }
+            ScoreSignals.Instance.onSetScore?.Invoke(count);
             // _manager.StackValueUpdateCommand.Execute();
         }
     }

@@ -20,8 +20,6 @@ namespace Controllers
                 SetColor();
             }
         }
-        
-
         #endregion
         #region SerializeField Variables
         [SerializeField]private ColorEnum colorEnum;

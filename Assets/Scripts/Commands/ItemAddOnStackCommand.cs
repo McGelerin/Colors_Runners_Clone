@@ -8,13 +8,10 @@ namespace Commands
     public class ItemAddOnStackCommand
     {
         #region Self Variables
-
         #region Private Variables
-
         private List<GameObject> _collectableStack;
         private Transform _transform;
         private StackData _stackData;
-
         #endregion
         #endregion
         
@@ -41,7 +38,7 @@ namespace Commands
                 _collectableGameObject.transform.localPosition = newPos;
                 _collectableStack.Add(_collectableGameObject);
             }
-            ScoreSignals.Instance.onSetScore?.Invoke(+1);
+            ScoreSignals.Instance.onSetScore?.Invoke(_collectableStack.Count);
         }
     }
 }

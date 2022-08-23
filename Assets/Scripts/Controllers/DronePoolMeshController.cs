@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Data.UnityObject;
 using Data.ValueObject;
+using DG.Tweening;
 using Enums;
 using UnityEngine;
 namespace Controllers
@@ -11,14 +11,11 @@ namespace Controllers
         #region Self Variables
         #region Serializefield Variables
         [SerializeField] private List<MeshRenderer> colorBlocks;
-        [SerializeField] private MeshRenderer trueColorBlock;
-
-
-
         #endregion
         #region Private Variables
         private ColorData _colorData;
         private List<ColorEnum> areaColorEnum;
+        private ColorEnum trueColorState;
         #endregion
         #endregion
 
@@ -29,9 +26,8 @@ namespace Controllers
 
         private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
 
-        public void SetColors(List<ColorEnum> areaColorEnum, ColorEnum trueBlockEnum)
+        public void SetColors(List<ColorEnum> areaColorEnum)
         {
-            trueColorBlock.material.color = _colorData.color[(int)trueBlockEnum];
             this.areaColorEnum = areaColorEnum;
             for (int i = 0; i < areaColorEnum.Count; i++)
             {
@@ -39,7 +35,7 @@ namespace Controllers
             }            
         }
 
-        public ColorEnum OnGetColor(Transform poolTransform)
+        public ColorEnum GetColor(Transform poolTransform)
         {
             for (int i = 0; i < areaColorEnum.Count; i++)
             {
@@ -48,19 +44,35 @@ namespace Controllers
                     return areaColorEnum[i];
                 }
             }
-            return ColorEnum.Red;
+            return ColorEnum.Rainbow;
         }
 
-        public Transform GetTruePoolTransform(ColorEnum trueColorEnum)
+        public void SetTrueColor(ColorEnum trueColor)
         {
-            for (int i = 0; i < areaColorEnum.Count; i++)
+            trueColorState = trueColor;
+        }
+        
+        public void PoolScaleReduction()
+        {
+            for (int i = 0; i < colorBlocks.Count; i++)
             {
-                if (areaColorEnum[i].Equals(trueColorEnum))
+                if (areaColorEnum[i]!=trueColorState)
+                {
+                    colorBlocks[i].transform.DOScaleZ(0, 1f);
+                }
+            }
+        }
+
+        public Transform GetTruePool()
+        {
+            for (int i = 0; i < colorBlocks.Count; i++)
+            {
+                if (areaColorEnum[i]==trueColorState)
                 {
                     return colorBlocks[i].transform;
                 }
             }
-            return transform;
+            return colorBlocks[0].transform;
         }
     }
 }

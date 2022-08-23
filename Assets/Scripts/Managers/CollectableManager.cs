@@ -1,21 +1,15 @@
-using System;
-using Commands;
 using Controllers;
 using Signals;
 using Enums;
 using Data.UnityObject;
 using Data.ValueObject;
-using Sirenix.Serialization;
 using UnityEngine;
-using DG.Tweening;
-using Random = UnityEngine.Random;
 using System.Collections;
 
 public class CollectableManager : MonoBehaviour
 {
     #region Self Variables
     #region Public Variables
-    [Header("Data")] public CollectableData Data;
     public ColorEnum ColorState
     {
         get => colorState;
@@ -34,16 +28,16 @@ public class CollectableManager : MonoBehaviour
     [SerializeField] private CollectableAnimStates initialAnimState;
     #endregion
     #region Private Variables
-    [Space] private ColorData _colorData;
+    
+    private CollectableData _data;
+    private ColorData _colorData;
     private ColorEnum _poolColorEnum;
     #endregion
-
     #endregion
 
     private void Awake()
     {
-        Data = GetCollectableData();
-
+        _data = GetCollectableData();
     }
 
     private CollectableData GetCollectableData() => Resources.Load<CD_Collectable>("Data/CD_Collectable").Data;
@@ -75,7 +69,6 @@ public class CollectableManager : MonoBehaviour
     {
         UnsubscribeEvents();
     }
-
     #endregion
 
     private void Start()
@@ -108,8 +101,6 @@ public class CollectableManager : MonoBehaviour
             : CollectableAnimStates.Run);
     }
     
-    #region Onur Workouth
-    
     public IEnumerator CrouchAnim()
     {
         yield return new WaitForSeconds(1f);
@@ -123,7 +114,6 @@ public class CollectableManager : MonoBehaviour
             if (!_poolColorEnum.Equals(ColorState))
             {
                 DronePoolSignals.Instance.onWrongDronePool?.Invoke(gameObject);
-
                 SetCollectableAnimation(CollectableAnimStates.Die);
                 StartCoroutine(SetActiveFalse());
             }
@@ -156,12 +146,10 @@ public class CollectableManager : MonoBehaviour
 
     private void OnDroneGone()
     {
-        if (CompareTag("Collected"))
-        {
-            initialAnimState = CollectableAnimStates.Run;
-            SetCollectableAnimation(initialAnimState);
-            Data.CollectablesMoveToDronePoolTriggerTime = 1;
-        }
+        if (!CompareTag("Collected")) return;
+        initialAnimState = CollectableAnimStates.Run;
+        SetCollectableAnimation(initialAnimState);
+        _data.CollectablesMoveToDronePoolTriggerTime = 1;
     }
 
     private IEnumerator SetActiveFalse()
@@ -174,6 +162,4 @@ public class CollectableManager : MonoBehaviour
     {
         animationController.SetAnimState(newAnimState);
     }
-    
-    #endregion
 }

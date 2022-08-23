@@ -8,11 +8,9 @@ namespace Commands
         #region Self Variables
 
         #region Private Variables
-
         private List<GameObject> _collectableStack;
         private ItemAddOnStackCommand _addOnStackCommand;
         private GameObject _gameObject;
-        
         #endregion
         #endregion
 

@@ -535,7 +535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2803783348584380695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.722, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2803783348911782355}
@@ -577,13 +577,13 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2803783348584380695}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 032aa26cf71890f4c9324a888dba9fb8, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.02956283
-  m_Height: 1.475415
+  m_Radius: 0.20989764
+  m_Height: 1.5592103
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2622925, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2803783348797817036
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +671,8 @@ MonoBehaviour:
       JumpDuration: 1
       IdleRotateSpeed: 300
       RotateBorder: 15
+      CrouchSpeed: 8
+      RunSpeed: 10
   movementController: {fileID: 2803783348911782357}
   animationController: {fileID: 2803783348131844048}
 --- !u!114 &2803783348911782357
@@ -933,7 +935,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3888290025501593555}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

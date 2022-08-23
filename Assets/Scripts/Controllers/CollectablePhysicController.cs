@@ -66,7 +66,7 @@ namespace Controllers
             DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject);
             managerT.DOMove(new Vector3(other.transform.position.x, managerT.position.y,
                 managerT.position.z + Random.Range(5f, 15f)), 4f);//data olacak
-            manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().OnGetColor(other.transform));
+            manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().GetColor(other.transform));
         }
 
         public  void CanEnterDronePool()

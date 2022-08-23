@@ -44,19 +44,7 @@ public class GunPoolManager : MonoBehaviour
         SetTruePool();
         SendColorDataToControllers();
     }
-
-    private void Start()
-    {
-        SetColors();
-    }
-
-    private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
-
-    private void SendColorDataToControllers()
-    {
-        gunPoolMeshController.SetColorData(_colorData);
-    }
-
+    
     #region Event Subscription 
 
     private void OnEnable()
@@ -81,6 +69,17 @@ public class GunPoolManager : MonoBehaviour
 
     #endregion
 
+    private void Start()
+    {
+        SetColors();
+    }
+
+    private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
+
+    private void SendColorDataToControllers()
+    {
+        gunPoolMeshController.SetColorData(_colorData);
+    }
 
     private void SetColors()
     {
@@ -142,5 +141,4 @@ public class GunPoolManager : MonoBehaviour
             StartCoroutine(FireAndReload());
         }
     }
-
 }

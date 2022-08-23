@@ -51,7 +51,6 @@ namespace Managers
 
         private void GetReferences()
         {
-            _score = stackGO.transform.childCount;
             _parentGO = stackGO.transform.GetChild(0).gameObject;
         }
 

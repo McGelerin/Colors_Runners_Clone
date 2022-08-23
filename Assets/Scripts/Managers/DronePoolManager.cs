@@ -12,7 +12,7 @@ public class DronePoolManager : MonoBehaviour
 {
     #region Self Variables
     #region Public Variables
-    public ColorEnum ColorState;
+//    public ColorEnum ColorState;
     [HideInInspector]public bool SelectedArea=false;
     #endregion
     #region SerializeField Variables
@@ -71,14 +71,18 @@ public class DronePoolManager : MonoBehaviour
     
     private void SetColors()
     {
-        dronePoolMeshController.SetColors(areaColorEnum, ColorState);
+        dronePoolMeshController.SetColors(areaColorEnum/*, ColorState*/);
     }
 
     private void OnDroneGone()
     {
         drone.SetActive(false);
     }
-    
+
+    public void SetTruePoolColor(ColorEnum color)
+    {
+        dronePoolMeshController.SetTrueColor(color);
+    }
     private async void DroneArrives()
     {
         if (SelectedArea)
@@ -89,7 +93,11 @@ public class DronePoolManager : MonoBehaviour
             DronePoolSignals.Instance.onDroneArrives?.Invoke(transform);
             await Task.Delay(1000);
             DronePoolSignals.Instance.onOutlineBorder?.Invoke(false);
+            await Task.Delay(300);
+            dronePoolMeshController.PoolScaleReduction();
             await Task.Delay(1500);
+            DronePoolSignals.Instance.onPlayerGotoTruePool?.Invoke(dronePoolMeshController.GetTruePool());
+            await Task.Delay(1000);
             DronePoolSignals.Instance.onDroneGone?.Invoke();
         }
     }

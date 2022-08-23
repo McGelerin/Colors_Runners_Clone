@@ -18,7 +18,7 @@ namespace Controllers
         
         #region Private Variables
         
-        [Header("Data")] private PlayerMovementData _movementData;
+        private PlayerMovementData _movementData;
         private bool _isReadyToMove, _isReadyToPlay, _isOnDronePool = false;
         private float _inputValue;
         private float _inputValueX;

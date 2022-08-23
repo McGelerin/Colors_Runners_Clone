@@ -7,7 +7,6 @@ namespace Commands
     public class SetColorState
     {
         #region Self Variables
-
         #region Private Variables
         private List<GameObject> _stackList;
         #endregion

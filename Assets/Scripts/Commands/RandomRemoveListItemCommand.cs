@@ -26,7 +26,6 @@ namespace Commands
 
         public void Execute()
         {
-            Debug.Log("calisti");
             if (_collectableStack.Count < 1)
             {
                 return;

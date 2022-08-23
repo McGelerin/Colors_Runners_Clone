@@ -6,33 +6,34 @@ using Signals;
 using Controllers;
 using Data.UnityObject;
 using Data.ValueObject;
+using System.Collections;
 
 //[ExecuteInEditMode]
 public class GunPoolManager : MonoBehaviour
 {
     #region Self Variables
-    
+
     #region Public Variables
-    
+
     public ColorEnum ColorEnum;
     public List<ColorEnum> AreaColorEnum = new List<ColorEnum>();
-    
+
     #endregion
 
     #region Serialized Variables
-    
-    [SerializeField] private List<GunPoolPhysicsController> poolControllers;
+
+    [SerializeField] private List<GunPoolPhysicsController> poolPhysicsControllers;
     [SerializeField] TurretController turretController;
     [SerializeField] GunPoolMeshController gunPoolMeshController;
-    
+
     #endregion
 
     #region Private Variables
-    
+
     private bool _isFire = false;
     private GameObject _player;
     private ColorData _colorData;
-    
+
     #endregion
 
     #endregion
@@ -43,7 +44,7 @@ public class GunPoolManager : MonoBehaviour
         SetTruePool();
         SendColorDataToControllers();
     }
-    
+
     private void Start()
     {
         SetColors();
@@ -72,14 +73,14 @@ public class GunPoolManager : MonoBehaviour
         StackSignals.Instance.onPlayerGameObject -= OnSetPlayer;
         GunPoolSignals.Instance.onGunPoolExit -= OnPlayerExitGunPool;
     }
-    
+
     private void OnDisable()
     {
         UnSubscribeEvents();
     }
 
     #endregion
-   
+
 
     private void SetColors()
     {
@@ -93,7 +94,7 @@ public class GunPoolManager : MonoBehaviour
         {
             if (ColorEnum.Equals(AreaColorEnum[i]))
             {
-                poolControllers[i].IsTruePool = true;
+                poolPhysicsControllers[i].IsTruePool = true;
             }
         }
     }
@@ -105,7 +106,7 @@ public class GunPoolManager : MonoBehaviour
     public void StartAsyncManager()
     {
         _isFire = true;
-        FireAndReload();
+        StartCoroutine(FireAndReload());
     }
 
     private void OnPlayerExitGunPool()
@@ -116,14 +117,30 @@ public class GunPoolManager : MonoBehaviour
     public void StopAsyncManager()
     {
         _isFire = false;
-    } 
-    
-    private async void FireAndReload()
-    {
-        if (!_isFire) return;
-        GunPoolSignals.Instance.onWrongGunPool?.Invoke();
-        turretController.RotateToPlayer(_player.transform);
-        await Task.Delay(500); 
-        FireAndReload();
     }
+    public void StopAllCoroutineTrigger()
+    {
+        StopAllCoroutines();
+    }
+
+    //private async void FireAndReload()
+    //{
+    //    if (!_isFire) return;
+    //    GunPoolSignals.Instance.onWrongGunPool?.Invoke();
+    //    turretController.RotateToPlayer(_player.transform);
+    //    await Task.Delay(500); 
+    //    FireAndReload();
+    //}
+
+    private IEnumerator FireAndReload()
+    {
+        if (_isFire && DronePoolSignals.Instance.onGetStackCount() != 0)
+        {
+            GunPoolSignals.Instance.onWrongGunPool?.Invoke();
+            turretController.RotateToPlayer(_player.transform);
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(FireAndReload());
+        }
+    }
+
 }

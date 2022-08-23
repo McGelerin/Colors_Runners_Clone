@@ -21,7 +21,7 @@ namespace Controllers
 
         #region Private Variables
 
-        private bool _isTriggered= false;
+        //private bool _isTriggered = false;
 
         #endregion
 
@@ -35,10 +35,10 @@ namespace Controllers
                 {
                     manager.StopAsyncManager();
                 }
-                else if(_isTriggered == false)
+                else
                 {
                     manager.StartAsyncManager();
-                    _isTriggered = true;
+                    //_isTriggered = true;
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace Controllers
             {
                 if (IsTruePool.Equals(false))
                 {
-                    manager.StopAsyncManager();
+                    manager.StopAllCoroutineTrigger();
                 }
             }
         }

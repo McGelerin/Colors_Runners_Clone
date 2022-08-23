@@ -37,9 +37,9 @@ namespace Managers
 
         private void Awake()
         {
-            Init();
             SetStackPosition();
             Data = GetPlayerData();
+            Init();
             SendPlayerDataToControllers();
             animationController.SetAnimState(CollectableAnimStates.Idle);
         }

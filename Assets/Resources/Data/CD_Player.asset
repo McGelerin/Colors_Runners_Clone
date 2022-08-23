@@ -16,7 +16,7 @@ MonoBehaviour:
     MovementData:
       ForwardSpeed: 10
       SidewaysSpeed: 2
-      JumpDistance: 5
+      JumpDistance: 3
       JumpDuration: 0.25
       IdleRotateSpeed: 300
       RotateBorder: 15

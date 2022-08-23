@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Commands;
+using Signals;
 
 namespace Commands
 {
@@ -28,6 +29,7 @@ namespace Commands
             }
             _unStackList.Clear();
             _dublicateStateItemsCommand.Execute();
+            ScoreSignals.Instance.onSetLeadPosition?.Invoke(_collectableStack[0]);
         }
     }
 }

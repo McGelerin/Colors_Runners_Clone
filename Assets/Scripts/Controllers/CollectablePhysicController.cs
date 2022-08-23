@@ -62,10 +62,10 @@ namespace Controllers
         {
             _isFirstTime = false;
             StartCoroutine(manager.CrouchAnim());
-            var _managerT = manager.transform;
+            var managerT = manager.transform;
             DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject);
-            _managerT.DOMove(new Vector3(other.transform.position.x, _managerT.position.y,
-                _managerT.position.z + Random.Range(5f, 15f)), 4f);//data olacak
+            managerT.DOMove(new Vector3(other.transform.position.x, managerT.position.y,
+                managerT.position.z + Random.Range(5f, 15f)), 4f);//data olacak
             manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().OnGetColor(other.transform));
         }
 

@@ -12,9 +12,9 @@ namespace Managers
         #region Self Variables
 
         #region Serialized Variables
-        
+
         [SerializeField] private GameObject stackGO;
-        [SerializeField] private TextMeshPro scoreTMP,spriteTMP;
+        [SerializeField] private TextMeshPro scoreTMP, spriteTMP;
         [SerializeField] private GameObject textPlane;
 
         #endregion
@@ -23,9 +23,10 @@ namespace Managers
 
         private int _score;
         [ShowInInspector] private GameObject _playerGO;
-        private GameStates _currentState;
+        private GameStates _currentState = GameStates.Runner;
         private SetScoreCommand _setScoreCommand;
         private SetVisibilityOfScore _setVisibilityOfScore;
+        private GameObject _parentGO;
 
         #endregion
 
@@ -38,8 +39,8 @@ namespace Managers
 
         private void Start()
         {
-            GetReferences();
             ScoreSignals.Instance.onSetScore?.Invoke(_score);
+            GetReferences();
         }
 
         private void Init()
@@ -51,7 +52,9 @@ namespace Managers
         private void GetReferences()
         {
             _score = stackGO.transform.childCount;
+            _parentGO = stackGO.transform.GetChild(0).gameObject;
         }
+
         #region Event Subscriptions
 
         private void OnEnable()
@@ -65,7 +68,7 @@ namespace Managers
             ScoreSignals.Instance.onSetScore += _setScoreCommand.Execute;
             ScoreSignals.Instance.onVisibleScore += _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay += OnPlay;
-            ScoreSignals.Instance.onSetScoreManagerPosition += OnSetScoreManagerPosition;
+            ScoreSignals.Instance.onSetLeadPosition += OnSetLead;
         }
 
         private void UnsubscribeEvents()
@@ -74,7 +77,7 @@ namespace Managers
             ScoreSignals.Instance.onSetScore -= _setScoreCommand.Execute;
             ScoreSignals.Instance.onVisibleScore -= _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay -= OnPlay;
-            ScoreSignals.Instance.onSetScoreManagerPosition -= OnSetScoreManagerPosition;
+            ScoreSignals.Instance.onSetLeadPosition -= OnSetLead;
         }
 
         private void OnDisable()
@@ -87,8 +90,12 @@ namespace Managers
         private void Update()
         {
             SetScoreManagerRotation();
+            if (_currentState == GameStates.Runner)
+            {
+                SetScoreManagerPosition();
+            }
         }
-        
+
         private void OnPlay()
         {
             _playerGO = GameObject.FindGameObjectWithTag("Player");
@@ -102,19 +109,19 @@ namespace Managers
             transform1.localPosition = new Vector3(0, 2f, 0);
         }
 
-        private void OnSetScoreManagerPosition()
+        private void SetScoreManagerPosition()
         {
-            if (_currentState == GameStates.Runner)
-            {
-                var transform1 = transform;
-                transform1.parent = stackGO.transform.GetChild(0).transform;
-                transform1.localPosition = new Vector3(0, 2f, 0);
-            }
+            transform.position = _parentGO.transform.position + new Vector3(0, 2f, 0);
         }
 
         private void SetScoreManagerRotation()
         {
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
         }
-    }
+
+        private void OnSetLead(GameObject gO)
+        {
+            _parentGO = gO;
+        }
+}
 }

@@ -808,7 +808,6 @@ MonoBehaviour:
   - {fileID: 1083140838}
   - {fileID: 297995436}
   - {fileID: 1072719161}
-  levelText: {fileID: 0}
   scoreTMP: {fileID: 189775652}
 --- !u!4 &477614276
 Transform:
@@ -1285,7 +1284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6133378900765679420, guid: 255ea2def4abfb84f9eb4362dd4006cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.3
+      value: 0.678
       objectReference: {fileID: 0}
     - target: {fileID: 6133378900765679420, guid: 255ea2def4abfb84f9eb4362dd4006cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2414,7 +2413,7 @@ MonoBehaviour:
     InitialStackItem: 5
     DistanceFormPlayer: -1
   CollectableStack: []
-  UnStack: []
+  UnstackList: []
   levelHolder: {fileID: 769055456}
   collectable: {fileID: 3761059920063170249, guid: 5e3732f895ac15e449054b8ee5b583a0, type: 3}
 --- !u!1 &2019280824

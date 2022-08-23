@@ -59,6 +59,7 @@ namespace Managers
         private void OnEnable()
         {
             SubscribeEvent();
+            _initialzeStackCommand.Execute(StackData.InitialStackItem);
         }
 
         private void SubscribeEvent()
@@ -103,7 +104,7 @@ namespace Managers
         
         private void Start()
         {
-            _initialzeStackCommand.Execute(StackData.InitialStackItem);
+           
         }
         
         private void Init()

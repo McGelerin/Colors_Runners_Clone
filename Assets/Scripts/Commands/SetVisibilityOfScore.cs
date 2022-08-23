@@ -21,7 +21,6 @@ namespace Commands
 
         public void Execute(bool isOpen)
         {
-            Debug.Log(isOpen);
             _scoreTMP.GetComponent<MeshRenderer>().enabled = isOpen;
             _spriteTMP.GetComponent<MeshRenderer>().enabled = isOpen;
             _textPlane.GetComponent<MeshRenderer>().enabled = isOpen;

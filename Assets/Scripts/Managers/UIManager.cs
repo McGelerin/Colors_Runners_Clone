@@ -1,6 +1,9 @@
+using System;
+using System.Collections.Generic;
 using Controllers;
 using Enums;
 using Signals;
+using TMPro;
 using UnityEngine;
 
 namespace Managers
@@ -11,13 +14,26 @@ namespace Managers
 
         #region Serialized Variables
 
-        [SerializeField] private UIPanelController uiPanelController;
-        [SerializeField] private LevelPanelController levelPanelController;
+        [Space (15),Header("Data")]
 
+        [SerializeField] private TextMeshProUGUI money;
+        [SerializeField] private List<GameObject> panels;
+        // [SerializeField] private TextMeshProUGUI levelText;
+        [SerializeField] private TextMeshPro scoreTMP;
+
+        #endregion
+
+        #region Private Variables
+        private UIPanelController _uiPanelController;
         #endregion
 
         #endregion
 
+        private void Awake()
+        {
+            _uiPanelController = new UIPanelController();
+        }
+        
         #region Event Subscriptions
 
         private void OnEnable()
@@ -27,24 +43,28 @@ namespace Managers
 
         private void SubscribeEvents()
         {
+            CoreGameSignals.Instance.onPlay += OnPlay;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             UISignals.Instance.onOpenPanel += OnOpenPanel;
             UISignals.Instance.onClosePanel += OnClosePanel;
-            UISignals.Instance.onUpdateStageData += OnUpdateStageData;
-            UISignals.Instance.onSetLevelText += OnSetLevelText;
-            CoreGameSignals.Instance.onPlay += OnPlay;
-            CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
-            CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
+//            UISignals.Instance.onSetLevelText += OnSetLevelText;
+            UISignals.Instance.onSetScoreText += OnSetScoreText;
+            LevelSignals.Instance.onLevelFailed += OnLevelFailed;
+            LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
+            ScoreSignals.Instance.onSendMoney += SetMoneyText;
         }
 
         private void UnsubscribeEvents()
         {
+            CoreGameSignals.Instance.onPlay -= OnPlay;
+            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             UISignals.Instance.onOpenPanel -= OnOpenPanel;
             UISignals.Instance.onClosePanel -= OnClosePanel;
-            UISignals.Instance.onUpdateStageData -= OnUpdateStageData;
-            UISignals.Instance.onSetLevelText -= OnSetLevelText;
-            CoreGameSignals.Instance.onPlay -= OnPlay;
-            CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
-            CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
+//            UISignals.Instance.onSetLevelText -= OnSetLevelText;
+            UISignals.Instance.onSetScoreText += OnSetScoreText;
+            LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
+            LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
+            ScoreSignals.Instance.onSendMoney -= SetMoneyText;
         }
 
         private void OnDisable()
@@ -54,29 +74,40 @@ namespace Managers
 
         #endregion
 
+        
         private void OnOpenPanel(UIPanels panelParam)
         {
-            uiPanelController.OpenPanel(panelParam);
+            _uiPanelController.OpenPanel(panelParam , panels);
         }
 
         private void OnClosePanel(UIPanels panelParam)
         {
-            uiPanelController.ClosePanel(panelParam);
+            _uiPanelController.ClosePanel(panelParam , panels);
         }
 
-        private void OnUpdateStageData(int value)
+        private void SetMoneyText(float value)
         {
-            levelPanelController.UpdateStageData(value);
+            money.text = ((int)value).ToString();
         }
 
-        private void OnSetLevelText(int value)
+        private void OnSetScoreText(int value)
         {
-            levelPanelController.SetLevelText(value);
+            scoreTMP.text = (value.ToString());
         }
+
+        #region Useless
+
+        // private void OnSetLevelText(int value)
+        // {
+        //     //evelText.text = "Level " + (value + 1);
+        // }
+
+        #endregion
 
         private void OnPlay()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.LevelPanel);
         }
 
         private void OnLevelFailed()
@@ -91,6 +122,12 @@ namespace Managers
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
         }
 
+        private void OnChangeGameState()
+        {
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.WinPanel);
+        }
+
         public void Play()
         {
             CoreGameSignals.Instance.onPlay?.Invoke();
@@ -98,14 +135,15 @@ namespace Managers
 
         public void NextLevel()
         {
-            CoreGameSignals.Instance.onNextLevel?.Invoke();
+            LevelSignals.Instance.onNextLevel?.Invoke();
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.WinPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.LevelPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
         }
 
         public void RestartLevel()
         {
-            CoreGameSignals.Instance.onRestartLevel?.Invoke();
+            LevelSignals.Instance.onRestartLevel?.Invoke();
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.FailPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
         }

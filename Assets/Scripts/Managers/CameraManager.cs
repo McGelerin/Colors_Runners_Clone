@@ -114,7 +114,7 @@ namespace Managers
         private void OnReset()
         {
             CameraStateController = CameraStates.InitializeCam;
-            virtualCamera.Follow = null;
+            virtualCamera.Follow = null; //referanceı state driven yap
             virtualCamera.LookAt = null;
             virtualCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
             OnMoveToInitialPosition();

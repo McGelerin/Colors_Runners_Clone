@@ -60,10 +60,9 @@ namespace Controllers
             }
         }
 
-        public void SetOutlineBorder(Boolean isOutlineOn)
+        public void SetOutlineBorder(bool isOutlineOn)
         {
-            if (isOutlineOn) mesh.material.DOFloat(0f, "_OutlineSize", 1f);
-            else mesh.material.DOFloat(100f, "_OutlineSize", 1f);
+            mesh.material.DOFloat(isOutlineOn ? 0f : 100f, "_OutlineSize", 1f);
         }
     }
 }

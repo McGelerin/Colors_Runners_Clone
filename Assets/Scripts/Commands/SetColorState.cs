@@ -19,9 +19,9 @@ namespace Commands
 
         public void Execute(ColorEnum gateColorState)
         {
-            for (int i = 0; i < _stackList.Count; i++)
+            foreach (var t in _stackList)
             {
-                _stackList[i].GetComponent<CollectableManager>().ColorState = gateColorState;
+                t.GetComponent<CollectableManager>().ColorState = gateColorState;
             }
         }
     }

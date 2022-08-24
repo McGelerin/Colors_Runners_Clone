@@ -32,7 +32,7 @@ namespace Controllers
 
             if (other.CompareTag("BoostArea") && CompareTag("Collected"))
             {
-                if (manager.transform.GetSiblingIndex()<=5)
+                if (manager.transform.GetSiblingIndex()<=5)//funk yap
                 {
                     StackSignals.Instance.onBoostArea?.Invoke();
                     other.enabled = false;
@@ -58,7 +58,7 @@ namespace Controllers
             }
         }
 
-        private void InteractionWithDronePool(Collider other)
+        private void InteractionWithDronePool(Collider other)//managera cek;
         {
             _isFirstTime = false;
             StartCoroutine(manager.CrouchAnim());

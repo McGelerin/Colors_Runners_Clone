@@ -17,7 +17,8 @@ namespace Commands
 
         public void Execute(Transform truePool)
         {
-            _transform.DOMove(new Vector3(truePool.position.x, _transform.position.y, _transform.position.z + 15), 1f);
+            var position = _transform.position;
+            _transform.DOMove(new Vector3(truePool.position.x, position.y, position.z + 15), 1f);
         }
     }
 }

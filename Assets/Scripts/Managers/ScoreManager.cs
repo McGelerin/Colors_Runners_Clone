@@ -36,22 +36,22 @@ namespace Managers
         {
             Init();
         }
-
-        private void Start()
-        {
-            ScoreSignals.Instance.onSetScore?.Invoke(_score);
-            GetReferences();
-        }
-
+        
         private void Init()
         {
             _setScoreCommand = new SetScoreCommand(ref _score);
             _setVisibilityOfScore = new SetVisibilityOfScore(ref scoreTMP, ref spriteTMP, ref textPlane);
         }
 
+        private void Start()
+        {
+            ScoreSignals.Instance.onSetScore?.Invoke(_score);
+            GetReferences();
+        }
+        
         private void GetReferences()
         {
-            _parentGO = stackGO.transform.GetChild(0).gameObject;
+            _parentGO = stackGO.transform.GetChild(0).gameObject; //atamanın yeni seviyelerde sıkıntı cıkarabilir
         }
 
         #region Event Subscriptions

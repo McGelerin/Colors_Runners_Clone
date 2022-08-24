@@ -102,7 +102,7 @@ public class GunPoolManager : MonoBehaviour
         _player = playerGameObject;
     }
 
-    public void StartAsyncManager()
+    public void StartAsyncManager()//isim değişecek
     {
         _isFire = true;
         StartCoroutine(FireAndReload());
@@ -113,11 +113,11 @@ public class GunPoolManager : MonoBehaviour
         StopAsyncManager();
     }
 
-    public void StopAsyncManager()
+    public void StopAsyncManager()//isim değişecek
     {
         _isFire = false;
     }
-    public void StopAllCoroutineTrigger()
+    public void StopAllCoroutineTrigger()//isim değiş
     {
         StopAllCoroutines();
     }
@@ -133,12 +133,10 @@ public class GunPoolManager : MonoBehaviour
 
     private IEnumerator FireAndReload()
     {
-        if (_isFire && DronePoolSignals.Instance.onGetStackCount() != 0)
-        {
-            GunPoolSignals.Instance.onWrongGunPool?.Invoke();
-            turretController.RotateToPlayer(_player.transform);
-            yield return new WaitForSeconds(0.5f);
-            StartCoroutine(FireAndReload());
-        }
+        if (!_isFire || DronePoolSignals.Instance.onGetStackCount() == 0) yield break;
+        GunPoolSignals.Instance.onWrongGunPool?.Invoke();
+        turretController.RotateToPlayer(_player.transform);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FireAndReload());
     }
 }

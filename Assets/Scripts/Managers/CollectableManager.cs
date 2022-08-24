@@ -130,7 +130,8 @@ public class CollectableManager : MonoBehaviour
     {
         if (CompareTag("Collected"))
         {
-            SetCollectableAnimation(CollectableAnimStates.Run);
+            initialAnimState = CollectableAnimStates.Run;
+            SetCollectableAnimation(initialAnimState);
         }
     }
 

@@ -30,11 +30,9 @@ namespace Controllers
                 return;
             }
 
-            if (other.CompareTag("Collected") && _triggerCache<=0)
-            {
-                manager.SetTruePoolColor(other.transform.parent.GetComponent<CollectableManager>().ColorState);
-                _triggerCache++;
-            }
+            if (!other.CompareTag("Collected") || _triggerCache > 0) return; //onceden data olarak alınabilir
+            manager.SetTruePoolColor(other.transform.parent.GetComponent<CollectableManager>().ColorState);
+            _triggerCache++;
         }
     }
 }

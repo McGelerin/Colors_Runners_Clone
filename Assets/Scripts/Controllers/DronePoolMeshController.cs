@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Data.UnityObject;
 using Data.ValueObject;
 using DG.Tweening;
@@ -37,14 +38,7 @@ namespace Controllers
 
         public ColorEnum GetColor(Transform poolTransform)
         {
-            for (int i = 0; i < areaColorEnum.Count; i++)
-            {
-                if (colorBlocks[i].transform.Equals(poolTransform))
-                {
-                    return areaColorEnum[i];
-                }
-            }
-            return ColorEnum.Rainbow;
+            return areaColorEnum.Where((t, i) => colorBlocks[i].transform.Equals(poolTransform)).FirstOrDefault();
         }
 
         public void SetTrueColor(ColorEnum trueColor)

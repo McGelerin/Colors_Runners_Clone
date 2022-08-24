@@ -22,10 +22,9 @@ namespace Commands
 
         public void Execute(bool isOutlineOpen)
         {
-            
-            for (int i = 0; i < _unstack.Count; i++)
+            foreach (var t in _unstack)
             {
-                _unstack[i].GetComponent<CollectableManager>().OutLineBorder(isOutlineOpen);
+                t.GetComponent<CollectableManager>().OutLineBorder(isOutlineOpen);
             }
         }
     }

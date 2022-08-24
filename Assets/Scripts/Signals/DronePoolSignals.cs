@@ -12,7 +12,7 @@ namespace Signals
         
         public UnityAction<Transform> onDroneArrives = delegate { };
         public UnityAction onUnstackFull = delegate { };
-        public UnityAction<Boolean> onOutlineBorder = delegate { };
+        public UnityAction<bool> onOutlineBorder = delegate { };
         public UnityAction<Transform> onPlayerGotoTruePool = delegate{  };
         public UnityAction onDroneGone = delegate { };
 

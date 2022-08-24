@@ -29,22 +29,23 @@ namespace Controllers
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (!other.CompareTag("Player")) return;
+      
+            if (IsTruePool.Equals(true))
             {
-                if (IsTruePool.Equals(true))
-                {
-                    manager.StopAsyncManager();
-                }
-                else
-                {
-                    manager.StopAllCoroutineTrigger();
-                    manager.StartAsyncManager();
-                }
+                manager.StopAsyncManager();
+            }
+            else
+            {
+                manager.StopAllCoroutineTrigger();
+                manager.StartAsyncManager();
             }
         }
+        
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (!other.CompareTag("Player")) return;
+            if (IsTruePool.Equals(false))
             {
                 if (IsTruePool.Equals(false))
                 {

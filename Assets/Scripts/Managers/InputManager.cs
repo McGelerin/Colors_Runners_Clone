@@ -1,3 +1,4 @@
+using System;
 using Commands;
 using Data.UnityObject;
 using Data.ValueObject;
@@ -87,26 +88,32 @@ namespace Managers
         {
             if (!isReadyForTouch) return;
 
-            if (_inputStates == GameStates.Runner)
+            switch (_inputStates)
             {
-                if (Input.GetMouseButtonUp(0) && _queryPointerOverUIElementCommand.Execute())
+                case GameStates.Runner:
                 {
-                    MouseButtonUp();
-                }
+                    if (Input.GetMouseButtonUp(0) && _queryPointerOverUIElementCommand.Execute())
+                    {
+                        MouseButtonUp();
+                    }
             
-                if (Input.GetMouseButtonDown(0) && !_queryPointerOverUIElementCommand.Execute())
-                {
-                    MouseButtonDown();
-                }
+                    if (Input.GetMouseButtonDown(0) && !_queryPointerOverUIElementCommand.Execute())
+                    {
+                        MouseButtonDown();
+                    }
                 
-                if (Input.GetMouseButton(0) && !_queryPointerOverUIElementCommand.Execute())
-                {
-                    HoldingMouseButton();
+                    if (Input.GetMouseButton(0) && !_queryPointerOverUIElementCommand.Execute())
+                    {
+                        HoldingMouseButton();
+                    }
+
+                    break;
                 }
-            }
-            else if (_inputStates == GameStates.Idle)
-            {
-                JoystickInput();
+                case GameStates.Idle:
+                    JoystickInput();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -163,29 +170,25 @@ namespace Managers
 
         private void HoldingMouseButton()
         {
-            if (_isTouching)
-            {
-                if (_mousePosition != null) 
-                { 
-                    Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
+            if (!_isTouching) return;
+            if (_mousePosition == null) return;
+            Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
                     
-                    if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
-                        _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
-                    else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)
-                        _moveVector.x = -Data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
-                    else
-                        _moveVector.x = Mathf.SmoothDamp(_moveVector.x, 0f, ref _currentVelocity,
-                            Data.ClampSpeed);
+            if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
+                _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
+            else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)
+                _moveVector.x = -Data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
+            else
+                _moveVector.x = Mathf.SmoothDamp(_moveVector.x, 0f, ref _currentVelocity,
+                    Data.ClampSpeed);
                          
-                    _mousePosition = Input.mousePosition;
+            _mousePosition = Input.mousePosition;
                          
-                    InputSignals.Instance.onRunnerInputDragged?.Invoke(new RunnerInputParams()
-                    {
-                        XValue = _moveVector.x,
-                        ClampValues = new Vector2(Data.ClampSides.x, Data.ClampSides.y)
-                    });
-                }
-            }
+            InputSignals.Instance.onRunnerInputDragged?.Invoke(new RunnerInputParams()
+            {
+                XValue = _moveVector.x,
+                ClampValues = new Vector2(Data.ClampSides.x, Data.ClampSides.y)
+            });
         }
 
         private void JoystickInput()

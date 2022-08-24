@@ -67,7 +67,7 @@ namespace Controllers
             _inputValueZ = inputParams.ValueZ;
         }
 
-        public void ChangeGameState()
+        public void ChangeMovementState()
         {
             _isRunner = false;
         }

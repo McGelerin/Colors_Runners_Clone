@@ -44,14 +44,15 @@ namespace Managers
             animationController.SetAnimState(CollectableAnimStates.Idle);
         }
 
+        private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Data/CD_Player").Data;
+        
         private void Init()
         {
-            _jumpCommand = new JumpCommand(ref Data,transform);
-            _setPlayerPositionAfterDronePool = new SetPlayerPositionAfterDronePool(transform);
+            var transform1 = transform;
+            _jumpCommand = new JumpCommand(ref Data,transform1);
+            _setPlayerPositionAfterDronePool = new SetPlayerPositionAfterDronePool(transform1);
         }
-
-        private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Data/CD_Player").Data;
-
+        
         private void SendPlayerDataToControllers()
         {
             movementController.SetMovementData(Data.MovementData);
@@ -68,11 +69,11 @@ namespace Managers
         {
             InputSignals.Instance.onInputTaken += OnActivateMovement;
             InputSignals.Instance.onInputReleased += OnDeactiveMovement;
-            InputSignals.Instance.onRunnerInputDragged += OnGetRunnerInputValues;
-            InputSignals.Instance.onJoystickDragged += OnGetIdleInputValues;
+            InputSignals.Instance.onRunnerInputDragged += OnSetRunnerInputValues;
+            InputSignals.Instance.onJoystickDragged += OnSetIdleInputValues;
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onReset += OnReset;
-            CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeMovementState;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             StackSignals.Instance.onBoostArea += _jumpCommand.Execute;
@@ -85,11 +86,11 @@ namespace Managers
         {
             InputSignals.Instance.onInputTaken -= OnActivateMovement;
             InputSignals.Instance.onInputReleased -= OnDeactiveMovement;
-            InputSignals.Instance.onRunnerInputDragged -= OnGetRunnerInputValues;
-            InputSignals.Instance.onJoystickDragged -= OnGetIdleInputValues;
+            InputSignals.Instance.onRunnerInputDragged -= OnSetRunnerInputValues;
+            InputSignals.Instance.onJoystickDragged -= OnSetIdleInputValues;
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onReset -= OnReset;
-            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
+            CoreGameSignals.Instance.onChangeGameState -= OnChangeMovementState;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             StackSignals.Instance.onBoostArea -= _jumpCommand.Execute;
@@ -110,7 +111,6 @@ namespace Managers
         private void OnActivateMovement()
         {
             movementController.EnableMovement();
-            
         }
 
         private void OnDeactiveMovement()
@@ -118,20 +118,20 @@ namespace Managers
             movementController.DeactiveMovement();
         }
 
-        private void OnGetRunnerInputValues(RunnerInputParams inputParams)
+        private void OnSetRunnerInputValues(RunnerInputParams inputParams)
         {
             movementController.UpdateRunnerInputValue(inputParams);
 
         }
         
-        private void OnGetIdleInputValues(IdleInputParams inputParams)
+        private void OnSetIdleInputValues(IdleInputParams inputParams)
         {
             movementController.UpdateIdleInputValue(inputParams);
         }
 
-        private void OnChangeGameState()
+        private void OnChangeMovementState()
         {
-            movementController.ChangeGameState();
+            movementController.ChangeMovementState();
         }
 
         #endregion
@@ -146,8 +146,8 @@ namespace Managers
         private void OnLevelSuccessful()
         {
             movementController.IsReadyToPlay(false);
-
         }
+        
         private void OnLevelFailed()
         {
             movementController.IsReadyToPlay(false);

@@ -202,7 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b75f8facb24205a6e066952a13d877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: {fileID: 0}
   panels:
   - {fileID: 1189724839}
   - {fileID: 764709789}
@@ -1134,15 +1133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7264e7e61cd5245af3967b235b91a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StackData:
-    CollectableOffsetInStack: 1
-    LerpSpeed_x: 0.25
-    LerpSpeed_y: 0.25
-    LerpSpeed_z: 0.25
-    ShackAnimDuraction: 0.12
-    ShackScaleValue: 1
-    InitialStackItem: 5
-    DistanceFormPlayer: -1
   CollectableStack: []
   UnstackList: []
   levelHolder: {fileID: 1093454707}

@@ -27,6 +27,7 @@ namespace Managers
         private SetScoreCommand _setScoreCommand;
         private SetVisibilityOfScore _setVisibilityOfScore;
         private GameObject _parentGO;
+        private bool _isActive = false;
 
         #endregion
 
@@ -68,6 +69,7 @@ namespace Managers
             ScoreSignals.Instance.onVisibleScore += _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay += OnPlay;
             ScoreSignals.Instance.onSetLeadPosition += OnSetLead;
+            LevelSignals.Instance.onRestartLevel += OnReset;
         }
 
         private void UnsubscribeEvents()
@@ -77,6 +79,8 @@ namespace Managers
             ScoreSignals.Instance.onVisibleScore -= _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay -= OnPlay;
             ScoreSignals.Instance.onSetLeadPosition -= OnSetLead;
+            LevelSignals.Instance.onRestartLevel -= OnReset;
+
         }
 
         private void OnDisable()
@@ -89,7 +93,7 @@ namespace Managers
         private void Update()
         {
             SetScoreManagerRotation();
-            if (_currentState == GameStates.Runner)
+            if (_currentState == GameStates.Runner && _isActive)
             {
                 SetScoreManagerPosition();
             }
@@ -97,7 +101,9 @@ namespace Managers
 
         private void OnPlay()
         {
-            _playerGO = GameObject.FindGameObjectWithTag("Player");
+            FindPlayerGameObject();
+            GetReferences();
+
         }
 
         private void OnChangeGameState()
@@ -122,5 +128,16 @@ namespace Managers
         {
             _parentGO = gO;
         }
-}
+
+        private void FindPlayerGameObject()
+        {
+            _playerGO = GameObject.FindGameObjectWithTag("Player");
+            _isActive = true;
+        }
+
+        private void OnReset()
+        {
+            _isActive = false;
+        }
+    }
 }

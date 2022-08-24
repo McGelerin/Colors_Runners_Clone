@@ -2,21 +2,21 @@ using UnityEngine;
 
 namespace Controllers
 {
-    public class GunPoolPhysicsController : MonoBehaviour
+    public class GunPoolPhysicsController: MonoBehaviour
     {
 
         #region Self Variables
-
+    
         #region Public Variables
-
+    
         public bool IsTruePool = false;
 
         #endregion
-
+    
         #region Serialized Variables
-
+    
         [SerializeField] GunPoolManager manager;
-
+    
         #endregion
 
         #region Private Variables
@@ -37,8 +37,8 @@ namespace Controllers
                 }
                 else
                 {
+                    manager.StopAllCoroutineTrigger();
                     manager.StartAsyncManager();
-                    //_isTriggered = true;
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace Controllers
             {
                 if (IsTruePool.Equals(false))
                 {
-                    manager.StopAllCoroutineTrigger();
+                    //manager.StopAllCoroutineTrigger();
                 }
             }
         }

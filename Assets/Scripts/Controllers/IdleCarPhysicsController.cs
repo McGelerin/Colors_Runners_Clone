@@ -6,6 +6,7 @@ using Enums;
 public class IdleCarPhysicsController : MonoBehaviour
 {
     private IdleCarManager _manager;
+    private bool _isOnTargetTrigger = false;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class IdleCarPhysicsController : MonoBehaviour
     {
         if (other.CompareTag("Target"))
         {
+            _isOnTargetTrigger = true;
             _manager.SelectRandomDirection(other.GetComponent<IdleCarTargetController>().GetData());
             return;
         }
@@ -25,11 +27,18 @@ public class IdleCarPhysicsController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Target"))
+        {
+            _isOnTargetTrigger = false;
+
+        }
         if (other.CompareTag("Player"))
         {
-            _manager.Move();
-            _manager.MoveAfterPlayer();
-            
+            //_manager.Move();
+            _manager.MoveAfterPlayer(_isOnTargetTrigger);
+            return;
         }
+        
+
     }
 }

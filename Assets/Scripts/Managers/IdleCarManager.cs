@@ -83,13 +83,13 @@ public class IdleCarManager : MonoBehaviour
         transform.DOLookAt(_currentTarget, 1f);
     }
 
-    public void MoveAfterPlayer()
+    public void MoveAfterPlayer(bool _isOnTargetTrigger)
     {
         mySequence = DOTween.Sequence();
         mySequence.Append(transform.DOMove(_currentTarget, 2f).SetEase(Ease.Linear));
         transform.DOLookAt(_currentTarget, 1f);
 
-        if (myCoroutine.Equals(null))
+        if (_isOnTargetTrigger)
         {
             SelectRandomDirection(_lastData);
         }

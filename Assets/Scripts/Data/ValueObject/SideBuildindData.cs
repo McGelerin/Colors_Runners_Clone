@@ -10,7 +10,7 @@ namespace Data.ValueObject
     public class SideBuildindData
     {
         [Title("Building State")] 
-        [EnumPaging] 
+        [EnumToggleButtons] 
         public BuildingState BuildingState = BuildingState.Uncompleted;
         [HorizontalGroup("Game Data",75)]
         [PreviewField(100)]
@@ -20,16 +20,13 @@ namespace Data.ValueObject
         [LabelWidth(100)]
         public int SideBuildingScore;
         [VerticalGroup("Game Data/Stats")]
-        [LabelWidth(100)]
-        public int CurrentScore;
-        [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)] 
-        public Vector2 InstantitatePos;
+        public Vector3 InstantitatePos;
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)]
         public TextMeshPro BuildingScoreTMP;
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)] 
-        public Vector2 InstantitatePosTMP;
+        public Vector3 OffsetTMP;
     }
 }

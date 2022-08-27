@@ -5,10 +5,10 @@ using Data.ValueObject;
 
 public class IdleCarTargetController : MonoBehaviour
 {
-    [SerializeField] IdleTargetData Data;
+    [SerializeField] IdleTargetData data;
 
     public IdleTargetData GetData()
     {
-        return Data;
+        return data;
     }
 }

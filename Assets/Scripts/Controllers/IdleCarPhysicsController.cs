@@ -5,8 +5,23 @@ using Enums;
 
 public class IdleCarPhysicsController : MonoBehaviour
 {
+    #region Self Variables
+    #region Public Variables
+
+
+    #endregion
+    #region SerializeField Variables
+
+    #endregion
+    #region Private Variables
+
     private IdleCarManager _manager;
     private bool _isOnTargetTrigger = false;
+
+
+    #endregion
+    #endregion
+
 
     private void Awake()
     {
@@ -23,6 +38,7 @@ public class IdleCarPhysicsController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _manager.PlayerOnRoad();
+            return;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -30,6 +46,7 @@ public class IdleCarPhysicsController : MonoBehaviour
         if (other.CompareTag("Target"))
         {
             _isOnTargetTrigger = false;
+            return;
 
         }
         if (other.CompareTag("Player"))
@@ -38,7 +55,5 @@ public class IdleCarPhysicsController : MonoBehaviour
             _manager.MoveAfterPlayer(_isOnTargetTrigger);
             return;
         }
-        
-
     }
 }

@@ -4,70 +4,84 @@ using UnityEngine;
 using Enums;
 using Data.ValueObject;
 using DG.Tweening;
+using Data.UnityObject;
+
 public class IdleCarManager : MonoBehaviour
 {
-    public IdleNavigationEnum LastEnum;
-    public IdleNavigationEnum NewEnum;
-    public Vector3 _currentTarget;
+    #region Self Variables
+    #region Public Variables
     public float scaleValue;
     public bool IsActive = true;
-    Sequence mySequence;
-    Coroutine myCoroutine;
 
+    #endregion
+    #region SerializeField Variables
+
+    #endregion
+    #region Private Variables
+    private IdleNavigationEnum _lastEnum;
+    private IdleNavigationEnum _newEnum;
+    private Vector3 _currentTarget;
+    private Sequence _mySequence;
     private IdleTargetData _lastData;
+
+    private IdleCarData _data;
+
+    #endregion
+    #endregion
 
     private void Awake()
     {
         //scaleValue = transform.localScale.x / 0.3f;
-        mySequence = DOTween.Sequence();
+        _data = GetData();
+
+        _mySequence = DOTween.Sequence();
         scaleValue = 19.5f;
     }
+    private IdleCarData GetData() => Resources.Load<CD_IdleCar>("Data/CD_IdleCar").Data;
     private void Start()
     {
-
         SetCurrentTarget();
     }
 
     public void SelectRandomDirection(IdleTargetData targetData)
     {
         _lastData = targetData;
-        NewEnum = targetData.axises[Random.Range(0, targetData.axises.Count)];
+        _newEnum = targetData.axises[Random.Range(0, targetData.axises.Count)];
 
-        while ((int)LastEnum % 2 == (int)NewEnum % 2)
+        while ((int)_lastEnum % 2 == (int)_newEnum % 2)
         {
-            NewEnum = targetData.axises[Random.Range(0, targetData.axises.Count)];
+            _newEnum = targetData.axises[Random.Range(0, targetData.axises.Count)];
 
         }
-        LastEnum = NewEnum;
-        myCoroutine = StartCoroutine(WaitToReach());
+        _lastEnum = _newEnum;
+        StartCoroutine(WaitToReach());
     }
 
     IEnumerator WaitToReach()
     {
         yield return new WaitForSeconds(0.5f);
         SetCurrentTarget();
-
     }
 
     public void SetCurrentTarget()
     {
 
-        if (NewEnum == IdleNavigationEnum.Up)
+        if (_newEnum == IdleNavigationEnum.Up)
         {
             _currentTarget = new Vector3(transform.position.x, transform.position.y, transform.position.z + scaleValue);
 
         }
-        else if (NewEnum == IdleNavigationEnum.Down)
+        else if (_newEnum == IdleNavigationEnum.Down)
         {
             _currentTarget = new Vector3(transform.position.x, transform.position.y, transform.position.z - scaleValue);
 
         }
-        else if (NewEnum == IdleNavigationEnum.Right)
+        else if (_newEnum == IdleNavigationEnum.Right)
         {
             _currentTarget = new Vector3(transform.position.x + scaleValue, transform.position.y, transform.position.z);
 
         }
-        else if (NewEnum == IdleNavigationEnum.Left)
+        else if (_newEnum == IdleNavigationEnum.Left)
         {
             _currentTarget = new Vector3(transform.position.x - scaleValue, transform.position.y, transform.position.z);
 
@@ -78,16 +92,14 @@ public class IdleCarManager : MonoBehaviour
 
     public void Move()
     {
-        mySequence = DOTween.Sequence();
-        mySequence.Append(transform.DOMove(_currentTarget, 2f).SetEase(Ease.Linear));
-        transform.DOLookAt(_currentTarget, 1f);
+        _mySequence = DOTween.Sequence();
+        _mySequence.Append(transform.DOMove(_currentTarget, _data.ReachingTime).SetEase(_data.ReachingEase));
+        transform.DOLookAt(_currentTarget, _data.RotationTime).SetEase(_data.RotationEase);
     }
 
     public void MoveAfterPlayer(bool _isOnTargetTrigger)
     {
-        mySequence = DOTween.Sequence();
-        mySequence.Append(transform.DOMove(_currentTarget, 2f).SetEase(Ease.Linear));
-        transform.DOLookAt(_currentTarget, 1f);
+        Move();
 
         if (_isOnTargetTrigger)
         {
@@ -99,10 +111,6 @@ public class IdleCarManager : MonoBehaviour
     public void PlayerOnRoad()
     {
         StopAllCoroutines();
-        mySequence.Kill();
+        _mySequence.Kill();
     }
-
-    
-
-    
 }

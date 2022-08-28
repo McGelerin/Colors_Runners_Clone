@@ -24,6 +24,7 @@ namespace Managers
 
         [Space] [SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController animationController;
+        [SerializeField] private PlayerMeshController meshController;
 
         #endregion
 
@@ -80,6 +81,7 @@ namespace Managers
             DronePoolSignals.Instance.onPlayerCollideWithDronePool += movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
             DronePoolSignals.Instance.onPlayerGotoTruePool += _setPlayerPositionAfterDronePool.Execute;
+            StackSignals.Instance.onSetPlayerScale += OnSetPlayerScale;
         }
 
         private void UnsubscribeEvents()
@@ -97,6 +99,7 @@ namespace Managers
             DronePoolSignals.Instance.onPlayerCollideWithDronePool -= movementController.DeactiveForwardMovement;
             DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
             DronePoolSignals.Instance.onPlayerGotoTruePool -= _setPlayerPositionAfterDronePool.Execute;
+            StackSignals.Instance.onSetPlayerScale -= OnSetPlayerScale;
         }
 
         private void OnDisable()
@@ -131,6 +134,7 @@ namespace Managers
 
         private void OnChangeMovementState()
         {
+            movementController.IsReadyToPlay(true);
             movementController.ChangeMovementState();
         }
 
@@ -146,11 +150,18 @@ namespace Managers
         private void OnLevelSuccessful()
         {
             movementController.IsReadyToPlay(false);
+            animationController.SetAnimState(CollectableAnimStates.Idle);
+            meshController.ShowSkinnedMesh();
         }
         
         private void OnLevelFailed()
         {
             movementController.IsReadyToPlay(false);
+        }
+
+        private void OnSetPlayerScale(float value)
+        {
+            animationController.SetPlayerScale(value);
         }
 
         private void SetStackPosition()

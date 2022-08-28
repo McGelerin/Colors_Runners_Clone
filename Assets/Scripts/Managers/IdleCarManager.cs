@@ -59,7 +59,7 @@ public class IdleCarManager : MonoBehaviour
 
     IEnumerator WaitToReach()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         SetCurrentTarget();
     }
 
@@ -110,7 +110,11 @@ public class IdleCarManager : MonoBehaviour
 
     public void PlayerOnRoad()
     {
+        Debug.Log(transform.localPosition);
+        Vector3 currentPos = transform.localPosition;
         StopAllCoroutines();
         _mySequence.Kill();
+        transform.localPosition = currentPos;
+        //DOTween.Kill(_mySequence);
     }
 }

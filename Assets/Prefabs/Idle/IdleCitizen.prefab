@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d996d79d0d71d4ab1cd185b859beeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScaleValue: 0
+  ScaleValue: 15
   meshController: {fileID: 7543343319353720302}
   animationController: {fileID: 8030986153095347237}
   physicsController: {fileID: 587634689}

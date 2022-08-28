@@ -11,18 +11,6 @@ public class IdleCitizenManager : MonoBehaviour
 {
     #region Self Variables
     #region Public Variables
-
-    [HideInInspector]
-    public ColorEnum ColorState
-    {
-        get => colorState;
-        set
-        {
-            colorState = value;
-        }
-    }
-
-    
     public float ScaleValue;
 
     #endregion
@@ -49,7 +37,7 @@ public class IdleCitizenManager : MonoBehaviour
         SendDataToController();
 
         _mySequence = DOTween.Sequence();
-        ScaleValue = 20f;
+        //ScaleValue = 20f;
     }
     private void Start()
     { 
@@ -91,12 +79,12 @@ public class IdleCitizenManager : MonoBehaviour
         }
         else if (_newEnum == IdleNavigationEnum.Right)
         {
-            _currentTarget = new Vector3(transform.position.x + ScaleValue, transform.position.y, transform.position.z);
+            _currentTarget = new Vector3(transform.position.x + ScaleValue + 3, transform.position.y, transform.position.z);
 
         }
         else if (_newEnum == IdleNavigationEnum.Left)
         {
-            _currentTarget = new Vector3(transform.position.x - ScaleValue, transform.position.y, transform.position.z);
+            _currentTarget = new Vector3(transform.position.x - ScaleValue - 3, transform.position.y, transform.position.z);
 
         }
 

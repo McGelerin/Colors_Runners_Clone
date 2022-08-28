@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     ReachingTime: 10
-    WaitingTime: 5
+    WaitingTime: 2
     RotationTime: 0.5

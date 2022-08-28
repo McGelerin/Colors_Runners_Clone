@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CD_IdleCar
   m_EditorClassIdentifier: 
   Data:
-    ReachingTime: 2
+    ReachingTime: 3
     RotationTime: 0.5
     RotationEase: 3
-    ReachingEase: 3
+    ReachingEase: 1

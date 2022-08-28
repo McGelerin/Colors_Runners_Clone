@@ -36,7 +36,7 @@ public class IdleCitizenPhysicsController : MonoBehaviour
 
     IEnumerator WaitOnTargetPosition(IdleTargetData data)
     {
-        yield return new WaitForSeconds(0.9f * (_data.ReachingTime / 5));
+        yield return new WaitForSeconds(0.5f * (_data.ReachingTime / 5));
         _manager.SetAnimation(IdleCitizenAnimStates.Idle);
 
         yield return new WaitForSeconds(_data.WaitingTime);

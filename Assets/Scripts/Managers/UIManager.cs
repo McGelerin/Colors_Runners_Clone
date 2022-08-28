@@ -68,7 +68,8 @@ namespace Managers
 
         #endregion
 
-        
+        #region Event Methods
+
         private void OnOpenPanel(UIPanels panelParam)
         {
             _uiPanelController.OpenPanel(panelParam , panels);
@@ -83,16 +84,7 @@ namespace Managers
         {
             scoreTMP.text = (value.ToString());
         }
-
-        #region Useless
-
-        // private void OnSetLevelText(int value)
-        // {
-        //     //evelText.text = "Level " + (value + 1);
-        // }
-
-        #endregion
-
+        
         private void OnPlay()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
@@ -113,28 +105,56 @@ namespace Managers
 
         private void OnChangeGameState()
         {
-            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.WinPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.IdlePanel);
         }
+
+        #region Useless
+
+        // private void OnSetLevelText(int value)
+        // {
+        //     //evelText.text = "Level " + (value + 1);
+        // }
+
+        #endregion
+
+       
+
+        #endregion
+
+        #region Buttons
 
         public void Play()
         {
             CoreGameSignals.Instance.onPlay?.Invoke();
         }
-
-        public void NextLevel()
-        {
-            LevelSignals.Instance.onNextLevel?.Invoke();
-            UISignals.Instance.onClosePanel?.Invoke(UIPanels.WinPanel);
-            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.LevelPanel);
-            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
-        }
-
+        
         public void RestartLevel()
         {
             LevelSignals.Instance.onRestartLevel?.Invoke();
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.FailPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
         }
+        
+        public void NextLevel()
+        {
+            LevelSignals.Instance.onNextLevel?.Invoke();
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.IdlePanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.LevelPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
+        }
+
+        public void Claim()
+        {
+            
+            CoreGameSignals.Instance.onChangeGameState?.Invoke();
+        }
+
+        public void NoThanks()
+        {
+            CoreGameSignals.Instance.onChangeGameState?.Invoke();
+        }
+
+        #endregion
     }
 }

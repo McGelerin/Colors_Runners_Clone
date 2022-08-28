@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6534b36e0bce4267997ebdc7acfbba54, type: 3}
   m_Name: CD_IdleLevel
   m_EditorClassIdentifier: 
-  LevelBuildingDatas: []
+  Levels:
+    LevelBuildings:
+    - LevelNumber: 0
+      LevelPlane: {fileID: 0}
+      LevelBuildingDatas:
+      - mainBuildingData:
+          BuildingState: 1
+          Building: {fileID: 0}
+          MainBuildingScore: 120
+          InstantitatePos: {x: 3, y: 0, z: 3}
+          BuildingScoreTMP: {fileID: 0}
+          OffsetTMP: {x: 1, y: 0, z: 1}
+        sideBuildindData:
+        - BuildingState: 1
+          Building: {fileID: 0}
+          SideBuildingScore: 0
+          InstantitatePos: {x: 0, y: 0, z: 0}
+          BuildingScoreTMP: {fileID: 0}
+          OffsetTMP: {x: 0, y: 0, z: 0}

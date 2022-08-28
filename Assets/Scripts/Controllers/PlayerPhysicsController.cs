@@ -27,7 +27,7 @@ namespace Controllers
 
             if (other.CompareTag("Finish"))
             {
-                CoreGameSignals.Instance.onChangeGameState?.Invoke();
+                LevelSignals.Instance.onLevelSuccessful?.Invoke();
             }
 
             if (other.CompareTag("DronePoolReset"))
@@ -49,5 +49,6 @@ namespace Controllers
                 manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.CrouchSpeed;
             }
         }
+        
     }
 }

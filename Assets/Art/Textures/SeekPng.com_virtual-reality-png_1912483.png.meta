@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 42b3fa410e0fb3840b530ad1a9b1a3af
+guid: d473a876f54ab564ba64b0d8779e936e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3817461256142761236
+    second: SeekPng.com_virtual-reality-png_1912483_0
+  - first:
+      213: 357758464612706499
+    second: SeekPng.com_virtual-reality-png_1912483_1
+  - first:
+      213: 1455830509541838698
+    second: SeekPng.com_virtual-reality-png_1912483_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,11 +50,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.48145536, y: 0.09999998}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -137,11 +146,74 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SeekPng.com_virtual-reality-png_1912483_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 381
+        width: 136
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41da43469c85af430800000000000000
+      internalID: 3817461256142761236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_virtual-reality-png_1912483_1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 368
+        width: 135
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c821a69d6307f400800000000000000
+      internalID: 357758464612706499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_virtual-reality-png_1912483_2
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 382
+        width: 130
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6fca669226243410800000000000000
+      internalID: 1455830509541838698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b6d58f70ef90aff448a81f56d8b9834d
     internalID: 0
     vertices: []
     indices: 

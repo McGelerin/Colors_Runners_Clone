@@ -21,7 +21,7 @@ namespace Managers
 
         #region Private Variables
 
-        private int _score;
+        private int _score, _idleScore,_idleOldScore;
         [ShowInInspector] private GameObject _playerGO;
         private GameStates _currentState = GameStates.Runner;
         private SetScoreCommand _setScoreCommand;
@@ -37,7 +37,7 @@ namespace Managers
         {
             Init();
         }
-        
+
         private void Init()
         {
             _setScoreCommand = new SetScoreCommand(ref _score);
@@ -46,10 +46,9 @@ namespace Managers
 
         private void Start()
         {
-            ScoreSignals.Instance.onSetScore?.Invoke(_score);
             GetReferences();
         }
-        
+
         private void GetReferences()
         {
             _parentGO = stackGO.transform.GetChild(0).gameObject; //atamanın yeni seviyelerde sıkıntı cıkarabilir
@@ -65,21 +64,23 @@ namespace Managers
         private void SubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
-            ScoreSignals.Instance.onSetScore += _setScoreCommand.Execute;
+            ScoreSignals.Instance.onSetScore += OnUpdateScore;
             ScoreSignals.Instance.onVisibleScore += _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay += OnPlay;
             ScoreSignals.Instance.onSetLeadPosition += OnSetLead;
             LevelSignals.Instance.onRestartLevel += OnReset;
+            LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
-            ScoreSignals.Instance.onSetScore -= _setScoreCommand.Execute;
+            ScoreSignals.Instance.onSetScore -= OnUpdateScore;
             ScoreSignals.Instance.onVisibleScore -= _setVisibilityOfScore.Execute;
             CoreGameSignals.Instance.onPlay -= OnPlay;
             ScoreSignals.Instance.onSetLeadPosition -= OnSetLead;
             LevelSignals.Instance.onRestartLevel -= OnReset;
+            LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
 
         }
 
@@ -138,6 +139,25 @@ namespace Managers
         private void OnReset()
         {
             _isActive = false;
+        }
+
+        private void OnLevelSuccessful()
+        {
+            ScoreSignals.Instance.onGetScore?.Invoke(_currentState == GameStates.Runner ? _idleOldScore : _idleScore);
+        }
+
+        private void OnUpdateScore(int score)
+        {
+            if (_currentState == GameStates.Runner)
+            {
+                _setScoreCommand.Execute(score);
+                _idleOldScore = score;
+            }
+            else
+            {
+                _idleScore = _idleOldScore + score;
+                _setScoreCommand.Execute(_idleScore);
+            }
         }
     }
 }

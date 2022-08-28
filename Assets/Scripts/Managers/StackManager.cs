@@ -93,6 +93,7 @@ namespace Managers
             DronePoolSignals.Instance.onDroneGone += OnDroneGone;
             DronePoolSignals.Instance.onGetStackCount += OnGetStackCount;
             DronePoolSignals.Instance.onOutlineBorder += _stackItemBorder.Execute;
+            LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
         }
         private void UnSubscribeEvent()
         {
@@ -109,6 +110,7 @@ namespace Managers
             DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
             DronePoolSignals.Instance.onGetStackCount -= OnGetStackCount;
             DronePoolSignals.Instance.onOutlineBorder -= _stackItemBorder.Execute;
+            LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
         }
         private void OnDisable()
         {
@@ -199,6 +201,24 @@ namespace Managers
         private int OnGetStackCount()
         {
             return CollectableStack.Count;
+        }
+
+        private void OnLevelSuccessful()
+        {
+            var itemDuration = 1;
+            foreach (var item in CollectableStack)
+            {
+                item.transform.SetParent(levelHolder.transform);
+                item.transform.DOMove(_playerGameObject.transform.position, .2f*itemDuration).OnComplete(()=>
+                {
+                    item.SetActive(false);
+                    StackSignals.Instance.onSetPlayerScale?.Invoke(.1f);
+                });
+                itemDuration += 1;
+                
+            }
+            CollectableStack.Clear();
+            CollectableStack.TrimExcess();
         }
     }
 }

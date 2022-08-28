@@ -16,5 +16,6 @@ namespace Signals
         public UnityAction onUpdateType = delegate { };
         public UnityAction onBoostArea = delegate {  };
         public UnityAction<ColorEnum> ColorType = delegate {  };
+        public UnityAction<float> onSetPlayerScale = delegate {  };
     }
 }

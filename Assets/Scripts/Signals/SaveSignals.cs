@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Extentions;
+using Enums;
+using Keys;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +10,14 @@ namespace Signals
 {
     public class SaveSignals : MonoSingleton<SaveSignals>
     {
-        public UnityAction onSaveGameData = delegate { };
-        public Func<int> onGetLevelID = delegate { return 0; };
+        public UnityAction onRunnerSaveData = delegate { };
+        public Func<int> onGetRunnerLevelID = delegate { return 0; };
+        public Func<float> onGetCollectable = delegate { return 0;};
+        
+        
+        public UnityAction onIdleSaveData = delegate {  };
+        public Func<SaveIdleDataParams> onSaveIdleParams= delegate { return default;};
+        public UnityAction<SaveIdleDataParams> onLoadIdleGame = delegate { };
+
     }
 }

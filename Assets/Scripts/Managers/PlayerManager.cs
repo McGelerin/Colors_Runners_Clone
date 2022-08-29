@@ -136,6 +136,7 @@ namespace Managers
         {
             movementController.IsReadyToPlay(true);
             movementController.ChangeMovementState();
+            movementController.EnableMovement();
         }
 
         #endregion

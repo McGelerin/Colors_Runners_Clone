@@ -37,8 +37,8 @@ MonoBehaviour:
     - Sirenix.OdinInspector.CompatibilityLayer
     - Boxophobic.PolyverseSkies.Scripts
     - AllIn1VfxDemoScriptAssemblies
-    - AllIn1VfxAssmebly
     - AllIn1VfxTexDemoAssembly
+    - AllIn1VfxAssmebly
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - Boxophobic.Utils.Editor
     - Boxophobic.PolyverseSkies.Editor

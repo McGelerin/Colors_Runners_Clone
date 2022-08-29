@@ -22,5 +22,10 @@ namespace Controllers
         {
             animator.SetTrigger(animState.ToString());
         }
+
+        public void SetPlayerScale(float value)
+        {
+            manager.transform.localScale += Vector3.one*value;
+        }
     }
 }

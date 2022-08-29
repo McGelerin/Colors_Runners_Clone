@@ -16,7 +16,7 @@ namespace MCScripts
 
         #region Public Variables
 
-        [Header("Data")] public CD_LevelBuildingData Data;
+       // [Header("Data")] public CD_LevelBuildingData Data;
 
         #endregion
 
@@ -40,8 +40,8 @@ namespace MCScripts
 
         private void Awake()
         {
-            _newLevelData = GetLevelCount();
-            Data = GetLevelBuildingData();
+           // _newLevelData = GetLevelCount();
+            //Data = GetLevelBuildingData();
             deneme.Add(20);
             deneme.Add(30);
             deneme.Add(40);
@@ -51,13 +51,13 @@ namespace MCScripts
             //_IdlelevelLoader = new LevelLoaderCommand();
         }
         
-        private CD_LevelBuildingData GetLevelBuildingData() => Resources.Load<CD_IdleLevel>("Data/CD_IdleLevel").Levels[_newLevelData];
+        //private CD_LevelBuildingData GetLevelBuildingData() => Resources.Load<CD_IdleLevel>("Data/CD_IdleLevel").Levels[_newLevelData];
         
         
-        private int GetLevelCount()
-        {
-            return _IdlelevelID % Resources.Load<CD_IdleLevel>("Data/CD_IdleLevel").Levels.Count;
-        }
+        // private int GetLevelCount()
+        // {
+        //     return _IdlelevelID % Resources.Load<CD_IdleLevel>("Data/CD_IdleLevel").Levels.Count;
+        // }
 
         #region Event Subscription
 
@@ -87,21 +87,16 @@ namespace MCScripts
         }
 
         #endregion
-
-        private void Start()
-        {
-            OnInitializeLevel();
-            SaveSignals.Instance.onIdleSaveData?.Invoke();
-        }
+        
 
         private void OnLoadIdleGame(SaveIdleDataParams saveIdleDataParams)
         {
-            deneme2 = saveIdleDataParams.MainSideCurrentScore;
+            deneme2 = saveIdleDataParams.SideCurrentScore;
         }
 
         private int OnGetLevelID()
         {
-            return _IdlelevelID;
+            return 0;
         }
         
         private void OnInitializeLevel()

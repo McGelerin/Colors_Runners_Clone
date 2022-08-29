@@ -15,5 +15,5 @@ MonoBehaviour:
   Data:
     ReachingTime: 3
     RotationTime: 0.5
-    RotationEase: 3
+    RotationEase: 1
     ReachingEase: 1

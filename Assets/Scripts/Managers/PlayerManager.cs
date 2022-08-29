@@ -130,6 +130,7 @@ namespace Managers
         private void OnSetIdleInputValues(IdleInputParams inputParams)
         {
             movementController.UpdateIdleInputValue(inputParams);
+            animationController.SetSpeedVariable(inputParams);
         }
 
         private void OnChangeMovementState()
@@ -177,5 +178,12 @@ namespace Managers
             SetStackPosition();
             //animationController.OnReset();
         }
+
+        public void SetAnim(CollectableAnimStates animState)
+        {
+            animationController.SetAnimState(animState);
+        }
+
+
     }
 }

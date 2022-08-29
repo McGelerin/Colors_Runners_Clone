@@ -32,7 +32,7 @@ public class IdleCarPhysicsController : MonoBehaviour
         if (other.CompareTag("Target"))
         {
             _isOnTargetTrigger = true;
-            _manager.SelectRandomDirection(other.GetComponent<IdleCarTargetController>().GetData());
+            _manager.SelectRandomDirection(other.GetComponent<IdleCarTargetController>().GetData(), other.transform);
             return;
         }
         if (other.CompareTag("Player"))

@@ -2,6 +2,7 @@ using System;
 using Signals;
 using UnityEngine;
 using Managers;
+using Enums;
 
 namespace Controllers
 {
@@ -48,7 +49,19 @@ namespace Controllers
             {
                 manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.CrouchSpeed;
             }
+            if (other.CompareTag("Buy"))
+            {
+                manager.SetAnim(CollectableAnimStates.Buy);
+            }
         }
-        
+
+        public void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Buy"))
+            {
+                manager.SetAnim(CollectableAnimStates.Run);
+            }
+        }
+
     }
 }

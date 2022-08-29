@@ -21,29 +21,37 @@ public class IdleCarManager : MonoBehaviour
     private IdleNavigationEnum _lastEnum;
     private IdleNavigationEnum _newEnum;
     private Vector3 _currentTarget;
-    private Sequence _mySequence;
+    private Sequence _moveSequence;
+    private Sequence _rotateSequence;
     private IdleTargetData _lastData;
+    private Transform _lastTrigger;
 
     private IdleCarData _data;
+
 
     #endregion
     #endregion
 
     private void Awake()
     {
-        //scaleValue = transform.localScale.x / 0.3f;
         _data = GetData();
+        Init();
+        
+    }
+    private void Init()
+    {
+        _lastTrigger = transform;
 
-        _mySequence = DOTween.Sequence();
+        _moveSequence = DOTween.Sequence();
         scaleValue = 19.5f;
     }
     private IdleCarData GetData() => Resources.Load<CD_IdleCar>("Data/CD_IdleCar").Data;
     private void Start()
     {
-        SetCurrentTarget();
+        SetCurrentTarget(_lastTrigger);
     }
 
-    public void SelectRandomDirection(IdleTargetData targetData)
+    public void SelectRandomDirection(IdleTargetData targetData, Transform trigger)
     {
         _lastData = targetData;
         _newEnum = targetData.axises[Random.Range(0, targetData.axises.Count)];
@@ -54,47 +62,51 @@ public class IdleCarManager : MonoBehaviour
 
         }
         _lastEnum = _newEnum;
-        StartCoroutine(WaitToReach());
+        StartCoroutine(WaitToReach(trigger));
     }
 
-    IEnumerator WaitToReach()
+    IEnumerator WaitToReach(Transform trigger)
     {
         yield return new WaitForSeconds(0.4f);
-        SetCurrentTarget();
+        SetCurrentTarget(trigger);
     }
 
-    public void SetCurrentTarget()
+    public void SetCurrentTarget(Transform lastTrigger)
     {
 
         if (_newEnum == IdleNavigationEnum.Up)
         {
-            _currentTarget = new Vector3(transform.position.x, transform.position.y, transform.position.z + scaleValue);
+            _currentTarget = new Vector3(lastTrigger.position.x, transform.position.y, lastTrigger.position.z + scaleValue);
 
         }
         else if (_newEnum == IdleNavigationEnum.Down)
         {
-            _currentTarget = new Vector3(transform.position.x, transform.position.y, transform.position.z - scaleValue);
+            _currentTarget = new Vector3(lastTrigger.position.x, transform.position.y, lastTrigger.position.z - scaleValue);
 
         }
         else if (_newEnum == IdleNavigationEnum.Right)
         {
-            _currentTarget = new Vector3(transform.position.x + scaleValue, transform.position.y, transform.position.z);
+            _currentTarget = new Vector3(lastTrigger.position.x + scaleValue, transform.position.y, lastTrigger.position.z);
 
         }
         else if (_newEnum == IdleNavigationEnum.Left)
         {
-            _currentTarget = new Vector3(transform.position.x - scaleValue, transform.position.y, transform.position.z);
+            _currentTarget = new Vector3(lastTrigger.position.x - scaleValue, transform.position.y, lastTrigger.position.z);
 
         }
+        _lastTrigger = lastTrigger;
 
         Move();
     }
 
+
+
     public void Move()
     {
-        _mySequence = DOTween.Sequence();
-        _mySequence.Append(transform.DOMove(_currentTarget, _data.ReachingTime).SetEase(_data.ReachingEase));
-        transform.DOLookAt(_currentTarget, _data.RotationTime).SetEase(_data.RotationEase);
+        _moveSequence = DOTween.Sequence();
+        _rotateSequence = DOTween.Sequence();
+        _moveSequence.Append(transform.DOMove(_currentTarget, _data.ReachingTime).SetEase(_data.ReachingEase));
+        _rotateSequence.Append(transform.DOLookAt(_currentTarget, _data.RotationTime).SetEase(_data.RotationEase));
     }
 
     public void MoveAfterPlayer(bool _isOnTargetTrigger)
@@ -103,18 +115,18 @@ public class IdleCarManager : MonoBehaviour
 
         if (_isOnTargetTrigger)
         {
-            SelectRandomDirection(_lastData);
+            SelectRandomDirection(_lastData, _lastTrigger);
         }
     }
 
 
     public void PlayerOnRoad()
     {
-        Debug.Log(transform.localPosition);
         Vector3 currentPos = transform.localPosition;
         StopAllCoroutines();
-        _mySequence.Kill();
+        _moveSequence.Kill();
+        _rotateSequence.Kill();
         transform.localPosition = currentPos;
-        //DOTween.Kill(_mySequence);
     }
+
 }

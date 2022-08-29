@@ -35,7 +35,7 @@ namespace Managers
         } 
         #endregion
 
-        private void Start()
+        private void Awake()
         {
             OnIdleGameLoad();
         }

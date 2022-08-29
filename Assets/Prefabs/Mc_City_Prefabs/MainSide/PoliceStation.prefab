@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &1067855261027316694
 Transform:
@@ -40,6 +40,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1067855261027316694}
     m_Modifications:
+    - target: {fileID: 100624, guid: fcaf22b5c144e454493120cd8c59fc81, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 420504, guid: fcaf22b5c144e454493120cd8c59fc81, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -98,6 +102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1067855261027316694}
     m_Modifications:
+    - target: {fileID: 165620, guid: 8a86432aa20034e49aa63a2c97cee0f2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 434824, guid: 8a86432aa20034e49aa63a2c97cee0f2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -144,6 +152,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1067855261027316694}
     m_Modifications:
+    - target: {fileID: 154410, guid: 1a6cea8227331c841ba3a0f95dfbe662, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 417924, guid: 1a6cea8227331c841ba3a0f95dfbe662, type: 3}
       propertyPath: m_RootOrder
       value: 1

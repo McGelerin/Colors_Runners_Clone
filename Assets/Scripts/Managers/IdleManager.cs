@@ -2,6 +2,7 @@
 using Data.UnityObject;
 using Data.ValueObject;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Managers
@@ -24,7 +25,7 @@ namespace Managers
 
         #region Private Variables
 
-        private int _currentLevel = 1;
+        private int _currentLevel = 0;
         private int _currentScore = 0;
         private LevelData _levelsData;
         private List<LevelBuildingData> _levelBuildingDatas;
@@ -50,7 +51,7 @@ namespace Managers
             InstantiateLevelItems();
         }
 
-        private LevelData GetIdleLevelBuildingData() => Resources.Load<CD_LevelBuildingData>("Data/CD_LevelBuildingData").Levels;
+        private LevelData GetIdleLevelBuildingData() => Resources.Load<CD_LevelBuildingData>("Data/CD_IdleLevelBuild").Levels;
 
         private void GetCurrentLevelData()
         {
@@ -66,6 +67,7 @@ namespace Managers
 
         private void InstantiateLevelItems()
         {
+            CreateLevelPlane();
             foreach (var levelBuildingData in _levelBuildingDatas)
             {
                 CreateLevelBuildings(levelBuildingData);
@@ -74,14 +76,13 @@ namespace Managers
 
         private void CreateLevelBuildings(LevelBuildingData levelBuildingData)
         {
-            CreateLevelPlane();
             CreateMainBuilding(levelBuildingData);
             CreateSideBuilding(levelBuildingData);
         }
 
         private void CreateLevelPlane()
         {
-            Instantiate(_planeGO, idleLevelHolder.position, Quaternion.identity, idleLevelHolder);
+            Instantiate(_planeGO, idleLevelHolder.position,Quaternion.Euler(0,180,0), idleLevelHolder);
         }
 
         private void CreateMainBuilding(LevelBuildingData levelBuildingData)
@@ -91,12 +92,11 @@ namespace Managers
             var maxScore = levelBuildingData.mainBuildingData.MainBuildingScore;
 
             var position = idleLevelHolder.position;
-            Instantiate(mainBuild,position+ levelBuildingData.mainBuildingData.InstantitatePos,
-                Quaternion.identity,idleLevelHolder);
-            Instantiate(sideText,position+ levelBuildingData.mainBuildingData.OffsetTMP,
-                Quaternion.identity, idleLevelHolder);
+            Instantiate(mainBuild,position+ levelBuildingData.mainBuildingData.InstantitatePos,mainBuild.transform.rotation,idleLevelHolder);
+            // Instantiate(sideText,position+ levelBuildingData.mainBuildingData.OffsetTMP,
+            //     Quaternion.identity, idleLevelHolder);
 
-            SetText(sideText, maxScore, _currentScore);
+//            SetText(sideText, maxScore, _currentScore);
 
         }
 
@@ -110,9 +110,9 @@ namespace Managers
 
                 var position = idleLevelHolder.position;
                 Instantiate(sideBuild,position+ sideBuilding.InstantitatePos, Quaternion.identity,idleLevelHolder);
-                Instantiate(sideText,position+ sideBuilding.InstantitatePos+ sideBuilding.OffsetTMP, Quaternion.identity,idleLevelHolder);
-
-                SetText(sideText, maxScore, _currentScore);
+                // Instantiate(sideText,position+ sideBuilding.InstantitatePos+ sideBuilding.OffsetTMP, Quaternion.identity,idleLevelHolder);
+                //
+                // SetText(sideText, maxScore, _currentScore);
             }
         }
 

@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &769952794893458063
 Transform:
@@ -44,6 +44,10 @@ PrefabInstance:
     - target: {fileID: 153730, guid: a5e568db0b228c24589c17f5b015934d, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Shop_Cover_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 153730, guid: a5e568db0b228c24589c17f5b015934d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 449414, guid: a5e568db0b228c24589c17f5b015934d, type: 3}
       propertyPath: m_RootOrder
@@ -159,9 +163,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2537880656847595742, guid: 976e0ffff773bfa4bb1dff77a7df54e3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2537880656847736082, guid: 976e0ffff773bfa4bb1dff77a7df54e3, type: 3}
       propertyPath: m_Name
       value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537880656847736082, guid: 976e0ffff773bfa4bb1dff77a7df54e3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976e0ffff773bfa4bb1dff77a7df54e3, type: 3}
@@ -180,6 +192,10 @@ PrefabInstance:
     - target: {fileID: 146192, guid: 3d8194b6a5a16e64a93a906184b2761f, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Sign_Cafe_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 146192, guid: 3d8194b6a5a16e64a93a906184b2761f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 439130, guid: 3d8194b6a5a16e64a93a906184b2761f, type: 3}
       propertyPath: m_RootOrder
@@ -242,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 153730, guid: a5e568db0b228c24589c17f5b015934d, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Shop_Cover_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 153730, guid: a5e568db0b228c24589c17f5b015934d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 449414, guid: a5e568db0b228c24589c17f5b015934d, type: 3}
       propertyPath: m_RootOrder

@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &4164824378056405360
 Transform:
@@ -110,7 +110,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &4164824379386917888
 Transform:
@@ -143,7 +143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &3049582689468416648
 Transform:
@@ -387,7 +387,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &1073086545520054446
 Transform:
@@ -613,6 +613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (93)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 105
@@ -675,6 +679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (97)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 108
@@ -736,6 +744,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (123)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -923,6 +935,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (94)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 104
@@ -985,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (126)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 156
@@ -1046,6 +1066,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (157)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -1233,6 +1257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 62
@@ -1419,6 +1447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (114)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 90
@@ -1480,6 +1512,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -1543,6 +1579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (112)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 82
@@ -1605,6 +1645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 64
@@ -1666,6 +1710,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -1853,6 +1901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1915,6 +1967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 113
@@ -1976,6 +2032,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (213)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -2047,6 +2107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -2108,6 +2172,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (190)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -2241,6 +2309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (209)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 207
@@ -2373,6 +2445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 92
@@ -2434,6 +2510,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -2497,6 +2577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2559,6 +2643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (127)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 149
@@ -2620,6 +2708,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (184)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -2690,6 +2782,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (197)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -2815,6 +2911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -2939,6 +3039,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (124)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 160
@@ -3000,6 +3104,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -3063,6 +3171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 176
@@ -3124,6 +3236,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (194)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -3359,6 +3475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &5448153916214158545 stripped
@@ -3438,6 +3558,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -3563,6 +3687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (198)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 174
@@ -3625,6 +3753,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 103
@@ -3686,6 +3818,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (211)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -3757,6 +3893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (128)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 148
@@ -3818,6 +3958,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (120)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -4045,6 +4189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (131)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 139
@@ -4168,6 +4316,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (134)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -4293,6 +4445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 146
@@ -4354,6 +4510,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -4465,6 +4625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &5932548541346792834 stripped
@@ -4482,6 +4646,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -4607,6 +4775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (173)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 194
@@ -4731,6 +4903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (166)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 198
@@ -4792,6 +4968,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (111)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -4855,6 +5035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (113)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 91
@@ -4916,6 +5100,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -4979,6 +5167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -5040,6 +5232,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -5150,6 +5346,10 @@ PrefabInstance:
     - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
       propertyPath: m_Name
       value: Road 1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
@@ -5417,6 +5617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -5541,6 +5745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (141)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 151
@@ -5602,6 +5810,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -5727,6 +5939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (129)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 145
@@ -5851,6 +6067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (110)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 86
@@ -5912,6 +6132,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -5975,6 +6199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 59
@@ -6037,6 +6265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (148)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 140
@@ -6098,6 +6330,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (147)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -6285,6 +6521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (133)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 124
@@ -6346,6 +6586,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -6533,6 +6777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (158)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 128
@@ -6594,6 +6842,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -6657,6 +6909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -6718,6 +6974,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -6781,6 +7041,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 73
@@ -6843,6 +7107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6904,6 +7172,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (191)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -7029,6 +7301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (104)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 117
@@ -7091,6 +7367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 46
@@ -7152,6 +7432,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (150)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -7259,6 +7543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndRoad (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3943868115851306814, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
 --- !u!4 &1594274728677263788 stripped
@@ -7276,6 +7564,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (180)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -7346,6 +7638,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -7471,6 +7767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (171)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 196
@@ -7594,6 +7894,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -7719,6 +8023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (169)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 212
@@ -7780,6 +8088,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (189)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -7843,6 +8155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (92)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 102
@@ -7905,6 +8221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -7966,6 +8286,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (208)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -8077,6 +8401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &7204728927090436293 stripped
@@ -8165,6 +8493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (170)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 197
@@ -8226,6 +8558,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -8289,6 +8625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -8350,6 +8690,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -8475,6 +8819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (101)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 112
@@ -8536,6 +8884,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (200)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -8723,6 +9075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 46
@@ -8847,6 +9203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (193)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 179
@@ -8908,6 +9268,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -9019,6 +9383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &8065841715325081235 stripped
@@ -9036,6 +9404,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -9098,6 +9470,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (95)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -9231,6 +9607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -9292,6 +9672,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -9417,6 +9801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (109)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 87
@@ -9479,6 +9867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 68
@@ -9540,6 +9932,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -9665,6 +10061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (138)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 154
@@ -9727,6 +10127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -9788,6 +10192,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -9975,6 +10383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (164)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 120
@@ -10036,6 +10448,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -10099,6 +10515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10160,6 +10580,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -10285,6 +10709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (87)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 97
@@ -10346,6 +10774,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (206)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -10457,6 +10889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &8529468971794074168 stripped
@@ -10518,6 +10954,10 @@ PrefabInstance:
     - target: {fileID: 3943868115851306814, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
       propertyPath: m_Name
       value: EndRoad (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943868115851306814, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
@@ -10638,6 +11078,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -10825,6 +11269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 94
@@ -10886,6 +11334,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (96)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -10949,6 +11401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 174
@@ -11010,6 +11466,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -11197,6 +11657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (144)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 146
@@ -11321,6 +11785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 69
@@ -11383,6 +11851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (203)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 169
@@ -11444,6 +11916,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -11631,6 +12107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -11693,6 +12173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -11754,6 +12238,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -11879,6 +12367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (154)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 132
@@ -11940,6 +12432,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -12127,6 +12623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 67
@@ -12189,6 +12689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (149)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 137
@@ -12250,6 +12754,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (98)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -12437,6 +12945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (188)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 184
@@ -12498,6 +13010,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -12561,6 +13077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (185)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 187
@@ -12622,6 +13142,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (153)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -12733,6 +13257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &9171956482028892454 stripped
@@ -12750,6 +13278,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (174)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -12875,6 +13407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (181)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 201
@@ -12998,6 +13534,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -13247,6 +13787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (187)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 185
@@ -13356,6 +13900,10 @@ PrefabInstance:
     - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
       propertyPath: m_Name
       value: Road 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
@@ -13507,6 +14055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -13569,6 +14121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -13630,6 +14186,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (139)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -14157,6 +14717,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndRoad (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3943868115851306814, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
 --- !u!4 &8573348498982283866 stripped
@@ -14218,6 +14782,10 @@ PrefabInstance:
     - target: {fileID: 3299539320906111700, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
       propertyPath: m_Name
       value: WayEndSidewalk (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299539320906111700, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
@@ -14285,6 +14853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &493891203870173146 stripped
@@ -14302,6 +14874,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (145)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -14364,6 +14940,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (212)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -14567,6 +15147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (132)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 138
@@ -14691,6 +15275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (107)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 79
@@ -14753,6 +15341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -14814,6 +15406,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -14939,6 +15535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 74
@@ -15000,6 +15600,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -15125,6 +15729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (201)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 171
@@ -15248,6 +15856,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (155)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -15373,6 +15985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 175
@@ -15434,6 +16050,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (159)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -15559,6 +16179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (182)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 200
@@ -15621,6 +16245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -15682,6 +16310,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (186)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -15877,6 +16509,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 192
@@ -15938,6 +16574,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (140)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -16001,6 +16641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (146)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 142
@@ -16062,6 +16706,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -16187,6 +16835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (115)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 95
@@ -16248,6 +16900,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -16311,6 +16967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (106)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 119
@@ -16372,6 +17032,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -16559,6 +17223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -16745,6 +17413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (202)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 170
@@ -16855,6 +17527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &698172907118380745 stripped
@@ -16872,6 +17548,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -16997,6 +17677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 85
@@ -17107,6 +17791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &1643714771629603535 stripped
@@ -17124,6 +17812,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -17297,6 +17989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &1483975520106291335 stripped
@@ -17377,6 +18073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -17439,6 +18139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -17500,6 +18204,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (100)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -17625,6 +18333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (103)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 114
@@ -17686,6 +18398,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (135)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -17811,6 +18527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 126
@@ -17873,6 +18593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (122)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 162
@@ -17934,6 +18658,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (210)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -18004,6 +18732,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (214)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -18199,6 +18931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (192)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 180
@@ -18323,6 +19059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -18433,6 +19173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &2281077860146070861 stripped
@@ -18512,6 +19256,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (142)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -18637,6 +19385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (176)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 213
@@ -18698,6 +19450,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -18761,6 +19517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (207)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 165
@@ -18822,6 +19582,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -19009,6 +19773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (195)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 177
@@ -19071,6 +19839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -19132,6 +19904,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -19319,6 +20095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -19443,6 +20223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -19504,6 +20288,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -19677,6 +20465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &1816002740863507043 stripped
@@ -19694,6 +20486,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (88)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -19757,6 +20553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -19818,6 +20618,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -19943,6 +20747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -20005,6 +20813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 61
@@ -20066,6 +20878,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (196)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -20190,6 +21006,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (156)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -20439,6 +21259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (172)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 195
@@ -20563,6 +21387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (175)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 192
@@ -20625,6 +21453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 81
@@ -20686,6 +21518,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (136)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -20951,6 +21787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 68
@@ -21012,6 +21852,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -21075,6 +21919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (119)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 116
@@ -21136,6 +21984,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -21199,6 +22051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (99)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 110
@@ -21260,6 +22116,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -21367,6 +22227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WayEndSidewalk (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3299539320906111700, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
 --- !u!4 &5722461946700429757 stripped
@@ -21454,6 +22318,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -21579,6 +22447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (163)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 121
@@ -21703,6 +22575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (137)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 155
@@ -21812,6 +22688,10 @@ PrefabInstance:
     - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
       propertyPath: m_Name
       value: Road 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
@@ -22079,6 +22959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -22140,6 +23024,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -22327,6 +23215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (130)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 144
@@ -22389,6 +23281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 70
@@ -22450,6 +23346,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -22699,6 +23599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (199)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 173
@@ -22760,6 +23664,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (168)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -22823,6 +23731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (162)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 122
@@ -22885,6 +23797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 84
@@ -22946,6 +23862,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -23071,6 +23991,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -23194,6 +24118,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (125)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -23327,6 +24255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (105)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 118
@@ -23388,6 +24320,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (205)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -23681,6 +24617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WayEndSidewalk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3299539320906111700, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
 --- !u!4 &6069801987948814216 stripped
@@ -23801,6 +24741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -23911,6 +24855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &3888521392587877020 stripped
@@ -23928,6 +24876,10 @@ PrefabInstance:
     - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_Name
       value: Crosswalk (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
@@ -23991,6 +24943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosswalk (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729631856619714274, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7732416587577363660, guid: 97bf87059deba634c8c5b15b08602fcb, type: 3}
       propertyPath: m_RootOrder
       value: 132
@@ -24053,6 +25009,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -24114,6 +25074,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -24239,6 +25203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (151)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 135
@@ -24345,6 +25313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndRoad (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3943868115851306814, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643a28f0908b3e2489b228d5dede4039, type: 3}
 --- !u!4 &4854960037318681028 stripped
@@ -24362,6 +25334,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -24667,6 +25643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5083771032204778669, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5710d36a7c5956a43bc5cff22597c452, type: 3}
 --- !u!4 &3598803200227114852 stripped
@@ -24849,6 +25829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 44
@@ -24911,6 +25895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -24972,6 +25960,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (179)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -25105,6 +26097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (165)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 199
@@ -25166,6 +26162,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (117)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -25477,6 +26477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (167)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 210
@@ -25538,6 +26542,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (118)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -25663,6 +26671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -25724,6 +26736,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (183)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -25857,6 +26873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (143)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 147
@@ -25918,6 +26938,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (160)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -26025,6 +27049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WayEndSidewalk (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3299539320906111700, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d17ade4dba622f4d9b44b778fedb7c3, type: 3}
 --- !u!4 &6574181608577589761 stripped
@@ -26105,6 +27133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (161)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 125
@@ -26166,6 +27198,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (152)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -26229,6 +27265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -26290,6 +27330,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (121)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -26415,6 +27459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaySidewalk (204)
       objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
       value: 168
@@ -26476,6 +27524,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder
@@ -26600,6 +27652,10 @@ PrefabInstance:
     - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_Name
       value: WaySidewalk (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337082754043345149, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7969503582394622535, guid: 63fbdef25442062439b907ed8f9bdf41, type: 3}
       propertyPath: m_RootOrder

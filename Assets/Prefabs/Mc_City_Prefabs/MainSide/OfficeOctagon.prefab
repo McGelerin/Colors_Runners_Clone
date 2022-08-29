@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &6806712846953336853
 Transform:
@@ -133,7 +133,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &6806712846953290833
 Transform:
@@ -205,6 +205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6806712846953336853}
     m_Modifications:
+    - target: {fileID: 104978, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 445150, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 104978, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
       propertyPath: m_Name
       value: SM_Bld_OfficeOctagon_Floor_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 104978, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 445150, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
       propertyPath: m_RootOrder
@@ -313,6 +321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_OfficeOctagon_Floor_03
       objectReference: {fileID: 0}
+    - target: {fileID: 104978, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 445150, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -367,6 +379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_OfficeOctagon_Floor_05
       objectReference: {fileID: 0}
+    - target: {fileID: 104978, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 445150, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -417,6 +433,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4905572360839413885}
     m_Modifications:
+    - target: {fileID: 183036, guid: 177d8df2567c2ee43897cd6b253d28d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 437984, guid: 177d8df2567c2ee43897cd6b253d28d6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -465,6 +485,10 @@ PrefabInstance:
     - target: {fileID: 104978, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
       propertyPath: m_Name
       value: SM_Bld_OfficeOctagon_Floor_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 104978, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 445150, guid: 5a2b75022dd651041bbc17957152287a, type: 3}
       propertyPath: m_RootOrder

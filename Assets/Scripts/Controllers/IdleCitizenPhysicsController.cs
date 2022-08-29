@@ -7,6 +7,9 @@ using Data.ValueObject;
 public class IdleCitizenPhysicsController : MonoBehaviour
 {
     #region Self Variables
+    #region SerializeField Variables
+    [SerializeField] private GameObject collectEffect;
+    #endregion
     #region Private Variables
     private IdleCitizenManager _manager;
     private IdleCitizenData _data;
@@ -30,7 +33,9 @@ public class IdleCitizenPhysicsController : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
+            Destroy(Instantiate(collectEffect, transform.position, transform.rotation), 1f);
 
+            _manager.CollideWithPlayer();
         }
     }
 

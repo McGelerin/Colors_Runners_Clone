@@ -18,7 +18,7 @@ public class IdleCitizenManager : MonoBehaviour
     [SerializeField] private IdleCitizenMeshController meshController;
     [SerializeField] private IdleCitizenAnimController animationController;
     [SerializeField] private IdleCitizenPhysicsController physicsController;
-    [SerializeField] private ColorEnum colorState;
+    [SerializeField] private List<Transform> rebornPoints;
     #endregion
     #region Private Variables
     private Sequence _mySequence;
@@ -97,6 +97,14 @@ public class IdleCitizenManager : MonoBehaviour
         _mySequence = DOTween.Sequence();
         _mySequence.Append(transform.DOMove(_currentTarget, _data.ReachingTime).SetEase(Ease.Linear));
         transform.DOLookAt(_currentTarget, _data.RotationTime);
+    }
+
+    public void CollideWithPlayer()
+    {
+        _mySequence.Kill();
+        int rand = Random.Range(0, rebornPoints.Count);
+        transform.position = new Vector3(rebornPoints[rand].position.x, transform.position.y, rebornPoints[rand].position.z);
+        //transform.position = rebornPoints[rand].position;
     }
 
     public void SetAnimation(IdleCitizenAnimStates animState)

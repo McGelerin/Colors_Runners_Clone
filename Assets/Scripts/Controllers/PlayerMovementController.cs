@@ -79,8 +79,6 @@ namespace Controllers
         
         private void FixedUpdate()
         {
-            Debug.Log(" _isReadyToMove " + _isReadyToMove);
-            Debug.Log(" _isReadyToPlay " + _isReadyToPlay);
             if (_isReadyToPlay)
             {
                 if (_isOnDronePool)

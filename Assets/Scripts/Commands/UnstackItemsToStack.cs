@@ -30,10 +30,17 @@ namespace Commands
                 i.transform.SetParent(_stackManager.transform);
                 _collectableStack.Add(i);
             }
+            if (DronePoolSignals.Instance.onGetStackCount() <= 0)
+            {
+                LevelSignals.Instance.onLevelFailed?.Invoke();
+                return;
+            }
             _unStackList.Clear();
             _dublicateStateItemsCommand.Execute();
             ScoreSignals.Instance.onSetScore?.Invoke(_collectableStack.Count);
             ScoreSignals.Instance.onSetLeadPosition?.Invoke(_collectableStack[0]);
+
+       
         }
     }
 }

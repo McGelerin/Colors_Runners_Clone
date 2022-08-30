@@ -183,6 +183,5 @@ namespace Managers
         {
             animationController.SetAnimState(animState);
         }
-
     }
 }

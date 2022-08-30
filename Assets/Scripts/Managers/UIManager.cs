@@ -160,7 +160,7 @@ namespace Managers
 
         public void Claim()
         {
-            
+            ScoreSignals.Instance.onSendFinalScore?.Invoke();   
             CoreGameSignals.Instance.onChangeGameState?.Invoke();
         }
 

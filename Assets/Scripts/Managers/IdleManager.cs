@@ -53,7 +53,7 @@ namespace Managers
             InstantiateLevelItems();
         }
 
-        private LevelData GetIdleLevelBuildingData() => Resources.Load<CD_LevelBuildingData>("Data/CD_IdleLevelBuildTest").Levels;
+        private LevelData GetIdleLevelBuildingData() => Resources.Load<CD_LevelBuildingData>("Data/CD_IdleLevelBuild").Levels;
 
         private int LoadLevelData()
         {

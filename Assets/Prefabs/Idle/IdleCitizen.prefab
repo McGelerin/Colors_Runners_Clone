@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd88c41aa21e884286b8c81b8fa48ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 681189903789945892, guid: 6f6e490b151e7f54f9e974dff3ce32f0, type: 3}
 --- !u!1 &4875782202285319529
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   meshController: {fileID: 7543343319353720302}
   animationController: {fileID: 8030986153095347237}
   physicsController: {fileID: 587634689}
-  colorState: 1
+  rebornPoints: []
 --- !u!1 &8242405674742120588
 GameObject:
   m_ObjectHideFlags: 0

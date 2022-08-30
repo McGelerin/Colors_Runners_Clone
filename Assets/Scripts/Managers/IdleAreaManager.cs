@@ -64,11 +64,12 @@ namespace Managers
             }
         }
 
-        public void SetBuildRef(int buildID,int buildingPrice)
+        public void SetBuildRef(int buildID,int buildingPrice,int currentPrice)
         {
             _buildId = buildID;
             _buildingPrice = buildingPrice;
-            SetLoadReferance();
+            _currentScore = currentPrice;
+            //SetLoadReferance();
         }
         
         

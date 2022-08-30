@@ -15,7 +15,7 @@ MonoBehaviour:
   Levels:
     LevelBuildings:
     - LevelNumber: 0
-      LevelPlane: {fileID: 4164824379386917891, guid: a049bae7cfcb5ed448f82ce0b46fcb55, type: 3}
+      LevelPlane: {fileID: 4164824379386917891, guid: cee2983aee64b744487089890ed64a94, type: 3}
       LevelBuildingDatas:
       - mainBuildingData:
           BuildingState: 1

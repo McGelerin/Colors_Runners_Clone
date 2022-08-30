@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Data.UnityObject;
 using Data.ValueObject;
 using Enums;
 using JetBrains.Annotations;
+using Keys;
 using Signals;
 using Sirenix.Utilities;
 using TMPro;
@@ -36,13 +38,18 @@ namespace Managers
         private List<LevelBuildingData> _levelBuildingDatas;
         private GameObject _planeGO;
 
+        private List<GameObject> _mainAreas=new List<GameObject>();
+        private List<GameObject> _sideAreas=new List<GameObject>();
+
         private List<int> _mainCurrentScore;
         private List<int> _sideCurrentScore;
         private List<BuildingState> _mainBuildingState;
         private List<BuildingState> _sideBuildingState;
+        private SaveIdleDataParams _saveIdleDataParams;
 
-        int _mainCache=0;
-        int _sideCache=0;
+        private int _mainCache=0;
+        private int _sideCache=0;
+        private bool _isMainSide;
 
         #endregion
 
@@ -50,33 +57,61 @@ namespace Managers
 
         private void Awake()
         {
+            _levelsData = GetIdleLevelBuildingData();
+        }
+
+        #region Event Subscription
+
+        private void OnEnable()
+        {
+            SubscribeEvents();
+        }
+
+        private void SubscribeEvents()
+        {
+            SaveSignals.Instance.onSaveIdleParams += OnGetIdleSaveDatas;
+            SaveSignals.Instance.onLoadIdleGame += LoadIdleDatas;
+            LevelSignals.Instance.onNextLevel += OnNextLevel;
+        }
+
+        private void UnsubscribeEvents()
+        {
+            SaveSignals.Instance.onSaveIdleParams -= OnGetIdleSaveDatas;
+            SaveSignals.Instance.onLoadIdleGame -= LoadIdleDatas;
+            LevelSignals.Instance.onNextLevel -= OnNextLevel;
+        }
+
+        private void OnDisable()
+        {
+            UnsubscribeEvents();
+        }
+
+        #endregion
+        
+        private void Start()
+        {
             Init();
         }
 
         private void Init()
-        {   _levelsData = GetIdleLevelBuildingData();
-            LoadIdleDatas();
+        {
+            SaveSignals.Instance.onLoadIdle?.Invoke();
             GetCurrentLevelData();
             EmptyListChack();
             InstantiateLevelItems();
         }
 
-
-        private void LoadIdleDatas()
+        private void LoadIdleDatas(SaveIdleDataParams saveIdleDataParams)
         {
-            _idleLevel = LoadLevelData() % _levelsData.LevelBuildings.Count;
-            _mainCurrentScore = SaveSignals.Instance.onIdleLoad.Invoke().MainCurrentScore;
-            _sideCurrentScore = SaveSignals.Instance.onIdleLoad.Invoke().SideCurrentScore;
-            _mainBuildingState = SaveSignals.Instance.onIdleLoad.Invoke().MainBuildingState;
-            _sideBuildingState = SaveSignals.Instance.onIdleLoad.Invoke().SideBuildingState;
+            _saveIdleDataParams = saveIdleDataParams;
+            _idleLevel = _saveIdleDataParams.IdleLevel % _levelsData.LevelBuildings.Count;
+            _mainCurrentScore = new List<int>(_saveIdleDataParams.MainCurrentScore);
+            _sideCurrentScore = new List<int>(_saveIdleDataParams.SideCurrentScore);
+            _mainBuildingState = new List<BuildingState>(_saveIdleDataParams.MainBuildingState);
+            _sideBuildingState = new List<BuildingState>(_saveIdleDataParams.SideBuildingState);
         }
 
         private LevelData GetIdleLevelBuildingData() => Resources.Load<CD_LevelBuildingData>("Data/CD_IdleLevelBuild").Levels;
-
-        private int LoadLevelData()
-        {
-            return SaveSignals.Instance.onIdleLoad.Invoke().IdleLevel;
-        }
 
         private void GetCurrentLevelData()
         {
@@ -88,10 +123,6 @@ namespace Managers
         {
             if (_mainCurrentScore.IsNullOrEmpty())
             {
-                _mainCurrentScore = new List<int>();
-                _sideCurrentScore = new List<int>();
-                _mainBuildingState = new List<BuildingState>();
-                _sideBuildingState = new List<BuildingState>();
                 foreach (var levelBuildingDatas in _levelBuildingDatas)
                 {
                     _mainCurrentScore.Add(0);
@@ -130,18 +161,15 @@ namespace Managers
         {
             var mainBuild = levelBuildingData.mainBuildingData.Building;
             var buildingPrice = levelBuildingData.mainBuildingData.MainBuildingScore;
-            MainSetReferance(mainBuild, buildingPrice);
-
             var position = idleLevelHolder.position;
-            Instantiate(mainBuild,position+ levelBuildingData.mainBuildingData.InstantitatePos,mainBuild.transform.rotation,idleLevelHolder);
+            GameObject obj= Instantiate(mainBuild,position+ levelBuildingData.mainBuildingData.InstantitatePos,mainBuild.transform.rotation,idleLevelHolder);
+            _mainAreas.Add(obj);
+            MainSetReferance(obj, buildingPrice);
         }
 
         private void MainSetReferance(GameObject mainBuild, int buildingPrice)
         {
-            if (_mainCurrentScore != null)
-            {
-                mainBuild.GetComponent<IdleAreaManager>().SetBuildRef(_mainCache, buildingPrice,_mainCurrentScore[_mainCache]);
-            }
+            mainBuild.GetComponent<IdleAreaManager>().SetBuildRef(_mainCache, buildingPrice,_mainCurrentScore[_mainCache],_mainBuildingState[_mainCache],this);
         }
 
         private void CreateSideBuilding(LevelBuildingData levelBuildingData)
@@ -150,15 +178,65 @@ namespace Managers
             {
                 var sideBuild = sideBuilding.Building;
                 var buildingPrice = sideBuilding.SideBuildingScore;
-                SideSetReferance(sideBuild, buildingPrice);
                 var position = idleLevelHolder.position;
-                Instantiate(sideBuild,position+ sideBuilding.InstantitatePos, Quaternion.identity,idleLevelHolder);
+                GameObject obj = Instantiate(sideBuild,position+ sideBuilding.InstantitatePos, Quaternion.identity,idleLevelHolder);
+                _sideAreas.Add(obj);
+                SideSetReferance(obj, buildingPrice);
                 _sideCache++;
             }
         }
         private void SideSetReferance(GameObject sideBuild, int buildingPrice)
         {
-            sideBuild.GetComponent<IdleAreaManager>().SetBuildRef(_sideCache, buildingPrice,_sideCurrentScore[_sideCache]);
+            sideBuild.GetComponent<IdleAreaManager>().SetBuildRef(_sideCache, buildingPrice,_sideCurrentScore[_sideCache],_sideBuildingState[_sideCache],this);
+        }
+
+        private void SaveParametres()
+        {
+            _isMainSide = true;
+            foreach (var VARIABLE in _mainAreas)
+            {
+                VARIABLE.GetComponent<IdleAreaManager>().SendReftoIdleManager();
+            }
+            _isMainSide = false;
+            foreach (var VARIABLE in _sideAreas)
+            {
+                VARIABLE.GetComponent<IdleAreaManager>().SendReftoIdleManager();
+            }
+            
+            SaveSignals.Instance.onIdleSaveData?.Invoke();
+        }
+
+
+        public void SetSaveDatas(int areaID,int CurrentScore,BuildingState buildingState)
+        {
+            if (_isMainSide)
+            {
+                _mainCurrentScore[areaID] = CurrentScore;
+                _mainBuildingState[areaID]= buildingState;
+            }
+            else
+            {
+                _sideCurrentScore[areaID]=CurrentScore;
+                _sideBuildingState[areaID]=buildingState;
+            }
+        }
+
+        private SaveIdleDataParams OnGetIdleSaveDatas()
+        {
+            return new SaveIdleDataParams()
+            {
+                IdleLevel = _idleLevel,
+                CollectablesCount = 0,
+                MainCurrentScore = _mainCurrentScore,
+                SideCurrentScore = _sideCurrentScore,
+                MainBuildingState = _mainBuildingState,
+                SideBuildingState = _sideBuildingState
+            };
+        }
+
+        private void OnNextLevel()
+        {
+            SaveParametres();
         }
     }
 }

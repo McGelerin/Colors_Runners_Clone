@@ -20,9 +20,10 @@ namespace Controllers
         
         public void ChangeBuildingGradient(float gra)
         {
+            Debug.Log(gra);
             foreach (var VARIABLE in mesh)
             {
-                            
+                VARIABLE.material = VARIABLE.material;
                 VARIABLE.material.DOFloat(gra,"_Saturation", 1);
             }
         }

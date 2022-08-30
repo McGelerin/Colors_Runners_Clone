@@ -23,17 +23,21 @@ namespace Managers
                 if (BuildState == BuildingState.Completed)
                 {
                     meshController.ChangeBuildingGradient(1.5f);
-                    tmp.gameObject.transform.parent.gameObject.SetActive(false);
+//                    tmp.gameObject.transform.parent.gameObject.SetActive(false);
                 }
-                
+                else if (BuildState == BuildingState.Uncompleted)
+                {
+                    Debug.Log("satate girdi");
+                    meshController.ChangeBuildingGradient(
+                        Mathf.Clamp((_currentScore/(float)_buildingPrice),0,1.5f));
+                }
             }
         }
-
+        
         #endregion
         #region Serializefield Variables
 
         [SerializeField] private TextMeshPro tmp;
-        [SerializeField] private bool isMainSide;
         [SerializeField] private IdleAreaMeshController meshController;
         
         #endregion
@@ -42,38 +46,36 @@ namespace Managers
 
         [ShowInInspector]private int _buildId;
         [ShowInInspector]private int _buildingPrice;
-        [ShowInInspector]private int _currentScore;
+        [SerializeField]private int _currentScore;
         [ShowInInspector]private BuildingState _buildingState;
+        private IdleManager _idleManager;
         
         #endregion
 
         #endregion
-        
-        private void SetLoadReferance()//burası hata veriyor yarın save managerdan düzeltilmesi lazım
+
+        private void Start()
         {
-            if (isMainSide)
-            {
+            //BuildState = _buildingState;
+            //Debug.Log(BuildState.ToString());
 
-            //    _currentScore = SaveSignals.Instance.onIdleLoad().MainCurrentScore[_buildId]; 
-            //    _buildingState = SaveSignals.Instance.onIdleLoad().MainBuildingState[_buildId];
-
-            }
-            else
-            {
-            //    _currentScore = SaveSignals.Instance.onIdleLoad().SideCurrentScore[_buildId];
-             //  _buildingState = SaveSignals.Instance.onIdleLoad().SideBuildingState[_buildId];
-            }
         }
 
-        public void SetBuildRef(int buildID,int buildingPrice,int currentPrice)
+        public void SetBuildRef(int buildID,int buildingPrice,int currentPrice,BuildingState buildingState,IdleManager idleManager)
         {
             _buildId = buildID;
             _buildingPrice = buildingPrice;
             _currentScore = currentPrice;
-            //SetLoadReferance();
+            BuildState = buildingState;
+            Debug.Log(_buildingState.ToString());
+            _idleManager = idleManager;
         }
-        
-        
+
+        public void SendReftoIdleManager()
+        {
+            _idleManager.SetSaveDatas(_buildId,_currentScore,_buildingState);
+        }
+
         private void SetText()
         {
             tmp.text = _currentScore.ToString() + "/" + _buildingPrice.ToString();

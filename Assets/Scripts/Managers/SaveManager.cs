@@ -22,6 +22,11 @@ namespace Managers
 
         #endregion
         
+        private void Awake()
+        {
+            SetLoadIdleGameData();
+            Debug.Log(_mainCurrentScore[0]);
+        }
         
         #region EventSubscribtion
         private void OnEnable()
@@ -33,16 +38,14 @@ namespace Managers
         {
             SaveSignals.Instance.onRunnerSaveData += OnRunnerSaveData;
             SaveSignals.Instance.onIdleSaveData += OnIdleSaveData;
-            SaveSignals.Instance.onIdleLoad += OnIdleLoad;
-            //  SaveSignals.Instance.onLoadIdleGame += OnIdleGameLoad;
+            SaveSignals.Instance.onLoadIdle += OnIdleGameLoad;
         }
 
         private void UnsubscribeEvents()
         {
             SaveSignals.Instance.onRunnerSaveData -= OnRunnerSaveData;
             SaveSignals.Instance.onIdleSaveData -= OnIdleSaveData;
-            SaveSignals.Instance.onIdleLoad -= OnIdleLoad;
-          //  SaveSignals.Instance.onLoadIdleGame -= OnIdleGameLoad;
+            SaveSignals.Instance.onLoadIdle -= OnIdleGameLoad;
         }
 
         private void OnDisable()
@@ -50,13 +53,6 @@ namespace Managers
             UnsubscribeEvents();
         } 
         #endregion
-
-        private void Awake()
-        {
-           // OnIdleGameLoad();
-            SetLoadIdleGameData();
-        }
-
 
         private void OnRunnerSaveData()
         {
@@ -98,55 +94,42 @@ namespace Managers
 
         #region Ussless
 
-        // private void OnIdleGameLoad()
-        // {
-        //     SaveSignals.Instance.onLoadIdleGame?.Invoke(new SaveIdleDataParams()
-        //         {
-        //             IdleLevel = ES3.KeyExists("IdleGame","Idlegame.es3")? ES3.Load<int>("IdleGame","IdleGame.es3"):0,
-        //             CollectablesCount = ES3.KeyExists("CollectablesCount","Idlegame.es3")? ES3.Load<int>("CollectablesCount","IdleGame.es3"):0,
-        //             MainCurrentScore = ES3.KeyExists("MainCurrentScore","Idlegame.es3")? ES3.Load<List<int>>("MainCurrentScore","IdleGame.es3"):default,
-        //             SideCurrentScore = ES3.KeyExists("SideCurrentScore","Idlegame.es3")? ES3.Load<List<int>>("SideCurrentScore","IdleGame.es3"):default,
-        //             MainBuildingState = ES3.KeyExists("MainBuildingState","Idlegame.es3")? ES3.Load<List<BuildingState>>("MainBuildingState","IdleGame.es3"):default,
-        //             SideBuildingState = ES3.KeyExists("SideBuildingState","Idlegame.es3")? ES3.Load<List<BuildingState>>("SideBuildingState","IdleGame.es3"):default,
-        //         }
-        //     );
-        // }
+        private void OnIdleGameLoad()
+        {
+            SaveSignals.Instance.onLoadIdleGame?.Invoke(new SaveIdleDataParams()
+                {
+                    IdleLevel = _idleLevel,
+                    CollectablesCount = _collectablesCount,
+                    MainCurrentScore = _mainCurrentScore,
+                    SideCurrentScore = _sideCurrentScore,
+                    MainBuildingState = _mainBuildingState,
+                    SideBuildingState = _sideBuildingState
+                }
+            );
+        }
 
         #endregion
 
         private void SetLoadIdleGameData()
         {
-            _idleLevel = ES3.KeyExists("IdleGame", "Idlegame.es3") 
+            _idleLevel = ES3.KeyExists("IdleGame", "IdleGame.es3") 
                 ? ES3.Load<int>("IdleGame", "IdleGame.es3") 
                 : 0;
-            _collectablesCount = ES3.KeyExists("CollectablesCount", "Idlegame.es3")
+            _collectablesCount = ES3.KeyExists("CollectablesCount", "IdleGame.es3")
                 ? ES3.Load<int>("CollectablesCount", "IdleGame.es3")
                 : 0;
-            _mainCurrentScore = ES3.KeyExists("MainCurrentScore", "Idlegame.es3")
-                ? ES3.Load<List<int>>("MainCurrentScore", "IdleGame.es3")
-                : null;
-            _sideCurrentScore = ES3.KeyExists("SideCurrentScore", "Idlegame.es3")
-                ? ES3.Load<List<int>>("SideCurrentScore", "IdleGame.es3")
-                : null;
-            _mainBuildingState = ES3.KeyExists("MainBuildingState", "Idlegame.es3")
-                ? ES3.Load<List<BuildingState>>("MainBuildingState", "IdleGame.es3")
-                : null;
-            _sideBuildingState = ES3.KeyExists("SideBuildingState", "Idlegame.es3")
-                ? ES3.Load<List<BuildingState>>("SideBuildingState", "IdleGame.es3")
-                : null;
-        }
-
-        private SaveIdleDataParams OnIdleLoad()
-        {
-            return new SaveIdleDataParams()
-            {
-                IdleLevel = _idleLevel,
-                CollectablesCount = _collectablesCount,
-                MainCurrentScore = _mainCurrentScore,
-                SideCurrentScore = _sideCurrentScore,
-                MainBuildingState = _mainBuildingState,
-                SideBuildingState = _sideBuildingState
-            };
+            _mainCurrentScore = ES3.KeyExists("MainCurrentScore", "IdleGame.es3")
+                ? new List<int>(ES3.Load<List<int>>("MainCurrentScore", "IdleGame.es3"))
+                : new List<int>();
+            _sideCurrentScore = ES3.KeyExists("SideCurrentScore", "IdleGame.es3")
+                ? new List<int>(ES3.Load<List<int>>("SideCurrentScore", "IdleGame.es3"))
+                : new List<int>();
+            _mainBuildingState = ES3.KeyExists("MainBuildingState", "IdleGame.es3")
+                ? new List<BuildingState>(ES3.Load<List<BuildingState>>("MainBuildingState", "IdleGame.es3"))
+                : new List<BuildingState>();
+            _sideBuildingState = ES3.KeyExists("SideBuildingState", "IdleGame.es3")
+                ? new List<BuildingState>(ES3.Load<List<BuildingState>>("SideBuildingState", "IdleGame.es3"))
+                : new List<BuildingState>();
         }
     }
 }

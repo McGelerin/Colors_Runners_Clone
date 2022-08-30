@@ -17,8 +17,9 @@ namespace Signals
         
         public UnityAction onIdleSaveData = delegate {  };
         public Func<SaveIdleDataParams> onSaveIdleParams= delegate { return default;};
-        //public UnityAction<SaveIdleDataParams> onLoadIdleGame = delegate { };
-        public Func<SaveIdleDataParams> onIdleLoad = delegate { return default; };
+        public UnityAction<SaveIdleDataParams> onLoadIdleGame = delegate { };
+        public UnityAction onLoadIdle = delegate {  };
+        //public Func<SaveIdleDataParams> onIdleLoad = delegate { return default;};
 
     }
 }

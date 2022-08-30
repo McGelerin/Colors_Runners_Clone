@@ -92,7 +92,7 @@ namespace MCScripts
 
         private void Start()
         {
-            LoadItem();
+           // LoadItem();
 
         }
 
@@ -101,11 +101,11 @@ namespace MCScripts
             deneme2 = saveIdleDataParams.SideCurrentScore;
         }
 
-        private void LoadItem()
-        {
-
-            deneme2 = SaveSignals.Instance.onIdleLoad.Invoke().SideCurrentScore;
-        }
+        // private void LoadItem()
+        // {
+        //
+        //     deneme2 = SaveSignals.Instance.onIdleLoad.Invoke().SideCurrentScore;
+        // }
 
         private int OnGetLevelID()
         {

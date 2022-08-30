@@ -141,6 +141,8 @@ namespace Managers
 
         }
 
+ 
+
         private void OnReset()
         {
             CameraStateController = CameraStates.InitializeCam;

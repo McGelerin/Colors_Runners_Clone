@@ -50,21 +50,21 @@ MonoBehaviour:
           Building: {fileID: 284068124121698608, guid: 64bccded488ea4e408fe06645377ec7b, type: 3}
           MainBuildingScore: 0
           InstantitatePos: {x: -7.13, y: 0.35, z: 1.6}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
         sideBuildindData:
         - BuildingState: 1
           Building: {fileID: 6009187552055752756, guid: f1931c0c5f011fb43a79f6979de35912, type: 3}
           SideBuildingScore: 0
           InstantitatePos: {x: 41.6973, y: -0.09363988, z: -18.1274}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
       - mainBuildingData:
           BuildingState: 1
           Building: {fileID: 1405919638657786934, guid: 3adcea69613717a4082d04694458010f, type: 3}
           MainBuildingScore: 0
           InstantitatePos: {x: 12.45, y: 0.3, z: 4.61}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
         sideBuildindData:
         - BuildingState: 1
@@ -78,54 +78,54 @@ MonoBehaviour:
           Building: {fileID: 1464779884844237763, guid: f9c8b6ab0f600bb4cac6df4f21bf9a33, type: 3}
           MainBuildingScore: 0
           InstantitatePos: {x: 11.8, y: 0.45, z: 19.34}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
         sideBuildindData:
         - BuildingState: 1
           Building: {fileID: 1280349392460340484, guid: 20a42338f596c364a9c5e4887b44cde3, type: 3}
           SideBuildingScore: 0
           InstantitatePos: {x: 11.93089, y: 0.05644894, z: 19.28841}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
       - mainBuildingData:
           BuildingState: 1
           Building: {fileID: 6806712846953036353, guid: 13c0e61fe9f1ab94b9b2b5e24c1e1db4, type: 3}
           MainBuildingScore: 0
           InstantitatePos: {x: -6.1, y: 0.44, z: 19.12}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
         sideBuildindData:
         - BuildingState: 1
           Building: {fileID: 2460996786094805866, guid: 96263397fbeae2845bae0b4e85968f53, type: 3}
           SideBuildingScore: 0
           InstantitatePos: {x: -6.036875, y: -0.04, z: 19.31419}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
       - mainBuildingData:
           BuildingState: 1
           Building: {fileID: 2180835961901856746, guid: 7ce24445ded7ee24c834566b1367ef6a, type: 3}
           MainBuildingScore: 0
           InstantitatePos: {x: -6.29, y: 0.3, z: 33.97}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
         sideBuildindData:
         - BuildingState: 1
           Building: {fileID: 880830396564600345, guid: 342833e9a37f03747bd861d9c3d615c7, type: 3}
           SideBuildingScore: 0
           InstantitatePos: {x: -6.102694, y: -0.09363988, z: 34.2726}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
       - mainBuildingData:
           BuildingState: 1
           Building: {fileID: 8988482732995040015, guid: 260ca9f6f1a5d264580b7b9166ecccd5, type: 3}
           MainBuildingScore: 0
           InstantitatePos: {x: 12.81, y: 0.3, z: 32.72}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}
         sideBuildindData:
         - BuildingState: 1
           Building: {fileID: 8790398620387645733, guid: 38bdb192780c2004bac11998f7ee8b32, type: 3}
           SideBuildingScore: 0
           InstantitatePos: {x: 11.93089, y: -0.09363988, z: 34.28841}
-          BuildingScoreTMP: {fileID: 0}
+          BuildingScoreTMP: {fileID: 44815275130712388, guid: e6a74d5e7be798b458d2f53f2eeba3e4, type: 3}
           OffsetTMP: {x: 0, y: 0, z: 0}

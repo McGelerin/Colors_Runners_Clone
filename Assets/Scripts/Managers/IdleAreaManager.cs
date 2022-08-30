@@ -3,6 +3,7 @@ using Controllers;
 using UnityEngine;
 using Enums;
 using Signals;
+using Sirenix.OdinInspector;
 using TMPro;
 
 namespace Managers
@@ -39,10 +40,10 @@ namespace Managers
 
         #region Private Variables
 
-        private int _buildId;
-        private int _buildingPrice;
-        private int _currentScore;
-        private BuildingState _buildingState;
+        [ShowInInspector]private int _buildId;
+        [ShowInInspector]private int _buildingPrice;
+        [ShowInInspector]private int _currentScore;
+        [ShowInInspector]private BuildingState _buildingState;
         
         #endregion
 
@@ -64,11 +65,12 @@ namespace Managers
             }
         }
 
-        public void SetBuildRef(int buildID,int buildingPrice)
+        public void SetBuildRef(int buildID,int buildingPrice,int currentPrice)
         {
             _buildId = buildID;
             _buildingPrice = buildingPrice;
-            SetLoadReferance();
+            _currentScore = currentPrice;
+            //SetLoadReferance();
         }
         
         

@@ -33,6 +33,7 @@ namespace Controllers
 
         public void SetPlayerScale(float value)
         {
+            manager.transform.position = new Vector3(manager.transform.position.x, manager.transform.position.y + value / 2, manager.transform.position.z);
             manager.transform.localScale += Vector3.one*value;
         }
     }

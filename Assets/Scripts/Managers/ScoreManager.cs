@@ -113,6 +113,7 @@ namespace Managers
             var transform1 = transform;
             transform1.parent = _playerGO.transform;
             transform1.localPosition = new Vector3(0, 2f, 0);
+            
         }
 
         private void SetScoreManagerPosition()
@@ -155,8 +156,14 @@ namespace Managers
             }
             else
             {
+                if (_idleOldScore<=0)
+                {
+                    return;
+                }
                 _idleScore = _idleOldScore + score;
                 _setScoreCommand.Execute(_idleScore);
+                _idleOldScore = _idleScore;
+                StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
             }
         }
 

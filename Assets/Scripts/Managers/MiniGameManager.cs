@@ -21,7 +21,7 @@ namespace Managers
         #region Private Variables
 
         private int _claimFactor;
-        private int? _stackScore;
+        private int _stackScore;
 
         #endregion
 
@@ -37,11 +37,14 @@ namespace Managers
         private void SubscribeEvents()
         {
             ScoreSignals.Instance.onGetScore += OnGetScore;
+            ScoreSignals.Instance.onSendFinalScore += OnSendFinalScore;
+        
         }
 
         private void UnsubscribeEvents()
         {
             ScoreSignals.Instance.onGetScore -= OnGetScore;
+            ScoreSignals.Instance.onSendFinalScore -= OnSendFinalScore;
         }
 
         private void OnDisable()
@@ -106,7 +109,12 @@ namespace Managers
         {
             _stackScore = score;
         }
-        
-        
+
+        private void OnSendFinalScore()
+        {
+            int bonusScoreInt = _stackScore * _claimFactor;
+            StackSignals.Instance.onSetPlayerScale(0.1f * bonusScoreInt);
+            ScoreSignals.Instance.onSetScore?.Invoke(bonusScoreInt);
+        }
     }
 }

@@ -166,6 +166,7 @@ namespace Managers
             if (_isReadyForIdleGame)
             {
                 CoreGameSignals.Instance.onChangeGameState?.Invoke();
+                ScoreSignals.Instance.onSendFinalScore?.Invoke();
             }
         }
 

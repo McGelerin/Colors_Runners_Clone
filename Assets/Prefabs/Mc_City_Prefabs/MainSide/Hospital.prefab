@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 2453542303889464955}
   m_Layer: 0
   m_Name: Physic
-  m_TagString: Build
+  m_TagString: Buy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

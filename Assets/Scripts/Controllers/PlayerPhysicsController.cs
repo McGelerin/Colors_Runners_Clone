@@ -3,6 +3,8 @@ using Signals;
 using UnityEngine;
 using Managers;
 using Enums;
+using UnityEditor.VersionControl;
+using Task = System.Threading.Tasks.Task;
 
 namespace Controllers
 {
@@ -62,6 +64,20 @@ namespace Controllers
             {
                 manager.SetAnim(CollectableAnimStates.Run);
             }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.CompareTag("Buy"))
+            {
+                StayCondition();
+            }
+        }
+
+        private async void  StayCondition()
+        {
+            ScoreSignals.Instance.onSetScore?.Invoke(-1);
+            await Task.Delay(250);
         }
     }
 }

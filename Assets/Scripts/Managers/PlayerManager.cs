@@ -32,6 +32,7 @@ namespace Managers
 
         private JumpCommand _jumpCommand;
         private SetPlayerPositionAfterDronePool _setPlayerPositionAfterDronePool;
+        private Rigidbody _rb;
 
         #endregion
         #endregion
@@ -52,6 +53,7 @@ namespace Managers
             var transform1 = transform;
             _jumpCommand = new JumpCommand(ref Data,transform1);
             _setPlayerPositionAfterDronePool = new SetPlayerPositionAfterDronePool(transform1);
+            _rb = GetComponent<Rigidbody>();
         }
         
         private void SendPlayerDataToControllers()
@@ -82,6 +84,7 @@ namespace Managers
             DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
             DronePoolSignals.Instance.onPlayerGotoTruePool += _setPlayerPositionAfterDronePool.Execute;
             StackSignals.Instance.onSetPlayerScale += OnSetPlayerScale;
+     
         }
 
         private void UnsubscribeEvents()
@@ -138,7 +141,11 @@ namespace Managers
             movementController.IsReadyToPlay(true);
             movementController.ChangeMovementState();
             movementController.EnableMovement();
+            _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+
         }
+
+
 
         #endregion
 

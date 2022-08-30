@@ -17,5 +17,8 @@ namespace Signals
         public UnityAction onBoostArea = delegate {  };
         public UnityAction<ColorEnum> ColorType = delegate {  };
         public UnityAction<float> onSetPlayerScale = delegate {  };
+        public UnityAction<bool> onLastCollectableAddedToPlayer = delegate {  };
+        public Func<int> onGetCurrentScore = delegate { return 1; };
+
     }
 }

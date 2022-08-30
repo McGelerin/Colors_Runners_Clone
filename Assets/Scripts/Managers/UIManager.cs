@@ -25,6 +25,7 @@ namespace Managers
         #region Private Variables
         private UIPanelController _uiPanelController;
         private Text2xController text2xController;
+        private bool _isReadyForIdleGame = false;
         #endregion
 
         #endregion
@@ -59,6 +60,7 @@ namespace Managers
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             GunPoolSignals.Instance.onGunPoolExit += text2xController.Show2XText;
+            StackSignals.Instance.onLastCollectableAddedToPlayer += OnLastCollectableAddedToPlayer;
         }
 
         private void UnsubscribeEvents()
@@ -72,6 +74,7 @@ namespace Managers
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             GunPoolSignals.Instance.onGunPoolExit -= text2xController.Show2XText;
+            StackSignals.Instance.onLastCollectableAddedToPlayer -= OnLastCollectableAddedToPlayer;
 
         }
 
@@ -160,13 +163,23 @@ namespace Managers
 
         public void Claim()
         {
-            
-            CoreGameSignals.Instance.onChangeGameState?.Invoke();
+            if (_isReadyForIdleGame)
+            {
+                CoreGameSignals.Instance.onChangeGameState?.Invoke();
+            }
         }
 
         public void NoThanks()
         {
-            CoreGameSignals.Instance.onChangeGameState?.Invoke();
+            if (_isReadyForIdleGame)
+            {
+                CoreGameSignals.Instance.onChangeGameState?.Invoke();
+            }
+        }
+
+        private void OnLastCollectableAddedToPlayer(bool isReady)
+        {
+            _isReadyForIdleGame = isReady;
         }
 
         

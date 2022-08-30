@@ -159,5 +159,10 @@ namespace Managers
                 _setScoreCommand.Execute(_idleScore);
             }
         }
+
+        private int OnGetCurrentScore()
+        {
+            return _score;
+        }
     }
 }

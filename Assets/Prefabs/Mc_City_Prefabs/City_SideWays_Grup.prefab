@@ -103,7 +103,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &4600870042188301631 stripped
 Transform:
@@ -165,7 +166,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &2324008760888942686 stripped
 Transform:
@@ -227,7 +229,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &2472590085636428407 stripped
 Transform:
@@ -289,7 +292,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &2677578926619143569 stripped
 Transform:
@@ -351,7 +355,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &3327508276795743242 stripped
 Transform:
@@ -413,7 +418,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &1915011446929348982 stripped
 Transform:
@@ -475,7 +481,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &2219279691099948431 stripped
 Transform:
@@ -537,7 +544,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &157611927553506113 stripped
 Transform:
@@ -599,7 +607,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &709846522625721006 stripped
 Transform:
@@ -661,7 +670,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &8177657568303684501 stripped
 Transform:
@@ -723,7 +733,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &8252102899158754967 stripped
 Transform:
@@ -785,7 +796,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &8243634172627707723 stripped
 Transform:
@@ -847,7 +859,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &6945907752501268042 stripped
 Transform:
@@ -909,7 +922,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &7662408446295764553 stripped
 Transform:
@@ -971,7 +985,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &7945976462929362924 stripped
 Transform:
@@ -1033,7 +1048,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &6241693934979583880 stripped
 Transform:
@@ -1095,7 +1111,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &6264517030788071934 stripped
 Transform:
@@ -1157,7 +1174,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_WalkWay (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3486780985151786259, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab22543c042ee294bb40d9ad98e40c48, type: 3}
 --- !u!4 &5484967424288265232 stripped
 Transform:

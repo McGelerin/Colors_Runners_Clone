@@ -47,6 +47,8 @@ namespace MCScripts
             deneme.Add(40);
 
 
+
+
             //_IdlelevelClearer = new ClearActiveLevelCommand();
             //_IdlelevelLoader = new LevelLoaderCommand();
         }
@@ -69,7 +71,7 @@ namespace MCScripts
         private void SubscribeEvents()
         {
             SaveSignals.Instance.onGetRunnerLevelID += OnGetLevelID;
-            SaveSignals.Instance.onLoadIdleGame += OnLoadIdleGame;
+          //  SaveSignals.Instance.onLoadIdleGame += OnLoadIdleGame;
             SaveSignals.Instance.onSaveIdleParams += OnGetCurrentScore;
             
         }
@@ -77,7 +79,7 @@ namespace MCScripts
         private void UnsubscribeEvents()
         {
             SaveSignals.Instance.onGetRunnerLevelID -= OnGetLevelID;
-            SaveSignals.Instance.onLoadIdleGame -= OnLoadIdleGame;
+        //    SaveSignals.Instance.onLoadIdleGame -= OnLoadIdleGame;
             SaveSignals.Instance.onSaveIdleParams -= OnGetCurrentScore;
         }
 
@@ -87,11 +89,22 @@ namespace MCScripts
         }
 
         #endregion
-        
+
+        private void Start()
+        {
+            LoadItem();
+
+        }
 
         private void OnLoadIdleGame(SaveIdleDataParams saveIdleDataParams)
         {
             deneme2 = saveIdleDataParams.SideCurrentScore;
+        }
+
+        private void LoadItem()
+        {
+
+            deneme2 = SaveSignals.Instance.onIdleLoad.Invoke().SideCurrentScore;
         }
 
         private int OnGetLevelID()

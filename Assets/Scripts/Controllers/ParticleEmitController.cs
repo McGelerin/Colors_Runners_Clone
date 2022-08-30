@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class ParticleEmitController : MonoBehaviour
 {
-    public ParticleSystem system;
-    public Transform IstenenYer;
-    public Material material;
+    public GameObject stickman;
+    private ParticleSystem _particleSystem;
+    public Transform Position;
+
     void Start()
     {
-        // A simple particle material with no texture.
-        // Create a Particle System.
-        var go = new GameObject("Particle System");
-        go.transform.Rotate(-90, 0, 0); // Rotate so the system emits upwards.
-        go.transform.position = IstenenYer.position;
-        system = go.AddComponent<ParticleSystem>();
-        go.GetComponent<ParticleSystemRenderer>().material = material;
-        //DoEmit();
-
-        // Every 2 seconds we will emit.
-        InvokeRepeating("DoEmit", 60f, 60f);
+        _particleSystem = stickman.GetComponent<ParticleSystem>();
+        stickman.transform.position = Position.position;
+        // Every 2 secs we will emit.
+        InvokeRepeating("DoEmit", 2.0f, 2.0f);
     }
 
-    void DoEmit()
+    public void DoEmit()
     {
         // Any parameters we assign in emitParams will override the current system's when we call Emit.
-        // Here we will override the position. All other parameters will use the behavior defined in the Inspector.
+        // Here we will override the start color and size.
         var emitParams = new ParticleSystem.EmitParams();
-        //emitParams.position = new Vector3(-5.0f, 0.0f, 0.0f);
-        emitParams.applyShapeToPosition = true;
-        system.Emit(emitParams, 10);
+        
+        emitParams.startSize = 0.2f;
+        _particleSystem.Emit(emitParams, 10);
+        _particleSystem.Play(); // Continue normal emissions
+    }
+
+    public void Stop()
+    {
+        _particleSystem.Stop();
     }
 }

@@ -2866,6 +2866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runnerCamera: {fileID: 0}
+  idleStartCamera: {fileID: 0}
   idleCamera: {fileID: 0}
 --- !u!114 &1115288639
 MonoBehaviour:

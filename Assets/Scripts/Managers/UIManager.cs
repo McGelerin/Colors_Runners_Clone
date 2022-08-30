@@ -18,20 +18,27 @@ namespace Managers
         [SerializeField] private List<GameObject> panels;
         // [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshPro scoreTMP;
-        [SerializeField] private Text2xController text2xController;
 
 
         #endregion
 
         #region Private Variables
         private UIPanelController _uiPanelController;
+        private Text2xController text2xController;
         #endregion
 
         #endregion
 
         private void Awake()
         {
+            Init();
             _uiPanelController = new UIPanelController();
+        }
+
+        private void Init()
+        {
+            text2xController = GetComponent<Text2xController>();
+
         }
 
         #region Event Subscriptions

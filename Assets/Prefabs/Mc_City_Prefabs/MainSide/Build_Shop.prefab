@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 4442831182004260090}
   m_Layer: 0
   m_Name: Physic
-  m_TagString: Build
+  m_TagString: Buy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,8 +341,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.627613, y: 3.7804322, z: 1.8653257}
-  m_Center: {x: -0.014793887, y: 1.2806243, z: -0.08783156}
+  m_Size: {x: 4.2034926, y: 9.663176, z: 3.3000588}
+  m_Center: {x: 0.15943222, y: 4.2219963, z: 0.20174743}
 --- !u!1001 &1108646054109834611
 PrefabInstance:
   m_ObjectHideFlags: 0

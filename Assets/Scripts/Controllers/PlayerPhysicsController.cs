@@ -29,6 +29,7 @@ namespace Controllers
             if (other.CompareTag("Finish"))
             {
                 LevelSignals.Instance.onLevelSuccessful?.Invoke();
+                other.gameObject.SetActive(false);
             }
 
             if (other.CompareTag("DronePoolReset"))
@@ -62,6 +63,5 @@ namespace Controllers
                 manager.SetAnim(CollectableAnimStates.Run);
             }
         }
-
     }
 }

@@ -22,11 +22,5 @@ namespace Data.ValueObject
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)] 
         public Vector3 InstantitatePos;
-        [VerticalGroup("Game Data/Stats")]
-        [LabelWidth(100)]
-        public TextMeshPro BuildingScoreTMP;
-        [VerticalGroup("Game Data/Stats")]
-        [LabelWidth(100)] 
-        public Vector3 OffsetTMP;
     }
 }

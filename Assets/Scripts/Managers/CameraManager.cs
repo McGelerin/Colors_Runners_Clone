@@ -25,6 +25,7 @@ namespace Managers
         #region Serialized Variables
         
         [SerializeField]private CinemachineVirtualCamera runnerCamera;
+        [SerializeField]private CinemachineVirtualCamera idleStartCamera;
         [SerializeField]private CinemachineVirtualCamera idleCamera;
 
         #endregion
@@ -48,6 +49,7 @@ namespace Managers
         private void GetReferences()
         {
             runnerCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+            idleStartCamera = transform.GetChild(2).GetComponent<CinemachineVirtualCamera>();
             idleCamera = transform.GetChild(3).GetComponent<CinemachineVirtualCamera>();
             _camAnimator = GetComponent<Animator>();
         }
@@ -64,6 +66,8 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameStateToIdle;
             LevelSignals.Instance.onNextLevel += OnNextLevel;
+            LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
+
         }
 
         private void UnsubscribeEvents()
@@ -72,8 +76,10 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameStateToIdle;
             LevelSignals.Instance.onNextLevel -= OnNextLevel;
+            LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
+
         }
-        
+
         private void OnDisable()
         {
             UnsubscribeEvents();
@@ -88,6 +94,10 @@ namespace Managers
                 _camAnimator.Play(CameraStateController.ToString());
             }
             else if (CameraStateController == CameraStates.RunnerCam)
+            {
+                _camAnimator.Play(CameraStateController.ToString());
+            }
+            else if (CameraStateController == CameraStates.IdleStartCam)
             {
                 _camAnimator.Play(CameraStateController.ToString());
             }
@@ -112,6 +122,7 @@ namespace Managers
             var playerManager = FindObjectOfType<PlayerManager>().transform;
             runnerCamera.Follow = playerManager;
             idleCamera.Follow = playerManager;
+            idleStartCamera.Follow = playerManager;
             CameraStateController = CameraStates.RunnerCam;
         }
         
@@ -122,6 +133,12 @@ namespace Managers
         private void OnChangeGameStateToIdle()
         {
             CameraStateController = CameraStates.IdleCam;
+        }
+        private void OnLevelSuccessful()
+        {
+            CameraStateController = CameraStates.IdleStartCam;
+            Debug.Log("IdleStart");
+
         }
 
         private void OnReset()

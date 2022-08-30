@@ -5,6 +5,8 @@ using Enums;
 using Signals;
 using TMPro;
 using UnityEngine;
+using Commands;
+
 
 namespace Managers
 {
@@ -16,6 +18,8 @@ namespace Managers
         [SerializeField] private List<GameObject> panels;
         // [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshPro scoreTMP;
+        [SerializeField] private Text2xController text2xController;
+
 
         #endregion
 
@@ -29,7 +33,7 @@ namespace Managers
         {
             _uiPanelController = new UIPanelController();
         }
-        
+
         #region Event Subscriptions
 
         private void OnEnable()
@@ -47,6 +51,7 @@ namespace Managers
             UISignals.Instance.onSetScoreText += OnSetScoreText;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
+            GunPoolSignals.Instance.onGunPoolExit += text2xController.Show2XText;
         }
 
         private void UnsubscribeEvents()
@@ -56,9 +61,11 @@ namespace Managers
             UISignals.Instance.onOpenPanel -= OnOpenPanel;
             UISignals.Instance.onClosePanel -= OnClosePanel;
 //            UISignals.Instance.onSetLevelText -= OnSetLevelText;
-            UISignals.Instance.onSetScoreText += OnSetScoreText;
+            UISignals.Instance.onSetScoreText -= OnSetScoreText;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
+            GunPoolSignals.Instance.onGunPoolExit -= text2xController.Show2XText;
+
         }
 
         private void OnDisable()
@@ -155,6 +162,7 @@ namespace Managers
             CoreGameSignals.Instance.onChangeGameState?.Invoke();
         }
 
+        
         #endregion
     }
 }

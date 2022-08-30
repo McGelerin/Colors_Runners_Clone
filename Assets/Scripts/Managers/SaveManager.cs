@@ -124,16 +124,16 @@ namespace Managers
                 : 0;
             _mainCurrentScore = ES3.KeyExists("MainCurrentScore", "Idlegame.es3")
                 ? ES3.Load<List<int>>("MainCurrentScore", "IdleGame.es3")
-                : new List<int>();
+                : null;
             _sideCurrentScore = ES3.KeyExists("SideCurrentScore", "Idlegame.es3")
                 ? ES3.Load<List<int>>("SideCurrentScore", "IdleGame.es3")
-                : new List<int>();
+                : null;
             _mainBuildingState = ES3.KeyExists("MainBuildingState", "Idlegame.es3")
                 ? ES3.Load<List<BuildingState>>("MainBuildingState", "IdleGame.es3")
-                : new List<BuildingState>();
+                : null;
             _sideBuildingState = ES3.KeyExists("SideBuildingState", "Idlegame.es3")
                 ? ES3.Load<List<BuildingState>>("SideBuildingState", "IdleGame.es3")
-                : new List<BuildingState>();
+                : null;
         }
 
         private SaveIdleDataParams OnIdleLoad()

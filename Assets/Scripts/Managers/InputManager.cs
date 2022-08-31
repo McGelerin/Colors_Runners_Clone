@@ -66,6 +66,7 @@ namespace Managers
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
+            LevelSignals.Instance.onNextLevel += OnNextLevel;
         }
 
         private void UnsubscribeEvents()
@@ -75,6 +76,7 @@ namespace Managers
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
+            LevelSignals.Instance.onNextLevel += OnNextLevel;
         }
 
         private void OnDisable()
@@ -144,6 +146,14 @@ namespace Managers
             _isTouching = false;
             isReadyForTouch = false;
             isFirstTimeTouchTaken = false;
+        }
+
+        private void OnNextLevel() //Idle tarafi calismadan test edemiyorum
+        {
+            // _isTouching = false;
+            // isReadyForTouch = false;
+            // isFirstTimeTouchTaken = false;
+            // _inputStates = GameStates.Runner;
         }
 
         #endregion

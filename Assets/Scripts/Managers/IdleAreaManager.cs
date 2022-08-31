@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Controllers;
 using UnityEngine;
 using Enums;
@@ -25,6 +27,7 @@ namespace Managers
                 {
                     meshController.ChangeBuildingGradient(1.5f);
                     tmp.gameObject.SetActive(false);
+                    
                 }
                 else if (BuildState == BuildingState.Uncompleted )
                 {
@@ -45,12 +48,15 @@ namespace Managers
             set
             {
                 _currentScore = value;
-                if (CurrentScore == _buildingPrice)
+                
+                if (_currentScore == _buildingPrice)
                 {
+                    IdleSignals.Instance.onIteractionBuild?.Invoke(false);
                     BuildState = BuildingState.Completed;
                 }
                 else
                 {
+                    SetText();
                     meshController.ChangeBuildingGradient(
                         Mathf.Clamp((_currentScore/(float)_buildingPrice*2),0,1.5f));
                 }
@@ -94,12 +100,12 @@ namespace Managers
 
         private void SubscribeEvents()
         {
-
+            //IdleSignals.Instance.onScoreAdd += OnScoreAdd;
         }
 
         private void UnsubscribeEvents()
         {
-
+           // IdleSignals.Instance.onScoreAdd -= OnScoreAdd;
         }
 
         private void OnDisable()
@@ -134,6 +140,42 @@ namespace Managers
         private void SetText()
         {
             tmp.text = _currentScore.ToString() + "/" + _buildingPrice.ToString();
+        }
+
+
+        public void ScoreAdd(bool interactionPlayer)
+        {
+            if (interactionPlayer)
+            {
+                int score = ScoreSignals.Instance.onGetIdleScore();
+                if (score > 0)
+                {
+                    StartCoroutine(StayCondition());
+                }
+                else
+                {
+                    IdleSignals.Instance.onIteractionBuild?.Invoke(false);
+                    StopAllCoroutines();
+                }
+            }
+            else
+            {
+                IdleSignals.Instance.onIteractionBuild?.Invoke(false);
+                StopAllCoroutines();
+            }
+        }
+        
+        
+        private IEnumerator StayCondition()
+        {
+            IdleSignals.Instance.onIteractionBuild?.Invoke(true);
+            ScoreSignals.Instance.onSetScore?.Invoke(-1);
+            CurrentScore++;
+            yield return new WaitForSeconds(1f);
+            if (CurrentScore <= _buildingPrice)
+            {
+                StartCoroutine(StayCondition());
+            }
         }
     }
 }

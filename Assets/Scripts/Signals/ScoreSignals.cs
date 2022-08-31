@@ -12,9 +12,13 @@ namespace Signals
         public UnityAction<int> onUpdateScore = delegate {  };
         public UnityAction<int> onSetTotalScore = delegate { };
         public UnityAction onSendFinalScore = delegate { };
-        public UnityAction<float> onSendMoney = delegate { };
         public UnityAction<bool> onVisibleScore = delegate {  };
         public UnityAction<GameObject> onSetLeadPosition = delegate {  };
         public Func<int> onGetClaimFactor = delegate { return 0; };
+        
+        
+        
+        
+        public Func<int> onGetIdleScore= delegate { return 0; };
     }
 }

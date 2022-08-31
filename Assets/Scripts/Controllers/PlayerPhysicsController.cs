@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Signals;
 using UnityEngine;
 using Managers;
@@ -54,35 +55,42 @@ namespace Controllers
             {
                 manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.CrouchSpeed;
             }
-            if (other.CompareTag("Buy"))
-            {
-                manager.SetAnim(CollectableAnimStates.Buy);
-                manager.ParticuleState(true);
-
-            }
+            // if (other.CompareTag("Buy"))
+            // {
+            //
+            //     //StayCondition(other.transform.parent.gameObject);
+            //     StartCoroutine(StayCondition(other.transform.parent.gameObject));
+            //
+            // }
         }
         
-        private void OnTriggerStay(Collider other)
-        {
-            if (other.CompareTag("Buy"))
-            {
-                StayCondition();
-            }
-        }
+        // private async void OnTriggerStay(Collider other)
+        // {
+        //     if (other.CompareTag("Buy"))
+        //     {
+        //         StayCondition(other.transform.parent.gameObject);
+        //         await Task.Delay(2000);
+        //     }
+        // }
 
-        public void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Buy"))
-            {
-                manager.SetAnim(CollectableAnimStates.Run);
-                manager.ParticuleState(false);
-            }
-        }
+        // public void OnTriggerExit(Collider other)
+        // {
+        //     if (other.CompareTag("Buy"))
+        //     {
+        //         StopAllCoroutines();
+        //         manager.SetAnim(CollectableAnimStates.Run);
+        //         manager.ParticuleState(false);
+        //     }
+        // }
         
-        private async void  StayCondition()
-        {
-            ScoreSignals.Instance.onSetScore?.Invoke(-1);
-            await Task.Delay(250);
-        }
+        // IEnumerator  StayCondition(GameObject other)
+        // {
+        //     manager.SetAnim(CollectableAnimStates.Buy);
+        //     manager.ParticuleState(true);
+        //     ScoreSignals.Instance.onSetScore?.Invoke(-1);
+        //     IdleSignals.Instance.onScoreAdd?.Invoke(other);
+        //     yield return new WaitForSeconds(1f);
+        //     StartCoroutine(StayCondition(other));
+        // }
     }
 }

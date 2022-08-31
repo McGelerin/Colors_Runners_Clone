@@ -7,6 +7,7 @@ using Enums;
 using JetBrains.Annotations;
 using Keys;
 using Signals;
+using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using TMPro;
 using Unity.Mathematics;
@@ -40,7 +41,7 @@ namespace Managers
         private GameObject _planeGO;
 
         private List<GameObject> _mainAreas=new List<GameObject>();
-        private List<List<GameObject>> _sideAreas = new List<List<GameObject>>();
+        [ShowInInspector]private List<List<GameObject>> _sideAreas = new List<List<GameObject>>();
 
         private List<int> _mainCurrentScore;
         private List<int> _sideCurrentScore;
@@ -50,7 +51,7 @@ namespace Managers
 
         private int _mainCache=0;
         private int _sideCache=0;
-        private List<GameObject> sideCache=new List<GameObject>();
+        //private List<GameObject> sideCache=new List<GameObject>();
         private bool _isMainSide;
 
         #endregion
@@ -74,6 +75,7 @@ namespace Managers
             SaveSignals.Instance.onSaveIdleParams += OnGetIdleSaveDatas;
             SaveSignals.Instance.onLoadIdleGame += LoadIdleDatas;
             LevelSignals.Instance.onNextLevel += OnNextLevel;
+            IdleSignals.Instance.onMainSideComplete += OnMainSideComplete;
         }
 
         private void UnsubscribeEvents()
@@ -81,6 +83,7 @@ namespace Managers
             SaveSignals.Instance.onSaveIdleParams -= OnGetIdleSaveDatas;
             SaveSignals.Instance.onLoadIdleGame -= LoadIdleDatas;
             LevelSignals.Instance.onNextLevel -= OnNextLevel;
+            IdleSignals.Instance.onMainSideComplete -= OnMainSideComplete;
         }
 
         private void OnDisable()
@@ -155,8 +158,8 @@ namespace Managers
         
         private void CreateLevelBuildings(LevelBuildingData levelBuildingData)
         {
-            CreateMainBuilding(levelBuildingData);
             CreateSideBuilding(levelBuildingData);
+            CreateMainBuilding(levelBuildingData);
         }
         
         private void CreateMainBuilding(LevelBuildingData levelBuildingData)
@@ -176,6 +179,7 @@ namespace Managers
 
         private void CreateSideBuilding(LevelBuildingData levelBuildingData)
         {
+            List<GameObject> sideCache = new List<GameObject>();
             foreach (var sideBuilding in levelBuildingData.sideBuildindData)
             {
                 var sideBuild = sideBuilding.Building;
@@ -187,13 +191,25 @@ namespace Managers
                 _sideCache++;
             }
             _sideAreas.Add(sideCache);
-            sideCache.Clear();
         }
         private void SideSetReferance(GameObject sideBuild, int buildingPrice)
         {
             sideBuild.GetComponent<IdleAreaManager>().SetBuildRef(_sideCache,false ,buildingPrice,_sideCurrentScore[_sideCache],_sideBuildingState[_sideCache],this);
         }
 
+        private void OnMainSideComplete(int MainID)
+        {
+            Debug.Log(MainID);
+            Debug.Log(_sideAreas[MainID][0]);
+            foreach (var VARIABLE in _sideAreas[MainID])
+            {
+                
+                VARIABLE.GetComponent<IdleAreaManager>().MainSideComplete();
+            }
+        }
+        
+        
+        
         private void SaveParametres()
         {
             _isMainSide = true;

@@ -22,10 +22,18 @@ namespace Controllers
 
         #endregion
 
+        private void Awake()
+        {
+            currentParticle = Instantiate(particle, manager.transform.position, particle.transform.rotation);
+            currentParticle.Stop();
+     //       currentParticle.gameObject.SetActive(false);
+        }
+
         public void StartParticule(Transform instantiateTransform)
         {
-            currentParticle = Instantiate(particle, instantiateTransform.position, particle.transform.rotation);
-            currentParticle.Play();
+           // currentParticle = Instantiate(particle, instantiateTransform.position, particle.transform.rotation);
+           currentParticle.gameObject.transform.position = instantiateTransform.position;
+           currentParticle.Play();
         }
 
         public void StopParticule()

@@ -25,10 +25,15 @@ namespace Managers
 
                 if (BuildState == BuildingState.Completed)
                 {
+                    if (_isMain)
+                    {
+                        Debug.Log("Tammamlandı"+_buildId);
+                        IdleSignals.Instance.onMainSideComplete?.Invoke(_buildId);
+                    }
                     meshController.ChangeBuildingGradient(1.5f);
                     tmp.gameObject.SetActive(false);
-                    StopAllCoroutines();
-                    IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
+                   StopAllCoroutines();
+                   IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
 
                 }
                 else if (BuildState == BuildingState.Uncompleted)
@@ -36,10 +41,9 @@ namespace Managers
                     if (_isTextOpen)
                     {
                         tmp.gameObject.SetActive(true);
-                        meshController.ChangeBuildingGradient(
-                            Mathf.Clamp((_currentScore / (float)_buildingPrice * 2), 0, 1.5f));
                     }
-
+                    meshController.ChangeBuildingGradient(
+                        Mathf.Clamp((_currentScore / (float)_buildingPrice * 2), 0, 1.5f));
                 }
             }
         }
@@ -77,6 +81,7 @@ namespace Managers
         #region Private Variables
 
         [ShowInInspector] private int _buildId;
+        [ShowInInspector] private bool _isMain;
         [ShowInInspector] private bool _isTextOpen;
         [ShowInInspector] private int _buildingPrice;
         [ShowInInspector] private int _currentScore;
@@ -123,15 +128,17 @@ namespace Managers
             SetText();
         }
 
-        public void SetBuildRef(int buildID, bool isTextOpen, int buildingPrice, int currentPrice, BuildingState buildingState, IdleManager idleManager)
+        public void SetBuildRef(int buildID,bool isMain, int buildingPrice, int currentPrice, BuildingState buildingState, IdleManager idleManager)
         {
             _buildId = buildID;
-            _isTextOpen = isTextOpen;
+            _isMain = isMain;
+            _isTextOpen = _isMain;
             _buildingPrice = buildingPrice;
             _currentScore = currentPrice;
             BuildState = buildingState;
             Debug.Log(_buildingState.ToString());
             _idleManager = idleManager;
+            
         }
 
         public void SendReftoIdleManager()
@@ -144,7 +151,13 @@ namespace Managers
             tmp.text = _currentScore.ToString() + "/" + _buildingPrice.ToString();
         }
 
-
+        public void MainSideComplete()
+        {
+            _isTextOpen = true;
+            Debug.Log("Tamamlandı");
+            BuildState = _buildingState;
+        }
+        
         public void ScoreAdd(bool interactionPlayer)
         {
             if (interactionPlayer)
@@ -162,8 +175,7 @@ namespace Managers
                 StopAllCoroutines();
             }
         }
-
-
+        
         private IEnumerator StayCondition(int score)
         {
             if (score > 0)

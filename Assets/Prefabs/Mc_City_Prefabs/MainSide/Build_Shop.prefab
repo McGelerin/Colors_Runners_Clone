@@ -221,12 +221,12 @@ MonoBehaviour:
   - {fileID: 8507558829164049927}
   - {fileID: 8507558829163583275}
   - {fileID: 8700376537086241479}
+  - {fileID: 8700376537086299115}
   - {fileID: 6391610117308677752}
   - {fileID: 1108646054111839969}
   - {fileID: 1752444128170030609}
   - {fileID: 5660369129636630014}
   - {fileID: 5909994443489039100}
-  - {fileID: 8700376537086299115}
 --- !u!1 &3908893540489682520
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655894d21dd04a4a850ecead289271cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 1599158408470285796}
 --- !u!1001 &1108646054109834611
 PrefabInstance:
   m_ObjectHideFlags: 0

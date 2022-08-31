@@ -281,6 +281,8 @@ GameObject:
   m_Component:
   - component: {fileID: 610927556767299397}
   - component: {fileID: 2453542303889464955}
+  - component: {fileID: 5733878982696545923}
+  - component: {fileID: 5718721402452602366}
   m_Layer: 0
   m_Name: Physic
   m_TagString: Buy
@@ -315,6 +317,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.2034926, y: 9.663176, z: 3.3000588}
   m_Center: {x: -0.01479387, y: 2.281125, z: -0.08783128}
+--- !u!114 &5733878982696545923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121583228631639253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655894d21dd04a4a850ecead289271cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 6941731948547198471}
+--- !u!54 &5718721402452602366
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121583228631639253}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1047485447222616352
 PrefabInstance:
   m_ObjectHideFlags: 0

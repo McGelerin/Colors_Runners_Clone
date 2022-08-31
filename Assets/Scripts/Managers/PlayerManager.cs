@@ -149,9 +149,7 @@ namespace Managers
             _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
         }
-
-
-
+        
         #endregion
 
         private void OnPlay()
@@ -205,9 +203,6 @@ namespace Managers
             }
         }
         
-        
-        
-
         public void SetAnim(CollectableAnimStates animState)
         {
             animationController.SetAnimState(animState);

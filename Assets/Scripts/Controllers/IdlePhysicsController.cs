@@ -12,13 +12,7 @@ namespace Controllers
         [SerializeField] private IdleAreaManager manager;
         #endregion
         #endregion
-
-        private void Awake()
-        {
-            manager = gameObject.transform.parent.transform.parent.gameObject.GetComponent<IdleAreaManager>();
-        }
-
-
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))

@@ -25,7 +25,7 @@ namespace Managers
         private void Awake()
         {
             SetLoadIdleGameData();
-            Debug.Log(_mainCurrentScore[0]);
+            //Debug.Log(_mainCurrentScore[0]);
         }
         
         #region EventSubscribtion

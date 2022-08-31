@@ -62,7 +62,7 @@ namespace Controllers
 
         public void SetOutlineBorder(bool isOutlineOn)
         {
-            mesh.material.DOFloat(isOutlineOn ? 0f : 100f, "_OutlineSize", 1f);
+            mesh.material.DOFloat(isOutlineOn ? 0f : 25f, "_OutlineSize", 1f);
         }
     }
 }

@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 2803783348911782356}
-  particle: {fileID: 427184392317028851, guid: 3dcd3e060774ff9488c536178fea4699, type: 3}
+  particle: {fileID: 8398685966472679473, guid: 71c6c6b046c6f9b479da4d0d63b9e403, type: 3}
   currentParticle: {fileID: 0}
 --- !u!54 &2803783348584380692
 Rigidbody:
@@ -651,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2803783348911782355
 Transform:
   m_ObjectHideFlags: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 2803783348911782356}
-  particle: {fileID: 427184392317028851, guid: 3dcd3e060774ff9488c536178fea4699, type: 3}
+  particle: {fileID: 8398685966472679473, guid: 71c6c6b046c6f9b479da4d0d63b9e403, type: 3}
   currentParticle: {fileID: 0}
 --- !u!1 &2879294212436770988
 GameObject:

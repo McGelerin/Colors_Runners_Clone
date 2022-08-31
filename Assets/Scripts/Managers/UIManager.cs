@@ -19,7 +19,7 @@ namespace Managers
         // [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshPro scoreTMP;
         [SerializeField] private bool isOnEditMode = false;
-
+        [SerializeField] private TextMeshProUGUI idleScoreText;
 
         #endregion
 
@@ -101,6 +101,7 @@ namespace Managers
         private void OnSetScoreText(int value)
         {
             scoreTMP.text = (value.ToString());
+            idleScoreText.text = (value.ToString());
         }
         
         private void OnPlay()

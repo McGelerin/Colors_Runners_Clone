@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmp: {fileID: 1016698002742194472}
   meshController: {fileID: 1822774645482216435}
-  _currentScore: 0
 --- !u!1 &2003525398928842768
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003525398928842768}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7077110068948333794}
@@ -91,7 +90,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.627613, y: 3.650704, z: 1.8653257}
+  m_Size: {x: 4.2034926, y: 9.663176, z: 3.3000588}
   m_Center: {x: -0.014793885, y: 1.2418994, z: -0.08783159}
 --- !u!1 &3523571525317081486
 GameObject:

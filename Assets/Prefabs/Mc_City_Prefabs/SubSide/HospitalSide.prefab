@@ -218,7 +218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmp: {fileID: 9125734221016641520}
   meshController: {fileID: 8964949617870629369}
-  _currentScore: 0
 --- !u!1 &3881025349132796514
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7743064494753906376}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: -2.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1337539963262069306}
@@ -353,7 +352,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.627613, y: 3.7437334, z: 1.8653257}
+  m_Size: {x: 4.2034926, y: 9.663176, z: 3.3000588}
   m_Center: {x: -0.014793873, y: 1.7316896, z: -0.087831594}
 --- !u!1001 &208045937023072705
 PrefabInstance:

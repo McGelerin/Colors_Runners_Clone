@@ -33,9 +33,5 @@ namespace Controllers
             currentParticle.Stop();
             Destroy(currentParticle.gameObject, 1f);
         }
-
-
-
-
     }
 }

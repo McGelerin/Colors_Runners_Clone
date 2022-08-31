@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Controllers;
 using UnityEngine;
 using Enums;
@@ -20,19 +22,22 @@ namespace Managers
             set
             {
                 _buildingState = value;
-                
+
                 if (BuildState == BuildingState.Completed)
                 {
                     meshController.ChangeBuildingGradient(1.5f);
                     tmp.gameObject.SetActive(false);
+                    StopAllCoroutines();
+                    IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
+
                 }
-                else if (BuildState == BuildingState.Uncompleted )
+                else if (BuildState == BuildingState.Uncompleted)
                 {
                     if (_isTextOpen)
                     {
                         tmp.gameObject.SetActive(true);
                         meshController.ChangeBuildingGradient(
-                            Mathf.Clamp((_currentScore/(float)_buildingPrice*2),0,1.5f));
+                            Mathf.Clamp((_currentScore / (float)_buildingPrice * 2), 0, 1.5f));
                     }
 
                 }
@@ -45,36 +50,39 @@ namespace Managers
             set
             {
                 _currentScore = value;
-                if (CurrentScore == _buildingPrice)
+
+                if (_currentScore == _buildingPrice)
                 {
+                    IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
                     BuildState = BuildingState.Completed;
                 }
                 else
                 {
+                    SetText();
                     meshController.ChangeBuildingGradient(
-                        Mathf.Clamp((_currentScore/(float)_buildingPrice*2),0,1.5f));
+                        Mathf.Clamp((_currentScore / (float)_buildingPrice * 2), 0, 1.5f));
                 }
             }
         }
-        
-        
+
+
         #endregion
         #region Serializefield Variables
 
         [SerializeField] private TextMeshPro tmp;
         [SerializeField] private IdleAreaMeshController meshController;
-        
+
         #endregion
 
         #region Private Variables
 
-        [ShowInInspector]private int _buildId;
+        [ShowInInspector] private int _buildId;
         [ShowInInspector] private bool _isTextOpen;
-        [ShowInInspector]private int _buildingPrice;
-        [ShowInInspector]private int _currentScore;
-        [ShowInInspector]private BuildingState _buildingState;
+        [ShowInInspector] private int _buildingPrice;
+        [ShowInInspector] private int _currentScore;
+        [ShowInInspector] private BuildingState _buildingState;
         private IdleManager _idleManager;
-        
+
         #endregion
 
         #endregion
@@ -94,12 +102,12 @@ namespace Managers
 
         private void SubscribeEvents()
         {
-
+            //IdleSignals.Instance.onScoreAdd += OnScoreAdd;
         }
 
         private void UnsubscribeEvents()
         {
-
+            // IdleSignals.Instance.onScoreAdd -= OnScoreAdd;
         }
 
         private void OnDisable()
@@ -108,14 +116,14 @@ namespace Managers
         }
 
         #endregion
-        
-        
+
+
         private void Start()
         {
             SetText();
         }
-        
-        public void SetBuildRef(int buildID,bool isTextOpen,int buildingPrice,int currentPrice,BuildingState buildingState,IdleManager idleManager)
+
+        public void SetBuildRef(int buildID, bool isTextOpen, int buildingPrice, int currentPrice, BuildingState buildingState, IdleManager idleManager)
         {
             _buildId = buildID;
             _isTextOpen = isTextOpen;
@@ -128,12 +136,57 @@ namespace Managers
 
         public void SendReftoIdleManager()
         {
-            _idleManager.SetSaveDatas(_buildId,CurrentScore,BuildState);
+            _idleManager.SetSaveDatas(_buildId, CurrentScore, BuildState);
         }
 
         private void SetText()
         {
             tmp.text = _currentScore.ToString() + "/" + _buildingPrice.ToString();
+        }
+
+
+        public void ScoreAdd(bool interactionPlayer)
+        {
+            if (interactionPlayer)
+            {
+                IdleSignals.Instance.onIteractionBuild?.Invoke(true, tmp.transform);
+                int score = ScoreSignals.Instance.onGetIdleScore();
+                if (score > 0)
+                {
+                    StartCoroutine(StayCondition(score));
+                }
+                else
+                {
+                    IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
+                    StopAllCoroutines();
+                }
+            }
+            else
+            {
+                IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
+                StopAllCoroutines();
+            }
+        }
+
+
+        private IEnumerator StayCondition(int score)
+        {
+            if (score > 0)
+            {
+                ScoreSignals.Instance.onSetScore?.Invoke(-1);
+                CurrentScore++;
+                yield return new WaitForSeconds(1f);
+                score = ScoreSignals.Instance.onGetIdleScore();
+
+                if (CurrentScore <= _buildingPrice)
+                {
+                    StartCoroutine(StayCondition(score));
+                }
+            }
+            else
+            {
+                IdleSignals.Instance.onIteractionBuild(false, transform);
+            }
         }
     }
 }

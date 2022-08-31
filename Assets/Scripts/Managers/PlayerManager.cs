@@ -87,7 +87,8 @@ namespace Managers
             DronePoolSignals.Instance.onDroneGone += movementController.UnDeactiveForwardMovement;
             DronePoolSignals.Instance.onPlayerGotoTruePool += _setPlayerPositionAfterDronePool.Execute;
             StackSignals.Instance.onSetPlayerScale += OnSetPlayerScale;
-     
+            IdleSignals.Instance.onIteractionBuild += OnInteractionBuyPoint;
+
         }
 
         private void UnsubscribeEvents()
@@ -106,6 +107,7 @@ namespace Managers
             DronePoolSignals.Instance.onDroneGone -= movementController.UnDeactiveForwardMovement;
             DronePoolSignals.Instance.onPlayerGotoTruePool -= _setPlayerPositionAfterDronePool.Execute;
             StackSignals.Instance.onSetPlayerScale -= OnSetPlayerScale;
+            IdleSignals.Instance.onIteractionBuild -= OnInteractionBuyPoint;
         }
 
         private void OnDisable()
@@ -188,6 +190,23 @@ namespace Managers
             SetStackPosition();
             //animationController.OnReset();
         }
+
+        private void OnInteractionBuyPoint(bool isInteractionBuyPoint, Transform targetTransform)
+        {
+            if (isInteractionBuyPoint)
+            {
+                SetAnim(CollectableAnimStates.Buy);
+                ParticuleState(true, targetTransform);
+            }
+            else
+            {
+                SetAnim(CollectableAnimStates.Run);
+                ParticuleState(false);
+            }
+        }
+        
+        
+        
 
         public void SetAnim(CollectableAnimStates animState)
         {

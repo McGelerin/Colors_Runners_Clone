@@ -70,6 +70,7 @@ namespace Managers
             ScoreSignals.Instance.onSetLeadPosition += OnSetLead;
             LevelSignals.Instance.onRestartLevel += OnReset;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
+            ScoreSignals.Instance.onGetIdleScore += OnGetCurrentScore;
         }
 
         private void UnsubscribeEvents()
@@ -81,6 +82,7 @@ namespace Managers
             ScoreSignals.Instance.onSetLeadPosition -= OnSetLead;
             LevelSignals.Instance.onRestartLevel -= OnReset;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
+            ScoreSignals.Instance.onGetIdleScore -= OnGetCurrentScore;
 
         }
 
@@ -166,10 +168,10 @@ namespace Managers
                 StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
             }
         }
-
+        
         private int OnGetCurrentScore()
         {
-            return _score;
+            return _idleOldScore;
         }
     }
 }

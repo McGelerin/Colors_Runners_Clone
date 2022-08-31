@@ -158,14 +158,14 @@ namespace Managers
             }
             else
             {
-                if (_idleOldScore<=0)
+                if (_idleOldScore >= 0)
                 {
-                    return;
+
+                    _idleScore = _idleOldScore + score;
+                    _setScoreCommand.Execute(_idleScore);
+                    _idleOldScore = _idleScore;
+                    StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
                 }
-                _idleScore = _idleOldScore + score;
-                _setScoreCommand.Execute(_idleScore);
-                _idleOldScore = _idleScore;
-                StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
             }
         }
         

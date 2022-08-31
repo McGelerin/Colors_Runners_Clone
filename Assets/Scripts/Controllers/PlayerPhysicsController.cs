@@ -55,6 +55,14 @@ namespace Controllers
             {
                 manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.CrouchSpeed;
             }
+
+            if (other.CompareTag("Citizen"))
+            {
+                //ScoreSignals.Instance.onUpdateScore?.Invoke(1);
+                //int currentScore = ScoreSignals.Instance.onGetIdleScore();
+                ScoreSignals.Instance.onSetScore?.Invoke(1);
+
+            }
             //if (other.CompareTag("Buy"))
             //{
             //    manager.SetAnim(CollectableAnimStates.Buy);

@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 1745568813684859948}
-  isMainSide: 0
   meshController: {fileID: 5409497323341850196}
+  _currentScore: 0
 --- !u!1 &1405919638657795508
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +224,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 5724277637062957753}
   mesh:
-  - {fileID: 0}
   - {fileID: 1405919638656092876}
   - {fileID: 3350985804031246834}
   - {fileID: 3359620838197871829}

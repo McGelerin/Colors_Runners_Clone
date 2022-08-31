@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 6444920867424901214}
-  isMainSide: 0
   meshController: {fileID: 1608252461441281747}
+  _currentScore: 0
 --- !u!1 &1261392033490943722
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ namespace Data.ValueObject
         public GameObject Building;
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)]
-        public int SideBuildingScore;
+        public int SideBuildingScore=100;
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)] 
         public Vector3 InstantitatePos;

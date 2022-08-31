@@ -149,16 +149,11 @@ namespace Managers
         {
             if (interactionPlayer)
             {
-                IdleSignals.Instance.onIteractionBuild?.Invoke(true, tmp.transform);
                 int score = ScoreSignals.Instance.onGetIdleScore();
                 if (score > 0)
                 {
+                    IdleSignals.Instance.onIteractionBuild?.Invoke(true, tmp.transform);
                     StartCoroutine(StayCondition(score));
-                }
-                else
-                {
-                    IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
-                    StopAllCoroutines();
                 }
             }
             else

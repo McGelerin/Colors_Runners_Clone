@@ -31,7 +31,11 @@ namespace Controllers
         public void StopParticule()
         {
             currentParticle.Stop();
-            Destroy(currentParticle.gameObject, 1f);
+            if (currentParticle.Equals(null))
+            {
+                Destroy(currentParticle.gameObject, 1f);
+
+            }
         }
     }
 }

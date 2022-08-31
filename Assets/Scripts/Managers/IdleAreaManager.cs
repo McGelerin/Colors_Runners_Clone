@@ -20,19 +20,43 @@ namespace Managers
             set
             {
                 _buildingState = value;
+                
                 if (BuildState == BuildingState.Completed)
                 {
                     meshController.ChangeBuildingGradient(1.5f);
-//                    tmp.gameObject.transform.parent.gameObject.SetActive(false);
+                    tmp.gameObject.SetActive(false);
                 }
-                else if (BuildState == BuildingState.Uncompleted)
+                else if (BuildState == BuildingState.Uncompleted )
                 {
-                    Debug.Log("satate girdi");
-                    meshController.ChangeBuildingGradient(
-                        Mathf.Clamp((_currentScore/(float)_buildingPrice),0,1.5f));
+                    if (_isTextOpen)
+                    {
+                        tmp.gameObject.SetActive(true);
+                        meshController.ChangeBuildingGradient(
+                            Mathf.Clamp((_currentScore/(float)_buildingPrice*2),0,1.5f));
+                    }
+
                 }
             }
         }
+
+        public int CurrentScore
+        {
+            get => _currentScore;
+            set
+            {
+                _currentScore = value;
+                if (CurrentScore == _buildingPrice)
+                {
+                    BuildState = BuildingState.Completed;
+                }
+                else
+                {
+                    meshController.ChangeBuildingGradient(
+                        Mathf.Clamp((_currentScore/(float)_buildingPrice*2),0,1.5f));
+                }
+            }
+        }
+        
         
         #endregion
         #region Serializefield Variables
@@ -45,8 +69,9 @@ namespace Managers
         #region Private Variables
 
         [ShowInInspector]private int _buildId;
+        [ShowInInspector] private bool _isTextOpen;
         [ShowInInspector]private int _buildingPrice;
-        [SerializeField]private int _currentScore;
+        [ShowInInspector]private int _currentScore;
         [ShowInInspector]private BuildingState _buildingState;
         private IdleManager _idleManager;
         
@@ -54,16 +79,46 @@ namespace Managers
 
         #endregion
 
-        private void Start()
+        private void Awake()
         {
-            //BuildState = _buildingState;
-            //Debug.Log(BuildState.ToString());
+            tmp.gameObject.SetActive(false);
+        }
+
+
+        #region Event Subscription
+
+        private void OnEnable()
+        {
+            SubscribeEvents();
+        }
+
+        private void SubscribeEvents()
+        {
 
         }
 
-        public void SetBuildRef(int buildID,int buildingPrice,int currentPrice,BuildingState buildingState,IdleManager idleManager)
+        private void UnsubscribeEvents()
+        {
+
+        }
+
+        private void OnDisable()
+        {
+            UnsubscribeEvents();
+        }
+
+        #endregion
+        
+        
+        private void Start()
+        {
+            SetText();
+        }
+        
+        public void SetBuildRef(int buildID,bool isTextOpen,int buildingPrice,int currentPrice,BuildingState buildingState,IdleManager idleManager)
         {
             _buildId = buildID;
+            _isTextOpen = isTextOpen;
             _buildingPrice = buildingPrice;
             _currentScore = currentPrice;
             BuildState = buildingState;
@@ -73,7 +128,7 @@ namespace Managers
 
         public void SendReftoIdleManager()
         {
-            _idleManager.SetSaveDatas(_buildId,_currentScore,_buildingState);
+            _idleManager.SetSaveDatas(_buildId,CurrentScore,BuildState);
         }
 
         private void SetText()

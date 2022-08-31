@@ -33,13 +33,12 @@ namespace Controllers
 
         public void SetPlayerScale(float value)
         {
-            if (!(manager.transform.localScale.z <= 3) ||!(manager.transform.localScale.z >=1 )) return;
+            if (!(manager.transform.localScale.z+value <= 3) ||!(manager.transform.localScale.z >=1 )) return;
             var transform1 = manager.transform;
             var position = transform1.position;
             position = new Vector3(position.x, position.y + value / 2, position.z);
             transform1.position = position;
             transform1.localScale += Vector3.one*value;
-
         }
     }
 }

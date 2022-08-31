@@ -61,6 +61,14 @@ namespace Controllers
 
             }
         }
+        
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.CompareTag("Buy"))
+            {
+                StayCondition();
+            }
+        }
 
         public void OnTriggerExit(Collider other)
         {
@@ -70,15 +78,7 @@ namespace Controllers
                 manager.ParticuleState(false);
             }
         }
-
-        private void OnTriggerStay(Collider other)
-        {
-            if (other.CompareTag("Buy"))
-            {
-                StayCondition();
-            }
-        }
-
+        
         private async void  StayCondition()
         {
             ScoreSignals.Instance.onSetScore?.Invoke(-1);

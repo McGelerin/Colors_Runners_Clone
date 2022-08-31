@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Data.UnityObject;
 using Data.ValueObject;
 using Enums;
@@ -39,7 +40,7 @@ namespace Managers
         private GameObject _planeGO;
 
         private List<GameObject> _mainAreas=new List<GameObject>();
-        private List<GameObject> _sideAreas=new List<GameObject>();
+        private List<List<GameObject>> _sideAreas = new List<List<GameObject>>();
 
         private List<int> _mainCurrentScore;
         private List<int> _sideCurrentScore;
@@ -49,6 +50,7 @@ namespace Managers
 
         private int _mainCache=0;
         private int _sideCache=0;
+        private List<GameObject> sideCache=new List<GameObject>();
         private bool _isMainSide;
 
         #endregion
@@ -169,7 +171,7 @@ namespace Managers
 
         private void MainSetReferance(GameObject mainBuild, int buildingPrice)
         {
-            mainBuild.GetComponent<IdleAreaManager>().SetBuildRef(_mainCache, buildingPrice,_mainCurrentScore[_mainCache],_mainBuildingState[_mainCache],this);
+            mainBuild.GetComponent<IdleAreaManager>().SetBuildRef(_mainCache,true, buildingPrice,_mainCurrentScore[_mainCache],_mainBuildingState[_mainCache],this);
         }
 
         private void CreateSideBuilding(LevelBuildingData levelBuildingData)
@@ -180,14 +182,16 @@ namespace Managers
                 var buildingPrice = sideBuilding.SideBuildingScore;
                 var position = idleLevelHolder.position;
                 GameObject obj = Instantiate(sideBuild,position+ sideBuilding.InstantitatePos, Quaternion.identity,idleLevelHolder);
-                _sideAreas.Add(obj);
+                sideCache.Add(obj);
                 SideSetReferance(obj, buildingPrice);
                 _sideCache++;
             }
+            _sideAreas.Add(sideCache);
+            sideCache.Clear();
         }
         private void SideSetReferance(GameObject sideBuild, int buildingPrice)
         {
-            sideBuild.GetComponent<IdleAreaManager>().SetBuildRef(_sideCache, buildingPrice,_sideCurrentScore[_sideCache],_sideBuildingState[_sideCache],this);
+            sideBuild.GetComponent<IdleAreaManager>().SetBuildRef(_sideCache,false ,buildingPrice,_sideCurrentScore[_sideCache],_sideBuildingState[_sideCache],this);
         }
 
         private void SaveParametres()
@@ -198,7 +202,8 @@ namespace Managers
                 VARIABLE.GetComponent<IdleAreaManager>().SendReftoIdleManager();
             }
             _isMainSide = false;
-            foreach (var VARIABLE in _sideAreas)
+            
+            foreach (var VARIABLE in _sideAreas.SelectMany(side => side))
             {
                 VARIABLE.GetComponent<IdleAreaManager>().SendReftoIdleManager();
             }

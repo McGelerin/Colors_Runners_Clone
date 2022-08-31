@@ -22,9 +22,9 @@ namespace Controllers
 
         #endregion
 
-        public void StartParticule()
+        public void StartParticule(Transform instantiateTransform)
         {
-            currentParticle = Instantiate(particle, transform.position, particle.transform.rotation);
+            currentParticle = Instantiate(particle, instantiateTransform.position, particle.transform.rotation);
             currentParticle.Play();
         }
 

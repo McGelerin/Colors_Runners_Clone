@@ -65,7 +65,7 @@ namespace Controllers
             var managerT = manager.transform;
             DronePoolSignals.Instance.onCollectableCollideWithDronePool?.Invoke(transform.parent.gameObject);
             managerT.DOMove(new Vector3(other.transform.position.x, managerT.position.y,
-                managerT.position.z + Random.Range(5f, 15f)), 4f);//data olacak
+                managerT.position.z + Random.Range(5f, 13f)), 4f);//data olacak
             manager.SetPoolColor(other.transform.parent.GetComponent<DronePoolMeshController>().GetColor(other.transform));
         }
 

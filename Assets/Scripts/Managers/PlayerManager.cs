@@ -194,11 +194,11 @@ namespace Managers
             animationController.SetAnimState(animState);
         }
 
-        public void ParticuleState(bool active)
+        public void ParticuleState(bool active, Transform instantiateTransform = null)
         {
             if (active)
             {
-                _particuleController.StartParticule();
+                _particuleController.StartParticule(instantiateTransform);
             }
             else
             {

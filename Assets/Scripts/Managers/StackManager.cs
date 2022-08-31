@@ -212,7 +212,7 @@ namespace Managers
             foreach (var item in CollectableStack)
             {
                 item.transform.SetParent(levelHolder.transform);
-                item.transform.DOMove(_playerGameObject.transform.position, .2f*itemDuration).OnComplete(()=>
+                item.transform.DOMove(_playerGameObject.transform.position, .1f*itemDuration).OnComplete(()=>
                 {
                     if (lastCollectable.Equals(item))
                     {

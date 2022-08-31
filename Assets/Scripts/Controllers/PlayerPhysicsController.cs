@@ -57,7 +57,7 @@ namespace Controllers
             if (other.CompareTag("Buy"))
             {
                 manager.SetAnim(CollectableAnimStates.Buy);
-                manager.ParticuleState(true);
+                manager.ParticuleState(true, other.transform);
 
             }
         }

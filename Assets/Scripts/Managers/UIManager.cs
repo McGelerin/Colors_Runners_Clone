@@ -18,6 +18,7 @@ namespace Managers
         [SerializeField] private List<GameObject> panels;
         // [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshPro scoreTMP;
+        [SerializeField] private bool isOnEditMode = false;
 
 
         #endregion
@@ -163,7 +164,7 @@ namespace Managers
 
         public void Claim()
         {
-            if (_isReadyForIdleGame)
+            if (_isReadyForIdleGame || isOnEditMode)
             {
                 CoreGameSignals.Instance.onChangeGameState?.Invoke();
                 ScoreSignals.Instance.onSendFinalScore?.Invoke();
@@ -172,7 +173,7 @@ namespace Managers
 
         public void NoThanks()
         {
-            if (_isReadyForIdleGame)
+            if (_isReadyForIdleGame || isOnEditMode)
             {
                 CoreGameSignals.Instance.onChangeGameState?.Invoke();
             }

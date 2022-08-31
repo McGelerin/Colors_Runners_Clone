@@ -15,6 +15,8 @@ namespace Controllers
         #region Serialized Variables
         
         [SerializeField] private PlayerManager manager;
+        [SerializeField] private ParticleSystem particle;
+        [SerializeField] private ParticleSystem currentParticle;
         
         #endregion
 
@@ -55,6 +57,8 @@ namespace Controllers
             if (other.CompareTag("Buy"))
             {
                 manager.SetAnim(CollectableAnimStates.Buy);
+                manager.ParticuleState(true);
+
             }
         }
 
@@ -63,6 +67,7 @@ namespace Controllers
             if (other.CompareTag("Buy"))
             {
                 manager.SetAnim(CollectableAnimStates.Run);
+                manager.ParticuleState(false);
             }
         }
 

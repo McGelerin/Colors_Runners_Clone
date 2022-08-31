@@ -33,6 +33,8 @@ namespace Managers
         private JumpCommand _jumpCommand;
         private SetPlayerPositionAfterDronePool _setPlayerPositionAfterDronePool;
         private Rigidbody _rb;
+        private PlayerParticuleController _particuleController;
+
 
         #endregion
         #endregion
@@ -54,6 +56,7 @@ namespace Managers
             _jumpCommand = new JumpCommand(ref Data,transform1);
             _setPlayerPositionAfterDronePool = new SetPlayerPositionAfterDronePool(transform1);
             _rb = GetComponent<Rigidbody>();
+            _particuleController = GetComponent<PlayerParticuleController>();
         }
         
         private void SendPlayerDataToControllers()
@@ -189,6 +192,18 @@ namespace Managers
         public void SetAnim(CollectableAnimStates animState)
         {
             animationController.SetAnimState(animState);
+        }
+
+        public void ParticuleState(bool active)
+        {
+            if (active)
+            {
+                _particuleController.StartParticule();
+            }
+            else
+            {
+                _particuleController.StopParticule();
+            }
         }
     }
 }

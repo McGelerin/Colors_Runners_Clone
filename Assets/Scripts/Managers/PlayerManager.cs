@@ -1,4 +1,3 @@
-using System.Collections;
 using Commands;
 using UnityEngine;
 using Controllers;
@@ -41,9 +40,9 @@ namespace Managers
 
         private void Awake()
         {
-            SetStackPosition();
-            Data = GetPlayerData();
             Init();
+            GetReferences();
+            SetStackPosition();
             SendPlayerDataToControllers();
             animationController.SetAnimState(CollectableAnimStates.Idle);
         }
@@ -58,7 +57,12 @@ namespace Managers
             _rb = GetComponent<Rigidbody>();
             _particuleController = GetComponent<PlayerParticuleController>();
         }
-        
+
+        private void GetReferences()
+        {
+            Data = GetPlayerData();
+        }
+
         private void SendPlayerDataToControllers()
         {
             movementController.SetMovementData(Data.MovementData);
@@ -117,6 +121,8 @@ namespace Managers
 
         #endregion
 
+        #region Event Methods
+
         #region Movement Controller
 
         private void OnActivateMovement()
@@ -132,7 +138,6 @@ namespace Managers
         private void OnSetRunnerInputValues(RunnerInputParams inputParams)
         {
             movementController.UpdateRunnerInputValue(inputParams);
-
         }
         
         private void OnSetIdleInputValues(IdleInputParams inputParams)
@@ -147,10 +152,11 @@ namespace Managers
             movementController.ChangeMovementState();
             movementController.EnableMovement();
             _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-
         }
         
         #endregion
+
+        #region Others
 
         private void OnPlay()
         {
@@ -175,18 +181,11 @@ namespace Managers
         {
             animationController.SetPlayerScale(value);
         }
-
-        private void SetStackPosition()
-        {
-            StackSignals.Instance.onPlayerGameObject?.Invoke(gameObject);
-        }
-
         private void OnReset()
         {
             gameObject.SetActive(true);
             movementController.OnReset();
             SetStackPosition();
-            //animationController.OnReset();
         }
 
         private void OnInteractionBuyPoint(bool isInteractionBuyPoint, Transform targetTransform)
@@ -202,13 +201,24 @@ namespace Managers
                 ParticuleState(false);
             }
         }
-        
-        public void SetAnim(CollectableAnimStates animState)
+
+        #endregion
+
+        #endregion
+
+        #region Methods
+
+        private void SetStackPosition()
+        {
+            StackSignals.Instance.onPlayerGameObject?.Invoke(gameObject);
+        }
+
+        private void SetAnim(CollectableAnimStates animState)
         {
             animationController.SetAnimState(animState);
         }
 
-        public void ParticuleState(bool active, Transform instantiateTransform = null)
+        private void ParticuleState(bool active, Transform instantiateTransform = null)
         {
             if (active)
             {
@@ -219,5 +229,7 @@ namespace Managers
                 _particuleController.StopParticule();
             }
         }
+
+        #endregion
     }
 }

@@ -25,6 +25,10 @@ namespace Commands
             {
                 GameObject obj = Object.Instantiate(_collectable);
                 _manager.ItemAddOnStack.Execute(obj);
+                if (i == 0)
+                {
+                    ScoreSignals.Instance.onSetLeadPosition?.Invoke(obj);
+                }
             }
             ScoreSignals.Instance.onSetScore?.Invoke(count);
             // _manager.StackValueUpdateCommand.Execute();

@@ -44,17 +44,7 @@ namespace Managers
             _setScoreCommand = new SetScoreCommand(ref _score);
             _setVisibilityOfScore = new SetVisibilityOfScore(ref scoreTMP, ref spriteTMP, ref textPlane);
         }
-
-        private void Start()
-        {
-            GetReferences();
-        }
-
-        private void GetReferences()
-        {
-            _parentGO = stackGO.transform.GetChild(0).gameObject; //atamanın yeni seviyelerde sıkıntı cıkarabilir
-        }
-
+        
         #region Event Subscriptions
 
         private void OnEnable()
@@ -108,8 +98,6 @@ namespace Managers
         private void OnPlay()
         {
             FindPlayerGameObject();
-            GetReferences();
-
         }
 
         private void OnChangeGameState()

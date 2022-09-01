@@ -12,9 +12,8 @@ namespace Signals
     {
         public UnityAction onRunnerSaveData = delegate { };
         public Func<int> onGetRunnerLevelID = delegate { return 0; };
-        public Func<float> onGetCollectable = delegate { return 0;};
-        
-        
+
+
         public UnityAction onIdleSaveData = delegate {  };
         public Func<SaveIdleDataParams> onSaveIdleParams= delegate { return default;};
         public UnityAction<SaveIdleDataParams> onLoadIdleGame = delegate { };

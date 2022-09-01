@@ -60,6 +60,7 @@ namespace Managers
                 new SaveRunnerDataParams()
                 {
                     Level = SaveSignals.Instance.onGetRunnerLevelID(),
+                    Collectable =  ScoreSignals.Instance.onGetIdleScore()
                 }
             );
         }
@@ -93,6 +94,7 @@ namespace Managers
         private void RunnerSaveGame(SaveRunnerDataParams saveDataParams)
         {
             if (saveDataParams.Level != 0) ES3.Save("Level", saveDataParams.Level);
+            if (saveDataParams.Collectable != 0) ES3.Save("Collectable", saveDataParams.Collectable);
         }
         
         private void IdleSaveGame(SaveIdleDataParams saveIdleDataParams)

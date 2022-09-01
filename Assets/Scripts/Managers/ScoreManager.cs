@@ -28,6 +28,7 @@ namespace Managers
         private SetVisibilityOfScore _setVisibilityOfScore;
         private GameObject _parentGO;
         private bool _isActive = false;
+        private int _savedScore;
 
         #endregion
 
@@ -35,6 +36,7 @@ namespace Managers
 
         private void Awake()
         {
+            _savedScore = GetActiveLevel();
             Init();
         }
         
@@ -109,6 +111,7 @@ namespace Managers
             transform1.parent = _playerGO.transform;
             transform1.localPosition = new Vector3(0, 2f, 0);
             _setVisibilityOfScore.Execute(true);
+            ScoreSignals.Instance.onSetScore?.Invoke(_savedScore);
         }
         
         private void OnSetLead(GameObject gO)
@@ -123,6 +126,7 @@ namespace Managers
 
         private void OnLevelSuccessful()
         {
+            _savedScore = GetActiveLevel();
             ScoreSignals.Instance.onGetScore?.Invoke(_currentState == GameStates.Runner ? _idleOldScore : _idleScore);
             _setVisibilityOfScore.Execute(false);
         }
@@ -144,9 +148,15 @@ namespace Managers
             }
         }
         
+        private int GetActiveLevel()
+        {
+            if (!ES3.FileExists()) return 0;
+            return ES3.KeyExists("Collectable") ? ES3.Load<int>("Collectable") : 0;
+        }
+        
         private int OnGetCurrentScore()
         {
-            return _idleOldScore;
+            return _idleScore;
         }
 
         private void OnNextLevel()
@@ -158,7 +168,7 @@ namespace Managers
         }
 
         #endregion
-
+        
         #region Methods
 
         private void SetScoreManagerPosition()

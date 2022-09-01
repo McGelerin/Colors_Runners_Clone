@@ -111,6 +111,7 @@ public class GunPoolManager : MonoBehaviour
     private void OnPlayerExitGunPool()
     {
         StopAsyncManager();
+        StartCoroutine(turretController.SearchAnim());
     }
 
     public void StopAsyncManager()//isim değişecek

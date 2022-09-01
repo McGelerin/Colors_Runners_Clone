@@ -1033,6 +1033,7 @@ MonoBehaviour:
   - {fileID: 698930319}
   - {fileID: 251866330}
   - {fileID: 1440134491}
+  levelText: {fileID: 764795756}
   scoreTMP: {fileID: 430413737}
   isOnEditMode: 0
   idleScoreText: {fileID: 663812589}

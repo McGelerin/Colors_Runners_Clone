@@ -34,7 +34,7 @@ public class IdleCitizenPhysicsController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(Instantiate(collectEffect, transform.position, transform.rotation), 1f);
-
+            StopAllCoroutines();
             _manager.CollideWithPlayer();
         }
     }

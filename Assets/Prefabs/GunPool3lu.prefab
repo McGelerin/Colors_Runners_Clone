@@ -611,8 +611,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1
-  taret1: {fileID: 4552756278800056770}
-  taret2: {fileID: 6184558341759625825}
+  rotationAngle: 170
+  taret1: {fileID: 4552636569663023524}
+  taret2: {fileID: 6184394926918976007}
   taret1Particle: {fileID: 4467268646798382366}
   taret2Particle: {fileID: 6270059167896321725}
 --- !u!1 &3838598447857720744
@@ -1385,6 +1386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+--- !u!4 &4552636569663023524 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4722236510932744, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+  m_PrefabInstance: {fileID: 4557343822508467884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &4467268646798382366 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198190432169522098, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
@@ -1503,6 +1509,11 @@ PrefabInstance:
 --- !u!4 &6184558341759625825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4595654756050798, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
+  m_PrefabInstance: {fileID: 6179964198839930127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6184394926918976007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4722236510932744, guid: 7191a0df8b6695d449a0f18a361bc311, type: 3}
   m_PrefabInstance: {fileID: 6179964198839930127}
   m_PrefabAsset: {fileID: 0}
 --- !u!198 &6270059167896321725 stripped

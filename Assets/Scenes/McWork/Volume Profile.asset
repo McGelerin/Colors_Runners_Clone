@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: 461893350046345013}
-  - {fileID: 6558248371868947913}
+  - {fileID: 6877663433511685936}
   - {fileID: 7930388028850478487}
   - {fileID: 4721836828315425699}
 --- !u!114 &461893350046345013
@@ -52,7 +52,7 @@ MonoBehaviour:
     max: 180
   saturation:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 10
     min: -100
     max: 100
 --- !u!114 &4721836828315425699
@@ -91,7 +91,7 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 1
     m_Value: 1
---- !u!114 &6558248371868947913
+--- !u!114 &6877663433511685936
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

@@ -84,6 +84,7 @@ namespace Managers
         }
 
         #endregion
+        
 
         private void Update()
         {
@@ -93,6 +94,8 @@ namespace Managers
                 SetScoreManagerPosition();
             }
         }
+        
+        #region Event Methods
 
         private void OnPlay()
         {
@@ -107,28 +110,12 @@ namespace Managers
             transform1.localPosition = new Vector3(0, 2f, 0);
             _setVisibilityOfScore.Execute(true);
         }
-
-        private void SetScoreManagerPosition()
-        {
-            transform.position = _parentGO.transform.position + new Vector3(0, 2f, 0);
-        }
-
-        private void SetScoreManagerRotation()
-        {
-            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
-        }
-
+        
         private void OnSetLead(GameObject gO)
         {
             _parentGO = gO;
         }
-
-        private void FindPlayerGameObject()
-        {
-            _playerGO = GameObject.FindGameObjectWithTag("Player");
-            _isActive = true;
-        }
-
+        
         private void OnReset()
         {
             _isActive = false;
@@ -149,14 +136,11 @@ namespace Managers
             }
             else
             {
-                if (_idleOldScore >= 0)
-                {
-
-                    _idleScore = _idleOldScore + score;
-                    _setScoreCommand.Execute(_idleScore);
-                    _idleOldScore = _idleScore;
-                    StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
-                }
+                if (_idleOldScore < 0) return;
+                _idleScore = _idleOldScore + score;
+                _setScoreCommand.Execute(_idleScore);
+                _idleOldScore = _idleScore;
+                StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
             }
         }
         
@@ -172,5 +156,27 @@ namespace Managers
             transform1.localScale = Vector3.one;
             _currentState = GameStates.Runner;
         }
+
+        #endregion
+
+        #region Methods
+
+        private void SetScoreManagerPosition()
+        {
+            transform.position = _parentGO.transform.position + new Vector3(0, 2f, 0);
+        }
+
+        private void SetScoreManagerRotation()
+        {
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1f);
+        }
+
+        private void FindPlayerGameObject()
+        {
+            _playerGO = GameObject.FindGameObjectWithTag("Player");
+            _isActive = true;
+        }
+        
+        #endregion
     }
 }

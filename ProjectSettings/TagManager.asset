@@ -19,6 +19,7 @@ TagManager:
   - Build
   - Citizen
   - NextLevelButton
+  - CollectableIdle
   layers:
   - Default
   - TransparentFX

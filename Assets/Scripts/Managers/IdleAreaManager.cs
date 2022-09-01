@@ -27,13 +27,12 @@ namespace Managers
                 {
                     if (_isMain)
                     {
-                        Debug.Log("Tammamlandı"+_buildId);
                         IdleSignals.Instance.onMainSideComplete?.Invoke(_buildId);
                     }
                     meshController.ChangeBuildingGradient(1.5f);
                     tmp.gameObject.SetActive(false);
-                   StopAllCoroutines();
-                   IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
+                    StopAllCoroutines();
+                    IdleSignals.Instance.onIteractionBuild?.Invoke(false, transform);
 
                 }
                 else if (BuildState == BuildingState.Uncompleted)

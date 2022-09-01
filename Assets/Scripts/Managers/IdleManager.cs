@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Commands;
 using Data.UnityObject;
 using Data.ValueObject;
 using Enums;
@@ -43,24 +44,27 @@ namespace Managers
         private List<GameObject> _mainAreas=new List<GameObject>();
         [ShowInInspector]private List<List<GameObject>> _sideAreas = new List<List<GameObject>>();
 
-        private List<int> _mainCurrentScore;
-        private List<int> _sideCurrentScore;
-        private List<BuildingState> _mainBuildingState;
-        private List<BuildingState> _sideBuildingState;
-        private SaveIdleDataParams _saveIdleDataParams;
+        [ShowInInspector]private List<int> _mainCurrentScore = new List<int>();
+        [ShowInInspector]private List<int> _sideCurrentScore = new List<int>();
+        [ShowInInspector]private List<BuildingState> _mainBuildingState = new List<BuildingState>();
+        [ShowInInspector]private List<BuildingState> _sideBuildingState = new List<BuildingState>();
+        [ShowInInspector]private SaveIdleDataParams _saveIdleDataParams;
 
         private int _mainCache=0;
         private int _sideCache=0;
+
+        private int _completeSides;
+        
         //private List<GameObject> sideCache=new List<GameObject>();
         private bool _isMainSide;
-
+        private ClearActiveLevelCommand _levelClearer;
         #endregion
-
         #endregion
 
         private void Awake()
         {
             _levelsData = GetIdleLevelBuildingData();
+            _levelClearer = new ClearActiveLevelCommand();
         }
 
         #region Event Subscription
@@ -90,7 +94,6 @@ namespace Managers
         {
             UnsubscribeEvents();
         }
-
         #endregion
         
         private void Start()
@@ -110,10 +113,10 @@ namespace Managers
         {
             _saveIdleDataParams = saveIdleDataParams;
             _idleLevel = _saveIdleDataParams.IdleLevel % _levelsData.LevelBuildings.Count;
-            _mainCurrentScore = new List<int>(_saveIdleDataParams.MainCurrentScore);
-            _sideCurrentScore = new List<int>(_saveIdleDataParams.SideCurrentScore);
-            _mainBuildingState = new List<BuildingState>(_saveIdleDataParams.MainBuildingState);
-            _sideBuildingState = new List<BuildingState>(_saveIdleDataParams.SideBuildingState);
+            _mainCurrentScore = _saveIdleDataParams.MainCurrentScore;
+            _sideCurrentScore = _saveIdleDataParams.SideCurrentScore;
+            _mainBuildingState = _saveIdleDataParams.MainBuildingState;
+            _sideBuildingState = _saveIdleDataParams.SideBuildingState;
         }
 
         private LevelData GetIdleLevelBuildingData() => Resources.Load<CD_LevelBuildingData>("Data/CD_IdleLevelBuild").Levels;
@@ -128,8 +131,10 @@ namespace Managers
         {
             if (_mainCurrentScore.IsNullOrEmpty())
             {
+                Debug.Log("Null geldi");
                 foreach (var levelBuildingDatas in _levelBuildingDatas)
                 {
+                    Debug.Log("Foreach dondü");
                     _mainCurrentScore.Add(0);
                     _mainBuildingState.Add(BuildingState.Uncompleted);
                     foreach (var VARIABLE in levelBuildingDatas.sideBuildindData)
@@ -203,12 +208,9 @@ namespace Managers
             Debug.Log(_sideAreas[MainID][0]);
             foreach (var VARIABLE in _sideAreas[MainID])
             {
-                
                 VARIABLE.GetComponent<IdleAreaManager>().MainSideComplete();
             }
         }
-        
-        
         
         private void SaveParametres()
         {
@@ -218,26 +220,23 @@ namespace Managers
                 VARIABLE.GetComponent<IdleAreaManager>().SendReftoIdleManager();
             }
             _isMainSide = false;
-            
             foreach (var VARIABLE in _sideAreas.SelectMany(side => side))
             {
                 VARIABLE.GetComponent<IdleAreaManager>().SendReftoIdleManager();
             }
-            
-            SaveSignals.Instance.onIdleSaveData?.Invoke();
         }
 
 
-        public void SetSaveDatas(int areaID,int CurrentScore,BuildingState buildingState)
+        public void SetSaveDatas(int areaID,int currentScore,BuildingState buildingState)
         {
             if (_isMainSide)
             {
-                _mainCurrentScore[areaID] = CurrentScore;
-                _mainBuildingState[areaID]= buildingState;
+                _mainCurrentScore[areaID] = currentScore;
+                _mainBuildingState[areaID] = buildingState;
             }
             else
             {
-                _sideCurrentScore[areaID]=CurrentScore;
+                _sideCurrentScore[areaID]=currentScore;
                 _sideBuildingState[areaID]=buildingState;
             }
         }
@@ -247,7 +246,7 @@ namespace Managers
             return new SaveIdleDataParams()
             {
                 IdleLevel = _idleLevel,
-                CollectablesCount = 0,
+                CollectablesCount = IdleSignals.Instance.onColectableScore(),
                 MainCurrentScore = _mainCurrentScore,
                 SideCurrentScore = _sideCurrentScore,
                 MainBuildingState = _mainBuildingState,
@@ -255,9 +254,53 @@ namespace Managers
             };
         }
 
+        private void NextIdleLevelChack()
+        {
+            foreach (var VARIABLE in _mainBuildingState)
+            {
+                if (VARIABLE == BuildingState.Completed)
+                {
+                    _completeSides++;
+                }
+            }
+
+            foreach (var VARIABLE in _sideBuildingState)
+            {
+                if (VARIABLE == BuildingState.Completed)
+                {
+                    _completeSides++;
+                }
+            }
+        }
+
+        private void OnClearActiveLevel()
+        {
+            _levelClearer.ClearActiveLevel(idleLevelHolder.transform);
+        }
         private void OnNextLevel()
         {
             SaveParametres();
+            NextIdleLevelChack();
+            IdleSignals.Instance.onIdleCollectableValue?.Invoke(_completeSides);
+            
+            if ((_mainCache+_sideCache) - _completeSides <= 0)
+            {
+                _idleLevel++;
+                _mainAreas.Clear();
+                _sideAreas.Clear();
+                _mainCurrentScore.Clear();
+                _sideCurrentScore.Clear();
+                _mainBuildingState.Clear();
+                _sideBuildingState.Clear();
+                _mainCache=0;
+                _sideCache=0;
+                SaveSignals.Instance.onIdleSaveData?.Invoke();
+                OnClearActiveLevel();
+                _levelsData = GetIdleLevelBuildingData();
+                Init();
+            }else SaveSignals.Instance.onIdleSaveData?.Invoke();
+            IdleSignals.Instance.onCollectableAreaNextLevel?.Invoke();
+            _completeSides = 0;
         }
     }
 }

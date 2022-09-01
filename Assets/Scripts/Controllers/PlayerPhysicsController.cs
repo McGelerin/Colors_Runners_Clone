@@ -14,11 +14,11 @@ namespace Controllers
         #region Self Variables
 
         #region Serialized Variables
-        
+
         [SerializeField] private PlayerManager manager;
         [SerializeField] private ParticleSystem particle;
         [SerializeField] private ParticleSystem currentParticle;
-        
+
         #endregion
 
         #endregion
@@ -29,31 +29,39 @@ namespace Controllers
             {
                 DronePoolSignals.Instance.onPlayerCollideWithDronePool?.Invoke(other.transform);
                 ScoreSignals.Instance.onVisibleScore?.Invoke(false);
+                return;
             }
 
             if (other.CompareTag("Finish"))
             {
                 LevelSignals.Instance.onLevelSuccessful?.Invoke();
                 other.gameObject.SetActive(false);
+                return;
             }
 
             if (other.CompareTag("DronePoolReset"))
             {
                 DronePoolSignals.Instance.onDronePoolExit?.Invoke();
+                return;
             }
 
             if (other.CompareTag("GunPoolExit"))
             {
                 manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.RunSpeed;
                 GunPoolSignals.Instance.onGunPoolExit?.Invoke();
+                return;
             }
+
             if (other.CompareTag("DronePoolExit"))
             {
                 ScoreSignals.Instance.onVisibleScore?.Invoke(true);
+                return;
             }
+
             if (other.CompareTag("GunPool"))
             {
                 manager.Data.MovementData.ForwardSpeed = manager.Data.MovementData.CrouchSpeed;
+                return;
             }
 
             if (other.CompareTag("Citizen"))
@@ -61,55 +69,15 @@ namespace Controllers
                 //ScoreSignals.Instance.onUpdateScore?.Invoke(1);
                 //int currentScore = ScoreSignals.Instance.onGetIdleScore();
                 ScoreSignals.Instance.onSetScore?.Invoke(1);
-
+                return;
             }
-            //if (other.CompareTag("Buy"))
-            //{
-            //    manager.SetAnim(CollectableAnimStates.Buy);
-            //    manager.ParticuleState(true, other.transform);
 
-            //}
-
-
-
-
-
-            // if (other.CompareTag("Buy"))
-            // {
-            //
-            //     //StayCondition(other.transform.parent.gameObject);
-            //     StartCoroutine(StayCondition(other.transform.parent.gameObject));
-            //
-            // }
+            if (other.CompareTag("CollectableIdle"))
+            {
+                ScoreSignals.Instance.onSetScore?.Invoke(1);
+                other.transform.parent.gameObject.SetActive(false);
+                IdleSignals.Instance.onIdleCollectableValue(-1);
+            }
         }
-        
-        // private async void OnTriggerStay(Collider other)
-        // {
-        //     if (other.CompareTag("Buy"))
-        //     {
-        //         StayCondition(other.transform.parent.gameObject);
-        //         await Task.Delay(2000);
-        //     }
-        // }
-
-        // public void OnTriggerExit(Collider other)
-        // {
-        //     if (other.CompareTag("Buy"))
-        //     {
-        //         StopAllCoroutines();
-        //         manager.SetAnim(CollectableAnimStates.Run);
-        //         manager.ParticuleState(false);
-        //     }
-        // }
-        
-        // IEnumerator  StayCondition(GameObject other)
-        // {
-        //     manager.SetAnim(CollectableAnimStates.Buy);
-        //     manager.ParticuleState(true);
-        //     ScoreSignals.Instance.onSetScore?.Invoke(-1);
-        //     IdleSignals.Instance.onScoreAdd?.Invoke(other);
-        //     yield return new WaitForSeconds(1f);
-        //     StartCoroutine(StayCondition(other));
-        // }
     }
 }

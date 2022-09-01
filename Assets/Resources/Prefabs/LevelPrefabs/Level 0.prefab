@@ -1815,6 +1815,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4379111206714599118}
     m_Modifications:
+    - target: {fileID: 1498410158536598853, guid: 7cea41a4c03c73f44b35df8ce2d76c0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2f7c012619b74445bfc20bfe294f2a1, type: 2}
     - target: {fileID: 2435988672553453998, guid: 7cea41a4c03c73f44b35df8ce2d76c0b, type: 3}
       propertyPath: m_Name
       value: PlatformV2
@@ -1879,6 +1883,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -6.13558
       objectReference: {fileID: 0}
+    - target: {fileID: 6215961239657508847, guid: 7cea41a4c03c73f44b35df8ce2d76c0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2f7c012619b74445bfc20bfe294f2a1, type: 2}
     - target: {fileID: 7593073028230893771, guid: 7cea41a4c03c73f44b35df8ce2d76c0b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6234041

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enums;
 using UnityEngine;
 using Keys;
@@ -25,7 +24,6 @@ namespace Managers
         private void Awake()
         {
             SetLoadIdleGameData();
-            //Debug.Log(_mainCurrentScore[0]);
         }
         
         #region EventSubscribtion
@@ -54,6 +52,8 @@ namespace Managers
         } 
         #endregion
 
+        #region Event Methods
+
         private void OnRunnerSaveData()
         {
             RunnerSaveGame(
@@ -63,12 +63,6 @@ namespace Managers
                 }
             );
         }
-
-        private void RunnerSaveGame(SaveRunnerDataParams saveDataParams)
-        {
-            if (saveDataParams.Level != 0) ES3.Save("Level", saveDataParams.Level);
-        }
-
         private void OnIdleSaveData()
         {
             IdleSaveGame(new SaveIdleDataParams()
@@ -81,19 +75,6 @@ namespace Managers
                 SideBuildingState = SaveSignals.Instance.onSaveIdleParams().SideBuildingState
             });
         }
-        
-        private void IdleSaveGame(SaveIdleDataParams saveIdleDataParams)
-        {
-            if (saveIdleDataParams.IdleLevel != 0) ES3.Save("IdleLevel", saveIdleDataParams.IdleLevel,"IdleGame.es3");
-            if (saveIdleDataParams.CollectablesCount != 0) ES3.Save("CollectablesCount", saveIdleDataParams.CollectablesCount,"IdleGame.es3");
-            if (saveIdleDataParams.MainCurrentScore != default) ES3.Save("MainCurrentScore", saveIdleDataParams.MainCurrentScore,"IdleGame.es3");
-            if (saveIdleDataParams.SideCurrentScore != default) ES3.Save("SideCurrentScore", saveIdleDataParams.SideCurrentScore,"IdleGame.es3");
-            if (saveIdleDataParams.MainBuildingState != default) ES3.Save("MainBuildingState", saveIdleDataParams.MainBuildingState,"IdleGame.es3");
-            if (saveIdleDataParams.SideBuildingState != default) ES3.Save("SideBuildingState", saveIdleDataParams.SideBuildingState,"IdleGame.es3");
-        }
-
-        #region Ussless
-
         private void OnIdleGameLoad()
         {
             SaveSignals.Instance.onLoadIdleGame?.Invoke(new SaveIdleDataParams()
@@ -109,6 +90,20 @@ namespace Managers
         }
 
         #endregion
+        private void RunnerSaveGame(SaveRunnerDataParams saveDataParams)
+        {
+            if (saveDataParams.Level != 0) ES3.Save("Level", saveDataParams.Level);
+        }
+        
+        private void IdleSaveGame(SaveIdleDataParams saveIdleDataParams)
+        {
+            if (saveIdleDataParams.IdleLevel != 0) ES3.Save("IdleLevel", saveIdleDataParams.IdleLevel,"IdleGame.es3");
+            if (saveIdleDataParams.CollectablesCount != 0) ES3.Save("CollectablesCount", saveIdleDataParams.CollectablesCount,"IdleGame.es3");
+            if (saveIdleDataParams.MainCurrentScore != default) ES3.Save("MainCurrentScore", saveIdleDataParams.MainCurrentScore,"IdleGame.es3");
+            if (saveIdleDataParams.SideCurrentScore != default) ES3.Save("SideCurrentScore", saveIdleDataParams.SideCurrentScore,"IdleGame.es3");
+            if (saveIdleDataParams.MainBuildingState != default) ES3.Save("MainBuildingState", saveIdleDataParams.MainBuildingState,"IdleGame.es3");
+            if (saveIdleDataParams.SideBuildingState != default) ES3.Save("SideBuildingState", saveIdleDataParams.SideBuildingState,"IdleGame.es3");
+        }
 
         private void SetLoadIdleGameData()
         {

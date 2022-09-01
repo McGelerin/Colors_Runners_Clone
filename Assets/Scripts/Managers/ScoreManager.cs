@@ -106,7 +106,10 @@ namespace Managers
             var transform1 = transform;
             transform1.parent = _playerGO.transform;
             transform1.localPosition = new Vector3(0, 2f, 0);
-            
+            foreach (Transform child in transform)
+            {
+                child.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
 
         private void SetScoreManagerPosition()
@@ -138,6 +141,10 @@ namespace Managers
         private void OnLevelSuccessful()
         {
             ScoreSignals.Instance.onGetScore?.Invoke(_currentState == GameStates.Runner ? _idleOldScore : _idleScore);
+            foreach (Transform child in transform)
+            {
+                child.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
 
         private void OnUpdateScore(int score)

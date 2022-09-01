@@ -1,5 +1,6 @@
 ﻿using Commands;
 using Enums;
+using Keys;
 using Signals;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -179,6 +180,7 @@ namespace Managers
         private void OnNextLevel()
         {
             transform.SetParent(null);
+            _currentState = GameStates.Runner;
         }
     }
 }

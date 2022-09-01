@@ -18,6 +18,7 @@ TagManager:
   - Buy
   - Build
   - Citizen
+  - NextLevelButton
   layers:
   - Default
   - TransparentFX

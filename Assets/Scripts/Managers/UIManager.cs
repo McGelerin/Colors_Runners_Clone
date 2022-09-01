@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Controllers;
 using Enums;
 using Signals;
 using TMPro;
 using UnityEngine;
-using Commands;
-
 
 namespace Managers
 {
@@ -40,7 +37,6 @@ namespace Managers
         private void Init()
         {
             text2xController = GetComponent<Text2xController>();
-
         }
 
         #region Event Subscriptions
@@ -128,16 +124,14 @@ namespace Managers
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.IdlePanel);
         }
 
-        #region Useless
-
         private void OnSetLevelText(int value)
         {
             levelText.text = "Level " + (value + 1);
         }
-
-        #endregion
-
-       
+        private void OnLastCollectableAddedToPlayer(bool isReady)
+        {
+            _isReadyForIdleGame = isReady;
+        }
 
         #endregion
 
@@ -179,12 +173,6 @@ namespace Managers
                 CoreGameSignals.Instance.onChangeGameState?.Invoke();
             }
         }
-
-        private void OnLastCollectableAddedToPlayer(bool isReady)
-        {
-            _isReadyForIdleGame = isReady;
-        }
-
         
         #endregion
     }

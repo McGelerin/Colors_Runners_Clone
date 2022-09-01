@@ -16,7 +16,7 @@ namespace Managers
 
         #region Serialized Variables
         [SerializeField] private List<GameObject> panels;
-        // [SerializeField] private TextMeshProUGUI levelText;
+        [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshPro scoreTMP;
         [SerializeField] private bool isOnEditMode = false;
         [SerializeField] private TextMeshProUGUI idleScoreText;
@@ -56,7 +56,7 @@ namespace Managers
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
             UISignals.Instance.onOpenPanel += OnOpenPanel;
             UISignals.Instance.onClosePanel += OnClosePanel;
-//            UISignals.Instance.onSetLevelText += OnSetLevelText;
+            UISignals.Instance.onSetLevelText += OnSetLevelText;
             UISignals.Instance.onSetScoreText += OnSetScoreText;
             LevelSignals.Instance.onLevelFailed += OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
@@ -70,7 +70,7 @@ namespace Managers
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
             UISignals.Instance.onOpenPanel -= OnOpenPanel;
             UISignals.Instance.onClosePanel -= OnClosePanel;
-//            UISignals.Instance.onSetLevelText -= OnSetLevelText;
+            UISignals.Instance.onSetLevelText -= OnSetLevelText;
             UISignals.Instance.onSetScoreText -= OnSetScoreText;
             LevelSignals.Instance.onLevelFailed -= OnLevelFailed;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
@@ -130,10 +130,10 @@ namespace Managers
 
         #region Useless
 
-        // private void OnSetLevelText(int value)
-        // {
-        //     //evelText.text = "Level " + (value + 1);
-        // }
+        private void OnSetLevelText(int value)
+        {
+            levelText.text = "Level " + (value + 1);
+        }
 
         #endregion
 

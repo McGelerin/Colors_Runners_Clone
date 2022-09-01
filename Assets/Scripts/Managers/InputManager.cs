@@ -89,7 +89,7 @@ namespace Managers
         private void Update()
         {
             if (!isReadyForTouch) return;
-
+            
             switch (_inputStates)
             {
                 case GameStates.Runner:
@@ -148,12 +148,12 @@ namespace Managers
             isFirstTimeTouchTaken = false;
         }
 
-        private void OnNextLevel() //Idle tarafi calismadan test edemiyorum
+        private void OnNextLevel() 
         {
-            // _isTouching = false;
-            // isReadyForTouch = false;
-            // isFirstTimeTouchTaken = false;
-            // _inputStates = GameStates.Runner;
+            _isTouching = false;
+            isReadyForTouch = false;
+            isFirstTimeTouchTaken = false;
+            _inputStates = GameStates.Runner;
         }
 
         #endregion

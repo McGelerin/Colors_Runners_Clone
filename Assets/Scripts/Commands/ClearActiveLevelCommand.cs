@@ -6,7 +6,11 @@ namespace Commands
     {
         public void ClearActiveLevel(Transform levelHolder)
         {
-            Object.Destroy(levelHolder.GetChild(0).gameObject);
+            foreach (Transform child in levelHolder)
+            {
+                Object.Destroy(child.gameObject);
+            }
+            
         }
     }
 }

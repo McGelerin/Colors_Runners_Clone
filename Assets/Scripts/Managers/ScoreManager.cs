@@ -71,6 +71,7 @@ namespace Managers
             LevelSignals.Instance.onRestartLevel += OnReset;
             LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             ScoreSignals.Instance.onGetIdleScore += OnGetCurrentScore;
+            LevelSignals.Instance.onNextLevel += OnNextLevel;
         }
 
         private void UnsubscribeEvents()
@@ -83,6 +84,7 @@ namespace Managers
             LevelSignals.Instance.onRestartLevel -= OnReset;
             LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             ScoreSignals.Instance.onGetIdleScore -= OnGetCurrentScore;
+            LevelSignals.Instance.onNextLevel -= OnNextLevel;
 
         }
 
@@ -172,6 +174,11 @@ namespace Managers
         private int OnGetCurrentScore()
         {
             return _idleOldScore;
+        }
+
+        private void OnNextLevel()
+        {
+            transform.SetParent(null);
         }
     }
 }

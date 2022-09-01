@@ -12,7 +12,7 @@ namespace Controllers
         #region Serialized Variables
 
         //[SerializeField] private PlayerManager manager;
-        [SerializeField] private Rigidbody rigidbody;
+        [SerializeField] private new Rigidbody rigidbody;
         
         #endregion
         
@@ -115,6 +115,7 @@ namespace Controllers
             if (_isRunner)
             {
                 StopSideways();
+                Debug.Log("runner sideway move stopped");
             }
             else
             {

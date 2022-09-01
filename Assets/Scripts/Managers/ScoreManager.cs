@@ -1,6 +1,5 @@
 ﻿using Commands;
 using Enums;
-using Keys;
 using Signals;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -38,7 +37,7 @@ namespace Managers
         {
             Init();
         }
-
+        
         private void Init()
         {
             _setScoreCommand = new SetScoreCommand(ref _score);
@@ -106,10 +105,7 @@ namespace Managers
             var transform1 = transform;
             transform1.parent = _playerGO.transform;
             transform1.localPosition = new Vector3(0, 2f, 0);
-            foreach (Transform child in transform)
-            {
-                child.GetComponent<MeshRenderer>().enabled = true;
-            }
+            _setVisibilityOfScore.Execute(true);
         }
 
         private void SetScoreManagerPosition()
@@ -141,10 +137,7 @@ namespace Managers
         private void OnLevelSuccessful()
         {
             ScoreSignals.Instance.onGetScore?.Invoke(_currentState == GameStates.Runner ? _idleOldScore : _idleScore);
-            foreach (Transform child in transform)
-            {
-                child.GetComponent<MeshRenderer>().enabled = false;
-            }
+            _setVisibilityOfScore.Execute(false);
         }
 
         private void OnUpdateScore(int score)
@@ -174,7 +167,9 @@ namespace Managers
 
         private void OnNextLevel()
         {
-            transform.SetParent(null);
+            Transform transform1;
+            (transform1 = transform).SetParent(null);
+            transform1.localScale = Vector3.one;
             _currentState = GameStates.Runner;
         }
     }

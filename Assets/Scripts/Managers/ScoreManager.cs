@@ -144,7 +144,7 @@ namespace Managers
                 _idleScore = _idleOldScore + score;
                 _setScoreCommand.Execute(_idleScore);
                 _idleOldScore = _idleScore;
-                StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
+                //StackSignals.Instance.onSetPlayerScale?.Invoke(-.1f);
             }
         }
         

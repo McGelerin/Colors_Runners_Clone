@@ -40,8 +40,8 @@ namespace Managers
 
         private void Awake()
         {
-            Init();
             GetReferences();
+            Init();
             SetStackPosition();
             SendPlayerDataToControllers();
             animationController.SetAnimState(CollectableAnimStates.Idle);

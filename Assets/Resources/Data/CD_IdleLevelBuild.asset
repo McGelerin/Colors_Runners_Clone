@@ -71,7 +71,7 @@ MonoBehaviour:
           BuildingState: 1
           Building: {fileID: 6806712846953036353, guid: 13c0e61fe9f1ab94b9b2b5e24c1e1db4, type: 3}
           MainBuildingScore: 10
-          InstantitatePos: {x: -6.1, y: 0.44, z: 19.12}
+          InstantitatePos: {x: -4.8, y: 0.44, z: 19.12}
         sideBuildindData:
         - BuildingState: 1
           Building: {fileID: 2460996786094805866, guid: 96263397fbeae2845bae0b4e85968f53, type: 3}

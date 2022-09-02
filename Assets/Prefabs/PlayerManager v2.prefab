@@ -794,7 +794,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 2803783348911782356}
   particle: {fileID: 8398685966472679473, guid: 71c6c6b046c6f9b479da4d0d63b9e403, type: 3}
+  particleExplode: {fileID: 37885441932920400, guid: 2a188754c4709d04b9bed5a9a9c404ae, type: 3}
   currentParticle: {fileID: 0}
+  currentParticleExplode: {fileID: 0}
 --- !u!1 &2879294212436770988
 GameObject:
   m_ObjectHideFlags: 0

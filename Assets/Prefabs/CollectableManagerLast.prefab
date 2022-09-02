@@ -1115,8 +1115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826b33edf7c34bc0942c750d137694d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 2039896155279655574}
-  physicsController: {fileID: 2241133166268024281}
   animator: {fileID: 430465729966072611}
 --- !u!1 &430465729855828149
 GameObject:
@@ -1191,7 +1189,7 @@ Animator:
   m_GameObject: {fileID: 430465729966072620}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d02551a882dbdb94e9b7e45f0fe803aa, type: 3}
-  m_Controller: {fileID: 9100000, guid: ab0f1787fafa95443af18b845d214f2e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b24b00bef9238b46a965b4babb64179, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1279,9 +1277,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicController: {fileID: 2241133166268024281}
   collectableMeshController: {fileID: 6681473883019904322}
-  animator: {fileID: 430465729966072611}
   animationController: {fileID: 430465729836456842}
   colorState: 0
+  initialAnimState: 0
 --- !u!1 &4802006981521965472
 GameObject:
   m_ObjectHideFlags: 0

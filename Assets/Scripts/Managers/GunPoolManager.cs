@@ -44,19 +44,7 @@ public class GunPoolManager : MonoBehaviour
         SetTruePool();
         SendColorDataToControllers();
     }
-
-    private void Start()
-    {
-        SetColors();
-    }
-
-    private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
-
-    private void SendColorDataToControllers()
-    {
-        gunPoolMeshController.SetColorData(_colorData);
-    }
-
+    
     #region Event Subscription 
 
     private void OnEnable()
@@ -81,6 +69,17 @@ public class GunPoolManager : MonoBehaviour
 
     #endregion
 
+    private void Start()
+    {
+        SetColors();
+    }
+
+    private ColorData GetColorData() => Resources.Load<CD_Color>("Data/CD_Color").colorData;
+
+    private void SendColorDataToControllers()
+    {
+        gunPoolMeshController.SetColorData(_colorData);
+    }
 
     private void SetColors()
     {
@@ -103,7 +102,7 @@ public class GunPoolManager : MonoBehaviour
         _player = playerGameObject;
     }
 
-    public void StartAsyncManager()
+    public void StartAsyncManager()//isim değişecek
     {
         _isFire = true;
         StartCoroutine(FireAndReload());
@@ -112,13 +111,14 @@ public class GunPoolManager : MonoBehaviour
     private void OnPlayerExitGunPool()
     {
         StopAsyncManager();
+        StartCoroutine(turretController.SearchAnim());
     }
 
-    public void StopAsyncManager()
+    public void StopAsyncManager()//isim değişecek
     {
         _isFire = false;
     }
-    public void StopAllCoroutineTrigger()
+    public void StopAllCoroutineTrigger()//isim değiş
     {
         StopAllCoroutines();
     }
@@ -134,13 +134,10 @@ public class GunPoolManager : MonoBehaviour
 
     private IEnumerator FireAndReload()
     {
-        if (_isFire && DronePoolSignals.Instance.onGetStackCount() != 0)
-        {
-            GunPoolSignals.Instance.onWrongGunPool?.Invoke();
-            turretController.RotateToPlayer(_player.transform);
-            yield return new WaitForSeconds(0.5f);
-            StartCoroutine(FireAndReload());
-        }
+        if (!_isFire || DronePoolSignals.Instance.onGetStackCount() == 0) yield break;
+        GunPoolSignals.Instance.onWrongGunPool?.Invoke();
+        turretController.RotateToPlayer(_player.transform);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FireAndReload());
     }
-
 }

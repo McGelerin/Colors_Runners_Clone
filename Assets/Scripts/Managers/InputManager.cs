@@ -1,3 +1,4 @@
+using System;
 using Commands;
 using Data.UnityObject;
 using Data.ValueObject;
@@ -65,6 +66,7 @@ namespace Managers
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
+            LevelSignals.Instance.onNextLevel += OnNextLevel;
         }
 
         private void UnsubscribeEvents()
@@ -74,6 +76,7 @@ namespace Managers
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
+            LevelSignals.Instance.onNextLevel += OnNextLevel;
         }
 
         private void OnDisable()
@@ -86,27 +89,33 @@ namespace Managers
         private void Update()
         {
             if (!isReadyForTouch) return;
-
-            if (_inputStates == GameStates.Runner)
-            {
-                if (Input.GetMouseButtonUp(0) && _queryPointerOverUIElementCommand.Execute())
-                {
-                    MouseButtonUp();
-                }
             
-                if (Input.GetMouseButtonDown(0) && !_queryPointerOverUIElementCommand.Execute())
-                {
-                    MouseButtonDown();
-                }
-                
-                if (Input.GetMouseButton(0) && !_queryPointerOverUIElementCommand.Execute())
-                {
-                    HoldingMouseButton();
-                }
-            }
-            else if (_inputStates == GameStates.Idle)
+            switch (_inputStates)
             {
-                JoystickInput();
+                case GameStates.Runner:
+                {
+                    if (Input.GetMouseButtonUp(0) && _queryPointerOverUIElementCommand.Execute())
+                    {
+                        MouseButtonUp();
+                    }
+            
+                    if (Input.GetMouseButtonDown(0) && !_queryPointerOverUIElementCommand.Execute())
+                    {
+                        MouseButtonDown();
+                    }
+                
+                    if (Input.GetMouseButton(0) && !_queryPointerOverUIElementCommand.Execute())
+                    {
+                        HoldingMouseButton();
+                    }
+
+                    break;
+                }
+                case GameStates.Idle:
+                    JoystickInput();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -139,6 +148,14 @@ namespace Managers
             isFirstTimeTouchTaken = false;
         }
 
+        private void OnNextLevel() 
+        {
+            _isTouching = false;
+            isReadyForTouch = false;
+            isFirstTimeTouchTaken = false;
+            _inputStates = GameStates.Runner;
+        }
+
         #endregion
         
         #region InputUpdateMethods
@@ -163,29 +180,25 @@ namespace Managers
 
         private void HoldingMouseButton()
         {
-            if (_isTouching)
-            {
-                if (_mousePosition != null) 
-                { 
-                    Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
+            if (!_isTouching) return;
+            if (_mousePosition == null) return;
+            Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
                     
-                    if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
-                        _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
-                    else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)
-                        _moveVector.x = -Data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
-                    else
-                        _moveVector.x = Mathf.SmoothDamp(_moveVector.x, 0f, ref _currentVelocity,
-                            Data.ClampSpeed);
+            if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
+                _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
+            else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)
+                _moveVector.x = -Data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
+            else
+                _moveVector.x = Mathf.SmoothDamp(_moveVector.x, 0f, ref _currentVelocity,
+                    Data.ClampSpeed);
                          
-                    _mousePosition = Input.mousePosition;
+            _mousePosition = Input.mousePosition;
                          
-                    InputSignals.Instance.onRunnerInputDragged?.Invoke(new RunnerInputParams()
-                    {
-                        XValue = _moveVector.x,
-                        ClampValues = new Vector2(Data.ClampSides.x, Data.ClampSides.y)
-                    });
-                }
-            }
+            InputSignals.Instance.onRunnerInputDragged?.Invoke(new RunnerInputParams()
+            {
+                XValue = _moveVector.x,
+                ClampValues = new Vector2(Data.ClampSides.x, Data.ClampSides.y)
+            });
         }
 
         private void JoystickInput()

@@ -14,10 +14,8 @@ namespace Managers
     public class StackManager : MonoBehaviour
     {
         #region Self Variables
-
+        
         #region Public Variables
-
-        [Header("Data")] public StackData StackData;
         public List<GameObject> CollectableStack = new List<GameObject>();
         public List<GameObject> UnstackList = new List<GameObject>();
         public ItemAddOnStackCommand ItemAddOnStack;
@@ -31,6 +29,7 @@ namespace Managers
 
         #region Private Variables
 
+        private StackData _stackData;
         private StackMoveController _stackMoveController;
         private ItemRemoveOnStackCommand _itemRemoveOnStackCommand;
         private RandomRemoveListItemCommand _randomRemoveListItemCommand;
@@ -51,15 +50,32 @@ namespace Managers
         
         private void Awake()
         {
-            StackData = GetStackData();
+            _stackData = GetStackData();
             Init();
+        }
+        
+        private StackData GetStackData() => Resources.Load<CD_Stack>("Data/CD_StackData").StackData;
+        
+        private void Init()
+        {
+            _stackMoveController = new StackMoveController();
+            _stackMoveController.InisializedController(_stackData);
+            ItemAddOnStack = new ItemAddOnStackCommand(ref CollectableStack, transform, _stackData);
+            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack, ref levelHolder);
+            _randomRemoveListItemCommand = new RandomRemoveListItemCommand(ref CollectableStack, ref levelHolder);
+            _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, _stackData);
+            _initialzeStackCommand = new InitialzeStackCommand(collectable, this);
+            _setColorState = new SetColorState(ref CollectableStack);
+            _dublicateStateItemsCommand = new DublicateStateItemsCommand(ref CollectableStack, ref ItemAddOnStack);
+            _stackItemBorder = new StackItemBorder(ref UnstackList);
+            _unstackItemsToStack =new UnstackItemsToStack(ref CollectableStack, ref UnstackList, ref _dublicateStateItemsCommand,gameObject);
         }
 
         #region Event Subscription
         private void OnEnable()
         {
             SubscribeEvent();
-            _initialzeStackCommand.Execute(StackData.InitialStackItem);
+            _initialzeStackCommand.Execute(_stackData.InitialStackItem);
         }
 
         private void SubscribeEvent()
@@ -76,7 +92,9 @@ namespace Managers
             DronePoolSignals.Instance.onWrongDronePool += OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone += OnDroneGone;
             DronePoolSignals.Instance.onGetStackCount += OnGetStackCount;
+            StackSignals.Instance.onGetCurrentScore += OnGetStackCount;
             DronePoolSignals.Instance.onOutlineBorder += _stackItemBorder.Execute;
+            LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
         }
         private void UnSubscribeEvent()
         {
@@ -92,36 +110,21 @@ namespace Managers
             DronePoolSignals.Instance.onWrongDronePool -= OnWrongDronePoolCollectablesDelete;
             DronePoolSignals.Instance.onDroneGone -= OnDroneGone;
             DronePoolSignals.Instance.onGetStackCount -= OnGetStackCount;
+            StackSignals.Instance.onGetCurrentScore -= OnGetStackCount;
             DronePoolSignals.Instance.onOutlineBorder -= _stackItemBorder.Execute;
+            LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
         }
         private void OnDisable()
         {
             UnSubscribeEvent();
         }
         #endregion
-        
-        private StackData GetStackData() => Resources.Load<CD_Stack>("Data/CD_StackData").StackData;
-        
+
         private void Start()
         {
-           
+            ScoreSignals.Instance.onSetScore?.Invoke(CollectableStack.Count);
         }
         
-        private void Init()
-        {
-            _stackMoveController = new StackMoveController();
-            _stackMoveController.InisializedController(StackData);
-            ItemAddOnStack = new ItemAddOnStackCommand(ref CollectableStack, transform, StackData);
-            _itemRemoveOnStackCommand = new ItemRemoveOnStackCommand(ref CollectableStack, ref levelHolder, this);
-            _randomRemoveListItemCommand = new RandomRemoveListItemCommand(ref CollectableStack, ref levelHolder, this);
-            _stackShackAnimCommand = new StackShackAnimCommand(ref CollectableStack, StackData);
-            _initialzeStackCommand = new InitialzeStackCommand(collectable, this);
-            _setColorState = new SetColorState(ref CollectableStack);
-            _dublicateStateItemsCommand = new DublicateStateItemsCommand(ref CollectableStack, ref ItemAddOnStack);
-            _stackItemBorder = new StackItemBorder(ref UnstackList);
-            _unstackItemsToStack =new UnstackItemsToStack(ref CollectableStack, ref UnstackList, ref _dublicateStateItemsCommand);
-        }
-
         private void Update()
         {
             if (_isPlayerOnDronePool)StackMove(true);
@@ -152,7 +155,7 @@ namespace Managers
         {
             _poolTriggerTransform = poolTriggerTransform;
             _isPlayerOnDronePool = true;
-            CollectableStack[0].transform.DOMoveZ(CollectableStack[0].transform.position.z + 2, 1f);
+            CollectableStack[0].transform.DOMoveZ(CollectableStack[0].transform.position.z + 5, 1f);
         }
 
         private void OnGateState(ColorEnum gateColorState)
@@ -167,13 +170,13 @@ namespace Managers
                 Destroy(childs.gameObject);
             }
             CollectableStack.Clear();
-            _initialzeStackCommand.Execute(StackData.InitialStackItem);
-
+            _initialzeStackCommand.Execute(_stackData.InitialStackItem);
         }
 
-        private void OnStackToUnstack(GameObject collectable)
+        private void OnStackToUnstack(GameObject collectable)//command olabilir
         {
             UnstackList.Add(collectable);
+            collectable.transform.SetParent(levelHolder.transform);
             CollectableStack.Remove(collectable);
             CollectableStack.TrimExcess();
             StackMoveToPool();
@@ -197,9 +200,34 @@ namespace Managers
             _unstackItemsToStack.Execute();
         }
         
-        public int OnGetStackCount()
+        private int OnGetStackCount()
         {
             return CollectableStack.Count;
+        }
+
+        private void OnLevelSuccessful()
+        {
+            var lastCollectable = CollectableStack[CollectableStack.Count - 1];
+            var itemDuration = 1;
+            foreach (var item in CollectableStack)
+            {
+                item.transform.SetParent(levelHolder.transform);
+                item.transform.DOMove(_playerGameObject.transform.position, .1f*itemDuration).OnComplete(()=>
+                {
+                    if (lastCollectable.Equals(item))
+                    {
+                        StackSignals.Instance.onLastCollectableAddedToPlayer?.Invoke(true);
+                    }
+                    item.SetActive(false);
+                    StackSignals.Instance.onSetPlayerScale?.Invoke(.1f);
+
+                  
+                });
+                itemDuration += 1;
+                
+            }
+            CollectableStack.Clear();
+            CollectableStack.TrimExcess();
         }
     }
 }

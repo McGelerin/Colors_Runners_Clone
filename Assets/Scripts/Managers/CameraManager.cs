@@ -24,7 +24,9 @@ namespace Managers
         #endregion
         #region Serialized Variables
         
-        [SerializeField]private CinemachineVirtualCamera virtualCamera;
+        [SerializeField]private CinemachineVirtualCamera runnerCamera;
+        [SerializeField]private CinemachineVirtualCamera idleStartCamera;
+        [SerializeField]private CinemachineVirtualCamera idleCamera;
 
         #endregion
 
@@ -46,7 +48,9 @@ namespace Managers
 
         private void GetReferences()
         {
-            virtualCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+            runnerCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+            idleStartCamera = transform.GetChild(2).GetComponent<CinemachineVirtualCamera>();
+            idleCamera = transform.GetChild(3).GetComponent<CinemachineVirtualCamera>();
             _camAnimator = GetComponent<Animator>();
         }
         
@@ -60,16 +64,22 @@ namespace Managers
         {
             CoreGameSignals.Instance.onPlay += OnSetCameraTarget;
             CoreGameSignals.Instance.onReset += OnReset;
+            CoreGameSignals.Instance.onChangeGameState += OnChangeGameStateToIdle;
             LevelSignals.Instance.onNextLevel += OnNextLevel;
+            LevelSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
+
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onPlay -= OnSetCameraTarget;
             CoreGameSignals.Instance.onReset -= OnReset;
+            CoreGameSignals.Instance.onChangeGameState -= OnChangeGameStateToIdle;
             LevelSignals.Instance.onNextLevel -= OnNextLevel;
+            LevelSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
+
         }
-        
+
         private void OnDisable()
         {
             UnsubscribeEvents();
@@ -87,22 +97,32 @@ namespace Managers
             {
                 _camAnimator.Play(CameraStateController.ToString());
             }
+            else if (CameraStateController == CameraStates.IdleStartCam)
+            {
+                _camAnimator.Play(CameraStateController.ToString());
+            }
+            else if (CameraStateController == CameraStates.IdleCam)
+            {
+                _camAnimator.Play(CameraStateController.ToString());
+            }
         }
         
         private void GetInitialPosition()
         {
-            _initialPosition = virtualCamera.transform.localPosition;
+            _initialPosition = runnerCamera.transform.localPosition;
         }
 
         private void OnMoveToInitialPosition()
         {
-            virtualCamera.transform.localPosition = _initialPosition;
+            runnerCamera.transform.localPosition = _initialPosition;
         }
 
         private void OnSetCameraTarget()
         {
             var playerManager = FindObjectOfType<PlayerManager>().transform;
-            virtualCamera.Follow = playerManager;
+            runnerCamera.Follow = playerManager;
+            idleCamera.Follow = playerManager;
+            idleStartCamera.Follow = playerManager;
             CameraStateController = CameraStates.RunnerCam;
         }
         
@@ -110,13 +130,23 @@ namespace Managers
         {
             CameraStateController = CameraStates.InitializeCam;
         }
+        private void OnChangeGameStateToIdle()
+        {
+            CameraStateController = CameraStates.IdleCam;
+        }
+        private void OnLevelSuccessful()
+        {
+            CameraStateController = CameraStates.IdleStartCam;
+        }
+
+ 
 
         private void OnReset()
         {
             CameraStateController = CameraStates.InitializeCam;
-            virtualCamera.Follow = null;
-            virtualCamera.LookAt = null;
-            virtualCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+            runnerCamera.Follow = null; //referanceı state driven yap
+            runnerCamera.LookAt = null;
+            runnerCamera = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
             OnMoveToInitialPosition();
         }
     }

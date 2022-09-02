@@ -19,5 +19,5 @@ MonoBehaviour:
     LerpSpeed_z: 0.8
     ShackAnimDuraction: 0.06
     ShackScaleValue: 1.1
-    InitialStackItem: 2
+    InitialStackItem: 5
     DistanceFormPlayer: -1

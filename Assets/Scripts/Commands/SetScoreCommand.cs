@@ -16,7 +16,7 @@ namespace Commands
         
         public void Execute(int value)
         {
-            _score += value;
+            _score = value;
             UISignals.Instance.onSetScoreText?.Invoke(_score);
         }
     }

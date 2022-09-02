@@ -22,6 +22,7 @@ namespace Data.ValueObject
         [Range(1f,3f)] 
         public float ShackScaleValue = 1f;
 
+        [Range(1,20)]
         public int InitialStackItem = 5;
         
         public float DistanceFormPlayer = -1f;

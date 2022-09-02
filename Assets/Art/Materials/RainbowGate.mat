@@ -85,7 +85,7 @@ Material:
     - _OptionsTab: 1
     - _OutlineThickness: 0.15
     - _RefractionDistortion: 0.1
-    - _RefractionDistortionFade: 0.5
+    - _RefractionDistortionFade: 0.8
     - _RefractionDistortionMapScale: 1
     - _RefractionTab: 0
     - _RenderFace: 2

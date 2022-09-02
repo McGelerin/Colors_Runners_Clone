@@ -8,6 +8,7 @@
         CrouchedWalk,
         Clap,
         Die,
-        Crouch
+        Crouch,
+        Buy
     }
 }

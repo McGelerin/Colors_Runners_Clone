@@ -33,8 +33,11 @@ MonoBehaviour:
     - Boxophobic.PolyverseSkies.Runtime
     - Cinemachine
     - Assembly-CSharp
+    - AllIn1VfxAssmebly
     - Boxophobic.Utils.Scripts
+    - AllIn1VfxDemoScriptAssemblies
     - Sirenix.OdinInspector.CompatibilityLayer
+    - AllIn1VfxTexDemoAssembly
     - Boxophobic.PolyverseSkies.Scripts
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - Boxophobic.Utils.Editor

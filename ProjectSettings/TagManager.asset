@@ -14,6 +14,12 @@ TagManager:
   - DronePoolReset
   - GunPool
   - GunPoolExit
+  - Target
+  - Buy
+  - Build
+  - Citizen
+  - NextLevelButton
+  - CollectableIdle
   layers:
   - Default
   - TransparentFX

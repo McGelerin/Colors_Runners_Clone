@@ -6,9 +6,9 @@ namespace Signals
 {
     public class UISignals : MonoSingleton<UISignals>
     {
-        public UnityAction<UIPanels> onOpenPanel;
-        public UnityAction<UIPanels> onClosePanel;
-        public UnityAction<int> onSetLevelText;
-        public UnityAction<int> onSetScoreText;
+        public UnityAction<UIPanels> onOpenPanel = delegate { };
+        public UnityAction<UIPanels> onClosePanel = delegate { };
+        public UnityAction<int> onSetLevelText = delegate { };
+        public UnityAction<int> onSetScoreText = delegate { };
     }
 }

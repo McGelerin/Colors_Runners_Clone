@@ -115,7 +115,6 @@ namespace Controllers
             if (_isRunner)
             {
                 StopSideways();
-                Debug.Log("runner sideway move stopped");
             }
             else
             {

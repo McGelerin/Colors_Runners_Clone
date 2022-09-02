@@ -137,8 +137,6 @@ namespace Managers
         private void OnLevelSuccessful()
         {
             CameraStateController = CameraStates.IdleStartCam;
-            Debug.Log("IdleStart");
-
         }
 
  

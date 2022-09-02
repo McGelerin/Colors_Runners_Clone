@@ -135,7 +135,6 @@ namespace Managers
             _buildingPrice = buildingPrice;
             _currentScore = currentPrice;
             BuildState = buildingState;
-            Debug.Log(_buildingState.ToString());
             _idleManager = idleManager;
             
         }
@@ -153,7 +152,6 @@ namespace Managers
         public void MainSideComplete()
         {
             _isTextOpen = true;
-            Debug.Log("Tamamlandı");
             BuildState = _buildingState;
         }
         

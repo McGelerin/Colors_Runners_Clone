@@ -17,6 +17,9 @@ namespace Managers
             _sideCurrentScore = new List<int>();
         private List<BuildingState> _mainBuildingState=new List<BuildingState>(), 
             _sideBuildingState = new List<BuildingState>();
+
+        private SaveIdleDataParams _saveParameters;
+        
         #endregion
 
         #endregion
@@ -66,14 +69,15 @@ namespace Managers
         }
         private void OnIdleSaveData()
         {
+            _saveParameters = SaveSignals.Instance.onSaveIdleParams();
             IdleSaveGame(new SaveIdleDataParams()
             {
-                IdleLevel = SaveSignals.Instance.onSaveIdleParams().IdleLevel,
-                CollectablesCount = SaveSignals.Instance.onSaveIdleParams().CollectablesCount,
-                MainCurrentScore = SaveSignals.Instance.onSaveIdleParams().MainCurrentScore,
-                SideCurrentScore = SaveSignals.Instance.onSaveIdleParams().SideCurrentScore,
-                MainBuildingState = SaveSignals.Instance.onSaveIdleParams().MainBuildingState,
-                SideBuildingState = SaveSignals.Instance.onSaveIdleParams().SideBuildingState
+                IdleLevel = _saveParameters.IdleLevel,
+                CollectablesCount = _saveParameters.CollectablesCount,
+                MainCurrentScore = _saveParameters.MainCurrentScore,
+                SideCurrentScore = _saveParameters.SideCurrentScore,
+                MainBuildingState = _saveParameters.MainBuildingState,
+                SideBuildingState = _saveParameters.SideBuildingState
             });
         }
         private void OnIdleGameLoad()
